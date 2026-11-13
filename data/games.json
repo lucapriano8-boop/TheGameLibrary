@@ -220,5 +220,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:09:56.569Z",
     "updatedAt": "2026-11-13T19:09:56.569Z"
+  },
+  {
+    "id": "b174f802-30cf-461c-a009-39f231b39686",
+    "title": "Assassin's Creed Mirage",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/2/23/Assassin%27s_Creed_Mirage_cover.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Ubisoft",
+    "genre": "Action-adventure",
+    "franchise": "Assassin’s Creed",
+    "console": "Ps5",
+    "score": 85,
+    "hours": 2,
+    "status": "Completato",
+    "releaseYear": 2023,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-13T19:11:00.850Z",
+    "updatedAt": "2026-11-13T19:11:00.850Z"
   }
 ]
