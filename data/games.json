@@ -836,5 +836,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:52:03.821Z",
     "updatedAt": "2026-11-13T19:52:03.821Z"
+  },
+  {
+    "id": "c1b64dbe-0533-4f96-8ac7-0893b54b87cf",
+    "title": "Elden Ring Nightreign",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/f/f0/Elden_Ring_Nightreign_cover_art.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "From Software",
+    "genre": "RPG",
+    "franchise": "Elden Ring",
+    "console": "Ps5",
+    "score": 89,
+    "hours": 171,
+    "status": "Platinato",
+    "releaseYear": 2025,
+    "playedYear": 2025,
+    "review": "",
+    "createdAt": "2026-11-13T19:52:43.650Z",
+    "updatedAt": "2026-11-13T19:52:43.650Z"
   }
 ]
