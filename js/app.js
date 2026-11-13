@@ -32,6 +32,10 @@
     editingUpcomingId: null,
     detailId: null,
     pendingUpcomingToRemove: null,
+    pendingBacklogToRemove: null,
+    backlog: [],
+    editingBacklogId: null,
+    backlogSort: 'recent',
     busy: false,
   };
 
@@ -108,9 +112,11 @@
     $$('a[data-view]').forEach((a) => a.classList.toggle('active', a.dataset.view === view));
     document.body.dataset.view = view;
     $$('dialog[open]').forEach((d) => d.close());
+    $('#fab-menu').hidden = true;
     if (view === 'impostazioni') fillSettings();
     if (view === 'home') renderChart(); // il grafico si adatta alla larghezza visibile
-    window.scrollTo(0, 0);
+    if (view === 'uscite' && state.scrollTo) { const el = $(`#${state.scrollTo}`); state.scrollTo = null; requestAnimationFrame(() => el.scrollIntoView()); }
+    else window.scrollTo(0, 0);
   }
 
   // ---------- caricamento ----------
@@ -124,10 +130,13 @@
     if (!state.profile) return;
     lastLoad = Date.now();
     const profileId = state.profile.id;
-    const [g, u] = await Promise.all([Storage.load(fileFor('games')), Storage.load(fileFor('upcoming'))]);
+    const [g, u, b] = await Promise.all([
+      Storage.load(fileFor('games')), Storage.load(fileFor('upcoming')), Storage.load(fileFor('backlog')),
+    ]);
     if (!state.profile || state.profile.id !== profileId) return; // nel frattempo è cambiato profilo
     state.games = g.data;
     state.upcoming = u.data;
+    state.backlog = b.data;
     updateBanner(g.warning || u.warning, g.source);
     renderAll();
   }
@@ -151,6 +160,7 @@
     renderHomeLists();
     renderRanking();
     renderUpcoming();
+    renderBacklog();
     renderDatalists();
   }
 
@@ -305,6 +315,16 @@
           <span class="mini-date">${esc(releaseLabel(u, true))}</span>
         </li>`).join('')
       : '<li class="empty">Nessuna uscita in programma.</li>';
+
+    const bl = sortedBacklog('recent').slice(0, 4);
+    $('#home-backlog').innerHTML = bl.length
+      ? bl.map((b) => `
+        <li class="mini-item">
+          ${coverHTML(b.cover, b.title, 'xs')}
+          <span class="mini-main"><span class="mini-title">${esc(b.title)}</span><span class="mini-sub">${esc(b.console || '')}</span></span>
+          <span class="mini-date">${b.time?.main ? `⏱ ${fmtHours(b.time.main)}` : ''}</span>
+        </li>`).join('')
+      : '<li class="empty">Il backlog è vuoto.</li>';
   }
 
   // ---------- CLASSIFICA ----------
@@ -500,6 +520,7 @@
     const now = new Date().toISOString();
     const editingId = state.editingGameId;
     const removeUpcomingId = state.pendingUpcomingToRemove;
+    const removeBacklogId = state.pendingBacklogToRemove;
     setBusy(true, 'Salvataggio in corso…');
     try {
       if (editingId) {
@@ -516,7 +537,11 @@
       if (removeUpcomingId) {
         state.upcoming = await save('upcoming', (list) => list.filter((u) => u.id !== removeUpcomingId), `Spostato in libreria: ${data.title}`);
       }
+      if (removeBacklogId) {
+        state.backlog = await save('backlog', (list) => list.filter((b) => b.id !== removeBacklogId), `Dal backlog alla libreria: ${data.title}`);
+      }
       state.pendingUpcomingToRemove = null;
+      state.pendingBacklogToRemove = null;
       $('#game-dialog').close();
       renderAll();
       toast(editingId ? 'Modifiche salvate ✔' : `“${data.title}” aggiunto alla libreria ✔`);
@@ -640,9 +665,147 @@
     }
   }
 
+  // ---------- BACKLOG ----------
+  const fmtHours = (h) => `${fmt1.format(h)} h`;
+  const hltbUrl = (title) => `https://howlongtobeat.com/?q=${encodeURIComponent(title || '')}`;
+
+  function sortedBacklog(mode = state.backlogSort) {
+    const list = state.backlog.slice();
+    const t = (b) => b.time?.main ?? null;
+    if (mode === 'title') return list.sort((a, b) => collator.compare(a.title, b.title));
+    if (mode === 'short' || mode === 'long') {
+      const dir = mode === 'short' ? 1 : -1;
+      return list.sort((a, b) => {
+        if (t(a) == null && t(b) == null) return collator.compare(a.title, b.title);
+        if (t(a) == null) return 1; // senza tempo in fondo
+        if (t(b) == null) return -1;
+        return dir * (t(a) - t(b));
+      });
+    }
+    return list.sort((a, b) => (b.addedAt || '').localeCompare(a.addedAt || ''));
+  }
+
+  function timeChips(b) {
+    const t = b.time || {};
+    const chips = [['main', 'Storia'], ['extra', 'Storia + extra'], ['complete', 'Completista']]
+      .filter(([k]) => t[k] != null)
+      .map(([k, label]) => `<span class="time-chip ${k}"><strong>${fmtHours(t[k])}</strong> ${label}</span>`);
+    return chips.join('');
+  }
+
+  function renderBacklog() {
+    const list = sortedBacklog();
+    $('#backlog-list').innerHTML = list.map((b) => {
+      const chips = timeChips(b);
+      return `
+        <li class="backlog-item">
+          ${coverHTML(b.cover, b.title, 'md')}
+          <div class="up-main">
+            <div class="up-title">${esc(b.title)}</div>
+            ${b.console ? `<div class="up-sub">${esc(b.console)}</div>` : ''}
+            <div class="time-chips">${chips || '<span class="muted small">Tempo non ancora inserito</span>'}</div>
+            ${b.notes ? `<div class="up-notes">${esc(b.notes)}</div>` : ''}
+          </div>
+          <div class="up-side">
+            <a class="hltb-link" href="${hltbUrl(b.title)}" target="_blank" rel="noopener" title="Apri su HowLongToBeat">⏱ HLTB ↗</a>
+            <div class="up-actions">
+              <button class="btn small" data-action="start-backlog" data-id="${esc(b.id)}" title="L'hai giocato? Spostalo nella libreria">✔ Giocato</button>
+              <button class="btn ghost small" data-action="edit-backlog" data-id="${esc(b.id)}">Modifica</button>
+            </div>
+          </div>
+        </li>`;
+    }).join('');
+    $('#backlog-empty').hidden = list.length > 0;
+    $('#backlog-toolbar').hidden = list.length < 2;
+    const withTime = list.filter((b) => b.time?.main != null);
+    const total = withTime.reduce((a, b) => a + b.time.main, 0);
+    const missing = list.length - withTime.length;
+    $('#backlog-summary').textContent = list.length
+      ? `${list.length} ${list.length === 1 ? 'gioco' : 'giochi'}`
+        + (withTime.length ? ` · circa ${fmtHours(Math.round(total))} per finire le storie principali` : '')
+        + (missing ? ` · ${missing} senza tempo` : '')
+      : '';
+  }
+
+  function updateHltbLink() {
+    const f = $('#backlog-form').elements;
+    $('#backlog-hltb').href = hltbUrl(f.title.value.trim());
+  }
+
+  function openBacklogForm(b = null) {
+    state.editingBacklogId = b ? b.id : null;
+    const f = $('#backlog-form');
+    f.reset();
+    $('#backlog-form-title').textContent = b ? 'Modifica backlog' : 'Aggiungi al backlog';
+    $('#backlog-delete').hidden = !b;
+    const src = b || {};
+    ['title', 'cover', 'console', 'notes'].forEach((k) => { f.elements[k].value = src[k] ?? ''; });
+    ['main', 'extra', 'complete'].forEach((k) => { f.elements[`time_${k}`].value = src.time?.[k] ?? ''; });
+    resetLookup('backlog');
+    updateHltbLink();
+    $('#backlog-dialog').showModal();
+  }
+
+  async function submitBacklog(e) {
+    e.preventDefault();
+    if (state.busy) return;
+    const f = $('#backlog-form').elements;
+    const hours = (k) => { const n = num(f[`time_${k}`].value); return n == null ? null : Math.max(0, n); };
+    const time = { main: hours('main'), extra: hours('extra'), complete: hours('complete') };
+    const data = {
+      title: f.title.value.trim(),
+      cover: f.cover.value.trim(),
+      console: f.console.value.trim(),
+      notes: f.notes.value.trim(),
+      time: Object.values(time).some((v) => v != null) ? time : null,
+    };
+    const editingId = state.editingBacklogId;
+    setBusy(true, 'Salvataggio in corso…');
+    try {
+      state.backlog = await save('backlog', (list) => {
+        if (editingId) {
+          const i = list.findIndex((x) => x.id === editingId);
+          if (i === -1) throw new Error('Questo gioco non è più nel backlog.');
+          list[i] = { ...list[i], ...data };
+        } else {
+          list.push({ id: uid(), ...data, addedAt: new Date().toISOString() });
+        }
+        return list;
+      }, `${editingId ? 'Modificato backlog' : 'Aggiunto al backlog'}: ${data.title}`);
+      $('#backlog-dialog').close();
+      renderAll();
+      toast(editingId ? 'Backlog aggiornato ✔' : `“${data.title}” aggiunto al backlog ✔`);
+    } catch (err) {
+      toast(err.message, 'error');
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function deleteBacklog() {
+    const b = state.backlog.find((x) => x.id === state.editingBacklogId);
+    if (!b || state.busy) return;
+    if (!confirm(`Togliere “${b.title}” dal backlog?`)) return;
+    setBusy(true, 'Eliminazione in corso…');
+    try {
+      state.backlog = await save('backlog', (list) => list.filter((x) => x.id !== b.id), `Tolto dal backlog: ${b.title}`);
+      $('#backlog-dialog').close();
+      renderAll();
+      toast('Tolto dal backlog');
+    } catch (err) {
+      toast(err.message, 'error');
+    } finally {
+      setBusy(false);
+    }
+  }
+
   // ---------- RICERCA DATI (Wikidata / Wikipedia) ----------
-  const lookupState = { game: { seq: 0, results: [], timer: null }, upcoming: { seq: 0, results: [], timer: null } };
-  const formOf = (kind) => $(kind === 'game' ? '#game-form' : '#upcoming-form');
+  const lookupState = {
+    game: { seq: 0, results: [], timer: null },
+    upcoming: { seq: 0, results: [], timer: null },
+    backlog: { seq: 0, results: [], timer: null },
+  };
+  const formOf = (kind) => $(`#${kind}-form`);
 
   function resetLookup(kind) {
     const st = lookupState[kind];
@@ -703,9 +866,10 @@
       fillEmpty('franchise', r.franchise);
       fillEmpty('genre', r.genre);
       fillEmpty('releaseYear', r.releaseYear);
-    } else if (r.releaseDate) {
+    } else if (kind === 'upcoming' && r.releaseDate) {
       f.releaseDate.value = r.releaseDate;
     }
+    if (kind === 'backlog') updateHltbLink();
     // le piattaforme del gioco diventano i primi suggerimenti per la console
     if (r.platforms.length) {
       const dl = $('#dl-console');
@@ -722,7 +886,7 @@
     const st = lookupState[kind];
     clearTimeout(st.timer);
     // ricerca automatica solo quando si aggiunge (non quando si modifica)
-    const editing = kind === 'game' ? state.editingGameId : state.editingUpcomingId;
+    const editing = { game: state.editingGameId, upcoming: state.editingUpcomingId, backlog: state.editingBacklogId }[kind];
     if (editing) return;
     st.timer = setTimeout(() => runLookup(kind), 700);
   }
@@ -821,6 +985,7 @@
     if (changed) {
       state.games = [];
       state.upcoming = [];
+      state.backlog = [];
       state.search = '';
       state.statusFilter = '';
       $('#search').value = '';
@@ -1016,7 +1181,14 @@
         const { action, id } = act.dataset;
         if (action === 'add-profile') openProfileForm();
         if (action === 'add-game') openGameForm();
-        if (action === 'add-upcoming') openUpcomingForm();
+        if (action === 'add-upcoming') { closeFabMenu(); openUpcomingForm(); }
+        if (action === 'add-backlog') { closeFabMenu(); openBacklogForm(); }
+        if (action === 'edit-backlog') openBacklogForm(state.backlog.find((b) => b.id === id));
+        if (action === 'start-backlog') {
+          const b = state.backlog.find((x) => x.id === id);
+          state.pendingBacklogToRemove = id;
+          openGameForm(null, { title: b.title, cover: b.cover, console: b.console, playedYear: new Date().getFullYear(), status: 'Completato' });
+        }
         if (action === 'edit-upcoming') openUpcomingForm(state.upcoming.find((u) => u.id === id));
         if (action === 'promote') {
           const u = state.upcoming.find((x) => x.id === id);
@@ -1025,6 +1197,8 @@
         }
         return;
       }
+      const sc = e.target.closest('[data-scroll]');
+      if (sc) state.scrollTo = sc.dataset.scroll;
       const pick = e.target.closest('[data-pick]');
       if (pick) { applyLookup(pick.dataset.kind, Number(pick.dataset.pick)); return; }
       const lk = e.target.closest('[data-lookup]');
@@ -1040,9 +1214,11 @@
     $$('dialog').forEach((d) => {
       d.addEventListener('click', (e) => { if (e.target === d) d.close(); });
     });
-    $('#game-dialog').addEventListener('close', () => { if (!state.busy) state.pendingUpcomingToRemove = null; });
+    $('#game-dialog').addEventListener('close', () => {
+      if (!state.busy) { state.pendingUpcomingToRemove = null; state.pendingBacklogToRemove = null; }
+    });
 
-    ['game', 'upcoming'].forEach((kind) => {
+    ['game', 'upcoming', 'backlog'].forEach((kind) => {
       const f = formOf(kind);
       f.elements.title.addEventListener('input', () => scheduleLookup(kind));
       f.elements.title.addEventListener('keydown', (e) => {
@@ -1071,9 +1247,19 @@
     $('#profile-form').addEventListener('submit', submitProfile);
     $('#profile-form').addEventListener('change', (e) => { if (e.target.name === 'avatar') updateProfilePreview(); });
     $('#profile-delete').addEventListener('click', deleteProfile);
-    $('#fab').addEventListener('click', () => {
-      if (document.body.dataset.view === 'uscite') openUpcomingForm();
-      else openGameForm();
+    $('#fab').addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (document.body.dataset.view === 'uscite') { $('#fab-menu').hidden = !$('#fab-menu').hidden; return; }
+      openGameForm();
+    });
+    document.addEventListener('click', (e) => { if (!e.target.closest('#fab-menu')) closeFabMenu(); });
+    $('#backlog-form').addEventListener('submit', submitBacklog);
+    $('#backlog-delete').addEventListener('click', deleteBacklog);
+    $('#backlog-form').elements.title.addEventListener('input', updateHltbLink);
+    $('#backlog-sort').addEventListener('change', (e) => {
+      state.backlogSort = e.target.value;
+      try { localStorage.setItem('tgl-backlog-sort', state.backlogSort); } catch { /* ignore */ }
+      renderBacklog();
     });
     // quando riapri l'app dal telefono, ricarica i dati (magari li hai cambiati dal PC)
     document.addEventListener('visibilitychange', () => {
@@ -1110,7 +1296,13 @@
     setupChartHover();
   }
 
+  function closeFabMenu() { $('#fab-menu').hidden = true; }
+
   function init() {
+    try {
+      const bs = localStorage.getItem('tgl-backlog-sort');
+      if (bs) { state.backlogSort = bs; $('#backlog-sort').value = bs; }
+    } catch { /* ignore */ }
     try {
       const s = JSON.parse(localStorage.getItem('tgl-sort') || 'null');
       if (s && s.k) { state.sortKey = s.k; state.sortDir = s.d === 'asc' ? 'asc' : 'desc'; }
