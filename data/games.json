@@ -339,5 +339,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:16:50.819Z",
     "updatedAt": "2026-11-13T19:16:50.819Z"
+  },
+  {
+    "id": "33efb668-b739-4bd6-a110-caec952601e6",
+    "title": "Assetto Corsa Competizione",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/a/aa/Assetto_Corsa_Competizione_cover_art_full.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Kunos Simulazioni",
+    "genre": "Sim racing",
+    "franchise": "Assetto Corsa",
+    "console": "Ps4",
+    "score": 82,
+    "hours": 12,
+    "status": "Giocato",
+    "releaseYear": 2019,
+    "playedYear": 2020,
+    "review": "",
+    "createdAt": "2026-11-13T19:17:50.154Z",
+    "updatedAt": "2026-11-13T19:17:50.154Z"
   }
 ]
