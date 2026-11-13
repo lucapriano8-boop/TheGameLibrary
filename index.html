@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Game Library</title>
+  <meta name="description" content="La mia libreria personale dei videogiochi giocati.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-icon">🎮</span>
+      <span class="brand-name">The Game Library</span>
+    </div>
+    <nav class="tabs" id="tabs">
+      <a href="#home" data-view="home">Home</a>
+      <a href="#classifica" data-view="classifica">Classifica</a>
+      <a href="#uscite" data-view="uscite">In uscita</a>
+      <a href="#impostazioni" data-view="impostazioni" title="Impostazioni" aria-label="Impostazioni">⚙</a>
+    </nav>
+  </header>
+
+  <div id="banner" class="banner" hidden></div>
+
+  <main>
+    <!-- HOME -->
+    <section id="view-home" class="view">
+      <div class="view-head">
+        <h1>La mia libreria</h1>
+        <button class="btn primary" data-action="add-game">+ Aggiungi gioco</button>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-label">Voto medio</div>
+          <div class="stat-value" id="stat-avg">–</div>
+          <div class="stat-sub">su 100</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Ore totali</div>
+          <div class="stat-value" id="stat-hours">–</div>
+          <div class="stat-sub">di gioco</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Giochi giocati</div>
+          <div class="stat-value" id="stat-count">–</div>
+          <div class="stat-sub" id="stat-count-sub">in libreria</div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-head">
+            <h2>Giochi giocati per anno</h2>
+            <button class="btn ghost small" id="chart-toggle">Mostra tabella</button>
+          </div>
+          <div id="chart" class="chart"></div>
+          <div id="chart-table" class="chart-table" hidden></div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <h2>Prossime uscite</h2>
+            <a href="#uscite" class="link">Vedi tutte →</a>
+          </div>
+          <ol id="home-upcoming" class="mini-list"></ol>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h2>Top 5</h2>
+          <a href="#classifica" class="link">Classifica completa →</a>
+        </div>
+        <ol id="home-top" class="mini-list"></ol>
+      </div>
+    </section>
+
+    <!-- CLASSIFICA -->
+    <section id="view-classifica" class="view" hidden>
+      <div class="view-head">
+        <h1>Classifica generale</h1>
+        <button class="btn primary" data-action="add-game">+ Aggiungi gioco</button>
+      </div>
+      <div class="toolbar">
+        <input type="search" id="search" placeholder="Cerca titolo, sviluppatore, franchise…" aria-label="Cerca">
+        <label class="select-wrap">
+          <span>Ordina per</span>
+          <select id="sort-key">
+            <option value="score">Voto</option>
+            <option value="title">Titolo</option>
+            <option value="status">Stato</option>
+            <option value="hours">Ore giocate</option>
+            <option value="playedYear">Anno giocato</option>
+            <option value="releaseYear">Anno di uscita</option>
+            <option value="console">Console</option>
+          </select>
+        </label>
+        <button class="btn ghost" id="sort-dir" title="Inverti ordine" aria-label="Inverti ordine">↓</button>
+        <label class="select-wrap">
+          <span>Stato</span>
+          <select id="filter-status">
+            <option value="">Tutti</option>
+          </select>
+        </label>
+      </div>
+      <div class="table-wrap">
+        <table class="ranking">
+          <thead>
+            <tr>
+              <th class="c-rank">#</th>
+              <th data-sort="title">Titolo</th>
+              <th data-sort="console">Console</th>
+              <th data-sort="status">Stato</th>
+              <th data-sort="hours" class="num">Ore</th>
+              <th data-sort="playedYear" class="num">Giocato</th>
+              <th data-sort="score" class="num">Voto</th>
+            </tr>
+          </thead>
+          <tbody id="ranking-body"></tbody>
+        </table>
+      </div>
+      <p id="ranking-empty" class="empty" hidden></p>
+    </section>
+
+    <!-- IN USCITA -->
+    <section id="view-uscite" class="view" hidden>
+      <div class="view-head">
+        <h1>Giochi in uscita</h1>
+        <button class="btn primary" data-action="add-upcoming">+ Aggiungi uscita</button>
+      </div>
+      <ol id="upcoming-list" class="upcoming-list"></ol>
+      <p id="upcoming-empty" class="empty" hidden>Nessun gioco in uscita. Aggiungine uno!</p>
+    </section>
+
+    <!-- IMPOSTAZIONI -->
+    <section id="view-impostazioni" class="view" hidden>
+      <div class="view-head"><h1>Impostazioni</h1></div>
+
+      <div class="card">
+        <h2>Collegamento a GitHub</h2>
+        <p class="muted">I giochi sono salvati nei file <code>data/games.json</code> e <code>data/upcoming.json</code> della tua repository.
+          Per poter <strong>aggiungere, modificare ed eliminare</strong> giochi serve un token personale GitHub (vedi README).
+          Il token resta salvato solo in questo browser.</p>
+        <form id="settings-form" class="form">
+          <div class="form-grid">
+            <label>Proprietario (utente GitHub)
+              <input name="owner" required placeholder="es. lucapriano8-boop">
+            </label>
+            <label>Repository
+              <input name="repo" required placeholder="es. TheGameLibrary">
+            </label>
+            <label>Branch dei dati
+              <input name="branch" required placeholder="main">
+            </label>
+            <label>Token personale
+              <input name="token" type="password" autocomplete="off" placeholder="github_pat_…">
+            </label>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn ghost" id="settings-clear-token">Rimuovi token</button>
+            <button type="submit" class="btn primary">Salva e ricarica</button>
+          </div>
+          <p id="settings-status" class="muted"></p>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>Backup</h2>
+        <p class="muted">Scarica una copia di tutti i dati o ripristinala da un file di backup.</p>
+        <div class="form-actions left">
+          <button class="btn" id="export-btn">Esporta backup (JSON)</button>
+          <label class="btn">
+            Importa backup
+            <input type="file" id="import-file" accept="application/json,.json" hidden>
+          </label>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODALE: form gioco -->
+  <dialog id="game-dialog" class="dialog">
+    <form id="game-form" class="form" method="dialog">
+      <div class="dialog-head">
+        <h2 id="game-form-title">Aggiungi gioco</h2>
+        <button type="button" class="icon-btn" data-close aria-label="Chiudi">✕</button>
+      </div>
+      <div class="form-grid">
+        <label class="span-2">Titolo *
+          <input name="title" required maxlength="200" autofocus>
+        </label>
+        <label>Sviluppatore
+          <input name="developer" list="dl-developer" maxlength="120">
+        </label>
+        <label>Genere
+          <input name="genre" list="dl-genre" maxlength="120">
+        </label>
+        <label>Franchise
+          <input name="franchise" list="dl-franchise" maxlength="120">
+        </label>
+        <label>Console *
+          <input name="console" list="dl-console" required maxlength="80">
+        </label>
+        <label>Voto (0–100) *
+          <input name="score" type="number" min="0" max="100" step="1" required>
+        </label>
+        <label>Ore giocate
+          <input name="hours" type="number" min="0" step="0.5">
+        </label>
+        <label>Stato *
+          <select name="status" required></select>
+        </label>
+        <label>Anno di uscita
+          <input name="releaseYear" type="number" min="1950" max="2100" step="1">
+        </label>
+        <label>Anno in cui l'hai giocato *
+          <input name="playedYear" type="number" min="1950" max="2100" step="1" required>
+        </label>
+        <label class="span-2">Recensione / commento
+          <textarea name="review" rows="5" maxlength="10000"></textarea>
+        </label>
+      </div>
+      <div class="form-actions">
+        <button type="button" class="btn ghost" data-close>Annulla</button>
+        <button type="submit" class="btn primary" id="game-submit">Salva</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- MODALE: dettaglio gioco -->
+  <dialog id="detail-dialog" class="dialog">
+    <div class="dialog-head">
+      <h2 id="detail-title"></h2>
+      <button type="button" class="icon-btn" data-close aria-label="Chiudi">✕</button>
+    </div>
+    <div id="detail-body"></div>
+    <div class="form-actions">
+      <button type="button" class="btn danger" id="detail-delete">Elimina</button>
+      <button type="button" class="btn primary" id="detail-edit">Modifica</button>
+    </div>
+  </dialog>
+
+  <!-- MODALE: form uscita -->
+  <dialog id="upcoming-dialog" class="dialog">
+    <form id="upcoming-form" class="form" method="dialog">
+      <div class="dialog-head">
+        <h2 id="upcoming-form-title">Aggiungi uscita</h2>
+        <button type="button" class="icon-btn" data-close aria-label="Chiudi">✕</button>
+      </div>
+      <div class="form-grid">
+        <label class="span-2">Titolo *
+          <input name="title" required maxlength="200" autofocus>
+        </label>
+        <label>Console
+          <input name="console" list="dl-console" maxlength="80">
+        </label>
+        <label>Anno di uscita *
+          <input name="releaseYear" type="number" min="1950" max="2100" step="1" required>
+        </label>
+        <label class="span-2">Data di uscita <span class="muted">(lascia vuoto se non ancora annunciata)</span>
+          <input name="releaseDate" type="date">
+        </label>
+        <label class="span-2">Note
+          <textarea name="notes" rows="3" maxlength="2000"></textarea>
+        </label>
+      </div>
+      <div class="form-actions">
+        <button type="button" class="btn danger" id="upcoming-delete" hidden>Elimina</button>
+        <span class="spacer"></span>
+        <button type="button" class="btn ghost" data-close>Annulla</button>
+        <button type="submit" class="btn primary" id="upcoming-submit">Salva</button>
+      </div>
+    </form>
+  </dialog>
+
+  <datalist id="dl-developer"></datalist>
+  <datalist id="dl-genre"></datalist>
+  <datalist id="dl-franchise"></datalist>
+  <datalist id="dl-console"></datalist>
+
+  <div id="tooltip" class="tooltip" hidden></div>
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
