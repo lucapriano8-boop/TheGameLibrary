@@ -1108,5 +1108,22 @@
     "review": "",
     "createdAt": "2026-11-13T21:02:59.284Z",
     "updatedAt": "2026-11-13T21:02:59.284Z"
+  },
+  {
+    "id": "ef266fba-c769-4b42-8ff0-25f4146083ea",
+    "title": "Gran Turismo 7",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/9/96/GT_Sport_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Polyphony Digital",
+    "genre": "Sim racing",
+    "franchise": "Gran Turismo",
+    "console": "PS5",
+    "score": 85,
+    "hours": 16,
+    "status": "Completato",
+    "releaseYear": 2023,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-13T21:05:07.162Z",
+    "updatedAt": "2026-11-13T21:05:07.162Z"
   }
 ]
