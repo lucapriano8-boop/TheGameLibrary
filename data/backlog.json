@@ -37,5 +37,18 @@
       "complete": null
     },
     "addedAt": "2026-11-13T19:21:24.057Z"
+  },
+  {
+    "id": "f146ab8c-efa4-4b03-af33-7e5dfddac7f8",
+    "title": "Cat Quest: Pirates of the Purribean",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/7/70/Cat_Quest_III_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "",
+    "notes": "",
+    "time": {
+      "main": 6,
+      "extra": null,
+      "complete": null
+    },
+    "addedAt": "2026-11-13T19:29:18.478Z"
   }
 ]
