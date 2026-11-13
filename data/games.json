@@ -700,5 +700,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:44:41.758Z",
     "updatedAt": "2026-11-13T19:44:41.758Z"
+  },
+  {
+    "id": "2054fcdc-092c-4650-bde4-a72eb8893feb",
+    "title": "Dispatch",
+    "cover": "",
+    "developer": "AdHoc Studio",
+    "genre": "Avventura",
+    "franchise": "Dispatch",
+    "console": "Ps5",
+    "score": 90,
+    "hours": 8,
+    "status": "Completato",
+    "releaseYear": 2026,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-13T19:46:24.269Z",
+    "updatedAt": "2026-11-13T19:46:24.269Z"
   }
 ]
