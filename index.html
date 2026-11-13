@@ -28,15 +28,28 @@
       <a href="#uscite" data-view="uscite">In uscita</a>
       <a href="#impostazioni" data-view="impostazioni" title="Impostazioni" aria-label="Impostazioni">⚙</a>
     </nav>
+    <a href="#profili" class="profile-chip" id="profile-chip" title="Cambia profilo" hidden>
+      <img src="assets/avatars/cavaliere.svg" alt="">
+      <span class="chip-name"></span>
+    </a>
   </header>
 
   <div id="banner" class="banner" hidden></div>
 
   <main>
+    <!-- PROFILI -->
+    <section id="view-profili" class="view profiles-screen" hidden>
+      <img class="profiles-logo" src="assets/logo.svg" alt="" width="64" height="64">
+      <h1 id="profiles-title">Chi gioca?</h1>
+      <p id="profiles-hint" class="muted"></p>
+      <div id="profile-grid" class="profile-grid"></div>
+      <button type="button" class="btn ghost" id="manage-profiles" hidden>Gestisci profili</button>
+    </section>
+
     <!-- HOME -->
     <section id="view-home" class="view">
       <div class="view-head">
-        <h1>La mia libreria</h1>
+        <h1 id="home-title">La mia libreria</h1>
         <button class="btn primary" data-action="add-game">+ Aggiungi gioco</button>
       </div>
 
@@ -329,6 +342,30 @@
         <span class="spacer"></span>
         <button type="button" class="btn ghost" data-close>Annulla</button>
         <button type="submit" class="btn primary" id="upcoming-submit">Salva</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- MODALE: profilo -->
+  <dialog id="profile-dialog" class="dialog">
+    <form id="profile-form" class="form" method="dialog">
+      <div class="dialog-head">
+        <h2 id="profile-form-title">Nuovo profilo</h2>
+        <button type="button" class="icon-btn" data-close aria-label="Chiudi">✕</button>
+      </div>
+      <div class="profile-form-top">
+        <img id="profile-preview" class="profile-preview" src="assets/avatars/cavaliere.svg" alt="">
+        <label>Nome *
+          <input name="name" required maxlength="24" autocomplete="off" autofocus>
+        </label>
+      </div>
+      <p class="muted avatar-title">Scegli l'avatar</p>
+      <div id="avatar-grid" class="avatar-grid"></div>
+      <div class="form-actions">
+        <button type="button" class="btn danger" id="profile-delete" hidden>Elimina profilo</button>
+        <span class="spacer"></span>
+        <button type="button" class="btn ghost" data-close>Annulla</button>
+        <button type="submit" class="btn primary">Salva</button>
       </div>
     </form>
   </dialog>

@@ -84,22 +84,21 @@ const Lookup = (() => {
     return covers;
   }
 
-  /**
-   * Cerca videogiochi per titolo. Restituisce fino a `limit` risultati:
-   * { id, title, developer, franchise, genre, releaseYear, releaseDate, platforms[], cover }
-   */
-  async function search(query, limit = 6) {
-    const q = query.trim();
-    if (q.length < 2) return [];
+  const isGame = (ent) => claimIds(ent, 'P31').includes(VIDEO_GAME)
+    || (claimIds(ent, 'P400').length > 0 && claimIds(ent, 'P178').length > 0);
+
+  // Cerca su Wikidata. strict = solo elementi marcati come "videogioco"
+  async function wikidataSearch(q, limit, strict) {
     const s = await getJSON(WIKIDATA, {
-      action: 'query', list: 'search', srsearch: `${q} haswbstatement:P31=${VIDEO_GAME}`,
-      srlimit: String(limit), srnamespace: '0',
+      action: 'query', list: 'search', srsearch: strict ? `${q} haswbstatement:P31=${VIDEO_GAME}` : q,
+      srlimit: String(strict ? limit : limit * 2), srnamespace: '0',
     });
     const ids = (s.query?.search || []).map((x) => x.title).filter((t) => /^Q\d+$/.test(t));
     if (!ids.length) return [];
 
     const ents = await getEntities(ids, 'labels|claims|sitelinks', { sitefilter: 'enwiki|itwiki' });
-    const games = ids.map((id) => ents[id]).filter(Boolean);
+    const games = ids.map((id) => ents[id]).filter(Boolean).filter((g) => strict || isGame(g)).slice(0, limit);
+    if (!games.length) return [];
 
     // etichette di sviluppatori, serie, generi e piattaforme
     const refIds = new Set();
@@ -111,7 +110,7 @@ const Lookup = (() => {
     const titles = { en: [], it: [] };
     games.forEach((g) => {
       if (g.sitelinks?.enwiki) titles.en.push(g.sitelinks.enwiki.title);
-      else if (g.sitelinks?.itwiki) titles.it.push(g.sitelinks.itwiki.title);
+      if (g.sitelinks?.itwiki) titles.it.push(g.sitelinks.itwiki.title);
     });
     let covers = {};
     try { covers = await wikipediaCovers(titles); } catch { /* le copertine sono facoltative */ }
@@ -119,8 +118,8 @@ const Lookup = (() => {
     return games.map((g) => {
       const rel = releaseInfo(g);
       const series = claimIds(g, 'P179')[0] || claimIds(g, 'P8345')[0];
-      const wiki = g.sitelinks?.enwiki ? `en:${g.sitelinks.enwiki.title}` : g.sitelinks?.itwiki ? `it:${g.sitelinks.itwiki.title}` : null;
-      let cover = wiki ? covers[wiki] || '' : '';
+      let cover = (g.sitelinks?.enwiki && covers[`en:${g.sitelinks.enwiki.title}`])
+        || (g.sitelinks?.itwiki && covers[`it:${g.sitelinks.itwiki.title}`]) || '';
       const p18 = g.claims?.P18?.[0]?.mainsnak?.datavalue?.value;
       if (!cover && p18) cover = `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(p18)}?width=500`;
       const platforms = [...new Set(claimIds(g, 'P400').map((id) => PLATFORM_NAMES[enLabel(id)] || enLabel(id)).filter(Boolean))];
@@ -136,6 +135,84 @@ const Lookup = (() => {
         cover,
       };
     }).filter((g) => g.title);
+  }
+
+  // Ricerca di riserva direttamente su Wikipedia: voci descritte come "video game"
+  async function wikipediaSearch(q, limit) {
+    const out = [];
+    for (const lang of ['en', 'it']) {
+      const r = await getJSON(`https://${lang}.wikipedia.org/w/api.php`, {
+        action: 'query', generator: 'search', gsrsearch: q, gsrlimit: '8', gsrnamespace: '0',
+        prop: 'pageimages|description', piprop: 'thumbnail', pithumbsize: '500', pilicense: 'any',
+      });
+      Object.values(r.query?.pages || {})
+        .filter((p) => /video ?game|videogioco/i.test(p.description || ''))
+        .sort((a, b) => (a.index || 0) - (b.index || 0))
+        .forEach((p) => {
+          const year = /\b(19[5-9]\d|20\d\d)\b/.exec(p.description || '');
+          out.push({
+            id: `wp-${lang}:${p.title}`,
+            title: p.title.replace(/\s*\((\d{4} )?(video ?game|videogioco)\)$/i, ''),
+            developer: '', franchise: '', genre: '',
+            releaseYear: year ? Number(year[1]) : null,
+            releaseDate: '',
+            platforms: [],
+            cover: p.thumbnail?.source || '',
+          });
+        });
+      if (out.length) break;
+    }
+    return out.slice(0, limit);
+  }
+
+  const norm = (t) => (t || '').toLowerCase().replace(/[’']/g, '').replace(/[^\p{L}\p{N}]+/gu, '');
+
+  // "Mortal Shell: Enhanced Edition" -> "Mortal Shell"
+  function baseTitle(q) {
+    return q.replace(/\s*[:\-–—]?\s*\(?\b(enhanced|definitive|complete|deluxe|ultimate|gold|legendary|anniversary|game of the year|goty|director'?s cut|remastered|remaster|hd|edition)\b.*$/i, '').trim();
+  }
+
+  /**
+   * Cerca videogiochi per titolo. Restituisce fino a `limit` risultati:
+   * { id, title, developer, franchise, genre, releaseYear, releaseDate, platforms[], cover }
+   * Prova in ordine: Wikidata (solo videogiochi) -> Wikidata (filtro più largo)
+   * -> titolo senza "Edition/Remastered…" -> Wikipedia. Le copertine mancanti vengono
+   * cercate anche su Wikipedia.
+   */
+  async function search(query, limit = 6) {
+    const q = query.trim().replace(/[’‘]/g, "'");
+    if (q.length < 2) return [];
+    const queries = [...new Set([q, baseTitle(q)])].filter((x) => x.length >= 2);
+
+    let results = [];
+    let lastErr = null;
+    for (const qq of queries) {
+      for (const strict of [true, false]) {
+        try { results = await wikidataSearch(qq, limit, strict); } catch (e) { lastErr = e; results = []; }
+        if (results.length) break;
+      }
+      if (results.length) break;
+    }
+
+    // copertine mancanti (o nessun risultato): prova la ricerca su Wikipedia
+    if (!results.length || results.some((r) => !r.cover)) {
+      let wp = [];
+      for (const qq of queries) {
+        try { wp = await wikipediaSearch(qq, limit); } catch (e) { lastErr = lastErr || e; }
+        if (wp.length) break;
+      }
+      if (!results.length) {
+        results = wp;
+      } else {
+        results.forEach((r) => {
+          if (r.cover) return;
+          const match = wp.find((w) => w.cover && norm(w.title) === norm(r.title));
+          if (match) r.cover = match.cover;
+        });
+      }
+    }
+    if (!results.length && lastErr) throw lastErr;
+    return results;
   }
 
   return { search };

@@ -1,0 +1,323 @@
+"""Genera gli avatar pixel art (16x16) in assets/avatars/*.svg.
+
+Uso:  python3 tools/make_avatars.py
+Ogni sprite è una griglia 16x16: '.' = trasparente, le lettere sono colori della palette.
+"""
+import os
+
+COMMON = {'k': '#14161f', 'W': '#ffffff'}
+
+SPRITES = {
+    'cavaliere': dict(bg='#2b4a8a', pal={'s': '#5b6475', 'S': '#b8c2d4', 'r': '#e5484d', 'R': '#a8282c'}, px=[
+        '................',
+        '........rr......',
+        '.......rRr......',
+        '......rRr.......',
+        '.....ssssss.....',
+        '....sSSSSSSs....',
+        '...sSSSSSSSSs...',
+        '...sSSSSSSSSs...',
+        '...skkkkkkkks...',
+        '...sSSSSSSSSs...',
+        '...sSSkSSkSSs...',
+        '...sSSSSSSSSs...',
+        '...sSSkSSkSSs...',
+        '....sSSSSSSs....',
+        '.....ssssss.....',
+        '................']),
+    'mago': dict(bg='#4b2d7f', pal={'b': '#3b82f6', 'B': '#1d4ed8', 'y': '#facc15', 'f': '#f5c99b', 'w': '#f1f5f9', 'g': '#cbd5e1'}, px=[
+        '.........b......',
+        '........bb......',
+        '.......bbb......',
+        '......bbyb......',
+        '......bbbbb.....',
+        '.....bbbbbb.....',
+        '.....bbybbbb....',
+        '..BBBBBBBBBBBB..',
+        '....ffffffff....',
+        '....fkffffkf....',
+        '....ffffffff....',
+        '....wwffffww....',
+        '....wwwggwww....',
+        '.....wwwwww.....',
+        '......wgww......',
+        '.......ww.......']),
+    'alieno': dict(bg='#1f5f4a', pal={'g': '#7ee081', 'G': '#4caf50'}, px=[
+        '................',
+        '.....gggggg.....',
+        '...gggggggggg...',
+        '..gggggggggggg..',
+        '..gggggggggggg..',
+        '.gggggggggggggg.',
+        '.gkkkggggggkkkg.',
+        '.gkkkkggggkkkkg.',
+        '.gkWkkggggkWkkg.',
+        '..gkkkggggkkkg..',
+        '..gggggggggggg..',
+        '...gggggggggg...',
+        '....ggGGGGgg....',
+        '.....gggggg.....',
+        '......gggg......',
+        '................']),
+    'slime': dict(bg='#173b6b', pal={'b': '#38bdf8', 'B': '#0284c7', 'l': '#bae6fd'}, px=[
+        '................',
+        '................',
+        '................',
+        '.......bb.......',
+        '......bbbb......',
+        '.....bblbbb.....',
+        '....bblbbbbb....',
+        '...bbbbbbbbbb...',
+        '..bbbkbbbbkbbb..',
+        '..bbbkbbbbkbbb..',
+        '.bbbbbbbbbbbbbb.',
+        '.bbbbbkkkkbbbbb.',
+        '.bbbbbbbbbbbbbb.',
+        '.BBBBBBBBBBBBBB.',
+        '..BBBBBBBBBBBB..',
+        '................']),
+    'fantasma': dict(bg='#3a2f5c', pal={'w': '#f8fafc', 'g': '#c7d2fe', 'p': '#f9a8d4'}, px=[
+        '................',
+        '......wwww......',
+        '....wwwwwwww....',
+        '...wwwwwwwwww...',
+        '...wwkwwwwkww...',
+        '..wwwkwwwwkwww..',
+        '..wwpwwwwwwpww..',
+        '..wwwwwkkwwwww..',
+        'w.wwwwwkkwwwww.w',
+        'ww.wwwwwwwwww.ww',
+        '.wwwwwwwwwwwwww.',
+        '...wwwwwwwwww...',
+        '...wwwwwwwwww...',
+        '...ggwwggwwgg...',
+        '....g..g...g....',
+        '................']),
+    'robot': dict(bg='#334155', pal={'m': '#94a3b8', 'M': '#64748b', 'c': '#22d3ee', 'r': '#ef4444'}, px=[
+        '.......rr.......',
+        '.......kk.......',
+        '.......mm.......',
+        '...mmmmmmmmmm...',
+        '..mMMMMMMMMMMm..',
+        '..mMkkkkkkkkMm..',
+        'mmmMkcckkcckMmmm',
+        'mMmMkcckkcckMmMm',
+        'mmmMkkkkkkkkMmmm',
+        '..mMMMMMMMMMMm..',
+        '..mMmkmkmkmkMm..',
+        '..mMmkmkmkmkMm..',
+        '..mMMMMMMMMMMm..',
+        '...mmmmmmmmmm...',
+        '.....MM..MM.....',
+        '................']),
+    'ninja': dict(bg='#5b1a1a', pal={'n': '#1e2433', 'N': '#2d3548', 'f': '#f5c99b', 'r': '#ef4444'}, px=[
+        '................',
+        '.....nnnnnn.....',
+        '...nnnnnnnnnn...',
+        '..nnnnnnnnnnnn..',
+        '..rrrrrrrrrrrrr.',
+        '..nnnnnnnnnnnrrr',
+        '..nffffffffffnr.',
+        '..nfkkffffkkfn.r',
+        '..nffffffffffn..',
+        '..nnnnnnnnnnnn..',
+        '..nNnnnnnnnnNn..',
+        '..nnnnnnnnnnnn..',
+        '...nnnnnnnnnn...',
+        '....nnnnnnnn....',
+        '......nnnn......',
+        '................']),
+    'teschio': dict(bg='#4a3b2a', pal={'w': '#f5f0e6', 'g': '#c9c1b0'}, px=[
+        '................',
+        '.....wwwwww.....',
+        '...wwwwwwwwww...',
+        '..wwwwwwwwwwww..',
+        '..wwwwwwwwwwww..',
+        '.wwwkkkwwkkkwww.',
+        '.wwkkkkwwkkkkww.',
+        '.wwkkkkwwkkkkww.',
+        '.wwwkkwwwwkkwww.',
+        '..wwwwwkkwwwww..',
+        '..wwwwwkkwwwww..',
+        '...wwwwwwwwww...',
+        '....wkwkwkwkw...',
+        '....wwwwwwwww...',
+        '.....gwgwgwg....',
+        '................']),
+    'drago': dict(bg='#5c1f3a', pal={'g': '#4ade80', 'G': '#15803d', 'y': '#fde047', 'h': '#e2e8f0', 'r': '#f97316'}, px=[
+        '..h..........h..',
+        '..hh........hh..',
+        '...hh......hh...',
+        '...gggggggggg...',
+        '..gggggggggggg..',
+        '..ggyygggggyygg.',
+        '..ggykgggggykgg.',
+        '..gggggggggggg..',
+        '..GgggggggggggG.',
+        '..GGgggggggggGG.',
+        '...GGgkggggkgG..',
+        '...GGggggggggG..',
+        '....GGGgggGGG...',
+        '.....rr.rr.rr...',
+        '......r..r..r...',
+        '................']),
+    'gatto': dict(bg='#2e4a3f', pal={'o': '#fb923c', 'O': '#c2410c', 'p': '#f9a8d4', 'w': '#fff7ed', 'g': '#84cc16'}, px=[
+        '................',
+        '..o..........o..',
+        '..oo........oo..',
+        '..opo......opo..',
+        '..ooooooooooooo.',
+        '..oOooOooOooOoo.',
+        '..oooooooooooo..',
+        '..ogkooooookgo..',
+        '..oggoooooooggo.',
+        '..oooooppooooo..',
+        'kkwwoooookoowwkk',
+        '..wwooookkoowww.',
+        'kkwwwoooooowwwkk',
+        '...wwwwwwwwww...',
+        '.....wwwwww.....',
+        '................']),
+    'rana': dict(bg='#1e3a5f', pal={'g': '#4ade80', 'G': '#16a34a', 'w': '#ffffff', 'p': '#f472b6'}, px=[
+        '................',
+        '................',
+        '..www......www..',
+        '.wwkkw....wkkww.',
+        '.wwkkw....wkkww.',
+        '.gwwwwggggwwwwg.',
+        'gggggggggggggggg',
+        'gggggggggggggggg',
+        'gGgggggggggggggG',
+        'gkgggggggggggkgg',
+        'ggkkkkkkkkkkkggg',
+        '.gggpppppppgggg.',
+        '..gggggggggggg..',
+        '...GGGGGGGGGG...',
+        '................',
+        '................']),
+    'astronauta': dict(bg='#0f172a', pal={'w': '#f1f5f9', 'g': '#94a3b8', 'v': '#1e3a8a', 'V': '#3b82f6', 'l': '#bfdbfe', 'o': '#f97316'}, px=[
+        '................',
+        '.....wwwwww.....',
+        '...wwwwwwwwww...',
+        '..wwwwwwwwwwww..',
+        '..wwvvvvvvvvww..',
+        '.wwvVlVvvvvvvww.',
+        '.wwvlVvvvvvvvww.',
+        '.wwvVvvvvvvvvww.',
+        '.wwvvvvvvvvvvww.',
+        '.wwwvvvvvvvvwww.',
+        '..wwwwwwwwwwww..',
+        '..gwwwwwwwwwwg..',
+        '...wwwwwwwwww...',
+        '..wwwowwwwowww..',
+        '..wwwwwwwwwwww..',
+        '................']),
+    'vichingo': dict(bg='#3b3355', pal={'h': '#f5f0e6', 'm': '#94a3b8', 'M': '#64748b', 'f': '#f5c99b', 'b': '#f59e0b', 'B': '#b45309'}, px=[
+        '................',
+        'hh............hh',
+        '.hh..........hh.',
+        '.hhh.mmmmmm.hhh.',
+        '..hhmmmmmmmmhh..',
+        '...mMmMmMmMmm...',
+        '...MMMMMMMMMM...',
+        '...ffffffffff...',
+        '...fkkffffkkf...',
+        '...ffffffffff...',
+        '..bbbffbbffbbb..',
+        '..bbbbbbbbbbbb..',
+        '..bbbbBbbBbbbb..',
+        '...bbbbbbbbbb...',
+        '....bBb..bBb....',
+        '................']),
+    'volpe': dict(bg='#14532d', pal={'o': '#f97316', 'O': '#c2410c', 'w': '#fff7ed', 'p': '#1f2937'}, px=[
+        '................',
+        '.O............O.',
+        '.oO..........Oo.',
+        '.ooO........Ooo.',
+        '.oooooooooooooo.',
+        '.oooooooooooooo.',
+        '.ookkooooookkoo.',
+        '.oowkooooookwoo.',
+        'wwoooooooooooww.',
+        'wwwwooooooowwww.',
+        '.wwwwwwwwwwwww..',
+        '..wwwwwkkwwwww..',
+        '...wwwwwwwwww...',
+        '.....wwwwww.....',
+        '.......ww.......',
+        '................']),
+    'pozione': dict(bg='#3f2a14', pal={'c': '#a16207', 'g': '#e2e8f0', 'G': '#94a3b8', 'p': '#c026d3', 'P': '#86198f', 'l': '#f0abfc'}, px=[
+        '................',
+        '......cccc......',
+        '......cccc......',
+        '.......gg.......',
+        '.......gg.......',
+        '......gGGg......',
+        '.....gGGGGg.....',
+        '....gGGGGGGg....',
+        '...gpppppppPg...',
+        '..gplpppppppPg..',
+        '..gplppplpppPg..',
+        '..gppppppppPPg..',
+        '..gppppppppPPg..',
+        '...gPPPPPPPPg...',
+        '....gggggggg....',
+        '................']),
+    'zucca': dict(bg='#1c1532', pal={'o': '#f97316', 'O': '#c2410c', 'g': '#65a30d', 'y': '#fde047'}, px=[
+        '................',
+        '........gg......',
+        '.......gg.......',
+        '....oOooooOo....',
+        '..ooOoooooooOoo.',
+        '.oooOoooooooOooo',
+        '.ooyyOoooooOyyoo',
+        '.oyyyyOoooOyyyyo',
+        '.ooooOoyyoOooooo',
+        '.ooooOooooOooooo',
+        '.oyoyoyoyoyoyoyo',
+        '.ooyyyyyyyyyyooo',
+        '..ooyoyoyoyoOoo.',
+        '...oOoooooooOo..',
+        '.....oooooooo...',
+        '................']),
+}
+
+LABELS = {
+    'cavaliere': 'Cavaliere', 'mago': 'Mago', 'alieno': 'Alieno', 'slime': 'Slime', 'fantasma': 'Fantasma',
+    'robot': 'Robot', 'ninja': 'Ninja', 'teschio': 'Teschio', 'drago': 'Drago', 'gatto': 'Gatto',
+    'rana': 'Rana', 'astronauta': 'Astronauta', 'vichingo': 'Vichingo', 'volpe': 'Volpe',
+    'pozione': 'Pozione', 'zucca': 'Zucca',
+}
+
+
+def svg(sprite):
+    pal = {**COMMON, **sprite['pal']}
+    rects = []
+    for y, row in enumerate(sprite['px']):
+        row = row.ljust(16, '.')[:16]
+        for x, ch in enumerate(row):
+            if ch in ('.', ' '):
+                continue
+            rects.append(f'<rect x="{x + 2}" y="{y + 2}" width="1" height="1" fill="{pal[ch]}"/>')
+    return (
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" shape-rendering="crispEdges">'
+        f'<rect width="20" height="20" fill="{sprite["bg"]}"/>'
+        '<rect y="15" width="20" height="5" fill="#000" opacity=".18"/>'
+        + ''.join(rects) + '</svg>\n'
+    )
+
+
+def main():
+    out = os.path.join(os.path.dirname(__file__), '..', 'assets', 'avatars')
+    os.makedirs(out, exist_ok=True)
+    for name, sprite in SPRITES.items():
+        assert len(sprite['px']) == 16, name
+        for row in sprite['px']:
+            assert len(row) == 16, (name, row, len(row))
+        with open(os.path.join(out, f'{name}.svg'), 'w') as f:
+            f.write(svg(sprite))
+    print(f'{len(SPRITES)} avatar generati in {os.path.normpath(out)}')
+
+
+if __name__ == '__main__':
+    main()
