@@ -8,5 +8,15 @@
     "releaseYear": 2026,
     "notes": "",
     "createdAt": "2026-11-13T15:42:17.991Z"
+  },
+  {
+    "id": "ea843cfe-0501-47ae-b94b-a59418b8f9b0",
+    "title": "Fable",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/3/3c/Fable_cover_art.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "",
+    "releaseDate": "2027-02-23",
+    "releaseYear": 2027,
+    "notes": "",
+    "createdAt": "2026-11-13T17:42:51.322Z"
   }
 ]
