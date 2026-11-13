@@ -101,5 +101,22 @@
     "review": "",
     "createdAt": "2026-11-13T18:59:54.512Z",
     "updatedAt": "2026-11-13T18:59:54.512Z"
+  },
+  {
+    "id": "2a7912b0-6916-4e6e-add8-0a2347f46479",
+    "title": "Armored Core VI: Fires of Rubicon",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/8/89/Armored_Core_VI_Fires_of_Rubicon_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "From Software",
+    "genre": "Action",
+    "franchise": "Armored Core",
+    "console": "Ps5",
+    "score": 94,
+    "hours": 45,
+    "status": "Platinato",
+    "releaseYear": 2023,
+    "playedYear": 2023,
+    "review": "Bellissimo gioco di From che riesce a stupire con un gioco nuovo dopo tutti i souls.",
+    "createdAt": "2026-11-13T19:01:47.362Z",
+    "updatedAt": "2026-11-13T19:01:47.362Z"
   }
 ]
