@@ -102,5 +102,18 @@
       "complete": null
     },
     "addedAt": "2026-11-13T20:56:57.509Z"
+  },
+  {
+    "id": "124a4ed0-fb34-468b-b582-a2c59cc14f19",
+    "title": "Grim Fandango",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/7/76/Grim_Fandango_artwork.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "",
+    "notes": "",
+    "time": {
+      "main": 11,
+      "extra": null,
+      "complete": null
+    },
+    "addedAt": "2026-11-13T21:06:57.157Z"
   }
 ]
