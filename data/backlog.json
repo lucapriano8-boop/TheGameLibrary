@@ -76,5 +76,18 @@
       "complete": null
     },
     "addedAt": "2026-11-13T19:32:09.926Z"
+  },
+  {
+    "id": "07d8f1a5-20b6-4713-ab8e-a7fc0dfd1449",
+    "title": "Devil May Cry",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/1/1e/DMC1FrontCover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "",
+    "notes": "",
+    "time": {
+      "main": 6,
+      "extra": null,
+      "complete": null
+    },
+    "addedAt": "2026-11-13T19:42:19.979Z"
   }
 ]
