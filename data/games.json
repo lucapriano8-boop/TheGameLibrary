@@ -30,5 +30,21 @@
     "review": "Bruttino",
     "createdAt": "2026-11-13T13:13:32.596Z",
     "updatedAt": "2026-11-13T13:13:32.596Z"
+  },
+  {
+    "id": "14646977-7110-4adb-a557-d6ae210ae0c0",
+    "title": "FINAL FANTASY",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PS5",
+    "score": 22,
+    "hours": null,
+    "status": "Completato",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-13T13:29:37.870Z",
+    "updatedAt": "2026-11-13T13:29:37.870Z"
   }
 ]
