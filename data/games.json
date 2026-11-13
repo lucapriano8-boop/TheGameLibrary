@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "id": "0464e996-edcb-4860-a3fb-0d3fe103b0a5",
+    "title": "gta5",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PS5",
+    "score": 5,
+    "hours": null,
+    "status": "Completato",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-13T13:07:48.612Z",
+    "updatedAt": "2026-11-13T13:07:48.612Z"
+  }
+]
