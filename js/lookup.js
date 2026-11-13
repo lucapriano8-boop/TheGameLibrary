@@ -215,5 +215,5 @@ const Lookup = (() => {
     return results;
   }
 
-  return { search };
+  return { search, norm, baseTitle };
 })();
