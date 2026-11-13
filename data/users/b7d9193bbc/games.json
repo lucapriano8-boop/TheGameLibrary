@@ -32,5 +32,22 @@
     "review": "",
     "createdAt": "2026-11-13T15:36:20.840Z",
     "updatedAt": "2026-11-13T15:36:20.840Z"
+  },
+  {
+    "id": "a4f5eae0-8220-49d5-a2b2-e5c5279143e0",
+    "title": "God Of War",
+    "cover": "",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": 97,
+    "hours": null,
+    "status": "Completato",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-13T15:39:35.607Z",
+    "updatedAt": "2026-11-13T15:39:35.607Z"
   }
 ]
