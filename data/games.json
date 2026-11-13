@@ -373,5 +373,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:18:46.869Z",
     "updatedAt": "2026-11-13T19:18:46.869Z"
+  },
+  {
+    "id": "736a18b0-c9b0-4b79-b78e-b19b896aae16",
+    "title": "Black Mith: Wukong",
+    "cover": "",
+    "developer": "Game Science",
+    "genre": "Action-adventure",
+    "franchise": "Black Mith",
+    "console": "Ps5",
+    "score": 93,
+    "hours": 68,
+    "status": "Platinato",
+    "releaseYear": 2024,
+    "playedYear": 2024,
+    "review": "",
+    "createdAt": "2026-11-13T19:20:52.416Z",
+    "updatedAt": "2026-11-13T19:20:52.416Z"
   }
 ]
