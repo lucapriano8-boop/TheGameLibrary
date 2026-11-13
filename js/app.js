@@ -1301,6 +1301,7 @@
     });
     // quando riapri l'app dal telefono, ricarica i dati (magari li hai cambiati dal PC)
     document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') checkForUpdate();
       if (document.visibilityState === 'visible' && Date.now() - lastLoad > 30000
         && !state.busy && !document.querySelector('dialog[open]')) loadAll();
     });
@@ -1337,6 +1338,26 @@
 
   function closeFabMenu() { $('#fab-menu').hidden = true; }
 
+  // ---------- aggiornamenti del sito ----------
+  // Se su GitHub è stata pubblicata una versione nuova, ricarica la pagina per scaricare i file nuovi
+  // (i browser tengono in memoria i file del sito e altrimenti continuerebbero a usare quelli vecchi).
+  const APP_VERSION = document.querySelector('meta[name="app-version"]')?.content || 'dev';
+  async function checkForUpdate() {
+    if (APP_VERSION === 'dev') return;
+    try {
+      const res = await fetch(`version.json?t=${Date.now()}`, { cache: 'no-store' });
+      if (!res.ok) return;
+      const { version } = await res.json();
+      if (!version || version === APP_VERSION) return;
+      let already = null;
+      try { already = sessionStorage.getItem('tgl-reloaded-for'); } catch { /* ignore */ }
+      if (already === version) return; // evita ricaricamenti a ripetizione
+      if (state.busy || document.querySelector('dialog[open]')) return; // non interrompere un salvataggio o un modulo aperto
+      try { sessionStorage.setItem('tgl-reloaded-for', version); } catch { /* ignore */ }
+      location.reload();
+    } catch { /* offline: riprova più tardi */ }
+  }
+
   function init() {
     try {
       const bs = localStorage.getItem('tgl-backlog-sort');
@@ -1346,6 +1367,7 @@
       const s = JSON.parse(localStorage.getItem('tgl-sort') || 'null');
       if (s && s.k) { state.sortKey = s.k; state.sortDir = s.d === 'asc' ? 'asc' : 'desc'; }
     } catch { /* ignore */ }
+    checkForUpdate();
     bind();
     updateProfileChip();
     route();
