@@ -598,5 +598,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:37:24.172Z",
     "updatedAt": "2026-11-13T19:37:24.172Z"
+  },
+  {
+    "id": "91d0ca3b-042c-4ddf-8f67-ae610e2928f6",
+    "title": "Death Stranding 2: On the Beach",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/e/e0/Death_Stranding_2_Icon.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Kojima Production",
+    "genre": "Action-adventure",
+    "franchise": "Death stranding",
+    "console": "Ps5",
+    "score": 95,
+    "hours": 60,
+    "status": "Completato",
+    "releaseYear": 2025,
+    "playedYear": 2025,
+    "review": "",
+    "createdAt": "2026-11-13T19:38:34.223Z",
+    "updatedAt": "2026-11-13T19:38:34.223Z"
   }
 ]
