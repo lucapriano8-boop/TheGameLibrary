@@ -768,5 +768,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:49:06.689Z",
     "updatedAt": "2026-11-13T19:49:06.689Z"
+  },
+  {
+    "id": "5e81ac6a-9d82-4823-b884-f31cac9a9aa5",
+    "title": "Dragon Ball: Sparking! Zero",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/7/7f/DBZ_Sparking_Zero_Cover_Art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Spike Chunsoft",
+    "genre": "Arena fighter",
+    "franchise": "Dragon Ball Z: Budokai Tenkaichi",
+    "console": "Ps5",
+    "score": 85,
+    "hours": 3,
+    "status": "Completato",
+    "releaseYear": 2024,
+    "playedYear": 2024,
+    "review": "",
+    "createdAt": "2026-11-13T19:49:53.769Z",
+    "updatedAt": "2026-11-13T19:49:53.769Z"
   }
 ]
