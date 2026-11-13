@@ -1210,5 +1210,22 @@
     "review": "",
     "createdAt": "2026-11-13T21:12:58.006Z",
     "updatedAt": "2026-11-13T21:12:58.006Z"
+  },
+  {
+    "id": "de397a70-6bb4-4283-b4d4-90b829aae483",
+    "title": "Hollow Knight",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/d/de/Hollow_Knight_2026_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Team Cherry",
+    "genre": "Action-adventure",
+    "franchise": "Hollow Knight",
+    "console": "Ps4",
+    "score": 93,
+    "hours": 37,
+    "status": "Completato",
+    "releaseYear": 2017,
+    "playedYear": 2025,
+    "review": "",
+    "createdAt": "2026-11-13T21:14:00.669Z",
+    "updatedAt": "2026-11-13T21:14:00.669Z"
   }
 ]
