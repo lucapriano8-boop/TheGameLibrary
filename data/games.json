@@ -237,5 +237,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:11:00.850Z",
     "updatedAt": "2026-11-13T19:11:00.850Z"
+  },
+  {
+    "id": "24735acf-5f13-4b84-b574-52b03893f33d",
+    "title": "Assassin’s Creed Odyssey",
+    "cover": "",
+    "developer": "Ubisoft",
+    "genre": "Action-adventure",
+    "franchise": "Assassin’s Creed",
+    "console": "Ps4",
+    "score": 90,
+    "hours": 82,
+    "status": "Completato",
+    "releaseYear": 2018,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-13T19:12:10.169Z",
+    "updatedAt": "2026-11-13T19:12:10.169Z"
   }
 ]
