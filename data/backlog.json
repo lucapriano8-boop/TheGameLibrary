@@ -89,5 +89,18 @@
       "complete": null
     },
     "addedAt": "2026-11-13T19:42:19.979Z"
+  },
+  {
+    "id": "0f834047-c51c-4ca4-9466-49446c4a4f56",
+    "title": "Final Fantasy XV",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/5/5a/FF_XV_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "",
+    "notes": "",
+    "time": {
+      "main": 28,
+      "extra": null,
+      "complete": null
+    },
+    "addedAt": "2026-11-13T20:56:57.509Z"
   }
 ]
