@@ -887,5 +887,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:53:50.425Z",
     "updatedAt": "2026-11-13T19:53:50.425Z"
+  },
+  {
+    "id": "148a8504-4146-46f8-bc34-9ac4b09dd5bd",
+    "title": "F1 2020",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/8/84/F1_2020_Cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Codemasters",
+    "genre": "Racing",
+    "franchise": "F1",
+    "console": "Ps4",
+    "score": 82,
+    "hours": 87,
+    "status": "Completato",
+    "releaseYear": 2020,
+    "playedYear": 2020,
+    "review": "",
+    "createdAt": "2026-11-13T19:54:16.667Z",
+    "updatedAt": "2026-11-13T19:54:16.667Z"
   }
 ]
