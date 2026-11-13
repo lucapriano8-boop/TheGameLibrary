@@ -1,11 +1,12 @@
 [
   {
     "id": "d55bac25-07ef-40ae-8928-5841ffb0afed",
-    "title": "Grand Theft Auto 6",
+    "title": "Grand Theft Auto VI",
     "console": "PS5",
     "releaseDate": "2026-11-19",
     "releaseYear": 2026,
     "notes": "Da comprare",
-    "createdAt": "2026-11-13T13:14:27.548Z"
+    "createdAt": "2026-11-13T13:14:27.548Z",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/4/46/Grand_Theft_Auto_VI.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
   }
 ]
