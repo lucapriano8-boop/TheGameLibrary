@@ -475,5 +475,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:28:21.365Z",
     "updatedAt": "2026-11-13T19:28:21.365Z"
+  },
+  {
+    "id": "e533be95-f19a-4b86-8110-ac40205f959b",
+    "title": "Cat Quest II",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/c/c3/Cat_Quest_II_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "The Gentlebros",
+    "genre": "Action RPG",
+    "franchise": "Cat Quest",
+    "console": "Ps4",
+    "score": 83,
+    "hours": 14,
+    "status": "Completato",
+    "releaseYear": 2019,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-13T19:28:50.677Z",
+    "updatedAt": "2026-11-13T19:28:50.677Z"
   }
 ]
