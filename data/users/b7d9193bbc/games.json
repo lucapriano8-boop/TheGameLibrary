@@ -277,5 +277,22 @@
     "review": "",
     "createdAt": "2026-11-13T18:01:57.839Z",
     "updatedAt": "2026-11-13T18:01:57.839Z"
+  },
+  {
+    "id": "d8efd4bb-28a4-4770-a8d4-7dbf76869819",
+    "title": "Cult of the Lamb",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/d/d4/Cult_of_the_Lamb_Key_Art.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Massive Monster",
+    "genre": "Dungeon crawl",
+    "franchise": "",
+    "console": "PS4",
+    "score": 92,
+    "hours": null,
+    "status": "Completato",
+    "releaseYear": 2022,
+    "playedYear": 2024,
+    "review": "",
+    "createdAt": "2026-11-13T18:02:33.164Z",
+    "updatedAt": "2026-11-13T18:02:33.164Z"
   }
 ]
