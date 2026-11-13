@@ -458,5 +458,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:27:48.135Z",
     "updatedAt": "2026-11-13T19:27:48.135Z"
+  },
+  {
+    "id": "7772b243-03dd-4e55-94fc-8d9ab65808b2",
+    "title": "Cat Quest",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/a/a6/Cat_quest_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "The Gentlebros",
+    "genre": "Action RPG",
+    "franchise": "Cat Quest",
+    "console": "Ps4",
+    "score": 83,
+    "hours": 5,
+    "status": "Completato",
+    "releaseYear": 2017,
+    "playedYear": 2025,
+    "review": "",
+    "createdAt": "2026-11-13T19:28:21.365Z",
+    "updatedAt": "2026-11-13T19:28:21.365Z"
   }
 ]
