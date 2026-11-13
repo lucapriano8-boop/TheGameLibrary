@@ -356,5 +356,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:17:50.154Z",
     "updatedAt": "2026-11-13T19:17:50.154Z"
+  },
+  {
+    "id": "d7603eb4-9b5b-4281-98c9-3522c8336331",
+    "title": "Astro's Playroom",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/c/c6/Astro%27s_Playroom.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Sony",
+    "genre": "Platform",
+    "franchise": "Astro",
+    "console": "Ps5",
+    "score": 60,
+    "hours": 2,
+    "status": "Giocato",
+    "releaseYear": 2020,
+    "playedYear": 2020,
+    "review": "",
+    "createdAt": "2026-11-13T19:18:46.869Z",
+    "updatedAt": "2026-11-13T19:18:46.869Z"
   }
 ]
