@@ -61,6 +61,9 @@ Il token resta salvato **solo nel browser di quel dispositivo**: su telefono e P
 ## Backup
 Da **⚙ Impostazioni → Esporta backup** scarichi un file JSON con tutti i dati. Con **Importa backup** lo ripristini.
 
+## Aggiornamenti del sito
+Quando modifichi il codice, prima del commit esegui `python3 tools/bump_version.py`: aggiorna il numero di versione e il sito, aperto su qualsiasi dispositivo, si ricarica da solo con la versione nuova (al massimo qualche minuto dopo la pubblicazione).
+
 ## Provarlo in locale
 ```bash
 python3 -m http.server 8000
