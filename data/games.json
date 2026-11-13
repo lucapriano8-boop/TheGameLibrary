@@ -1193,5 +1193,22 @@
     "review": "",
     "createdAt": "2026-11-13T21:08:55.006Z",
     "updatedAt": "2026-11-13T21:08:55.006Z"
+  },
+  {
+    "id": "215786e3-9f1c-42d5-8636-a3deda20d432",
+    "title": "Hogwarts Legacy",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/f/fb/Hogwarts_legacyboxart.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Avalanche Studios",
+    "genre": "Action-adventure",
+    "franchise": "Harry potter",
+    "console": "Ps5",
+    "score": 83,
+    "hours": 76,
+    "status": "Completato",
+    "releaseYear": 2023,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-13T21:12:58.006Z",
+    "updatedAt": "2026-11-13T21:12:58.006Z"
   }
 ]
