@@ -989,5 +989,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:57:33.045Z",
     "updatedAt": "2026-11-13T19:57:33.045Z"
+  },
+  {
+    "id": "f42d4624-9022-4a62-9ec5-783c923015ed",
+    "title": "Final Fantasy X",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/a/a7/Ffxboxart.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Square",
+    "genre": "RPG",
+    "franchise": "Final Fantasy",
+    "console": "Ps4",
+    "score": 98,
+    "hours": 48,
+    "status": "Completato",
+    "releaseYear": 2001,
+    "playedYear": 2025,
+    "review": "",
+    "createdAt": "2026-11-13T19:58:20.506Z",
+    "updatedAt": "2026-11-13T19:58:20.506Z"
   }
 ]
