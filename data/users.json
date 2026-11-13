@@ -5,5 +5,12 @@
     "avatar": "cavaliere",
     "dir": "data",
     "createdAt": "2026-11-13T15:33:10.572Z"
+  },
+  {
+    "id": "b7d9193bbc",
+    "name": "francesco prova",
+    "avatar": "vichingo",
+    "dir": "data/users/b7d9193bbc",
+    "createdAt": "2026-11-13T15:33:23.928Z"
   }
 ]
