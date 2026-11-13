@@ -542,6 +542,7 @@
     "playedYear": 2019,
     "review": "",
     "createdAt": "2026-11-13T19:33:53.128Z",
-    "updatedAt": "2026-11-13T19:33:53.128Z"
+    "updatedAt": "2026-11-13T19:33:53.128Z",
+    "favorite": true
   }
 ]
