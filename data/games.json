@@ -1176,5 +1176,22 @@
     "review": "",
     "createdAt": "2026-11-13T21:07:51.213Z",
     "updatedAt": "2026-11-13T21:07:51.213Z"
+  },
+  {
+    "id": "c5c8d9ac-40c4-4fa0-a628-b5a52881a4b8",
+    "title": "Hellblade: Senua's Sacrifice",
+    "cover": "",
+    "developer": "Ninja Theory",
+    "genre": "Action",
+    "franchise": "Senua",
+    "console": "Ps4",
+    "score": 86,
+    "hours": 6,
+    "status": "Completato",
+    "releaseYear": 2018,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-13T21:08:55.006Z",
+    "updatedAt": "2026-11-13T21:08:55.006Z"
   }
 ]
