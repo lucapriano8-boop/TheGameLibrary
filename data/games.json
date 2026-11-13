@@ -581,5 +581,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:35:33.930Z",
     "updatedAt": "2026-11-13T19:35:33.930Z"
+  },
+  {
+    "id": "95a6ea2f-0b4a-461c-a328-c40468555d21",
+    "title": "Days Gone",
+    "cover": "",
+    "developer": "Bend Studio",
+    "genre": "Action-adventure",
+    "franchise": "Days Gone",
+    "console": "Ps4",
+    "score": 87,
+    "hours": 100,
+    "status": "Completato",
+    "releaseYear": 2019,
+    "playedYear": 2021,
+    "review": "",
+    "createdAt": "2026-11-13T19:37:24.172Z",
+    "updatedAt": "2026-11-13T19:37:24.172Z"
   }
 ]
