@@ -1006,5 +1006,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:58:20.506Z",
     "updatedAt": "2026-11-13T19:58:20.506Z"
+  },
+  {
+    "id": "3e991ee3-01c4-42f3-b2e4-adebc8241f44",
+    "title": "Final Fantasy XVI",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/0/00/Final_Fantasy_XVI_cover_art.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Square Enix",
+    "genre": "Action RPG",
+    "franchise": "Final Fantasy",
+    "console": "PC",
+    "score": 90,
+    "hours": 76,
+    "status": "Completato",
+    "releaseYear": 2023,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-13T20:57:36.537Z",
+    "updatedAt": "2026-11-13T20:57:36.537Z"
   }
 ]
