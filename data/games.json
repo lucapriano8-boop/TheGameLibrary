@@ -717,5 +717,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:46:24.269Z",
     "updatedAt": "2026-11-13T19:46:24.269Z"
+  },
+  {
+    "id": "cb1c934b-8f88-4b23-a5bf-5b3eb5188b6c",
+    "title": "Dragon Ball FighterZ",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/a/ad/DBFZ_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Arc System Works",
+    "genre": "Airdasher",
+    "franchise": "Videogiochi di Dragon Ball",
+    "console": "Ps4",
+    "score": 85,
+    "hours": 2,
+    "status": "Completato",
+    "releaseYear": 2018,
+    "playedYear": 2024,
+    "review": "",
+    "createdAt": "2026-11-13T19:47:17.154Z",
+    "updatedAt": "2026-11-13T19:47:17.154Z"
   }
 ]
