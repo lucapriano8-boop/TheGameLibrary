@@ -4,8 +4,10 @@ La mia libreria digitale personale dei videogiochi giocati.
 
 - **Home**: voto medio, ore totali, numero di giochi, grafico dei giochi giocati per anno, Top 5 e prossime uscite.
 - **Classifica**: tutti i giochi, ordinati per voto (o per titolo, stato, ore, anno giocato, anno di uscita, console). Ricerca e filtro per stato. Clicca un gioco per vederne i dettagli, modificarlo o eliminarlo.
-- **In uscita**: giochi futuri con data (o solo anno) di uscita, in ordine cronologico con conto alla rovescia. Quando un gioco è uscito, il pulsante **+ Libreria** lo sposta nella libreria.
-- **Impostazioni (⚙)**: collegamento a GitHub ed esportazione/importazione del backup.
+- **In uscita**: giochi futuri con la data di uscita, in ordine cronologico con conto alla rovescia. Quando un gioco è uscito, il pulsante **+ Libreria** lo sposta nella libreria.
+- **Impostazioni (⚙)**: collegamento a GitHub, ricerca delle copertine mancanti, esportazione/importazione del backup.
+- **Ricerca automatica dei dati**: mentre scrivi il titolo, il sito cerca il gioco e ti propone i risultati. Scegliendo quello giusto compila copertina, sviluppatore, franchise, genere e anno (per le uscite: copertina e data). I dati vengono da [Wikidata](https://www.wikidata.org) e le copertine da Wikipedia: servizi gratuiti, senza chiavi né registrazione.
+- **Icona**: aggiungendo il sito alla schermata Home dell'iPhone (Safari → Condividi → *Aggiungi alla schermata Home*) compare il logo della libreria e il sito si apre a schermo intero come un'app.
 
 Il sito è fatto solo di HTML, CSS e JavaScript, senza installazioni né build.
 
