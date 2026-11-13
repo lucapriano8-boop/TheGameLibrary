@@ -819,5 +819,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:51:09.780Z",
     "updatedAt": "2026-11-13T19:51:09.780Z"
+  },
+  {
+    "id": "b016d95f-d156-4d81-a74b-635c702f269b",
+    "title": "Elden Ring",
+    "cover": "",
+    "developer": "From Software",
+    "genre": "Action RPG",
+    "franchise": "Elden Ring",
+    "console": "Ps5",
+    "score": 98,
+    "hours": 363,
+    "status": "Platinato",
+    "releaseYear": 2022,
+    "playedYear": 2022,
+    "review": "",
+    "createdAt": "2026-11-13T19:52:03.821Z",
+    "updatedAt": "2026-11-13T19:52:03.821Z"
   }
 ]
