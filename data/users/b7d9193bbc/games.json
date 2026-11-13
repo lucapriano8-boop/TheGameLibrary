@@ -171,7 +171,8 @@
     "playedYear": 2020,
     "review": "",
     "createdAt": "2026-11-13T17:56:04.232Z",
-    "updatedAt": "2026-11-13T17:56:04.232Z"
+    "updatedAt": "2026-11-13T17:56:04.232Z",
+    "favorite": true
   },
   {
     "id": "c0fe5b20-f2d9-4e92-a91e-a700b7ef765a",
