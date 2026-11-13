@@ -870,5 +870,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:53:16.994Z",
     "updatedAt": "2026-11-13T19:53:16.994Z"
+  },
+  {
+    "id": "919006fc-ace5-455e-ba53-54aec66d8946",
+    "title": "F1 2019",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/2/2c/F1_2019_cover_art.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Codemasters",
+    "genre": "Racing",
+    "franchise": "F1",
+    "console": "Ps4",
+    "score": 78,
+    "hours": 309,
+    "status": "Completato",
+    "releaseYear": 2019,
+    "playedYear": 2019,
+    "review": "",
+    "createdAt": "2026-11-13T19:53:50.425Z",
+    "updatedAt": "2026-11-13T19:53:50.425Z"
   }
 ]
