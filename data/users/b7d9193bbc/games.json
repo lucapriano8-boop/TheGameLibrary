@@ -49,5 +49,22 @@
     "review": "",
     "createdAt": "2026-11-13T15:39:35.607Z",
     "updatedAt": "2026-11-13T15:39:35.607Z"
+  },
+  {
+    "id": "129884d6-e063-4570-9f85-9bfee631c848",
+    "title": "God Of War Ragnarok",
+    "cover": "https://images.everyeye.it/img-cover/god-of-war-ragnarok-v22-42049.jpg",
+    "developer": "Santa Monica Studios",
+    "genre": "",
+    "franchise": "",
+    "console": "PS5",
+    "score": 97,
+    "hours": null,
+    "status": "Completato",
+    "releaseYear": null,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-13T17:47:17.734Z",
+    "updatedAt": "2026-11-13T17:47:17.734Z"
   }
 ]
