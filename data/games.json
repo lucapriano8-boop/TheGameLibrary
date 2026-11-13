@@ -632,5 +632,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:39:18.096Z",
     "updatedAt": "2026-11-13T19:39:18.096Z"
+  },
+  {
+    "id": "e8f66adc-82ce-42a0-942e-011549cf78ce",
+    "title": "Demon's Souls",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/1/11/Demons_Souls_remake_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "From Software",
+    "genre": "Action RPG",
+    "franchise": "Demon’s Souls",
+    "console": "Ps5",
+    "score": 92,
+    "hours": 117,
+    "status": "Platinato",
+    "releaseYear": 2020,
+    "playedYear": 2022,
+    "review": "",
+    "createdAt": "2026-11-13T19:40:19.602Z",
+    "updatedAt": "2026-11-13T19:40:19.602Z"
   }
 ]
