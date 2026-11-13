@@ -152,5 +152,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:05:32.205Z",
     "updatedAt": "2026-11-13T19:05:32.205Z"
+  },
+  {
+    "id": "dfa4d841-9b1d-46d3-9faf-1942b8f28a14",
+    "title": "Assassin's Creed Valhalla",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/f/ff/Assassin%27s_Creed_Valhalla_cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Ubisoft",
+    "genre": "Action-adventure",
+    "franchise": "Assassin’s Creed",
+    "console": "Ps4",
+    "score": 90,
+    "hours": 223,
+    "status": "Completato",
+    "releaseYear": 2020,
+    "playedYear": 2020,
+    "review": "",
+    "createdAt": "2026-11-13T19:06:43.009Z",
+    "updatedAt": "2026-11-13T19:06:43.009Z"
   }
 ]
