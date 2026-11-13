@@ -904,5 +904,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:54:16.667Z",
     "updatedAt": "2026-11-13T19:54:16.667Z"
+  },
+  {
+    "id": "f20bdf6c-aaec-4c28-b9ec-da1e1c9d4575",
+    "title": "F1 2021",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/8/86/F1_2021_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Codemasters",
+    "genre": "Racing",
+    "franchise": "F1",
+    "console": "Ps5",
+    "score": 77,
+    "hours": 8,
+    "status": "Completato",
+    "releaseYear": 2021,
+    "playedYear": 2021,
+    "review": "",
+    "createdAt": "2026-11-13T19:54:42.195Z",
+    "updatedAt": "2026-11-13T19:54:42.195Z"
   }
 ]
