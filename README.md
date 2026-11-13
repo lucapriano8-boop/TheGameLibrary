@@ -1,1 +1,51 @@
-# TheGameLibrary
+# 🎮 TheGameLibrary
+
+La mia libreria digitale personale dei videogiochi giocati.
+
+- **Home**: voto medio, ore totali, numero di giochi, grafico dei giochi giocati per anno, Top 5 e prossime uscite.
+- **Classifica**: tutti i giochi, ordinati per voto (o per titolo, stato, ore, anno giocato, anno di uscita, console). Ricerca e filtro per stato. Clicca un gioco per vederne i dettagli, modificarlo o eliminarlo.
+- **In uscita**: giochi futuri con data (o solo anno) di uscita, in ordine cronologico con conto alla rovescia. Quando un gioco è uscito, il pulsante **+ Libreria** lo sposta nella libreria.
+- **Impostazioni (⚙)**: collegamento a GitHub ed esportazione/importazione del backup.
+
+Il sito è fatto solo di HTML, CSS e JavaScript, senza installazioni né build.
+
+## Dove vengono salvati i dati
+
+I giochi sono salvati in due file di questa repository:
+
+- `data/games.json`: i giochi giocati
+- `data/upcoming.json`: i giochi in uscita
+
+Ogni volta che aggiungi, modifichi o elimini qualcosa dal sito viene creato un **commit** su GitHub. I dati non scadono mai e hai lo storico completo di ogni modifica (puoi sempre tornare indietro dalla cronologia dei commit).
+
+## Configurazione (una volta sola)
+
+### 1. Pubblica il sito con GitHub Pages
+1. Su GitHub apri la repository, poi **Settings → Pages**.
+2. In *Build and deployment* scegli **Source: Deploy from a branch**, branch **`main`**, cartella **`/ (root)`**, poi **Save**.
+3. Dopo un minuto il sito sarà online su `https://<tuo-utente>.github.io/TheGameLibrary/`.
+
+### 2. Crea un token per poter salvare
+Il token permette al sito di scrivere i file dei dati, **solo** in questa repository.
+
+1. Vai su GitHub → foto profilo → **Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token**.
+2. Nome: `TheGameLibrary`. Scadenza: quella che preferisci (anche *No expiration*).
+3. **Repository access → Only select repositories →** `TheGameLibrary`.
+4. **Permissions → Repository permissions → Contents → Read and write**.
+5. Genera il token e copialo (inizia con `github_pat_…`).
+
+### 3. Inserisci il token nel sito
+Apri il sito, vai su **⚙ Impostazioni**, controlla proprietario/repository/branch (`main`), incolla il token e premi **Salva e ricarica**.
+
+Il token resta salvato **solo nel browser di quel dispositivo**: su telefono e PC va inserito una volta per ciascuno. Senza token il sito funziona in sola lettura.
+
+> ⚠️ Non condividere mai il token con nessuno. Se pensi che sia stato esposto, eliminalo da GitHub e creane uno nuovo.
+
+## Backup
+Da **⚙ Impostazioni → Esporta backup** scarichi un file JSON con tutti i dati. Con **Importa backup** lo ripristini.
+
+## Provarlo in locale
+```bash
+python3 -m http.server 8000
+```
+Poi apri http://localhost:8000. Per salvare, inserisci comunque il token nelle Impostazioni: i dati vengono scritti su GitHub.
