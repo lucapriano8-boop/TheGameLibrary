@@ -1074,5 +1074,22 @@
     "review": "",
     "createdAt": "2026-11-13T21:01:10.076Z",
     "updatedAt": "2026-11-13T21:01:10.076Z"
+  },
+  {
+    "id": "70a5a21a-feec-4e7a-a413-836dd7a29d47",
+    "title": "God of War",
+    "cover": "",
+    "developer": "Santa Monica",
+    "genre": "Action-adventure",
+    "franchise": "God of War",
+    "console": "Ps4",
+    "score": 100,
+    "hours": 101,
+    "status": "Platinato",
+    "releaseYear": 2018,
+    "playedYear": 2018,
+    "review": "",
+    "createdAt": "2026-11-13T21:01:53.911Z",
+    "updatedAt": "2026-11-13T21:01:53.911Z"
   }
 ]
