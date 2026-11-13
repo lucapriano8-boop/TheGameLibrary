@@ -117,5 +117,22 @@
     "review": "",
     "createdAt": "2026-11-13T17:52:49.536Z",
     "updatedAt": "2026-11-13T17:52:49.536Z"
+  },
+  {
+    "id": "37d2fcfd-ac60-4ce8-96d8-3f9c5b152f12",
+    "title": "Astro Bot",
+    "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202406/0500/8f15268257b878597757fcc5f2c9545840867bc71fc863b1.png",
+    "developer": "Asobi",
+    "genre": "Platform",
+    "franchise": "",
+    "console": "PS5",
+    "score": 95,
+    "hours": null,
+    "status": "Completato",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-13T17:54:07.157Z",
+    "updatedAt": "2026-11-13T17:54:07.157Z"
   }
 ]
