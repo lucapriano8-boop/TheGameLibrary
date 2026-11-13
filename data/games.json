@@ -509,5 +509,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:31:07.926Z",
     "updatedAt": "2026-11-13T19:31:07.926Z"
+  },
+  {
+    "id": "634f02b6-e819-4371-8067-b9f0ad230cfd",
+    "title": "Cyberpunk 2077",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/9/9f/Cyberpunk_2077_box_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "CD Projekt RED STUDIO",
+    "genre": "Action RPG",
+    "franchise": "Cyberpunk",
+    "console": "Ps5",
+    "score": 92,
+    "hours": 34,
+    "status": "Completato",
+    "releaseYear": 2020,
+    "playedYear": 2022,
+    "review": "",
+    "createdAt": "2026-11-13T19:32:54.401Z",
+    "updatedAt": "2026-11-13T19:32:54.401Z"
   }
 ]
