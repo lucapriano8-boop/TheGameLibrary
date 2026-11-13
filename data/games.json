@@ -288,5 +288,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:14:21.952Z",
     "updatedAt": "2026-11-13T19:14:21.952Z"
+  },
+  {
+    "id": "82fdcb99-11ba-4fb3-ab65-a8081928f501",
+    "title": "Assassin's Creed: Syndicate",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/f/f2/Assassin%27s_Creed_Syndicate_cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Ubisoft Quebec",
+    "genre": "Action-adventure",
+    "franchise": "Assassin’s Creed",
+    "console": "Ps4",
+    "score": 84,
+    "hours": 36,
+    "status": "Completato",
+    "releaseYear": 2015,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-13T19:15:11.746Z",
+    "updatedAt": "2026-11-13T19:15:11.746Z"
   }
 ]
