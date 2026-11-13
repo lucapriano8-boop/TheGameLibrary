@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "id": "332e51b2-742b-425d-94f9-0612e245cb04",
+    "title": "Baldur's Gate 3",
+    "developer": "Larian Studios",
+    "genre": "RGP",
+    "franchise": "Baldur's Gate",
+    "console": "PS5",
+    "score": 100,
+    "hours": 210,
+    "status": "Completato",
+    "releaseYear": 2023,
+    "playedYear": 2026,
+    "review": "Clamoroso",
+    "createdAt": "2026-11-13T13:11:19.575Z",
+    "updatedAt": "2026-11-13T13:11:19.575Z"
+  }
+]
