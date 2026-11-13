@@ -135,5 +135,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:02:51.023Z",
     "updatedAt": "2026-11-13T19:02:51.023Z"
+  },
+  {
+    "id": "ab6fe36c-eec9-4364-81f3-00f0d7916a23",
+    "title": "Assassin's Creed II",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/7/77/Assassins_Creed_2_Box_Art.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Ubisoft",
+    "genre": "Action-adventure",
+    "franchise": "Assassin’s Creed",
+    "console": "Ps4",
+    "score": 92,
+    "hours": 54,
+    "status": "Platinato",
+    "releaseYear": 2009,
+    "playedYear": 2022,
+    "review": "",
+    "createdAt": "2026-11-13T19:05:32.205Z",
+    "updatedAt": "2026-11-13T19:05:32.205Z"
   }
 ]
