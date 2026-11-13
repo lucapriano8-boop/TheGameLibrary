@@ -492,5 +492,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:28:50.677Z",
     "updatedAt": "2026-11-13T19:28:50.677Z"
+  },
+  {
+    "id": "2cb1ff69-d46f-416a-941b-f6d098d323ff",
+    "title": "Clair Obsur: Expedition 33",
+    "cover": "",
+    "developer": "Sandfall Interactive",
+    "genre": "JRPG",
+    "franchise": "Clair Obsur",
+    "console": "Ps5",
+    "score": 97,
+    "hours": 89,
+    "status": "Platinato",
+    "releaseYear": 2025,
+    "playedYear": 2025,
+    "review": "",
+    "createdAt": "2026-11-13T19:31:07.926Z",
+    "updatedAt": "2026-11-13T19:31:07.926Z"
   }
 ]
