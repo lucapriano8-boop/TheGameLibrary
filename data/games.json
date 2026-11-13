@@ -1040,5 +1040,22 @@
     "review": "",
     "createdAt": "2026-11-13T20:58:35.917Z",
     "updatedAt": "2026-11-13T20:58:59.348Z"
+  },
+  {
+    "id": "62bbc856-819f-4860-9a91-48f6ecd06b77",
+    "title": "Ghost of Tsushima",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/b/b6/Ghost_of_Tsushima.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Sucker Punch",
+    "genre": "Action-adventure",
+    "franchise": "Ghost of Tsushima",
+    "console": "PS4",
+    "score": 92,
+    "hours": 65,
+    "status": "Platinato",
+    "releaseYear": 2020,
+    "playedYear": 2022,
+    "review": "",
+    "createdAt": "2026-11-13T21:00:10.206Z",
+    "updatedAt": "2026-11-13T21:00:10.206Z"
   }
 ]
