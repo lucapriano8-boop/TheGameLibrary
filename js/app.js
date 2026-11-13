@@ -59,7 +59,7 @@
   }
 
   function initials(title) {
-    return (title || '?').replace(/[^\p{L}\p{N} ]/gu, ' ').split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase() || '?';
+    return (title || '?').replace(/['’]/g, '').replace(/[^\p{L}\p{N} ]/gu, ' ').split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase() || '?';
   }
   // copertina del gioco, oppure un riquadro con le iniziali
   function coverHTML(url, title, cls = '') {
@@ -89,14 +89,18 @@
     const v = (location.hash || '#home').slice(1);
     const view = VIEWS.includes(v) ? v : 'home';
     VIEWS.forEach((name) => { $(`#view-${name}`).hidden = name !== view; });
-    $$('#tabs a').forEach((a) => a.classList.toggle('active', a.dataset.view === view));
+    $$('a[data-view]').forEach((a) => a.classList.toggle('active', a.dataset.view === view));
+    document.body.dataset.view = view;
     $$('dialog[open]').forEach((d) => d.close());
     if (view === 'impostazioni') fillSettings();
+    if (view === 'home') renderChart(); // il grafico si adatta alla larghezza visibile
     window.scrollTo(0, 0);
   }
 
   // ---------- caricamento ----------
+  let lastLoad = 0;
   async function loadAll() {
+    lastLoad = Date.now();
     const [g, u] = await Promise.all([Storage.load('games'), Storage.load('upcoming')]);
     state.games = g.data;
     state.upcoming = u.data;
@@ -169,7 +173,8 @@
       tableEl.innerHTML = '';
       return;
     }
-    const W = 600, H = 260, padL = 32, padR = 8, padT = 22, padB = 28;
+    const W = Math.max(280, Math.round(el.clientWidth || 600));
+    const H = W < 480 ? 220 : 260, padL = 28, padR = 6, padT = 22, padB = 28;
     const iw = W - padL - padR, ih = H - padT - padB;
     const maxC = Math.max(...data.map((d) => d.count));
     const yMax = niceMax(maxC);
@@ -180,7 +185,7 @@
     const labelEvery = Math.ceil(data.length / Math.floor(iw / 36));
     const maxIdx = data.findIndex((d) => d.count === maxC);
 
-    let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Giochi giocati per anno">`;
+    let svg = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Giochi giocati per anno">`;
     for (let i = 0; i <= ticks; i++) {
       const v = (yMax / ticks) * i;
       const y = padT + ih - (v / yMax) * ih;
@@ -231,9 +236,22 @@
       tip.style.left = `${Math.max(8, x)}px`;
       tip.style.top = `${pt.clientY - tip.offsetHeight - 12}px`;
     };
-    chart.addEventListener('mousemove', show);
-    chart.addEventListener('touchstart', show, { passive: true });
-    chart.addEventListener('mouseleave', () => { tip.hidden = true; $$('.hit.on', chart).forEach((h) => h.classList.remove('on')); });
+    let lastTouch = 0;
+    const fromTouch = () => Date.now() - lastTouch < 1000; // eventi "mouse" finti generati dal tocco
+    chart.addEventListener('mousemove', (e) => { if (!fromTouch()) show(e); });
+    chart.addEventListener('touchstart', (e) => {
+      lastTouch = Date.now();
+      show(e);
+      clearTimeout(setupChartHover.t);
+      setupChartHover.t = setTimeout(() => { tip.hidden = true; $$('.hit.on', chart).forEach((h) => h.classList.remove('on')); }, 2500);
+    }, { passive: true });
+    let rw;
+    let lastW = chart.clientWidth;
+    window.addEventListener('resize', () => {
+      clearTimeout(rw);
+      rw = setTimeout(() => { if (chart.clientWidth !== lastW) { lastW = chart.clientWidth; renderChart(); } }, 150);
+    });
+    chart.addEventListener('mouseleave', () => { if (fromTouch()) return; tip.hidden = true; $$('.hit.on', chart).forEach((h) => h.classList.remove('on')); });
     $('#chart-toggle').addEventListener('click', (e) => {
       const tbl = $('#chart-table');
       tbl.hidden = !tbl.hidden;
@@ -850,6 +868,15 @@
       }
     }, true);
     $('#fill-covers-btn').addEventListener('click', fillMissingCovers);
+    $('#fab').addEventListener('click', () => {
+      if (document.body.dataset.view === 'uscite') openUpcomingForm();
+      else openGameForm();
+    });
+    // quando riapri l'app dal telefono, ricarica i dati (magari li hai cambiati dal PC)
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible' && Date.now() - lastLoad > 30000
+        && !state.busy && !document.querySelector('dialog[open]')) loadAll();
+    });
 
     $('#game-form').addEventListener('submit', submitGame);
     $('#upcoming-form').addEventListener('submit', submitUpcoming);
