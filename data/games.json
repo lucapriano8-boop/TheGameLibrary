@@ -938,5 +938,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:55:06.868Z",
     "updatedAt": "2026-11-13T19:55:06.868Z"
+  },
+  {
+    "id": "2eb41391-40b1-4e58-9398-c2940da6b9ae",
+    "title": "FIFA 22",
+    "cover": "",
+    "developer": "EA Vancouver",
+    "genre": "Calcio",
+    "franchise": "Fifa",
+    "console": "Ps5",
+    "score": 68,
+    "hours": 27,
+    "status": "Completato",
+    "releaseYear": 2022,
+    "playedYear": 2022,
+    "review": "",
+    "createdAt": "2026-11-13T19:56:02.798Z",
+    "updatedAt": "2026-11-13T19:56:02.798Z"
   }
 ]
