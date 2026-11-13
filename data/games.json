@@ -441,5 +441,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:25:44.341Z",
     "updatedAt": "2026-11-13T19:25:44.341Z"
+  },
+  {
+    "id": "e29c7c66-e588-4226-96d0-1d3b405b1e19",
+    "title": "Call of Duty: WWII",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/1/18/Call_of_Duty_WWII_Cover_Art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Sledgehammer Games, Raven Software",
+    "genre": "First-person shooter",
+    "franchise": "Call of Duty",
+    "console": "Ps4",
+    "score": 85,
+    "hours": 99,
+    "status": "Completato",
+    "releaseYear": 2017,
+    "playedYear": 2018,
+    "review": "",
+    "createdAt": "2026-11-13T19:27:48.135Z",
+    "updatedAt": "2026-11-13T19:27:48.135Z"
   }
 ]
