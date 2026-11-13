@@ -649,5 +649,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:40:19.602Z",
     "updatedAt": "2026-11-13T19:40:19.602Z"
+  },
+  {
+    "id": "8bceb1dc-470e-4d9d-adf8-284eb8a10d21",
+    "title": "Detroit: Become Human",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/e/ee/Detroit_Become_Human.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Quantic Dream",
+    "genre": "Avventura",
+    "franchise": "",
+    "console": "Ps4",
+    "score": 87,
+    "hours": 22,
+    "status": "Completato",
+    "releaseYear": 2018,
+    "playedYear": 2021,
+    "review": "",
+    "createdAt": "2026-11-13T19:41:55.159Z",
+    "updatedAt": "2026-11-13T19:41:55.159Z"
   }
 ]
