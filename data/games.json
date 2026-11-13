@@ -1057,5 +1057,22 @@
     "review": "",
     "createdAt": "2026-11-13T21:00:10.206Z",
     "updatedAt": "2026-11-13T21:00:10.206Z"
+  },
+  {
+    "id": "9f0c54a3-764b-4285-8bd2-0b9cf309ba48",
+    "title": "Ghost of Yotei",
+    "cover": "",
+    "developer": "Sucker Punch",
+    "genre": "Action-adventure",
+    "franchise": "Ghost of",
+    "console": "Ps5",
+    "score": 93,
+    "hours": 27,
+    "status": "Completato",
+    "releaseYear": 2025,
+    "playedYear": 2025,
+    "review": "",
+    "createdAt": "2026-11-13T21:01:10.076Z",
+    "updatedAt": "2026-11-13T21:01:10.076Z"
   }
 ]
