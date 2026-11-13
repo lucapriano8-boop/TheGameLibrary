@@ -169,5 +169,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:06:43.009Z",
     "updatedAt": "2026-11-13T19:06:43.009Z"
+  },
+  {
+    "id": "b168c0e6-c114-4ae5-a4a3-a078176814bf",
+    "title": "Assassin's Creed IV: Black Flag - Freedom Cry",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/3/3d/FreedomCry.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Ubisoft",
+    "genre": "Action-adventure",
+    "franchise": "Assassin’s Creed",
+    "console": "Ps4",
+    "score": 77,
+    "hours": 2,
+    "status": "Completato",
+    "releaseYear": 2013,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-13T19:08:03.401Z",
+    "updatedAt": "2026-11-13T19:08:03.401Z"
   }
 ]
