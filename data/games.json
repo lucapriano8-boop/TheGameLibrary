@@ -1125,5 +1125,22 @@
     "review": "",
     "createdAt": "2026-11-13T21:05:07.162Z",
     "updatedAt": "2026-11-13T21:05:07.162Z"
+  },
+  {
+    "id": "660a463c-3fad-4a19-aad9-930da2a6ef9f",
+    "title": "Gran Turismo Sport",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/9/96/GT_Sport_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Polyphony Digital",
+    "genre": "Sim racing",
+    "franchise": "Gran Turismo",
+    "console": "PS4",
+    "score": 81,
+    "hours": 46,
+    "status": "Completato",
+    "releaseYear": 2017,
+    "playedYear": 2017,
+    "review": "",
+    "createdAt": "2026-11-13T21:05:39.484Z",
+    "updatedAt": "2026-11-13T21:05:39.484Z"
   }
 ]
