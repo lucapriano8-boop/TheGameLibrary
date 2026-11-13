@@ -221,5 +221,22 @@
     "review": "",
     "createdAt": "2026-11-13T17:59:06.609Z",
     "updatedAt": "2026-11-13T17:59:06.609Z"
+  },
+  {
+    "id": "76321486-8e7e-4aa2-ab73-f4106aca68f8",
+    "title": "Assassin's Creed II",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/7/77/Assassins_Creed_2_Box_Art.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Ubisoft",
+    "genre": "Action-adventure",
+    "franchise": "",
+    "console": "Steam Deck",
+    "score": 92,
+    "hours": null,
+    "status": "Completato",
+    "releaseYear": 2009,
+    "playedYear": 2025,
+    "review": "",
+    "createdAt": "2026-11-13T17:59:44.443Z",
+    "updatedAt": "2026-11-13T17:59:44.443Z"
   }
 ]
