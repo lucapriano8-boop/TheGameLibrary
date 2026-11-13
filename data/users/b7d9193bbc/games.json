@@ -294,5 +294,22 @@
     "review": "",
     "createdAt": "2026-11-13T18:02:33.164Z",
     "updatedAt": "2026-11-13T18:02:33.164Z"
+  },
+  {
+    "id": "cae09c34-3285-4f46-843a-1c2bbfc08cad",
+    "title": "Call of Duty 4: Modern Warfare",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/5/5f/Call_of_Duty_4_Modern_Warfare.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Infinity Ward, Aspyr Media",
+    "genre": "First-person shooter",
+    "franchise": "Call of Duty",
+    "console": "PC",
+    "score": 91,
+    "hours": null,
+    "status": "Completato",
+    "releaseYear": 2007,
+    "playedYear": 2025,
+    "review": "",
+    "createdAt": "2026-11-13T18:03:25.308Z",
+    "updatedAt": "2026-11-13T18:03:25.308Z"
   }
 ]
