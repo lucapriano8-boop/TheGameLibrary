@@ -186,5 +186,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:08:03.401Z",
     "updatedAt": "2026-11-13T19:08:03.401Z"
+  },
+  {
+    "id": "166829db-c076-4954-9f29-22920303e7d1",
+    "title": "Assassin's Creed III",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/2/29/Assassin%27s_Creed_III_Game_Cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Ubisoft Quebec, Ubisoft Romania",
+    "genre": "Action-adventure",
+    "franchise": "Assassin’s Creed",
+    "console": "Ps4",
+    "score": 86,
+    "hours": 26,
+    "status": "Completato",
+    "releaseYear": 2012,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-13T19:09:11.528Z",
+    "updatedAt": "2026-11-13T19:09:11.528Z"
   }
 ]
