@@ -972,5 +972,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:56:51.651Z",
     "updatedAt": "2026-11-13T19:56:51.651Z"
+  },
+  {
+    "id": "81380f3a-f2a4-437a-9d57-e9461189c096",
+    "title": "Final Fantasy VII Remake",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/c/ce/FFVIIRemake.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Square Enix Business Division 1, Square Enix",
+    "genre": "Japanese RPG",
+    "franchise": "Final fantasy",
+    "console": "Ps4",
+    "score": 91,
+    "hours": 62,
+    "status": "Completato",
+    "releaseYear": 2020,
+    "playedYear": 2020,
+    "review": "",
+    "createdAt": "2026-11-13T19:57:33.045Z",
+    "updatedAt": "2026-11-13T19:57:33.045Z"
   }
 ]
