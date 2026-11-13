@@ -28,5 +28,15 @@
     "releaseYear": 2027,
     "notes": "",
     "createdAt": "2026-11-13T17:44:03.407Z"
+  },
+  {
+    "id": "b84c523b-9740-4662-b1cd-a2d5343259bd",
+    "title": "Final Fantasy 7 Revelations",
+    "cover": "https://i.redd.it/vlyrhsfsrj5h1.jpeg",
+    "console": "",
+    "releaseDate": "2027-04-08",
+    "releaseYear": 2027,
+    "notes": "",
+    "createdAt": "2026-11-13T17:45:21.881Z"
   }
 ]
