@@ -615,5 +615,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:38:34.223Z",
     "updatedAt": "2026-11-13T19:38:34.223Z"
+  },
+  {
+    "id": "bc4dac46-7289-4565-9e60-2799d695c1e2",
+    "title": "Death Stranding",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/2/22/Death_Stranding.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Kojima Production",
+    "genre": "Stealth",
+    "franchise": "Death Stranding",
+    "console": "Ps4",
+    "score": 92,
+    "hours": 49,
+    "status": "Completato",
+    "releaseYear": 2019,
+    "playedYear": 2022,
+    "review": "",
+    "createdAt": "2026-11-13T19:39:18.096Z",
+    "updatedAt": "2026-11-13T19:39:18.096Z"
   }
 ]
