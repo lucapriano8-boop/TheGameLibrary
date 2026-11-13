@@ -1023,5 +1023,22 @@
     "review": "",
     "createdAt": "2026-11-13T20:57:36.537Z",
     "updatedAt": "2026-11-13T20:57:36.537Z"
+  },
+  {
+    "id": "5c333242-808f-4fff-9e0e-4153df0ff697",
+    "title": "Fortnite: Save the World",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/a/ae/Fortnite_Save_The_World.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Epic Games",
+    "genre": "Sparatutto",
+    "franchise": "Fortnite",
+    "console": "Ps5",
+    "score": 72,
+    "hours": 520,
+    "status": "Completato",
+    "releaseYear": 2020,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-13T20:58:35.917Z",
+    "updatedAt": "2026-11-13T20:58:35.917Z"
   }
 ]
