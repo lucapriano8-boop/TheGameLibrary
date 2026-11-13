@@ -271,5 +271,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:13:33.862Z",
     "updatedAt": "2026-11-13T19:13:33.862Z"
+  },
+  {
+    "id": "b8e08ea2-9dea-4395-838a-5d1508d5d58b",
+    "title": "Assassin's Creed: Rogue",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/a/ae/Assassin%27s_Creed_Rogue.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Ubisoft Sofia",
+    "genre": "Action-adventure",
+    "franchise": "Assassin’s Creed",
+    "console": "Ps4",
+    "score": 85,
+    "hours": 6,
+    "status": "Completato",
+    "releaseYear": 2014,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-13T19:14:21.952Z",
+    "updatedAt": "2026-11-13T19:14:21.952Z"
   }
 ]
