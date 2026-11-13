@@ -50,5 +50,22 @@
     "review": "Storia intrigante, con un po di lavoro sul gameplay può diventare un ottima seria narrativa.",
     "createdAt": "2026-11-13T18:40:43.704Z",
     "updatedAt": "2026-11-13T18:40:43.704Z"
+  },
+  {
+    "id": "f65d613a-cade-49dd-bb3a-b2552df75128",
+    "title": "A Plague Tale: Requiem",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/a/ae/A_Plague_Tale_Requiem_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Asobo Studio",
+    "genre": "Action-adventure",
+    "franchise": "A Plague Tale",
+    "console": "Ps5",
+    "score": 83,
+    "hours": 4,
+    "status": "Giocato",
+    "releaseYear": 2022,
+    "playedYear": 2023,
+    "review": "Un ottimo sequel, migliora praticamente tutto rispetto al primo.",
+    "createdAt": "2026-11-13T18:42:04.264Z",
+    "updatedAt": "2026-11-13T18:42:04.264Z"
   }
 ]
