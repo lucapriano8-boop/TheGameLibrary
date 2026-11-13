@@ -32,5 +32,22 @@
     "createdAt": "2026-11-13T13:13:32.596Z",
     "updatedAt": "2026-11-13T13:44:37.673Z",
     "cover": ""
+  },
+  {
+    "id": "d39242f5-ce73-422d-8935-404104d9434f",
+    "title": "A Plague Tale: Innocence",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/1/1d/A_Plague_Tale_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Asobo Studio",
+    "genre": "Action-adventure",
+    "franchise": "A Plague Tale",
+    "console": "Ps5",
+    "score": 82,
+    "hours": 11,
+    "status": "Completato",
+    "releaseYear": 2019,
+    "playedYear": 2022,
+    "review": "Storia intrigante, con un po di lavoro sul gameplay può diventare un ottima seria narrativa.",
+    "createdAt": "2026-11-13T18:40:43.704Z",
+    "updatedAt": "2026-11-13T18:40:43.704Z"
   }
 ]
