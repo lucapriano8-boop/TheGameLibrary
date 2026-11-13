@@ -3,8 +3,10 @@
   'use strict';
 
   // Ordine "logico" degli stati, usato anche per l'ordinamento per stato
+  const PLAYING = 'In corso';
   const STATUSES = ['Platinato', 'Completato', 'Giocato', 'Abbandonato'];
   const STATUS_HINT = {
+    [PLAYING]: 'In corso (lo sto giocando)',
     Platinato: 'Platinato / 100%',
     Completato: 'Completato',
     Giocato: 'Giocato (senza finale)',
@@ -16,7 +18,15 @@
     'drago', 'gatto', 'rana', 'astronauta', 'vichingo', 'volpe', 'pozione', 'zucca'];
   const avatarUrl = (a) => `assets/avatars/${AVATARS.includes(a) ? a : AVATARS[0]}.svg`;
 
+  // i giochi "in corso" non sono ancora in classifica né nelle statistiche
+  const isPlaying = (g) => g.status === PLAYING;
+  const finishedGames = () => state.games.filter((g) => !isPlaying(g));
+
   const state = {
+    statsTab: 'anno',
+    recapYear: null,
+    compareWith: null,
+    compareCache: {},
     users: [],
     profile: null,
     afterProfile: 'home',
@@ -69,7 +79,7 @@
     return 'score-d';
   }
   function statusChip(status) {
-    const cls = { Platinato: 'st-plat', Completato: 'st-done', Giocato: 'st-played', Abbandonato: 'st-drop' }[status] || '';
+    const cls = { Platinato: 'st-plat', Completato: 'st-done', Giocato: 'st-played', Abbandonato: 'st-drop', [PLAYING]: 'st-playing' }[status] || '';
     return `<span class="chip ${cls}">${esc(status || '—')}</span>`;
   }
 
@@ -126,7 +136,7 @@
   }
 
   // ---------- routing ----------
-  const VIEWS = ['profili', 'home', 'classifica', 'uscite', 'impostazioni'];
+  const VIEWS = ['profili', 'home', 'classifica', 'uscite', 'statistiche', 'impostazioni'];
   function route() {
     const v = (location.hash || '#home').slice(1);
     let view = VIEWS.includes(v) ? v : 'home';
@@ -142,6 +152,7 @@
     $$('dialog[open]').forEach((d) => d.close());
     $('#fab-menu').hidden = true;
     if (view === 'impostazioni') fillSettings();
+    if (view === 'statistiche' && state.profile) renderStatsView();
     if (view === 'home') renderChart(); // il grafico si adatta alla larghezza visibile
     if (view === 'uscite' && state.scrollTo) { const el = $(`#${state.scrollTo}`); state.scrollTo = null; requestAnimationFrame(() => el.scrollIntoView()); }
     else window.scrollTo(0, 0);
@@ -182,7 +193,28 @@
     b.hidden = !html;
   }
 
+  function renderPlaying() {
+    const list = state.games.filter(isPlaying).sort((a, b) => (b.startedAt || '').localeCompare(a.startedAt || ''));
+    $('#playing-card').hidden = list.length === 0;
+    $('#playing-count').textContent = list.length > 1 ? `${list.length} giochi` : '';
+    $('#playing-list').innerHTML = list.map((g) => `
+      <div class="playing-item">
+        <button type="button" class="playing-open clickable" data-id="${esc(g.id)}" aria-label="Apri ${esc(g.title)}">
+          ${coverHTML(g.cover, g.title, 'md')}
+          <span class="playing-text">
+            <span class="playing-title">${esc(g.title)}</span>
+            <span class="playing-sub">${esc([g.console, g.hours ? `${fmt1.format(g.hours)} h finora` : ''].filter(Boolean).join(' · '))}</span>
+          </span>
+        </button>
+        <div class="playing-actions">
+          <button type="button" class="btn small" data-action="hours-playing" data-id="${esc(g.id)}">⏱ Ore</button>
+          <button type="button" class="btn small primary" data-action="finish-playing" data-id="${esc(g.id)}">✔ Finito</button>
+        </div>
+      </div>`).join('');
+  }
+
   function renderAll() {
+    renderPlaying();
     renderStats();
     renderChart();
     renderHomeLists();
@@ -190,11 +222,12 @@
     renderUpcoming();
     renderBacklog();
     renderDatalists();
+    if (document.body.dataset.view === 'statistiche' && state.profile) renderStatsView();
   }
 
   // ---------- HOME ----------
   function renderStats() {
-    const g = state.games;
+    const g = finishedGames();
     const scored = g.filter((x) => x.score != null);
     const avg = scored.length ? scored.reduce((a, x) => a + x.score, 0) / scored.length : null;
     const hours = g.reduce((a, x) => a + (x.hours || 0), 0);
@@ -209,7 +242,7 @@
 
   function yearCounts() {
     const counts = new Map();
-    state.games.forEach((x) => {
+    finishedGames().forEach((x) => {
       if (x.playedYear) counts.set(x.playedYear, (counts.get(x.playedYear) || 0) + 1);
     });
     if (!counts.size) return [];
@@ -359,7 +392,7 @@
   // ---------- CLASSIFICA ----------
   // posizione in classifica sempre basata sul voto (a pari voto, stessa posizione)
   function rankedGames() {
-    const sorted = state.games.slice().sort((a, b) => (b.score ?? -1) - (a.score ?? -1) || collator.compare(a.title, b.title));
+    const sorted = finishedGames().sort((a, b) => (b.score ?? -1) - (a.score ?? -1) || collator.compare(a.title, b.title));
     let lastScore = null, lastRank = 0;
     return sorted.map((g, i) => {
       if (g.score !== lastScore) { lastRank = i + 1; lastScore = g.score; }
@@ -381,7 +414,7 @@
   function renderRanking() {
     const ranks = new Map(rankedGames().map(({ g, rank }) => [g.id, rank]));
     const q = state.search.trim().toLowerCase();
-    let list = state.games.filter((g) => {
+    let list = finishedGames().filter((g) => {
       if (state.statusFilter && g.status !== state.statusFilter) return false;
       if (state.favOnly && !g.favorite) return false;
       if (!q) return true;
@@ -405,7 +438,7 @@
 
     const empty = $('#ranking-empty');
     empty.hidden = list.length > 0;
-    empty.textContent = !state.games.length ? 'La classifica è vuota. Aggiungi il tuo primo gioco!'
+    empty.textContent = !finishedGames().length ? 'La classifica è vuota. Aggiungi il tuo primo gioco!'
       : state.favOnly && !state.games.some((g) => g.favorite) ? 'Nessun preferito ancora: tocca la stella ☆ accanto a un gioco.'
         : 'Nessun gioco corrisponde alla ricerca.';
     $('#fav-filter').setAttribute('aria-pressed', String(state.favOnly));
@@ -522,10 +555,19 @@
     ['title', 'cover', 'developer', 'genre', 'franchise', 'console', 'score', 'hours', 'status', 'releaseYear', 'playedYear', 'review']
       .forEach((k) => { if (f.elements[k]) f.elements[k].value = src[k] ?? ''; });
     if (!f.elements.status.value) f.elements.status.value = 'Completato';
+    updateScoreRequired();
     resetLookup('game');
     $('#game-dialog').showModal();
     // per un gioco nuovo con titolo già noto (es. da "In uscita"), cerca subito i dati
     if (!game && src.title) runLookup('game');
+  }
+
+  function updateScoreRequired() {
+    const f = $('#game-form').elements;
+    const playing = f.status.value === PLAYING;
+    f.score.required = !playing;
+    f.score.placeholder = playing ? 'lo darai quando lo finisci' : '';
+    $('#score-label-text').textContent = playing ? 'Voto (0–100)' : 'Voto (0–100) *';
   }
 
   function readGameForm() {
@@ -555,6 +597,7 @@
     const editingId = state.editingGameId;
     const removeUpcomingId = state.pendingUpcomingToRemove;
     const removeBacklogId = state.pendingBacklogToRemove;
+    if (data.status === PLAYING) data.startedAt = state.games.find((g) => g.id === editingId)?.startedAt || todayISO();
     setBusy(true, 'Salvataggio in corso…');
     try {
       if (editingId) {
@@ -600,7 +643,7 @@
         <span class="score big ${scoreClass(g.score)}">${g.score ?? '–'}</span>
         <div>
           <div>${statusChip(g.status)}</div>
-          <div class="muted">#${rank} in classifica</div>
+          <div class="muted">${isPlaying(g) ? (g.startedAt ? `Iniziato il ${fmtDate.format(new Date(g.startedAt + 'T00:00'))}` : 'Non ancora finito') : `#${rank} in classifica`}</div>
           <div id="detail-star" class="detail-star">${starButton(g)}</div>
         </div>
       </div>
@@ -744,7 +787,8 @@
           <div class="up-side">
             <a class="hltb-link" href="${hltbUrl(b.title)}" target="_blank" rel="noopener" title="Apri su HowLongToBeat">⏱ HLTB ↗</a>
             <div class="up-actions">
-              <button class="btn small" data-action="start-backlog" data-id="${esc(b.id)}" title="L'hai giocato? Spostalo nella libreria">✔ Giocato</button>
+              <button class="btn small primary" data-action="play-backlog" data-id="${esc(b.id)}" title="Inizia a giocarlo: va tra i giochi in corso">▶ Inizia</button>
+              <button class="btn small" data-action="start-backlog" data-id="${esc(b.id)}" title="L'hai già finito? Spostalo nella libreria">✔ Giocato</button>
               <button class="btn ghost small" data-action="edit-backlog" data-id="${esc(b.id)}">Modifica</button>
             </div>
           </div>
@@ -827,6 +871,315 @@
       $('#backlog-dialog').close();
       renderAll();
       toast('Tolto dal backlog');
+    } catch (err) {
+      toast(err.message, 'error');
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  // ---------- IN CORSO ----------
+  async function startPlayingFromBacklog(id) {
+    const b = state.backlog.find((x) => x.id === id);
+    if (!b || state.busy) return;
+    if (!Storage.canWrite()) { toast('Per salvare serve il token GitHub (⚙ Impostazioni).', 'error'); return; }
+    setBusy(true, 'Lo sposto tra i giochi in corso…');
+    try {
+      const now = new Date().toISOString();
+      const game = {
+        id: uid(), title: b.title, cover: b.cover || '', developer: '', genre: '', franchise: '', console: b.console || '',
+        score: null, hours: null, status: PLAYING, releaseYear: null, playedYear: new Date().getFullYear(),
+        review: '', startedAt: todayISO(), createdAt: now, updatedAt: now,
+      };
+      state.games = await save('games', (list) => { list.push(game); return list; }, `Iniziato: ${b.title}`);
+      state.backlog = await save('backlog', (list) => list.filter((x) => x.id !== id), `Dal backlog a in corso: ${b.title}`);
+      renderAll();
+      toast(`“${b.title}” è tra i giochi in corso. Buon divertimento! 🎮`);
+    } catch (err) {
+      toast(err.message, 'error');
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  function finishPlaying(id) {
+    const g = state.games.find((x) => x.id === id);
+    if (!g) return;
+    openGameForm(g);
+    const f = $('#game-form').elements;
+    $('#game-form-title').textContent = `Hai finito ${g.title}?`;
+    f.status.value = 'Completato';
+    f.playedYear.value = new Date().getFullYear();
+    updateScoreRequired();
+    setTimeout(() => f.score.focus(), 50);
+  }
+
+  async function updatePlayingHours(id) {
+    const g = state.games.find((x) => x.id === id);
+    if (!g || state.busy) return;
+    if (!Storage.canWrite()) { toast('Per salvare serve il token GitHub (⚙ Impostazioni).', 'error'); return; }
+    const answer = prompt(`Quante ore hai giocato finora a “${g.title}”?`, g.hours ?? '');
+    if (answer == null) return;
+    const hours = num(String(answer).replace(',', '.'));
+    if (hours == null || hours < 0) { toast('Scrivi un numero di ore valido.', 'error'); return; }
+    setBusy(true);
+    try {
+      state.games = await save('games', (list) => list.map((x) => (x.id === id ? { ...x, hours, updatedAt: new Date().toISOString() } : x)), `Ore aggiornate: ${g.title}`);
+      renderAll();
+      toast(`${fmt1.format(hours)} h su “${g.title}” ✔`);
+    } catch (err) {
+      toast(err.message, 'error');
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  // ---------- STATISTICHE: helper ----------
+  const ROMAN = { i: 1, ii: 2, iii: 3, iv: 4, v: 5, vi: 6, vii: 7, viii: 8, ix: 9, x: 10, xi: 11, xii: 12, xiii: 13, xiv: 14, xv: 15, xvi: 16 };
+  // chiave per riconoscere lo stesso gioco in due profili: "The Last of Us Parte 1" = "The Last Of Us Part I"
+  const sameGameKey = (t) => {
+    const base = Lookup.baseTitle(t || '') || t || '';
+    const words = base.toLowerCase().replace(/[’']/g, '').split(/[^\p{L}\p{N}]+/u).filter(Boolean)
+      .map((w) => (w === 'parte' ? 'part' : ROMAN[w] ? String(ROMAN[w]) : w));
+    return Lookup.norm(words.join(' '));
+  };
+  const sum = (arr, f) => arr.reduce((a, x) => a + (f(x) || 0), 0);
+  const avgScore = (arr) => {
+    const sc = arr.filter((g) => g.score != null);
+    return sc.length ? sum(sc, (g) => g.score) / sc.length : null;
+  };
+  function topBy(arr, field) {
+    const m = new Map();
+    arr.forEach((g) => {
+      const k = (g[field] || '').trim();
+      if (!k) return;
+      const e = m.get(k.toLowerCase()) || { name: k, count: 0, hours: 0 };
+      e.count += 1; e.hours += g.hours || 0;
+      m.set(k.toLowerCase(), e);
+    });
+    return [...m.values()].sort((a, b) => b.count - a.count || b.hours - a.hours)[0] || null;
+  }
+  function hbar(label, value, max, extra = '') {
+    const pct = max ? Math.max(value ? 4 : 0, Math.round((value / max) * 100)) : 0;
+    return `<div class="hbar"><span class="hbar-label">${label}</span><span class="hbar-track"><span class="hbar-fill" style="width:${pct}%"></span></span><span class="hbar-value">${value}${extra}</span></div>`;
+  }
+
+  function renderStatsView() {
+    $$('[data-stats-tab]').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.statsTab === state.statsTab)));
+    $('#stats-anno').hidden = state.statsTab !== 'anno';
+    $('#stats-confronto').hidden = state.statsTab !== 'confronto';
+    if (state.statsTab === 'anno') renderRecap(); else renderCompare();
+  }
+
+  // ---------- RIEPILOGO DELL'ANNO ----------
+  function recapYears() {
+    const ys = new Set(finishedGames().map((g) => g.playedYear).filter(Boolean));
+    ys.add(new Date().getFullYear());
+    return [...ys].sort((a, b) => b - a);
+  }
+
+  function renderRecap() {
+    const years = recapYears();
+    if (!state.recapYear || !years.includes(state.recapYear)) {
+      const cur = new Date().getFullYear();
+      state.recapYear = finishedGames().some((g) => g.playedYear === cur) ? cur : (years.find((y) => finishedGames().some((g) => g.playedYear === y)) || cur);
+    }
+    const Y = state.recapYear;
+    $('#recap-year').innerHTML = years.map((y) => `<option value="${y}" ${y === Y ? 'selected' : ''}>${y}</option>`).join('');
+    $('#year-prev').disabled = years.indexOf(Y) === years.length - 1;
+    $('#year-next').disabled = years.indexOf(Y) === 0;
+
+    const games = finishedGames().filter((g) => g.playedYear === Y);
+    const prev = finishedGames().filter((g) => g.playedYear === Y - 1);
+    const el = $('#recap');
+    if (!games.length) {
+      el.innerHTML = `<div class="card empty-state"><div class="big-emoji">🎮</div><p>Nessun gioco finito nel ${Y}.</p>
+        <p class="muted">I giochi contano nell'anno in cui li hai giocati (campo “Anno in cui l'hai giocato”).</p></div>`;
+      return;
+    }
+    const hours = sum(games, (g) => g.hours);
+    const avg = avgScore(games);
+    const plat = games.filter((g) => g.status === 'Platinato').length;
+    const dropped = games.filter((g) => g.status === 'Abbandonato').length;
+    const delta = games.length - prev.length;
+    const deltaTxt = prev.length ? (delta === 0 ? `come nel ${Y - 1}` : `${delta > 0 ? '▲' : '▼'} ${Math.abs(delta)} rispetto al ${Y - 1}`) : '';
+    const ranked = games.slice().sort((a, b) => (b.score ?? -1) - (a.score ?? -1) || (b.favorite ? 1 : 0) - (a.favorite ? 1 : 0) || (b.hours || 0) - (a.hours || 0));
+    const goty = ranked[0];
+    const longest = games.filter((g) => g.hours).sort((a, b) => b.hours - a.hours)[0];
+    // "la delusione" solo se il voto è davvero basso
+    const worst = ranked.filter((g) => g.score != null && g.score < 60 && g.id !== goty.id).slice(-1)[0] || null;
+    const cons = topBy(games, 'console');
+    const genre = topBy(games, 'genre');
+    const dev = topBy(games, 'developer');
+    const buckets = [['90–100', 90, 100], ['75–89', 75, 89], ['60–74', 60, 74], ['40–59', 40, 59], ['0–39', 0, 39]]
+      .map(([label, lo, hi]) => ({ label, n: games.filter((g) => g.score != null && g.score >= lo && g.score <= hi).length }));
+    const maxB = Math.max(...buckets.map((b) => b.n));
+
+    const fact = (icon, label, value, sub = '') => (value ? `
+      <div class="fact"><span class="fact-icon" aria-hidden="true">${icon}</span>
+        <span class="fact-text"><span class="fact-label">${label}</span><strong>${value}</strong>${sub ? `<span class="fact-sub">${sub}</span>` : ''}</span></div>` : '');
+
+    el.innerHTML = `
+      <div class="recap-hero">
+        <img src="${avatarUrl(state.profile.avatar)}" alt="" class="recap-avatar">
+        <div><div class="muted small">Il ${Y} di ${esc(state.profile.name)}</div><div class="recap-headline">${games.length} ${games.length === 1 ? 'gioco finito' : 'giochi finiti'}</div>${deltaTxt ? `<div class="muted small">${deltaTxt}</div>` : ''}</div>
+      </div>
+
+      <div class="recap-tiles">
+        <div class="stat"><div class="stat-label">Ore</div><div class="stat-value">${fmtInt.format(Math.round(hours))}</div><div class="stat-sub">≈ ${fmt1.format(hours / 24)} giorni</div></div>
+        <div class="stat"><div class="stat-label">Voto medio</div><div class="stat-value">${avg == null ? '–' : fmt1.format(avg)}</div><div class="stat-sub">su 100</div></div>
+        <div class="stat"><div class="stat-label">Platinati</div><div class="stat-value">${plat}</div><div class="stat-sub">${dropped ? `${dropped} abbandonati` : 'trofei 🏆'}</div></div>
+      </div>
+
+      <div class="card goty clickable" data-id="${esc(goty.id)}">
+        ${coverHTML(goty.cover, goty.title, 'lg')}
+        <div class="goty-text">
+          <div class="goty-label">🏆 Il tuo gioco dell'anno</div>
+          <div class="goty-title">${esc(goty.title)}</div>
+          <div class="muted small">${esc([goty.console, goty.hours ? `${fmt1.format(goty.hours)} h` : ''].filter(Boolean).join(' · '))}</div>
+          <span class="score ${scoreClass(goty.score)}">${goty.score ?? '–'}</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>I numeri del ${Y}</h2>
+        <div class="facts">
+          ${fact('⏳', 'Il più lungo', longest ? esc(longest.title) : '', longest ? `${fmt1.format(longest.hours)} h` : '')}
+          ${fact('🎮', 'Console più usata', cons ? esc(cons.name) : '', cons ? `${cons.count} ${cons.count === 1 ? 'gioco' : 'giochi'}${cons.hours ? ` · ${fmtInt.format(Math.round(cons.hours))} h` : ''}` : '')}
+          ${fact('🧭', 'Genere preferito', genre ? esc(genre.name) : '', genre ? `${genre.count} ${genre.count === 1 ? 'gioco' : 'giochi'}` : '')}
+          ${fact('🏢', 'Sviluppatore più giocato', dev && dev.count > 1 ? esc(dev.name) : '', dev ? `${dev.count} giochi` : '')}
+          ${fact('😬', 'La delusione', worst ? esc(worst.title) : '', worst ? `voto ${worst.score}` : '')}
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Come hai votato</h2>
+        <div class="hbars">${buckets.map((b) => hbar(b.label, b.n, maxB)).join('')}</div>
+      </div>
+
+      <div class="card">
+        <h2>Classifica del ${Y}</h2>
+        <ol class="mini-list">${ranked.slice(0, 10).map((g, i) => `
+          <li class="mini-item clickable" data-id="${esc(g.id)}">
+            <span class="mini-rank">${i + 1}</span>
+            ${coverHTML(g.cover, g.title, 'xs')}
+            <span class="mini-main"><span class="mini-title">${g.favorite ? '<span class="fav-mark">★</span> ' : ''}${esc(g.title)}</span><span class="mini-sub">${esc([g.console, g.status].filter(Boolean).join(' · '))}</span></span>
+            <span class="score ${scoreClass(g.score)}">${g.score ?? '–'}</span>
+          </li>`).join('')}</ol>
+      </div>`;
+  }
+
+  // ---------- CONFRONTO TRA PROFILI ----------
+  async function loadProfileGames(user) {
+    const c = state.compareCache[user.id];
+    if (c && Date.now() - c.at < 60000) return c.games;
+    const r = await Storage.load(`${user.dir}/games.json`);
+    const games = r.data.filter((g) => !isPlaying(g));
+    state.compareCache[user.id] = { games, at: Date.now() };
+    return games;
+  }
+
+  async function renderCompare() {
+    const el = $('#compare');
+    const others = visibleUsers().filter((u) => u.id !== state.profile.id);
+    $('.compare-pick').hidden = others.length === 0;
+    if (!others.length) {
+      el.innerHTML = `<div class="card empty-state"><div class="big-emoji">👥</div><p>Serve almeno un altro profilo per fare un confronto.</p>
+        <p class="muted">Aggiungilo dalla schermata dei profili (tocca il tuo avatar in alto).</p></div>`;
+      return;
+    }
+    if (!others.some((u) => u.id === state.compareWith)) state.compareWith = others[0].id;
+    $('#compare-with').innerHTML = others.map((u) => `<option value="${esc(u.id)}" ${u.id === state.compareWith ? 'selected' : ''}>${esc(u.name)}</option>`).join('');
+    const other = others.find((u) => u.id === state.compareWith);
+    el.innerHTML = '<p class="muted">Caricamento…</p>';
+    let theirs;
+    try { theirs = await loadProfileGames(other); } catch (err) { el.innerHTML = `<p class="muted">⚠️ ${esc(err.message)}</p>`; return; }
+    if (state.statsTab !== 'confronto' || state.compareWith !== other.id) return; // nel frattempo è cambiato qualcosa
+
+    const mine = finishedGames();
+    const me = state.profile;
+    const theirMap = new Map(theirs.map((g) => [sameGameKey(g.title), g]));
+    const common = mine.map((g) => ({ a: g, b: theirMap.get(sameGameKey(g.title)) })).filter((x) => x.b);
+    const scored = common.filter((x) => x.a.score != null && x.b.score != null);
+    const affinity = scored.length ? Math.max(0, Math.round(100 - sum(scored, (x) => Math.abs(x.a.score - x.b.score)) / scored.length)) : null;
+    const affinityTxt = affinity == null ? 'Nessun gioco in comune con un voto, per ora.'
+      : affinity >= 90 ? 'Gusti quasi identici 🤝' : affinity >= 80 ? 'Andate molto d\'accordo' : affinity >= 65 ? 'Spesso d\'accordo, a volte no' : 'Gusti piuttosto diversi ⚔️';
+
+    const mineKeys = new Set([...state.games, ...state.backlog].map((g) => sameGameKey(g.title)));
+    const tips = theirs.filter((g) => (g.score ?? 0) >= 80 && !mineKeys.has(sameGameKey(g.title)))
+      .sort((a, b) => b.score - a.score).slice(0, 8);
+    state.compareTips = tips;
+
+    const rows = [
+      ['Giochi giocati', mine.length, theirs.length, (v) => fmtInt.format(v)],
+      ['Ore totali', sum(mine, (g) => g.hours), sum(theirs, (g) => g.hours), (v) => fmtInt.format(Math.round(v))],
+      ['Voto medio', avgScore(mine), avgScore(theirs), (v) => (v == null ? '–' : fmt1.format(v))],
+      ['Platinati', mine.filter((g) => g.status === 'Platinato').length, theirs.filter((g) => g.status === 'Platinato').length, (v) => fmtInt.format(v)],
+      ['Preferiti ★', mine.filter((g) => g.favorite).length, theirs.filter((g) => g.favorite).length, (v) => fmtInt.format(v)],
+    ];
+    const vsRow = ([label, a, b, f]) => {
+      const total = (a || 0) + (b || 0);
+      const pa = total ? Math.round(((a || 0) / total) * 100) : 50;
+      return `<div class="vs-row">
+        <div class="vs-values"><strong class="${(a || 0) > (b || 0) ? 'win' : ''}">${f(a)}</strong><span class="vs-label">${label}</span><strong class="${(b || 0) > (a || 0) ? 'win' : ''}">${f(b)}</strong></div>
+        <div class="vs-bar"><span class="vs-a" style="width:${pa}%"></span><span class="vs-b" style="width:${100 - pa}%"></span></div>
+      </div>`;
+    };
+    common.sort((x, y) => ((y.a.score ?? 0) + (y.b.score ?? 0)) - ((x.a.score ?? 0) + (x.b.score ?? 0)));
+
+    el.innerHTML = `
+      <div class="card vs-head">
+        <div class="vs-player a"><img src="${avatarUrl(me.avatar)}" alt=""><span>${esc(me.name)}</span></div>
+        <div class="vs-affinity">
+          <div class="vs-pct">${affinity == null ? '–' : `${affinity}%`}</div>
+          <div class="muted small">affinità</div>
+        </div>
+        <div class="vs-player b"><img src="${avatarUrl(other.avatar)}" alt=""><span>${esc(other.name)}</span></div>
+        <div class="vs-caption">${affinityTxt}${scored.length ? `<span class="muted small"> · su ${scored.length} ${scored.length === 1 ? 'gioco' : 'giochi'} in comune</span>` : ''}</div>
+      </div>
+
+      <div class="card">${rows.map(vsRow).join('')}</div>
+
+      <div class="card">
+        <h2>Giochi in comune <span class="muted">(${common.length})</span></h2>
+        ${common.length ? `<div class="common-head"><span></span><span>${esc(me.name)}</span><span>${esc(other.name)}</span></div>
+        <ol class="mini-list">${common.map(({ a, b }) => {
+          const d = a.score != null && b.score != null ? a.score - b.score : null;
+          return `<li class="mini-item common-item">
+            ${coverHTML(a.cover || b.cover, a.title, 'xs')}
+            <span class="mini-main"><span class="mini-title">${esc(a.title)}</span>${d != null && Math.abs(d) >= 15 ? `<span class="mini-sub disagree">${Math.abs(d)} punti di differenza</span>` : ''}</span>
+            <span class="score ${scoreClass(a.score)}">${a.score ?? '–'}</span>
+            <span class="score ${scoreClass(b.score)}">${b.score ?? '–'}</span>
+          </li>`;
+        }).join('')}</ol>` : '<p class="muted">Nessun gioco in comune, per ora.</p>'}
+      </div>
+
+      <div class="card">
+        <h2>Consigliati da ${esc(other.name)}</h2>
+        <p class="muted small">I giochi che ha votato almeno 80 e che non hai né in libreria né nel backlog.</p>
+        ${tips.length ? `<ol class="mini-list">${tips.map((g, i) => `
+          <li class="mini-item">
+            ${coverHTML(g.cover, g.title, 'xs')}
+            <span class="mini-main"><span class="mini-title">${esc(g.title)}</span><span class="mini-sub">${esc([g.console, g.genre].filter(Boolean).join(' · '))}</span></span>
+            <span class="score ${scoreClass(g.score)}">${g.score}</span>
+            <button type="button" class="btn small" data-action="compare-to-backlog" data-id="${i}" title="Aggiungi al tuo backlog">+ Backlog</button>
+          </li>`).join('')}</ol>` : '<p class="muted">Nessun consiglio: hai già tutti i suoi giochi migliori!</p>'}
+      </div>`;
+  }
+
+  async function addToBacklogFromCompare(i) {
+    const g = (state.compareTips || [])[Number(i)];
+    if (!g || state.busy) return;
+    if (!Storage.canWrite()) { toast('Per salvare serve il token GitHub (⚙ Impostazioni).', 'error'); return; }
+    setBusy(true);
+    try {
+      state.backlog = await save('backlog', (list) => {
+        list.push({ id: uid(), title: g.title, cover: g.cover || '', console: g.console || '', notes: '', time: null, addedAt: new Date().toISOString() });
+        return list;
+      }, `Aggiunto al backlog: ${g.title}`);
+      renderAll();
+      renderCompare();
+      toast(`“${g.title}” aggiunto al tuo backlog ✔`);
     } catch (err) {
       toast(err.message, 'error');
     } finally {
@@ -1026,6 +1379,8 @@
       $('#search').value = '';
       $('#filter-status').value = '';
       state.favOnly = false;
+      state.recapYear = null;
+      state.compareWith = null;
       renderAll();
       loadAll();
     }
@@ -1208,7 +1563,22 @@
 
     // opzioni stato
     const statusOpts = STATUSES.map((s) => `<option value="${s}">${STATUS_HINT[s]}</option>`).join('');
-    $('#game-form').elements.status.innerHTML = statusOpts;
+    $('#game-form').elements.status.innerHTML = `<option value="${PLAYING}">${STATUS_HINT[PLAYING]}</option>` + statusOpts;
+    $('#game-form').elements.status.addEventListener('change', updateScoreRequired);
+    $$('[data-stats-tab]').forEach((b) => b.addEventListener('click', () => {
+      state.statsTab = b.dataset.statsTab;
+      try { localStorage.setItem('tgl-stats-tab', state.statsTab); } catch { /* ignore */ }
+      renderStatsView();
+    }));
+    $('#recap-year').addEventListener('change', (e) => { state.recapYear = Number(e.target.value); renderRecap(); });
+    const stepYear = (dir) => {
+      const ys = recapYears(); const i = ys.indexOf(state.recapYear);
+      const next = ys[i - dir];
+      if (next) { state.recapYear = next; renderRecap(); }
+    };
+    $('#year-prev').addEventListener('click', () => stepYear(-1));
+    $('#year-next').addEventListener('click', () => stepYear(1));
+    $('#compare-with').addEventListener('change', (e) => { state.compareWith = e.target.value; renderCompare(); });
     $('#filter-status').insertAdjacentHTML('beforeend', STATUSES.map((s) => `<option value="${s}">${s}</option>`).join(''));
 
     document.addEventListener('click', (e) => {
@@ -1220,6 +1590,10 @@
         if (action === 'add-upcoming') { closeFabMenu(); openUpcomingForm(); }
         if (action === 'add-backlog') { closeFabMenu(); openBacklogForm(); }
         if (action === 'edit-backlog') openBacklogForm(state.backlog.find((b) => b.id === id));
+        if (action === 'play-backlog') startPlayingFromBacklog(id);
+        if (action === 'finish-playing') finishPlaying(id);
+        if (action === 'hours-playing') updatePlayingHours(id);
+        if (action === 'compare-to-backlog') addToBacklogFromCompare(id);
         if (action === 'start-backlog') {
           const b = state.backlog.find((x) => x.id === id);
           state.pendingBacklogToRemove = id;
@@ -1359,6 +1733,10 @@
   }
 
   function init() {
+    try {
+      const t = localStorage.getItem('tgl-stats-tab');
+      if (t === 'anno' || t === 'confronto') state.statsTab = t;
+    } catch { /* ignore */ }
     try {
       const bs = localStorage.getItem('tgl-backlog-sort');
       if (bs) { state.backlogSort = bs; $('#backlog-sort').value = bs; }
