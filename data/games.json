@@ -683,5 +683,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:43:19.484Z",
     "updatedAt": "2026-11-13T19:43:19.484Z"
+  },
+  {
+    "id": "a2d5ff10-51b1-4ad9-8d05-73e4e7eec9da",
+    "title": "Dirt Rally 2.0",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/9/90/Dirt_Rally_2.0_artwork.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Codemaster",
+    "genre": "Corse",
+    "franchise": "Dirt",
+    "console": "Ps4",
+    "score": 73,
+    "hours": 3,
+    "status": "Completato",
+    "releaseYear": 2019,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-13T19:44:41.758Z",
+    "updatedAt": "2026-11-13T19:44:41.758Z"
   }
 ]
