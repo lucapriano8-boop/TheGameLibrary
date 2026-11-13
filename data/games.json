@@ -1091,5 +1091,22 @@
     "review": "",
     "createdAt": "2026-11-13T21:01:53.911Z",
     "updatedAt": "2026-11-13T21:01:53.911Z"
+  },
+  {
+    "id": "9ab3bb7c-2a89-4596-b9fd-5fc47bc1d466",
+    "title": "God of War Ragnarok",
+    "cover": "",
+    "developer": "Santa Monica",
+    "genre": "Action-adventure",
+    "franchise": "God of War",
+    "console": "Ps5",
+    "score": 96,
+    "hours": 94,
+    "status": "Platinato",
+    "releaseYear": 2022,
+    "playedYear": 2022,
+    "review": "",
+    "createdAt": "2026-11-13T21:02:59.284Z",
+    "updatedAt": "2026-11-13T21:02:59.284Z"
   }
 ]
