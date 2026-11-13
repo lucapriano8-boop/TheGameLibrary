@@ -100,5 +100,22 @@
     "review": "",
     "createdAt": "2026-11-13T17:51:54.856Z",
     "updatedAt": "2026-11-13T17:51:54.856Z"
+  },
+  {
+    "id": "c9eea810-d828-46c1-a02d-bf2639ad8f7a",
+    "title": "Kingdom Hearts",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/8/85/Kingdom_Hearts.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Square",
+    "genre": "Action RPG",
+    "franchise": "Kingdom Hearts",
+    "console": "PC",
+    "score": 95,
+    "hours": 30,
+    "status": "Completato",
+    "releaseYear": 2002,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-13T17:52:49.536Z",
+    "updatedAt": "2026-11-13T17:52:49.536Z"
   }
 ]
