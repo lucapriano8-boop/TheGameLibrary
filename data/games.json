@@ -785,5 +785,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:49:53.769Z",
     "updatedAt": "2026-11-13T19:49:53.769Z"
+  },
+  {
+    "id": "bf26c107-a1f7-4233-964c-e1b867db5436",
+    "title": "EA SPORTS FC™ 24",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/b/b3/EA_FC24_Cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "EA Vancouver",
+    "genre": "Association football",
+    "franchise": "Fifa",
+    "console": "Ps5",
+    "score": 80,
+    "hours": 14,
+    "status": "Completato",
+    "releaseYear": 2023,
+    "playedYear": 2024,
+    "review": "",
+    "createdAt": "2026-11-13T19:50:34.259Z",
+    "updatedAt": "2026-11-13T19:50:34.259Z"
   }
 ]
