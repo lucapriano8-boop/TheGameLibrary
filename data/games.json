@@ -424,5 +424,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:23:16.967Z",
     "updatedAt": "2026-11-13T19:23:16.967Z"
+  },
+  {
+    "id": "e89c6958-3321-4a39-a943-9841b8f96437",
+    "title": "Call of Duty: Vanguard",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/0/06/Call_of_Duty_Vanguard_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Activision",
+    "genre": "Sparatutto",
+    "franchise": "Call of Duty",
+    "console": "Ps5",
+    "score": 68,
+    "hours": 13,
+    "status": "Giocato",
+    "releaseYear": 2021,
+    "playedYear": 2022,
+    "review": "",
+    "createdAt": "2026-11-13T19:25:44.341Z",
+    "updatedAt": "2026-11-13T19:25:44.341Z"
   }
 ]
