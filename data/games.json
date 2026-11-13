@@ -544,5 +544,22 @@
     "createdAt": "2026-11-13T19:33:53.128Z",
     "updatedAt": "2026-11-13T19:33:53.128Z",
     "favorite": true
+  },
+  {
+    "id": "1650cbc2-9636-4e33-a640-e5437ead3b88",
+    "title": "Dark Souls III",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/b/bb/Dark_souls_3_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "From Software",
+    "genre": "Action RPG",
+    "franchise": "Dark Souls",
+    "console": "Ps4",
+    "score": 97,
+    "hours": 134,
+    "status": "Platinato",
+    "releaseYear": 2016,
+    "playedYear": 2019,
+    "review": "",
+    "createdAt": "2026-11-13T19:34:33.821Z",
+    "updatedAt": "2026-11-13T19:34:33.821Z"
   }
 ]
