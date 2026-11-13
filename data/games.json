@@ -1159,5 +1159,22 @@
     "review": "",
     "createdAt": "2026-11-13T21:06:23.653Z",
     "updatedAt": "2026-11-13T21:06:23.653Z"
+  },
+  {
+    "id": "586e710d-b162-4bbb-a194-832f02f85439",
+    "title": "Heavy Rain",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/c/c1/Heavy_Rain_Cover_Art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Quantic Dream, Virtuos",
+    "genre": "Interactive film",
+    "franchise": "Heavy Rain",
+    "console": "Ps4",
+    "score": 85,
+    "hours": 13,
+    "status": "Completato",
+    "releaseYear": 2010,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-13T21:07:51.213Z",
+    "updatedAt": "2026-11-13T21:07:51.213Z"
   }
 ]
