@@ -322,5 +322,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:15:54.999Z",
     "updatedAt": "2026-11-13T19:15:54.999Z"
+  },
+  {
+    "id": "152da600-97a8-451e-a20c-5d2106a3dc83",
+    "title": "Assassin’s Creed Shadows",
+    "cover": "",
+    "developer": "Ubisoft",
+    "genre": "Action-adventure",
+    "franchise": "Assassin’s Creed",
+    "console": "Ps5",
+    "score": 86,
+    "hours": 63,
+    "status": "Completato",
+    "releaseYear": 2025,
+    "playedYear": 2025,
+    "review": "",
+    "createdAt": "2026-11-13T19:16:50.819Z",
+    "updatedAt": "2026-11-13T19:16:50.819Z"
   }
 ]
