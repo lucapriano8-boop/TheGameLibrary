@@ -921,5 +921,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:54:42.195Z",
     "updatedAt": "2026-11-13T19:54:42.195Z"
+  },
+  {
+    "id": "acf9c28b-3ffe-49a9-a217-a78f2214fee5",
+    "title": "F1 23",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/5/5b/F1_23_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Codemasters",
+    "genre": "Racing",
+    "franchise": "F1",
+    "console": "Ps5",
+    "score": 78,
+    "hours": 10,
+    "status": "Completato",
+    "releaseYear": 2023,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-13T19:55:06.868Z",
+    "updatedAt": "2026-11-13T19:55:06.868Z"
   }
 ]
