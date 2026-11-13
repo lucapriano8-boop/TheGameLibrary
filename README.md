@@ -3,6 +3,8 @@
 La mia libreria digitale personale dei videogiochi giocati.
 
 - **Profili in stile Netflix**: all'apertura scegli chi gioca. Ogni profilo ha la sua libreria e la sua lista di uscite. I profili si creano, rinominano ed eliminano dal sito ("Gestisci profili"), con 16 avatar pixel art tra cui scegliere.
+- **Backlog**: nella pagina "In uscita", sotto le uscite, la lista dei giochi che vuoi giocare, con il tempo per finirli (storia, storia + extra, completista) e il totale delle ore. Il pulsante **⏱ HLTB** apre la pagina di HowLongToBeat del gioco da cui copiare i tempi; **✔ Giocato** sposta il gioco nella libreria.
+- **Preferiti**: tocca la stella ☆ accanto a un gioco (in classifica o nella sua scheda) per segnarlo come preferito; il filtro **★ Preferiti** in classifica mostra solo quelli.
 - **Home**: voto medio, ore totali, numero di giochi, grafico dei giochi giocati per anno, Top 5 e prossime uscite.
 - **Classifica**: tutti i giochi, ordinati per voto (o per titolo, stato, ore, anno giocato, anno di uscita, console). Ricerca e filtro per stato. Clicca un gioco per vederne i dettagli, modificarlo o eliminarlo.
 - **In uscita**: giochi futuri con la data di uscita, in ordine cronologico con conto alla rovescia. Quando un gioco è uscito, il pulsante **+ Libreria** lo sposta nella libreria.
@@ -24,7 +26,8 @@ Ogni volta che aggiungi, modifichi o elimini qualcosa dal sito viene creato un *
 ### Con i profili
 - `data/users.json`: l'elenco dei profili (nome, avatar, cartella dei dati)
 - il **primo profilo** creato usa `data/games.json` e `data/upcoming.json` (i giochi inseriti prima dei profili)
-- gli altri profili hanno la loro cartella: `data/users/<id>/games.json` e `data/users/<id>/upcoming.json`
+- gli altri profili hanno la loro cartella: `data/users/<id>/games.json`, `upcoming.json` e `backlog.json`
+- il backlog del primo profilo è in `data/backlog.json` (i file del backlog vengono creati al primo gioco aggiunto)
 
 Eliminare un profilo lo nasconde dal sito, ma i suoi file restano nella repository: per recuperarlo basta togliere `"deleted": true` dalla sua voce in `data/users.json`.
 

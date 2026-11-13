@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>The Game Library</title>
   <meta name="description" content="La mia libreria personale dei videogiochi giocati.">
-  <meta name="theme-color" content="#0b0e14">
+  <meta name="theme-color" content="#1a1f2c">
   <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -86,6 +86,11 @@
             <a href="#uscite" class="link">Vedi tutte →</a>
           </div>
           <ol id="home-upcoming" class="mini-list"></ol>
+          <div class="card-head sub-head">
+            <h2>Backlog</h2>
+            <a href="#uscite" class="link" data-scroll="backlog">Vedi tutto →</a>
+          </div>
+          <ol id="home-backlog" class="mini-list"></ol>
         </div>
       </div>
 
@@ -125,6 +130,7 @@
             <option value="">Tutti</option>
           </select>
         </label>
+        <button type="button" class="btn ghost fav-filter" id="fav-filter" aria-pressed="false" title="Mostra solo i preferiti">★ Preferiti</button>
       </div>
       <div class="table-wrap">
         <table class="ranking">
@@ -153,6 +159,27 @@
       </div>
       <ol id="upcoming-list" class="upcoming-list"></ol>
       <p id="upcoming-empty" class="empty" hidden>Nessun gioco in uscita. Aggiungine uno!</p>
+
+      <div class="view-head section-head" id="backlog">
+        <div>
+          <h1>Backlog</h1>
+          <p class="muted" id="backlog-summary"></p>
+        </div>
+        <button class="btn primary" data-action="add-backlog">+ Aggiungi al backlog</button>
+      </div>
+      <div class="toolbar" id="backlog-toolbar" hidden>
+        <label class="select-wrap">
+          <span>Ordina per</span>
+          <select id="backlog-sort">
+            <option value="recent">Aggiunti di recente</option>
+            <option value="short">Più corti da finire</option>
+            <option value="long">Più lunghi da finire</option>
+            <option value="title">Titolo</option>
+          </select>
+        </label>
+      </div>
+      <ol id="backlog-list" class="upcoming-list"></ol>
+      <p id="backlog-empty" class="empty" hidden>Il backlog è vuoto. Aggiungi i giochi che vuoi giocare!</p>
     </section>
 
     <!-- IMPOSTAZIONI -->
@@ -214,6 +241,11 @@
   <button class="fab" id="fab" aria-label="Aggiungi">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
   </button>
+
+  <div class="fab-menu" id="fab-menu" hidden>
+    <button type="button" data-action="add-upcoming">📅 Gioco in uscita</button>
+    <button type="button" data-action="add-backlog">🎯 Gioco nel backlog</button>
+  </div>
 
   <nav class="bottom-nav" aria-label="Navigazione">
     <a href="#home" data-view="home">
@@ -342,6 +374,60 @@
         <span class="spacer"></span>
         <button type="button" class="btn ghost" data-close>Annulla</button>
         <button type="submit" class="btn primary" id="upcoming-submit">Salva</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- MODALE: backlog -->
+  <dialog id="backlog-dialog" class="dialog">
+    <form id="backlog-form" class="form" method="dialog">
+      <div class="dialog-head">
+        <h2 id="backlog-form-title">Aggiungi al backlog</h2>
+        <button type="button" class="icon-btn" data-close aria-label="Chiudi">✕</button>
+      </div>
+      <div class="form-grid">
+        <div class="span-2 title-row">
+          <label>Titolo *
+            <input name="title" required maxlength="200" autofocus autocomplete="off">
+          </label>
+          <button type="button" class="btn" data-lookup="backlog">🔍 Cerca dati</button>
+        </div>
+        <div class="span-2 lookup" id="backlog-lookup" hidden></div>
+        <div class="span-2 cover-row">
+          <div class="cover-preview" id="backlog-cover-preview"></div>
+          <label>Copertina <span class="muted">(facoltativa)</span>
+            <input name="cover" type="url" placeholder="https://…" autocomplete="off">
+          </label>
+        </div>
+        <label class="span-2">Console
+          <input name="console" list="dl-console" maxlength="80">
+        </label>
+        <div class="span-2 hltb-box">
+          <div class="hltb-head">
+            <span>⏱ Tempo per finirlo <span class="muted">(ore, da HowLongToBeat)</span></span>
+            <a id="backlog-hltb" class="btn small" href="https://howlongtobeat.com/" target="_blank" rel="noopener">Apri HowLongToBeat ↗</a>
+          </div>
+          <div class="hltb-fields">
+            <label>Storia
+              <input name="time_main" type="number" min="0" step="0.5" inputmode="decimal" placeholder="–">
+            </label>
+            <label>Storia + extra
+              <input name="time_extra" type="number" min="0" step="0.5" inputmode="decimal" placeholder="–">
+            </label>
+            <label>Completista
+              <input name="time_complete" type="number" min="0" step="0.5" inputmode="decimal" placeholder="–">
+            </label>
+          </div>
+        </div>
+        <label class="span-2">Note
+          <textarea name="notes" rows="3" maxlength="2000"></textarea>
+        </label>
+      </div>
+      <div class="form-actions">
+        <button type="button" class="btn danger" id="backlog-delete" hidden>Togli dal backlog</button>
+        <span class="spacer"></span>
+        <button type="button" class="btn ghost" data-close>Annulla</button>
+        <button type="submit" class="btn primary">Salva</button>
       </div>
     </form>
   </dialog>
