@@ -36,6 +36,7 @@
     backlog: [],
     editingBacklogId: null,
     backlogSort: 'recent',
+    favOnly: false,
     busy: false,
   };
 
@@ -80,6 +81,33 @@
     const ph = `<span class="cover ph ${cls}" aria-hidden="true">${esc(initials(title))}</span>`;
     if (!url) return ph;
     return `<img class="cover ${cls}" src="${esc(url)}" alt="" loading="lazy" referrerpolicy="no-referrer" data-ph="${esc(initials(title))}">`;
+  }
+
+  function starButton(g) {
+    const on = Boolean(g.favorite);
+    return `<button type="button" class="star${on ? ' on' : ''}" data-fav="${esc(g.id)}" aria-pressed="${on}"
+      title="${on ? 'Togli dai preferiti' : 'Aggiungi ai preferiti'}" aria-label="${on ? 'Togli dai preferiti' : 'Aggiungi ai preferiti'}">${on ? '★' : '☆'}</button>`;
+  }
+
+  async function toggleFavorite(id) {
+    const g = state.games.find((x) => x.id === id);
+    if (!g) return;
+    if (!Storage.canWrite()) { toast('Per salvare i preferiti serve il token GitHub (⚙ Impostazioni).', 'error'); return; }
+    const value = !g.favorite;
+    const apply = (v) => {
+      state.games = state.games.map((x) => (x.id === id ? { ...x, favorite: v } : x));
+      renderAll();
+      if (state.detailId === id && $('#detail-dialog').open) $('#detail-star').innerHTML = starButton({ id, favorite: v });
+    };
+    apply(value); // la stella cambia subito, il salvataggio avviene in background
+    try {
+      state.games = await save('games', (list) => list.map((x) => (x.id === id ? { ...x, favorite: value } : x)),
+        `${value ? 'Aggiunto ai preferiti' : 'Tolto dai preferiti'}: ${g.title}`);
+      renderAll();
+    } catch (err) {
+      apply(!value);
+      toast(err.message, 'error');
+    }
   }
 
   function toast(msg, type = 'ok') {
@@ -175,7 +203,8 @@
     $('#stat-count').textContent = fmtInt.format(g.length);
     const plat = g.filter((x) => x.status === 'Platinato').length;
     const done = g.filter((x) => x.status === 'Completato').length;
-    $('#stat-count-sub').textContent = g.length ? `${done} completati · ${plat} platinati` : 'in libreria';
+    const fav = g.filter((x) => x.favorite).length;
+    $('#stat-count-sub').textContent = g.length ? `${done} completati · ${plat} platinati${fav ? ` · ${fav} ★` : ''}` : 'in libreria';
   }
 
   function yearCounts() {
@@ -301,7 +330,7 @@
         <li class="mini-item clickable" data-id="${esc(g.id)}">
           <span class="mini-rank">${rank}</span>
           ${coverHTML(g.cover, g.title, 'xs')}
-          <span class="mini-main"><span class="mini-title">${esc(g.title)}</span><span class="mini-sub">${esc(g.console || '')}${g.playedYear ? ' · ' + g.playedYear : ''}</span></span>
+          <span class="mini-main"><span class="mini-title">${g.favorite ? '<span class="fav-mark" title="Preferito">★</span> ' : ''}${esc(g.title)}</span><span class="mini-sub">${esc(g.console || '')}${g.playedYear ? ' · ' + g.playedYear : ''}</span></span>
           <span class="score ${scoreClass(g.score)}">${g.score ?? '–'}</span>
         </li>`).join('')
       : '<li class="empty">Nessun gioco ancora. Premi “+ Aggiungi gioco”.</li>';
@@ -354,6 +383,7 @@
     const q = state.search.trim().toLowerCase();
     let list = state.games.filter((g) => {
       if (state.statusFilter && g.status !== state.statusFilter) return false;
+      if (state.favOnly && !g.favorite) return false;
       if (!q) return true;
       return [g.title, g.developer, g.franchise, g.genre, g.console].some((f) => (f || '').toLowerCase().includes(q));
     });
@@ -364,7 +394,7 @@
     $('#ranking-body').innerHTML = list.map((g) => `
       <tr class="clickable" data-id="${esc(g.id)}">
         <td class="c-rank">${ranks.get(g.id)}</td>
-        <td class="c-title"><div class="title-cell">${coverHTML(g.cover, g.title, 'sm')}<div><span class="t">${esc(g.title)}</span><span class="sub">${esc([g.developer, g.genre].filter(Boolean).join(' · '))}</span></div></div></td>
+        <td class="c-title"><div class="title-cell">${coverHTML(g.cover, g.title, 'sm')}<div class="title-text"><span class="t">${esc(g.title)}${starButton(g)}</span><span class="sub">${esc([g.developer, g.genre].filter(Boolean).join(' · '))}</span></div></div></td>
         <td data-label="Console">${esc(g.console || '—')}</td>
         <td data-label="Stato">${statusChip(g.status)}</td>
         <td class="num" data-label="Ore">${g.hours != null ? fmt1.format(g.hours) : '—'}</td>
@@ -375,7 +405,11 @@
 
     const empty = $('#ranking-empty');
     empty.hidden = list.length > 0;
-    empty.textContent = state.games.length ? 'Nessun gioco corrisponde alla ricerca.' : 'La classifica è vuota. Aggiungi il tuo primo gioco!';
+    empty.textContent = !state.games.length ? 'La classifica è vuota. Aggiungi il tuo primo gioco!'
+      : state.favOnly && !state.games.some((g) => g.favorite) ? 'Nessun preferito ancora: tocca la stella ☆ accanto a un gioco.'
+        : 'Nessun gioco corrisponde alla ricerca.';
+    $('#fav-filter').setAttribute('aria-pressed', String(state.favOnly));
+    $('#fav-filter').classList.toggle('on', state.favOnly);
     $('.ranking').hidden = list.length === 0;
 
     $$('.ranking th[data-sort]').forEach((th) => {
@@ -567,6 +601,7 @@
         <div>
           <div>${statusChip(g.status)}</div>
           <div class="muted">#${rank} in classifica</div>
+          <div id="detail-star" class="detail-star">${starButton(g)}</div>
         </div>
       </div>
       <div class="kv-grid">
@@ -990,6 +1025,7 @@
       state.statusFilter = '';
       $('#search').value = '';
       $('#filter-status').value = '';
+      state.favOnly = false;
       renderAll();
       loadAll();
     }
@@ -1205,6 +1241,8 @@
       if (lk) { runLookup(lk.dataset.lookup); return; }
       const lkClose = e.target.closest('[data-lookup-close]');
       if (lkClose) { lookupState[lkClose.dataset.lookupClose].seq++; $(`#${lkClose.dataset.lookupClose}-lookup`).hidden = true; return; }
+      const favBtn = e.target.closest('[data-fav]');
+      if (favBtn) { toggleFavorite(favBtn.dataset.fav); return; }
       const row = e.target.closest('.clickable[data-id]');
       if (row) openDetail(row.dataset.id);
       if (e.target.closest('[data-close]')) e.target.closest('dialog').close();
@@ -1279,6 +1317,7 @@
 
     $('#search').addEventListener('input', (e) => { state.search = e.target.value; renderRanking(); });
     $('#filter-status').addEventListener('change', (e) => { state.statusFilter = e.target.value; renderRanking(); });
+    $('#fav-filter').addEventListener('click', () => { state.favOnly = !state.favOnly; renderRanking(); });
     $('#sort-key').addEventListener('change', (e) => setSort(e.target.value, false));
     $('#sort-dir').addEventListener('click', () => setSort(state.sortKey, true));
     $$('.ranking th[data-sort]').forEach((th) => th.addEventListener('click', () => setSort(th.dataset.sort)));
