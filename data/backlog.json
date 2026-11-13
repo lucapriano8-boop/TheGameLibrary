@@ -115,5 +115,18 @@
       "complete": null
     },
     "addedAt": "2026-11-13T21:06:57.157Z"
+  },
+  {
+    "id": "0d699a1a-72a8-4ef7-858e-4f08e0a98eb4",
+    "title": "Hades",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/c/cc/Hades_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "",
+    "notes": "",
+    "time": {
+      "main": 24,
+      "extra": null,
+      "complete": null
+    },
+    "addedAt": "2026-11-13T21:07:19.487Z"
   }
 ]
