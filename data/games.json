@@ -14,7 +14,8 @@
     "review": "Clamoroso",
     "createdAt": "2026-11-13T13:11:19.575Z",
     "updatedAt": "2026-11-13T13:41:20.902Z",
-    "cover": ""
+    "cover": "",
+    "favorite": true
   },
   {
     "id": "654e80c3-ef69-4fe8-a883-2b90e84c4c57",
