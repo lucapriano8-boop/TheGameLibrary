@@ -49,7 +49,7 @@ h3 { font-size: .95rem; margin: 18px 0 6px; color: var(--text-2); }
   border-bottom: 1px solid var(--border);
 }
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: -.01em; }
-.brand-icon { font-size: 1.4rem; }
+.brand-icon { width: 34px; height: 34px; border-radius: 9px; display: block; }
 .tabs { display: flex; gap: 4px; }
 .tabs a {
   color: var(--text-2); padding: 8px 12px; border-radius: 10px; font-weight: 550; white-space: nowrap;
@@ -240,12 +240,50 @@ table.simple td, table.simple th { padding: 6px 8px; border-bottom: 1px solid va
 .form-actions.left { justify-content: flex-start; margin-top: 10px; }
 .spacer { flex: 1; }
 
-.detail-top { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+.detail-top { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
 .kv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; }
 .kv { display: flex; flex-direction: column; background: var(--bg-2); border: 1px solid var(--border); border-radius: 10px; padding: 8px 12px; }
 .kv span { color: var(--muted); font-size: .78rem; text-transform: uppercase; letter-spacing: .05em; }
 .kv strong { font-weight: 600; }
 .review { white-space: pre-wrap; background: var(--bg-2); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; margin: 0; color: var(--text); }
+
+/* ---------- copertine ---------- */
+.cover {
+  flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 6px;
+  background: var(--surface-2); border: 1px solid var(--border);
+}
+.cover.ph {
+  background: linear-gradient(135deg, #2a3350, #1a2035); color: var(--text-2);
+  font-weight: 750; font-size: .8rem; letter-spacing: .02em;
+}
+.cover.xs { width: 32px; border-radius: 5px; font-size: .68rem; }
+.cover.sm { width: 40px; }
+.cover.md { width: 60px; border-radius: 8px; font-size: 1rem; }
+.cover.lg { width: 120px; border-radius: 12px; font-size: 1.8rem; box-shadow: var(--shadow); }
+.title-cell { display: flex; align-items: center; gap: 12px; }
+
+/* ---------- ricerca dati nel form ---------- */
+.title-row { display: flex; gap: 10px; align-items: flex-end; }
+.title-row label { flex: 1; }
+.title-row .btn { white-space: nowrap; }
+.lookup {
+  background: var(--bg-2); border: 1px solid var(--border); border-radius: 12px; padding: 8px;
+  display: flex; flex-direction: column; gap: 4px; max-height: 320px; overflow: auto;
+}
+.lookup-msg { color: var(--text-2); font-size: .86rem; padding: 4px 6px; }
+.lookup-item {
+  display: flex; gap: 12px; align-items: center; text-align: left; width: 100%;
+  background: transparent; border: 1px solid transparent; border-radius: 10px; padding: 6px;
+  color: var(--text); font: inherit; cursor: pointer;
+}
+.lookup-item:hover, .lookup-item:focus-visible { background: var(--surface-2); border-color: var(--border); outline: none; }
+.lookup-main { display: flex; flex-direction: column; min-width: 0; }
+.lookup-title { font-weight: 650; }
+.lookup-sub { color: var(--muted); font-size: .8rem; }
+.lookup .btn { align-self: flex-start; margin: 4px 6px; }
+.cover-row { display: flex; gap: 14px; align-items: center; }
+.cover-row label { flex: 1; }
 
 /* ---------- toast ---------- */
 .toast {
@@ -291,5 +329,6 @@ table.simple td, table.simple th { padding: 6px 8px; border-bottom: 1px solid va
   .ranking td.c-meta { display: flex; grid-area: meta; flex-wrap: wrap; gap: 4px 10px; align-items: center; color: var(--muted); font-size: .82rem; margin-top: 4px; }
 
   .upcoming-item { flex-wrap: wrap; }
+  .title-row { flex-direction: column; align-items: stretch; }
   .up-side { flex-direction: row; align-items: center; width: 100%; justify-content: space-between; }
 }

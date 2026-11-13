@@ -58,6 +58,16 @@
     return `<span class="chip ${cls}">${esc(status || '—')}</span>`;
   }
 
+  function initials(title) {
+    return (title || '?').replace(/[^\p{L}\p{N} ]/gu, ' ').split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase() || '?';
+  }
+  // copertina del gioco, oppure un riquadro con le iniziali
+  function coverHTML(url, title, cls = '') {
+    const ph = `<span class="cover ph ${cls}" aria-hidden="true">${esc(initials(title))}</span>`;
+    if (!url) return ph;
+    return `<img class="cover ${cls}" src="${esc(url)}" alt="" loading="lazy" referrerpolicy="no-referrer" data-ph="${esc(initials(title))}">`;
+  }
+
   function toast(msg, type = 'ok') {
     const el = $('#toast');
     el.textContent = msg;
@@ -80,6 +90,7 @@
     const view = VIEWS.includes(v) ? v : 'home';
     VIEWS.forEach((name) => { $(`#view-${name}`).hidden = name !== view; });
     $$('#tabs a').forEach((a) => a.classList.toggle('active', a.dataset.view === view));
+    $$('dialog[open]').forEach((d) => d.close());
     if (view === 'impostazioni') fillSettings();
     window.scrollTo(0, 0);
   }
@@ -237,6 +248,7 @@
       ? top.map(({ g, rank }) => `
         <li class="mini-item clickable" data-id="${esc(g.id)}">
           <span class="mini-rank">${rank}</span>
+          ${coverHTML(g.cover, g.title, 'xs')}
           <span class="mini-main"><span class="mini-title">${esc(g.title)}</span><span class="mini-sub">${esc(g.console || '')}${g.playedYear ? ' · ' + g.playedYear : ''}</span></span>
           <span class="score ${scoreClass(g.score)}">${g.score ?? '–'}</span>
         </li>`).join('')
@@ -246,6 +258,7 @@
     $('#home-upcoming').innerHTML = up.length
       ? up.map((u) => `
         <li class="mini-item">
+          ${coverHTML(u.cover, u.title, 'xs')}
           <span class="mini-main"><span class="mini-title">${esc(u.title)}</span><span class="mini-sub">${esc(u.console || '')}</span></span>
           <span class="mini-date">${esc(releaseLabel(u, true))}</span>
         </li>`).join('')
@@ -289,7 +302,7 @@
     $('#ranking-body').innerHTML = list.map((g) => `
       <tr class="clickable" data-id="${esc(g.id)}">
         <td class="c-rank">${ranks.get(g.id)}</td>
-        <td class="c-title"><span class="t">${esc(g.title)}</span><span class="sub">${esc([g.developer, g.genre].filter(Boolean).join(' · '))}</span></td>
+        <td class="c-title"><div class="title-cell">${coverHTML(g.cover, g.title, 'sm')}<div><span class="t">${esc(g.title)}</span><span class="sub">${esc([g.developer, g.genre].filter(Boolean).join(' · '))}</span></div></div></td>
         <td data-label="Console">${esc(g.console || '—')}</td>
         <td data-label="Stato">${statusChip(g.status)}</td>
         <td class="num" data-label="Ore">${g.hours != null ? fmt1.format(g.hours) : '—'}</td>
@@ -369,11 +382,11 @@
       const released = isReleased(u);
       return `${header}
         <li class="upcoming-item ${released ? 'released' : ''}">
-          <div class="up-date">
+          ${u.cover ? coverHTML(u.cover, u.title, 'md') : `<div class="up-date">
             ${u.releaseDate
               ? `<span class="d">${Number(u.releaseDate.slice(8, 10))}</span><span class="m">${new Date(u.releaseDate + 'T00:00').toLocaleDateString('it-IT', { month: 'short' })}</span>`
               : '<span class="m">TBA</span>'}
-          </div>
+          </div>`}
           <div class="up-main">
             <div class="up-title">${esc(u.title)}</div>
             <div class="up-sub">${esc([u.console, releaseLabel(u)].filter(Boolean).join(' · '))}</div>
@@ -410,10 +423,13 @@
     f.reset();
     $('#game-form-title').textContent = game ? 'Modifica gioco' : 'Aggiungi gioco';
     const src = game || prefill || { playedYear: new Date().getFullYear(), status: 'Completato' };
-    ['title', 'developer', 'genre', 'franchise', 'console', 'score', 'hours', 'status', 'releaseYear', 'playedYear', 'review']
+    ['title', 'cover', 'developer', 'genre', 'franchise', 'console', 'score', 'hours', 'status', 'releaseYear', 'playedYear', 'review']
       .forEach((k) => { if (f.elements[k]) f.elements[k].value = src[k] ?? ''; });
     if (!f.elements.status.value) f.elements.status.value = 'Completato';
+    resetLookup('game');
     $('#game-dialog').showModal();
+    // per un gioco nuovo con titolo già noto (es. da "In uscita"), cerca subito i dati
+    if (!game && src.title) runLookup('game');
   }
 
   function readGameForm() {
@@ -421,6 +437,7 @@
     const s = (k) => f[k].value.trim();
     return {
       title: s('title'),
+      cover: s('cover'),
       developer: s('developer'),
       genre: s('genre'),
       franchise: s('franchise'),
@@ -478,6 +495,7 @@
     const row = (label, value) => (value != null && value !== '' ? `<div class="kv"><span>${label}</span><strong>${value}</strong></div>` : '');
     $('#detail-body').innerHTML = `
       <div class="detail-top">
+        ${coverHTML(g.cover, g.title, 'lg')}
         <span class="score big ${scoreClass(g.score)}">${g.score ?? '–'}</span>
         <div>
           <div>${statusChip(g.status)}</div>
@@ -521,8 +539,9 @@
     f.reset();
     $('#upcoming-form-title').textContent = u ? 'Modifica uscita' : 'Aggiungi uscita';
     $('#upcoming-delete').hidden = !u;
-    const src = u || { releaseYear: new Date().getFullYear() };
-    ['title', 'console', 'releaseYear', 'releaseDate', 'notes'].forEach((k) => { f.elements[k].value = src[k] ?? ''; });
+    const src = u || {};
+    ['title', 'cover', 'console', 'releaseDate', 'notes'].forEach((k) => { f.elements[k].value = src[k] ?? ''; });
+    resetLookup('upcoming');
     $('#upcoming-dialog').showModal();
   }
 
@@ -533,9 +552,10 @@
     const releaseDate = f.releaseDate.value || '';
     const data = {
       title: f.title.value.trim(),
+      cover: f.cover.value.trim(),
       console: f.console.value.trim(),
       releaseDate,
-      releaseYear: releaseDate ? Number(releaseDate.slice(0, 4)) : num(f.releaseYear.value),
+      releaseYear: releaseDate ? Number(releaseDate.slice(0, 4)) : null,
       notes: f.notes.value.trim(),
     };
     const editingId = state.editingUpcomingId;
@@ -575,6 +595,129 @@
       toast(err.message, 'error');
     } finally {
       setBusy(false);
+    }
+  }
+
+  // ---------- RICERCA DATI (Wikidata / Wikipedia) ----------
+  const lookupState = { game: { seq: 0, results: [], timer: null }, upcoming: { seq: 0, results: [], timer: null } };
+  const formOf = (kind) => $(kind === 'game' ? '#game-form' : '#upcoming-form');
+
+  function resetLookup(kind) {
+    const st = lookupState[kind];
+    st.seq++;
+    st.results = [];
+    clearTimeout(st.timer);
+    const box = $(`#${kind}-lookup`);
+    box.hidden = true;
+    box.innerHTML = '';
+    updateCoverPreview(kind);
+  }
+
+  function updateCoverPreview(kind) {
+    const f = formOf(kind);
+    $(`#${kind}-cover-preview`).innerHTML = coverHTML(f.elements.cover.value.trim(), f.elements.title.value, 'md');
+  }
+
+  async function runLookup(kind) {
+    const f = formOf(kind);
+    const q = f.elements.title.value.trim();
+    const box = $(`#${kind}-lookup`);
+    const st = lookupState[kind];
+    if (q.length < 2) { box.hidden = true; return; }
+    const seq = ++st.seq;
+    box.hidden = false;
+    box.innerHTML = '<div class="lookup-msg">Cerco “' + esc(q) + '”…</div>';
+    try {
+      const results = await Lookup.search(q);
+      if (seq !== st.seq) return; // nel frattempo è partita un'altra ricerca
+      st.results = results;
+      box.innerHTML = results.length
+        ? `<div class="lookup-msg">Scegli il gioco giusto per compilare i dati in automatico:</div>${results.map((r, i) => `
+          <button type="button" class="lookup-item" data-pick="${i}" data-kind="${kind}">
+            ${coverHTML(r.cover, r.title, 'sm')}
+            <span class="lookup-main">
+              <span class="lookup-title">${esc(r.title)}</span>
+              <span class="lookup-sub">${esc([r.releaseDate ? releaseLabel({ releaseDate: r.releaseDate }, true) : r.releaseYear, r.developer].filter(Boolean).join(' · '))}</span>
+              <span class="lookup-sub">${esc([r.franchise, r.genre, r.platforms.slice(0, 4).join(', ')].filter(Boolean).join(' · '))}</span>
+            </span>
+          </button>`).join('')}<button type="button" class="btn ghost small" data-lookup-close="${kind}">Nessuno di questi</button>`
+        : `<div class="lookup-msg">Nessun risultato per “${esc(q)}”. Prova col titolo inglese o compila a mano.</div>`;
+    } catch (err) {
+      if (seq !== st.seq) return;
+      box.innerHTML = `<div class="lookup-msg">⚠️ Ricerca non disponibile: ${esc(err.message)}. Puoi compilare a mano.</div>`;
+    }
+  }
+
+  function applyLookup(kind, i) {
+    const r = lookupState[kind].results[i];
+    if (!r) return;
+    const f = formOf(kind).elements;
+    const fillEmpty = (name, value) => { if (f[name] && value && !f[name].value.trim()) f[name].value = value; };
+    f.title.value = r.title;
+    if (r.cover) f.cover.value = r.cover;
+    if (r.platforms.length === 1) fillEmpty('console', r.platforms[0]);
+    if (kind === 'game') {
+      fillEmpty('developer', r.developer);
+      fillEmpty('franchise', r.franchise);
+      fillEmpty('genre', r.genre);
+      fillEmpty('releaseYear', r.releaseYear);
+    } else if (r.releaseDate) {
+      f.releaseDate.value = r.releaseDate;
+    }
+    // le piattaforme del gioco diventano i primi suggerimenti per la console
+    if (r.platforms.length) {
+      const dl = $('#dl-console');
+      const existing = $$('option', dl).map((o) => o.value).filter((v) => !r.platforms.includes(v));
+      dl.innerHTML = [...r.platforms, ...existing].map((v) => `<option value="${esc(v)}">`).join('');
+    }
+    lookupState[kind].seq++;
+    $(`#${kind}-lookup`).hidden = true;
+    updateCoverPreview(kind);
+    toast('Dati compilati: controllali e premi Salva', 'info');
+  }
+
+  function scheduleLookup(kind) {
+    const st = lookupState[kind];
+    clearTimeout(st.timer);
+    // ricerca automatica solo quando si aggiunge (non quando si modifica)
+    const editing = kind === 'game' ? state.editingGameId : state.editingUpcomingId;
+    if (editing) return;
+    st.timer = setTimeout(() => runLookup(kind), 700);
+  }
+
+  async function fillMissingCovers() {
+    const btn = $('#fill-covers-btn');
+    const status = $('#fill-covers-status');
+    const todo = state.games.filter((g) => !g.cover);
+    const todoUp = state.upcoming.filter((u) => !u.cover);
+    if (!todo.length && !todoUp.length) { status.textContent = 'Tutti i giochi hanno già una copertina ✔'; return; }
+    if (!Storage.canWrite()) { status.textContent = 'Serve il token GitHub per salvare.'; return; }
+    btn.disabled = true;
+    const found = {}; const foundUp = {};
+    const all = [...todo.map((g) => [g, found]), ...todoUp.map((u) => [u, foundUp])];
+    for (let i = 0; i < all.length; i++) {
+      const [item, bucket] = all[i];
+      status.textContent = `Cerco ${i + 1}/${all.length}: ${item.title}…`;
+      try {
+        const res = await Lookup.search(item.title, 3);
+        const hit = res.find((r) => r.cover);
+        if (hit) bucket[item.id] = hit.cover;
+      } catch { /* salta questo gioco */ }
+    }
+    const n = Object.keys(found).length + Object.keys(foundUp).length;
+    try {
+      if (Object.keys(found).length) {
+        state.games = await Storage.update('games', (list) => list.map((g) => (found[g.id] && !g.cover ? { ...g, cover: found[g.id] } : g)), `Aggiunte copertine (${Object.keys(found).length})`);
+      }
+      if (Object.keys(foundUp).length) {
+        state.upcoming = await Storage.update('upcoming', (list) => list.map((u) => (foundUp[u.id] && !u.cover ? { ...u, cover: foundUp[u.id] } : u)), `Aggiunte copertine uscite (${Object.keys(foundUp).length})`);
+      }
+      renderAll();
+      status.textContent = `Trovate ${n} copertine su ${all.length}.` + (n < all.length ? ' Per le altre usa “Cerca dati” nella modifica del gioco.' : ' ✔');
+    } catch (err) {
+      status.textContent = `❌ ${err.message}`;
+    } finally {
+      btn.disabled = false;
     }
   }
 
@@ -667,10 +810,16 @@
         if (action === 'promote') {
           const u = state.upcoming.find((x) => x.id === id);
           state.pendingUpcomingToRemove = id;
-          openGameForm(null, { title: u.title, console: u.console, releaseYear: u.releaseYear, playedYear: new Date().getFullYear(), status: 'Completato' });
+          openGameForm(null, { title: u.title, cover: u.cover, console: u.console, releaseYear: u.releaseYear, playedYear: new Date().getFullYear(), status: 'Completato' });
         }
         return;
       }
+      const pick = e.target.closest('[data-pick]');
+      if (pick) { applyLookup(pick.dataset.kind, Number(pick.dataset.pick)); return; }
+      const lk = e.target.closest('[data-lookup]');
+      if (lk) { runLookup(lk.dataset.lookup); return; }
+      const lkClose = e.target.closest('[data-lookup-close]');
+      if (lkClose) { lookupState[lkClose.dataset.lookupClose].seq++; $(`#${lkClose.dataset.lookupClose}-lookup`).hidden = true; return; }
       const row = e.target.closest('.clickable[data-id]');
       if (row) openDetail(row.dataset.id);
       if (e.target.closest('[data-close]')) e.target.closest('dialog').close();
@@ -681,6 +830,26 @@
       d.addEventListener('click', (e) => { if (e.target === d) d.close(); });
     });
     $('#game-dialog').addEventListener('close', () => { if (!state.busy) state.pendingUpcomingToRemove = null; });
+
+    ['game', 'upcoming'].forEach((kind) => {
+      const f = formOf(kind);
+      f.elements.title.addEventListener('input', () => scheduleLookup(kind));
+      f.elements.title.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') { e.preventDefault(); clearTimeout(lookupState[kind].timer); runLookup(kind); }
+      });
+      f.elements.cover.addEventListener('input', () => updateCoverPreview(kind));
+    });
+    // immagine non raggiungibile -> riquadro con le iniziali
+    document.addEventListener('error', (e) => {
+      const img = e.target;
+      if (img.tagName === 'IMG' && img.classList.contains('cover')) {
+        const span = document.createElement('span');
+        span.className = img.className + ' ph';
+        span.textContent = img.dataset.ph || '?';
+        img.replaceWith(span);
+      }
+    }, true);
+    $('#fill-covers-btn').addEventListener('click', fillMissingCovers);
 
     $('#game-form').addEventListener('submit', submitGame);
     $('#upcoming-form').addEventListener('submit', submitUpcoming);
