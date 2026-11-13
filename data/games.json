@@ -407,5 +407,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:22:41.478Z",
     "updatedAt": "2026-11-13T19:22:41.478Z"
+  },
+  {
+    "id": "b38ecdae-94c3-4a90-a945-a23649129bad",
+    "title": "Call of Duty: Black Ops 4",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/1/1c/Call_of_Duty_Black_Ops_4_official_box_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Treyarch, Beenox",
+    "genre": "First-person shooter",
+    "franchise": "Call of Duty",
+    "console": "Ps4",
+    "score": 69,
+    "hours": 15,
+    "status": "Completato",
+    "releaseYear": 2018,
+    "playedYear": 2018,
+    "review": "",
+    "createdAt": "2026-11-13T19:23:16.967Z",
+    "updatedAt": "2026-11-13T19:23:16.967Z"
   }
 ]
