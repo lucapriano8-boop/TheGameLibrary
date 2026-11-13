@@ -118,5 +118,22 @@
     "review": "Bellissimo gioco di From che riesce a stupire con un gioco nuovo dopo tutti i souls.",
     "createdAt": "2026-11-13T19:01:47.362Z",
     "updatedAt": "2026-11-13T19:01:47.362Z"
+  },
+  {
+    "id": "9e0f7eec-4824-44e4-b9b1-80243dfe18f4",
+    "title": "Ashen",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/1/13/Ashen_official_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "A44",
+    "genre": "Action RPG",
+    "franchise": "",
+    "console": "Ps4",
+    "score": 79,
+    "hours": 11,
+    "status": "Completato",
+    "releaseYear": 2018,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-13T19:02:51.023Z",
+    "updatedAt": "2026-11-13T19:02:51.023Z"
   }
 ]
