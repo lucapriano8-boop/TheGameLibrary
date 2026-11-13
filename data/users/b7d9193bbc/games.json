@@ -204,5 +204,22 @@
     "review": "",
     "createdAt": "2026-11-13T17:57:44.964Z",
     "updatedAt": "2026-11-13T17:57:44.964Z"
+  },
+  {
+    "id": "56e78d9b-e7b0-4189-be6a-a1cd3538f2cd",
+    "title": "Final Fantasy I",
+    "cover": "https://static.wikitide.net/archipelagowiki/a/a7/FF1_Pixel_Remaster_Cover.png",
+    "developer": "Square Enix",
+    "genre": "",
+    "franchise": "",
+    "console": "Mobile",
+    "score": 93,
+    "hours": null,
+    "status": "Completato",
+    "releaseYear": null,
+    "playedYear": 2025,
+    "review": "",
+    "createdAt": "2026-11-13T17:59:06.609Z",
+    "updatedAt": "2026-11-13T17:59:06.609Z"
   }
 ]
