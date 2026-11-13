@@ -67,5 +67,22 @@
     "review": "Un ottimo sequel, migliora praticamente tutto rispetto al primo.",
     "createdAt": "2026-11-13T18:42:04.264Z",
     "updatedAt": "2026-11-13T18:42:04.264Z"
+  },
+  {
+    "id": "9e023961-a846-42fd-9171-5bc21bf95b7e",
+    "title": "Apex Legends",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/d/db/Apex_legends_cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Respawn Entertainment, Panic Button",
+    "genre": "First-person shooter",
+    "franchise": "Titanfall",
+    "console": "Ps4",
+    "score": 65,
+    "hours": 7,
+    "status": "Giocato",
+    "releaseYear": 2019,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-13T18:57:38.220Z",
+    "updatedAt": "2026-11-13T18:57:38.220Z"
   }
 ]
