@@ -187,5 +187,22 @@
     "review": "",
     "createdAt": "2026-11-13T17:56:42.314Z",
     "updatedAt": "2026-11-13T17:56:42.314Z"
+  },
+  {
+    "id": "a78e3723-1a6c-4d8c-9656-5472488aefbc",
+    "title": "elden ring",
+    "cover": "https://i.redd.it/9jr2a68dx24b1.png",
+    "developer": "From Software",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": 93,
+    "hours": null,
+    "status": "Completato",
+    "releaseYear": null,
+    "playedYear": 2022,
+    "review": "",
+    "createdAt": "2026-11-13T17:57:44.964Z",
+    "updatedAt": "2026-11-13T17:57:44.964Z"
   }
 ]
