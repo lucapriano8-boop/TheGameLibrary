@@ -751,5 +751,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:48:09.578Z",
     "updatedAt": "2026-11-13T19:48:09.578Z"
+  },
+  {
+    "id": "c8063d93-5daf-4a2e-ac8d-7b29d4124af6",
+    "title": "Dragon Ball Z: Kakarot",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/e/e4/Dragon_Ball_Z_Kakarot_logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "CyberConnect2",
+    "genre": "Casino",
+    "franchise": "Videogiochi di Dragon Ball",
+    "console": "Ps5",
+    "score": 86,
+    "hours": 50,
+    "status": "Completato",
+    "releaseYear": 2020,
+    "playedYear": 2024,
+    "review": "",
+    "createdAt": "2026-11-13T19:49:06.689Z",
+    "updatedAt": "2026-11-13T19:49:06.689Z"
   }
 ]
