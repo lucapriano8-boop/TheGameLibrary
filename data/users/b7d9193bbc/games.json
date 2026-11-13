@@ -136,5 +136,22 @@
     "review": "",
     "createdAt": "2026-11-13T17:54:07.157Z",
     "updatedAt": "2026-11-13T17:54:07.157Z"
+  },
+  {
+    "id": "3352fcd9-59e7-4c4d-83cf-86f6232f0d8a",
+    "title": "Armored Core VI: Fires of Rubicon",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/8/89/Armored_Core_VI_Fires_of_Rubicon_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "From Software",
+    "genre": "Action",
+    "franchise": "Armored Core",
+    "console": "PS5",
+    "score": 95,
+    "hours": null,
+    "status": "Completato",
+    "releaseYear": 2023,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-13T17:55:20.444Z",
+    "updatedAt": "2026-11-13T17:55:20.444Z"
   }
 ]
