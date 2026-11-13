@@ -1227,5 +1227,22 @@
     "review": "",
     "createdAt": "2026-11-13T21:14:00.669Z",
     "updatedAt": "2026-11-13T21:14:00.669Z"
+  },
+  {
+    "id": "05cb8045-02b8-44e3-898c-726ec20fa36e",
+    "title": "Hollow Knight: Silksong",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/0/05/Silksong.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Team Cherry",
+    "genre": "Action-adventure",
+    "franchise": "Hollow Knight",
+    "console": "Ps5",
+    "score": 97,
+    "hours": 77,
+    "status": "Completato",
+    "releaseYear": 2025,
+    "playedYear": 2025,
+    "review": "",
+    "createdAt": "2026-11-13T21:14:36.728Z",
+    "updatedAt": "2026-11-13T21:14:36.728Z"
   }
 ]
