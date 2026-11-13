@@ -14,5 +14,21 @@
     "review": "Clamoroso",
     "createdAt": "2026-11-13T13:11:19.575Z",
     "updatedAt": "2026-11-13T13:11:19.575Z"
+  },
+  {
+    "id": "654e80c3-ef69-4fe8-a883-2b90e84c4c57",
+    "title": "Mortal Shell",
+    "developer": "Cold Symmetry",
+    "genre": "Soulslike",
+    "franchise": "Mortal Shell",
+    "console": "PS4",
+    "score": 57,
+    "hours": 15,
+    "status": "Completato",
+    "releaseYear": 2020,
+    "playedYear": 2020,
+    "review": "Bruttino",
+    "createdAt": "2026-11-13T13:13:32.596Z",
+    "updatedAt": "2026-11-13T13:13:32.596Z"
   }
 ]
