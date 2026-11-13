@@ -526,5 +526,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:32:54.401Z",
     "updatedAt": "2026-11-13T19:32:54.401Z"
+  },
+  {
+    "id": "c8790213-c517-4211-a04a-6f6e5e71c57f",
+    "title": "Dark Souls II: Scholar of the First Sin",
+    "cover": "",
+    "developer": "From Software",
+    "genre": "Action",
+    "franchise": "Dark Souls",
+    "console": "Ps4",
+    "score": 90,
+    "hours": 94,
+    "status": "Platinato",
+    "releaseYear": 2015,
+    "playedYear": 2019,
+    "review": "",
+    "createdAt": "2026-11-13T19:33:53.128Z",
+    "updatedAt": "2026-11-13T19:33:53.128Z"
   }
 ]
