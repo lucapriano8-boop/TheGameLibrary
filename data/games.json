@@ -390,5 +390,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:20:52.416Z",
     "updatedAt": "2026-11-13T19:20:52.416Z"
+  },
+  {
+    "id": "d816be37-4fd0-44f4-b5f4-941f48107b31",
+    "title": "Bloodborne",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/6/68/Bloodborne_Cover_Wallpaper.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "From Software, Japan Studio",
+    "genre": "Action RPG",
+    "franchise": "Bloodborne",
+    "console": "PS4",
+    "score": 98,
+    "hours": 97,
+    "status": "Platinato",
+    "releaseYear": 2015,
+    "playedYear": 2019,
+    "review": "",
+    "createdAt": "2026-11-13T19:22:41.478Z",
+    "updatedAt": "2026-11-13T19:22:41.478Z"
   }
 ]
