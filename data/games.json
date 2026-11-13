@@ -305,5 +305,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:15:11.746Z",
     "updatedAt": "2026-11-13T19:15:11.746Z"
+  },
+  {
+    "id": "969b14be-35b6-4f37-b271-4ec0f7813b17",
+    "title": "Assassin's Creed: Unity",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/4/41/Assassin%27s_Creed_Unity_cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Ubisoft",
+    "genre": "Action-adventure",
+    "franchise": "Assassin’s Creed",
+    "console": "Ps4",
+    "score": 86,
+    "hours": 20,
+    "status": "Completato",
+    "releaseYear": 2014,
+    "playedYear": 2022,
+    "review": "",
+    "createdAt": "2026-11-13T19:15:54.999Z",
+    "updatedAt": "2026-11-13T19:15:54.999Z"
   }
 ]
