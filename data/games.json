@@ -1244,5 +1244,22 @@
     "review": "",
     "createdAt": "2026-11-13T21:14:36.728Z",
     "updatedAt": "2026-11-13T21:14:36.728Z"
+  },
+  {
+    "id": "3d3b6d55-e08e-424e-ab45-f055b688142e",
+    "title": "Horizon Forbidden West",
+    "cover": "",
+    "developer": "Guerrilla Games",
+    "genre": "Action-adventure",
+    "franchise": "Horizon",
+    "console": "Ps5",
+    "score": 92,
+    "hours": 48,
+    "status": "Completato",
+    "releaseYear": 2022,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-13T21:18:28.055Z",
+    "updatedAt": "2026-11-13T21:18:28.055Z"
   }
 ]
