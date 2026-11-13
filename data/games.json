@@ -802,5 +802,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:50:34.259Z",
     "updatedAt": "2026-11-13T19:50:34.259Z"
+  },
+  {
+    "id": "8f6ec9df-e3ce-4fc0-90b6-e7ddc722e79e",
+    "title": "EA Sports FC 26",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/2/2f/FC_26_Cover.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "EA Vancouver",
+    "genre": "Calcio",
+    "franchise": "Fifa",
+    "console": "Ps5",
+    "score": 80,
+    "hours": 52,
+    "status": "Completato",
+    "releaseYear": 2025,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-13T19:51:09.780Z",
+    "updatedAt": "2026-11-13T19:51:09.780Z"
   }
 ]
