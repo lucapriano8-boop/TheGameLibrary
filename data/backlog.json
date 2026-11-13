@@ -50,5 +50,18 @@
       "complete": null
     },
     "addedAt": "2026-11-13T19:29:18.478Z"
+  },
+  {
+    "id": "d2484aa1-90d5-4521-a9a6-07b73820400c",
+    "title": "Control",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/e/e5/Control_game_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "",
+    "notes": "",
+    "time": {
+      "main": 11,
+      "extra": null,
+      "complete": null
+    },
+    "addedAt": "2026-11-13T19:31:31.213Z"
   }
 ]
