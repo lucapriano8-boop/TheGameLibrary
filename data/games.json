@@ -955,5 +955,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:56:02.798Z",
     "updatedAt": "2026-11-13T19:56:02.798Z"
+  },
+  {
+    "id": "891c8c2d-f2e2-40b5-ad1d-6ad761bcb83b",
+    "title": "Final Fantasy VII Rebirth",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/7/75/Boxart_for_Final_Fantasy_VII_Rebirth.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Square Enix",
+    "genre": "Action RPG",
+    "franchise": "Final Fantasy",
+    "console": "Ps5",
+    "score": 93,
+    "hours": 70,
+    "status": "Completato",
+    "releaseYear": 2024,
+    "playedYear": 2024,
+    "review": "",
+    "createdAt": "2026-11-13T19:56:51.651Z",
+    "updatedAt": "2026-11-13T19:56:51.651Z"
   }
 ]
