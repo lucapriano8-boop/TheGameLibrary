@@ -203,5 +203,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:09:11.528Z",
     "updatedAt": "2026-11-13T19:09:11.528Z"
+  },
+  {
+    "id": "bf7481c7-964c-492e-8463-6a5636e1ecee",
+    "title": "Assassin's Creed IV: Black Flag",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/2/28/Assassin%27s_Creed_IV_-_Black_Flag_cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Ubisoft Annecy, Ubisoft Romania",
+    "genre": "Action-adventure",
+    "franchise": "Assassin’s Creed",
+    "console": "Ps4",
+    "score": 91,
+    "hours": 21,
+    "status": "Completato",
+    "releaseYear": 2013,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-13T19:09:56.569Z",
+    "updatedAt": "2026-11-13T19:09:56.569Z"
   }
 ]
