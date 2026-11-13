@@ -666,5 +666,22 @@
     "review": "",
     "createdAt": "2026-11-13T19:41:55.159Z",
     "updatedAt": "2026-11-13T19:41:55.159Z"
+  },
+  {
+    "id": "845e171f-b7d7-49e6-846a-e7509e1eb3d7",
+    "title": "Diablo IV: Lord of Hatred",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/7/70/Diablo_IV_Lord_of_Hatred_%282026%29_cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Blizzard",
+    "genre": "Action RPG",
+    "franchise": "Diablo",
+    "console": "Ps5",
+    "score": 87,
+    "hours": 46,
+    "status": "Completato",
+    "releaseYear": 2024,
+    "playedYear": 2024,
+    "review": "",
+    "createdAt": "2026-11-13T19:43:19.484Z",
+    "updatedAt": "2026-11-13T19:43:19.484Z"
   }
 ]
