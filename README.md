@@ -2,6 +2,7 @@
 
 La mia libreria digitale personale dei videogiochi giocati.
 
+- **Profili in stile Netflix**: all'apertura scegli chi gioca. Ogni profilo ha la sua libreria e la sua lista di uscite. I profili si creano, rinominano ed eliminano dal sito ("Gestisci profili"), con 16 avatar pixel art tra cui scegliere.
 - **Home**: voto medio, ore totali, numero di giochi, grafico dei giochi giocati per anno, Top 5 e prossime uscite.
 - **Classifica**: tutti i giochi, ordinati per voto (o per titolo, stato, ore, anno giocato, anno di uscita, console). Ricerca e filtro per stato. Clicca un gioco per vederne i dettagli, modificarlo o eliminarlo.
 - **In uscita**: giochi futuri con la data di uscita, in ordine cronologico con conto alla rovescia. Quando un gioco è uscito, il pulsante **+ Libreria** lo sposta nella libreria.
@@ -19,6 +20,17 @@ I giochi sono salvati in due file di questa repository:
 - `data/upcoming.json`: i giochi in uscita
 
 Ogni volta che aggiungi, modifichi o elimini qualcosa dal sito viene creato un **commit** su GitHub. I dati non scadono mai e hai lo storico completo di ogni modifica (puoi sempre tornare indietro dalla cronologia dei commit).
+
+### Con i profili
+- `data/users.json`: l'elenco dei profili (nome, avatar, cartella dei dati)
+- il **primo profilo** creato usa `data/games.json` e `data/upcoming.json` (i giochi inseriti prima dei profili)
+- gli altri profili hanno la loro cartella: `data/users/<id>/games.json` e `data/users/<id>/upcoming.json`
+
+Eliminare un profilo lo nasconde dal sito, ma i suoi file restano nella repository: per recuperarlo basta togliere `"deleted": true` dalla sua voce in `data/users.json`.
+
+Il token GitHub permette di modificare tutti i profili: dallo a persone di fiducia.
+
+Gli avatar sono in `assets/avatars/` e si rigenerano con `python3 tools/make_avatars.py`.
 
 ## Configurazione (una volta sola)
 

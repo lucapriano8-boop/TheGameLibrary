@@ -9,7 +9,6 @@
 const Storage = (() => {
   const CONFIG_KEY = 'tgl-config';
   const CACHE_PREFIX = 'tgl-cache-';
-  const FILES = { games: 'data/games.json', upcoming: 'data/upcoming.json' };
 
   function safeGet(key) {
     try { return localStorage.getItem(key); } catch { return null; }
@@ -91,8 +90,8 @@ const Storage = (() => {
   }
 
   // Legge un file dalla repo via API. Restituisce { data, sha } (sha = null se il file non esiste).
-  async function readRemote(cfg, kind) {
-    const url = `${apiUrl(cfg, FILES[kind])}?ref=${encodeURIComponent(cfg.branch || 'main')}`;
+  async function readRemote(cfg, path) {
+    const url = `${apiUrl(cfg, path)}?ref=${encodeURIComponent(cfg.branch || 'main')}`;
     const res = await fetch(url, { headers: headers(cfg), cache: 'no-store' });
     if (res.status === 404) return { data: [], sha: null, missing: true };
     if (!res.ok) throw await apiError(res);
@@ -111,45 +110,47 @@ const Storage = (() => {
     return { data: Array.isArray(data) ? data : [], sha: body.sha };
   }
 
-  async function readLocalFile(kind) {
-    const res = await fetch(`${FILES[kind]}?t=${Date.now()}`, { cache: 'no-store' });
-    if (!res.ok) throw new Error(`Impossibile leggere ${FILES[kind]}`);
+  async function readLocalFile(path) {
+    const res = await fetch(`${path}?t=${Date.now()}`, { cache: 'no-store' });
+    if (res.status === 404) return { data: [], missing: true };
+    if (!res.ok) throw new Error(`Impossibile leggere ${path}`);
     const data = await res.json();
     return Array.isArray(data) ? data : [];
   }
 
-  function readCache(kind) {
+  function readCache(path) {
     try {
-      const v = JSON.parse(safeGet(CACHE_PREFIX + kind) || 'null');
+      const v = JSON.parse(safeGet(CACHE_PREFIX + path) || 'null');
       return Array.isArray(v) ? v : null;
     } catch { return null; }
   }
-  function writeCache(kind, data) {
-    safeSet(CACHE_PREFIX + kind, JSON.stringify(data));
+  function writeCache(path, data) {
+    safeSet(CACHE_PREFIX + path, JSON.stringify(data));
   }
 
   /**
    * Carica i dati. Ordine di tentativo: GitHub API -> file del sito -> copia nel browser.
    * Restituisce { data, source, warning }.
    */
-  async function load(kind) {
+  async function load(path) {
     const cfg = getConfig();
     let warning = null;
     if (hasRepo(cfg)) {
       try {
-        const { data } = await readRemote(cfg, kind);
-        writeCache(kind, data);
-        return { data, source: 'github' };
+        const { data, missing } = await readRemote(cfg, path);
+        writeCache(path, data);
+        return { data, source: 'github', missing: Boolean(missing) };
       } catch (e) {
         warning = e.message;
       }
     }
     try {
-      const data = await readLocalFile(kind);
-      writeCache(kind, data);
-      return { data, source: 'site', warning };
+      const r = await readLocalFile(path);
+      const data = Array.isArray(r) ? r : r.data;
+      writeCache(path, data);
+      return { data, source: 'site', warning, missing: !Array.isArray(r) && r.missing };
     } catch (e) {
-      const cached = readCache(kind);
+      const cached = readCache(path);
       if (cached) return { data: cached, source: 'cache', warning: warning || e.message };
       return { data: [], source: 'empty', warning: warning || e.message };
     }
@@ -159,14 +160,14 @@ const Storage = (() => {
    * Salva in modo sicuro: rilegge la versione più recente, applica `mutate(list)` e fa il commit.
    * Riprova automaticamente in caso di conflitto (modifica concorrente da un altro dispositivo).
    */
-  async function update(kind, mutate, message) {
+  async function update(path, mutate, message) {
     const cfg = getConfig();
     if (!canWrite(cfg)) {
       throw new Error('Per salvare serve il token GitHub: aprilo da Impostazioni (⚙).');
     }
     let lastErr;
     for (let attempt = 0; attempt < 3; attempt++) {
-      const { data, sha } = await readRemote(cfg, kind);
+      const { data, sha } = await readRemote(cfg, path);
       const next = mutate(structuredClone(data));
       const body = {
         message,
@@ -174,13 +175,13 @@ const Storage = (() => {
         branch: cfg.branch || 'main',
       };
       if (sha) body.sha = sha;
-      const res = await fetch(apiUrl(cfg, FILES[kind]), {
+      const res = await fetch(apiUrl(cfg, path), {
         method: 'PUT',
         headers: { ...headers(cfg), 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
       });
       if (res.ok) {
-        writeCache(kind, next);
+        writeCache(path, next);
         return next;
       }
       lastErr = await apiError(res);

@@ -11,7 +11,17 @@
     Abbandonato: 'Abbandonato',
   };
 
+  const USERS_FILE = 'data/users.json';
+  const AVATARS = ['cavaliere', 'mago', 'alieno', 'slime', 'fantasma', 'robot', 'ninja', 'teschio',
+    'drago', 'gatto', 'rana', 'astronauta', 'vichingo', 'volpe', 'pozione', 'zucca'];
+  const avatarUrl = (a) => `assets/avatars/${AVATARS.includes(a) ? a : AVATARS[0]}.svg`;
+
   const state = {
+    users: [],
+    profile: null,
+    afterProfile: 'home',
+    manageProfiles: false,
+    editingProfileId: null,
     games: [],
     upcoming: [],
     sortKey: 'score',
@@ -84,10 +94,16 @@
   }
 
   // ---------- routing ----------
-  const VIEWS = ['home', 'classifica', 'uscite', 'impostazioni'];
+  const VIEWS = ['profili', 'home', 'classifica', 'uscite', 'impostazioni'];
   function route() {
     const v = (location.hash || '#home').slice(1);
-    const view = VIEWS.includes(v) ? v : 'home';
+    let view = VIEWS.includes(v) ? v : 'home';
+    if (view !== 'profili' && !state.profile) {
+      // nessun profilo scelto: prima la schermata "Chi gioca?"
+      state.afterProfile = view;
+      view = 'profili';
+    }
+    if (view === 'profili') { state.manageProfiles = false; renderProfiles(); }
     VIEWS.forEach((name) => { $(`#view-${name}`).hidden = name !== view; });
     $$('a[data-view]').forEach((a) => a.classList.toggle('active', a.dataset.view === view));
     document.body.dataset.view = view;
@@ -99,9 +115,17 @@
 
   // ---------- caricamento ----------
   let lastLoad = 0;
+  const fileFor = (kind) => `${state.profile.dir}/${kind}.json`;
+  function save(kind, mutate, message) {
+    return Storage.update(fileFor(kind), mutate, `${message} [${state.profile.name}]`);
+  }
+
   async function loadAll() {
+    if (!state.profile) return;
     lastLoad = Date.now();
-    const [g, u] = await Promise.all([Storage.load('games'), Storage.load('upcoming')]);
+    const profileId = state.profile.id;
+    const [g, u] = await Promise.all([Storage.load(fileFor('games')), Storage.load(fileFor('upcoming'))]);
+    if (!state.profile || state.profile.id !== profileId) return; // nel frattempo è cambiato profilo
     state.games = g.data;
     state.upcoming = u.data;
     updateBanner(g.warning || u.warning, g.source);
@@ -479,7 +503,7 @@
     setBusy(true, 'Salvataggio in corso…');
     try {
       if (editingId) {
-        state.games = await Storage.update('games', (list) => {
+        state.games = await save('games', (list) => {
           const i = list.findIndex((g) => g.id === editingId);
           if (i === -1) throw new Error('Il gioco non esiste più (forse è stato eliminato da un altro dispositivo).');
           list[i] = { ...list[i], ...data, updatedAt: now };
@@ -487,10 +511,10 @@
         }, `Modificato gioco: ${data.title}`);
       } else {
         const game = { id: uid(), ...data, createdAt: now, updatedAt: now };
-        state.games = await Storage.update('games', (list) => { list.push(game); return list; }, `Aggiunto gioco: ${data.title}`);
+        state.games = await save('games', (list) => { list.push(game); return list; }, `Aggiunto gioco: ${data.title}`);
       }
       if (removeUpcomingId) {
-        state.upcoming = await Storage.update('upcoming', (list) => list.filter((u) => u.id !== removeUpcomingId), `Spostato in libreria: ${data.title}`);
+        state.upcoming = await save('upcoming', (list) => list.filter((u) => u.id !== removeUpcomingId), `Spostato in libreria: ${data.title}`);
       }
       state.pendingUpcomingToRemove = null;
       $('#game-dialog').close();
@@ -539,7 +563,7 @@
     if (!confirm(`Eliminare definitivamente “${g.title}”?`)) return;
     setBusy(true, 'Eliminazione in corso…');
     try {
-      state.games = await Storage.update('games', (list) => list.filter((x) => x.id !== g.id), `Eliminato gioco: ${g.title}`);
+      state.games = await save('games', (list) => list.filter((x) => x.id !== g.id), `Eliminato gioco: ${g.title}`);
       $('#detail-dialog').close();
       renderAll();
       toast(`“${g.title}” eliminato`);
@@ -579,7 +603,7 @@
     const editingId = state.editingUpcomingId;
     setBusy(true, 'Salvataggio in corso…');
     try {
-      state.upcoming = await Storage.update('upcoming', (list) => {
+      state.upcoming = await save('upcoming', (list) => {
         if (editingId) {
           const i = list.findIndex((x) => x.id === editingId);
           if (i === -1) throw new Error('Questa uscita non esiste più.');
@@ -605,7 +629,7 @@
     if (!confirm(`Eliminare “${u.title}” dalle uscite?`)) return;
     setBusy(true, 'Eliminazione in corso…');
     try {
-      state.upcoming = await Storage.update('upcoming', (list) => list.filter((x) => x.id !== u.id), `Eliminata uscita: ${u.title}`);
+      state.upcoming = await save('upcoming', (list) => list.filter((x) => x.id !== u.id), `Eliminata uscita: ${u.title}`);
       $('#upcoming-dialog').close();
       renderAll();
       toast('Uscita eliminata');
@@ -725,10 +749,10 @@
     const n = Object.keys(found).length + Object.keys(foundUp).length;
     try {
       if (Object.keys(found).length) {
-        state.games = await Storage.update('games', (list) => list.map((g) => (found[g.id] && !g.cover ? { ...g, cover: found[g.id] } : g)), `Aggiunte copertine (${Object.keys(found).length})`);
+        state.games = await save('games', (list) => list.map((g) => (found[g.id] && !g.cover ? { ...g, cover: found[g.id] } : g)), `Aggiunte copertine (${Object.keys(found).length})`);
       }
       if (Object.keys(foundUp).length) {
-        state.upcoming = await Storage.update('upcoming', (list) => list.map((u) => (foundUp[u.id] && !u.cover ? { ...u, cover: foundUp[u.id] } : u)), `Aggiunte copertine uscite (${Object.keys(foundUp).length})`);
+        state.upcoming = await save('upcoming', (list) => list.map((u) => (foundUp[u.id] && !u.cover ? { ...u, cover: foundUp[u.id] } : u)), `Aggiunte copertine uscite (${Object.keys(foundUp).length})`);
       }
       renderAll();
       status.textContent = `Trovate ${n} copertine su ${all.length}.` + (n < all.length ? ' Per le altre usa “Cerca dati” nella modifica del gioco.' : ' ✔');
@@ -736,6 +760,173 @@
       status.textContent = `❌ ${err.message}`;
     } finally {
       btn.disabled = false;
+    }
+  }
+
+  // ---------- PROFILI ----------
+  const visibleUsers = () => state.users.filter((u) => !u.deleted);
+
+  async function loadUsers() {
+    const r = await Storage.load(USERS_FILE);
+    state.users = r.data;
+    state.usersLoaded = true;
+    if (r.warning && r.source !== 'github') updateBanner(r.warning, r.source);
+    else updateBanner(null, 'github');
+  }
+
+  function renderProfiles() {
+    if (!state.usersLoaded) {
+      $('#profile-grid').innerHTML = '';
+      $('#profiles-hint').textContent = 'Caricamento…';
+      $('#manage-profiles').hidden = true;
+      return;
+    }
+    const users = visibleUsers();
+    const tiles = users.map((u) => `
+      <button type="button" class="profile-tile" data-profile="${esc(u.id)}">
+        <span class="profile-avatar"><img src="${avatarUrl(u.avatar)}" alt=""><span class="profile-edit" aria-hidden="true">✎</span></span>
+        <span class="profile-name">${esc(u.name)}</span>
+      </button>`).join('');
+    $('#profile-grid').innerHTML = tiles + `
+      <button type="button" class="profile-tile add" data-action="add-profile">
+        <span class="profile-avatar"><span class="plus">+</span></span>
+        <span class="profile-name">Aggiungi profilo</span>
+      </button>`;
+    $('#view-profili').classList.toggle('managing', state.manageProfiles);
+    $('#profiles-title').textContent = state.manageProfiles ? 'Gestisci profili' : (users.length ? 'Chi gioca?' : 'Benvenuto!');
+    $('#profiles-hint').textContent = users.length
+      ? (state.manageProfiles ? 'Tocca un profilo per cambiare nome o avatar.' : '')
+      : 'Crea il primo profilo per iniziare. I giochi già presenti nella libreria verranno assegnati a questo profilo.';
+    $('#manage-profiles').hidden = users.length === 0;
+    $('#manage-profiles').textContent = state.manageProfiles ? 'Fatto' : 'Gestisci profili';
+  }
+
+  function updateProfileChip() {
+    const chip = $('#profile-chip');
+    if (!state.profile) { chip.hidden = true; return; }
+    chip.hidden = false;
+    $('img', chip).src = avatarUrl(state.profile.avatar);
+    $('.chip-name', chip).textContent = state.profile.name;
+    $('#home-title').textContent = `Libreria di ${state.profile.name}`;
+  }
+
+  function selectProfile(id) {
+    const user = visibleUsers().find((u) => u.id === id);
+    if (!user) return;
+    const changed = !state.profile || state.profile.id !== user.id;
+    state.profile = user;
+    try { sessionStorage.setItem('tgl-profile', user.id); } catch { /* ignore */ }
+    try { localStorage.setItem('tgl-last-profile', user.id); } catch { /* ignore */ }
+    updateProfileChip();
+    if (changed) {
+      state.games = [];
+      state.upcoming = [];
+      state.search = '';
+      state.statusFilter = '';
+      $('#search').value = '';
+      $('#filter-status').value = '';
+      renderAll();
+      loadAll();
+    }
+    const target = state.afterProfile && state.afterProfile !== 'profili' ? state.afterProfile : 'home';
+    state.afterProfile = 'home';
+    if (location.hash === `#${target}`) route(); else location.hash = target;
+  }
+
+  function openProfileForm(user = null) {
+    if (!Storage.canWrite()) {
+      toast('Per creare o modificare i profili serve il token GitHub (⚙ Impostazioni).', 'error');
+      return;
+    }
+    state.editingProfileId = user ? user.id : null;
+    const f = $('#profile-form');
+    f.reset();
+    $('#profile-form-title').textContent = user ? 'Modifica profilo' : 'Nuovo profilo';
+    $('#profile-delete').hidden = !user;
+    f.elements.name.value = user ? user.name : '';
+    const used = new Set(visibleUsers().map((u) => u.avatar));
+    const current = user ? user.avatar : (AVATARS.find((a) => !used.has(a)) || AVATARS[0]);
+    $('#avatar-grid').innerHTML = AVATARS.map((a) => `
+      <label class="avatar-option" title="${esc(a)}">
+        <input type="radio" name="avatar" value="${a}" ${a === current ? 'checked' : ''}>
+        <img src="${avatarUrl(a)}" alt="${esc(a)}">
+      </label>`).join('');
+    updateProfilePreview();
+    $('#profile-dialog').showModal();
+  }
+
+  function updateProfilePreview() {
+    const f = $('#profile-form').elements;
+    $('#profile-preview').src = avatarUrl(f.avatar.value);
+  }
+
+  async function submitProfile(e) {
+    e.preventDefault();
+    if (state.busy) return;
+    const f = e.target.elements;
+    const name = f.name.value.trim();
+    const avatar = f.avatar.value;
+    const editingId = state.editingProfileId;
+    if (visibleUsers().some((u) => u.id !== editingId && u.name.toLowerCase() === name.toLowerCase())) {
+      toast('Esiste già un profilo con questo nome.', 'error');
+      return;
+    }
+    setBusy(true, 'Salvataggio profilo…');
+    try {
+      let createdId = null;
+      state.users = await Storage.update(USERS_FILE, (list) => {
+        if (editingId) {
+          const i = list.findIndex((u) => u.id === editingId);
+          if (i === -1) throw new Error('Questo profilo non esiste più.');
+          list[i] = { ...list[i], name, avatar };
+        } else {
+          const id = uid().replace(/-/g, '').slice(0, 10);
+          // il primo profilo in assoluto usa i file già esistenti (data/games.json, data/upcoming.json)
+          const dir = list.length === 0 ? 'data' : `data/users/${id}`;
+          list.push({ id, name, avatar, dir, createdAt: new Date().toISOString() });
+          createdId = id;
+        }
+        return list;
+      }, editingId ? `Modificato profilo: ${name}` : `Nuovo profilo: ${name}`);
+      $('#profile-dialog').close();
+      if (state.profile && state.profile.id === editingId) {
+        state.profile = state.users.find((u) => u.id === editingId);
+        updateProfileChip();
+      }
+      if (createdId && !state.manageProfiles) {
+        toast(`Profilo “${name}” creato ✔`);
+        selectProfile(createdId);
+      } else {
+        renderProfiles();
+        toast('Profilo salvato ✔');
+      }
+    } catch (err) {
+      toast(err.message, 'error');
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function deleteProfile() {
+    const user = visibleUsers().find((u) => u.id === state.editingProfileId);
+    if (!user || state.busy) return;
+    if (!confirm(`Eliminare il profilo “${user.name}”?\n\nIl profilo sparirà dal sito. I suoi giochi restano salvati nella repository GitHub e si possono recuperare.`)) return;
+    setBusy(true, 'Eliminazione profilo…');
+    try {
+      // il profilo viene solo nascosto: i suoi file restano nella repository
+      state.users = await Storage.update(USERS_FILE, (list) => list.map((u) => (u.id === user.id ? { ...u, deleted: true, deletedAt: new Date().toISOString() } : u)), `Eliminato profilo: ${user.name}`);
+      $('#profile-dialog').close();
+      if (state.profile && state.profile.id === user.id) {
+        state.profile = null;
+        try { sessionStorage.removeItem('tgl-profile'); } catch { /* ignore */ }
+        updateProfileChip();
+      }
+      renderProfiles();
+      toast(`Profilo “${user.name}” eliminato`);
+    } catch (err) {
+      toast(err.message, 'error');
+    } finally {
+      setBusy(false);
     }
   }
 
@@ -778,7 +969,8 @@
     const blob = new Blob([JSON.stringify({ exportedAt: new Date().toISOString(), games: state.games, upcoming: state.upcoming }, null, 2)], { type: 'application/json' });
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
-    a.download = `game-library-backup-${todayISO()}.json`;
+    const slug = (state.profile?.name || 'profilo').toLowerCase().normalize('NFD').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    a.download = `game-library-${slug}-${todayISO()}.json`;
     a.click();
     setTimeout(() => URL.revokeObjectURL(a.href), 1000);
   }
@@ -792,13 +984,13 @@
       const games = Array.isArray(data) ? data : data.games;
       const upcoming = Array.isArray(data) ? null : data.upcoming;
       if (!Array.isArray(games)) throw new Error('File di backup non valido.');
-      if (!confirm(`Il backup contiene ${games.length} giochi${upcoming ? ` e ${upcoming.length} uscite` : ''}. Sostituire i dati attuali?`)) return;
+      if (!confirm(`Il backup contiene ${games.length} giochi${upcoming ? ` e ${upcoming.length} uscite` : ''}. Sostituire i dati del profilo “${state.profile.name}”?`)) return;
       setBusy(true, 'Ripristino in corso…');
       const normalized = games.map((g) => ({ id: g.id || uid(), ...g }));
-      state.games = await Storage.update('games', () => normalized, 'Ripristino backup giochi');
+      state.games = await save('games', () => normalized, 'Ripristino backup giochi');
       if (Array.isArray(upcoming)) {
         const nu = upcoming.map((u) => ({ id: u.id || uid(), ...u }));
-        state.upcoming = await Storage.update('upcoming', () => nu, 'Ripristino backup uscite');
+        state.upcoming = await save('upcoming', () => nu, 'Ripristino backup uscite');
       }
       renderAll();
       toast('Backup ripristinato ✔');
@@ -822,6 +1014,7 @@
       const act = e.target.closest('[data-action]');
       if (act) {
         const { action, id } = act.dataset;
+        if (action === 'add-profile') openProfileForm();
         if (action === 'add-game') openGameForm();
         if (action === 'add-upcoming') openUpcomingForm();
         if (action === 'edit-upcoming') openUpcomingForm(state.upcoming.find((u) => u.id === id));
@@ -868,6 +1061,16 @@
       }
     }, true);
     $('#fill-covers-btn').addEventListener('click', fillMissingCovers);
+    $('#profile-grid').addEventListener('click', (e) => {
+      const tile = e.target.closest('[data-profile]');
+      if (!tile) return;
+      if (state.manageProfiles) openProfileForm(visibleUsers().find((u) => u.id === tile.dataset.profile));
+      else selectProfile(tile.dataset.profile);
+    });
+    $('#manage-profiles').addEventListener('click', () => { state.manageProfiles = !state.manageProfiles; renderProfiles(); });
+    $('#profile-form').addEventListener('submit', submitProfile);
+    $('#profile-form').addEventListener('change', (e) => { if (e.target.name === 'avatar') updateProfilePreview(); });
+    $('#profile-delete').addEventListener('click', deleteProfile);
     $('#fab').addEventListener('click', () => {
       if (document.body.dataset.view === 'uscite') openUpcomingForm();
       else openGameForm();
@@ -913,8 +1116,15 @@
       if (s && s.k) { state.sortKey = s.k; state.sortDir = s.d === 'asc' ? 'asc' : 'desc'; }
     } catch { /* ignore */ }
     bind();
+    updateProfileChip();
     route();
-    loadAll();
+    loadUsers().then(() => {
+      // nella stessa sessione resta il profilo scelto; a ogni nuova apertura si sceglie chi gioca
+      let id = null;
+      try { id = sessionStorage.getItem('tgl-profile'); } catch { /* ignore */ }
+      if (id && visibleUsers().some((u) => u.id === id)) selectProfile(id);
+      else route();
+    });
   }
 
   init();
