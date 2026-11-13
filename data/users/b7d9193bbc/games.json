@@ -238,5 +238,22 @@
     "review": "",
     "createdAt": "2026-11-13T17:59:44.443Z",
     "updatedAt": "2026-11-13T17:59:44.443Z"
+  },
+  {
+    "id": "534a89f8-616d-434e-919e-a87fbcf1980b",
+    "title": "Assassin's Creed: Brotherhood",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/2/2a/Assassins_Creed_brotherhood_cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Ubisoft",
+    "genre": "Action-adventure",
+    "franchise": "",
+    "console": "Steam Deck",
+    "score": 92,
+    "hours": null,
+    "status": "Completato",
+    "releaseYear": 2010,
+    "playedYear": 2025,
+    "review": "",
+    "createdAt": "2026-11-13T18:00:52.973Z",
+    "updatedAt": "2026-11-13T18:00:52.973Z"
   }
 ]
