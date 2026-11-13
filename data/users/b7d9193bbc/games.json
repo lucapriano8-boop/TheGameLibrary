@@ -345,5 +345,22 @@
     "review": "",
     "createdAt": "2026-11-13T18:05:09.648Z",
     "updatedAt": "2026-11-13T18:05:09.648Z"
+  },
+  {
+    "id": "c582bbda-e596-495c-80a2-5436f5884ea7",
+    "title": "Dark Souls II",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/e/ed/Dark_Souls_II_cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "From Software",
+    "genre": "Action RPG",
+    "franchise": "Dark Souls",
+    "console": "PC",
+    "score": 90,
+    "hours": null,
+    "status": "Completato",
+    "releaseYear": 2014,
+    "playedYear": 2024,
+    "review": "",
+    "createdAt": "2026-11-13T18:05:56.240Z",
+    "updatedAt": "2026-11-13T18:05:56.240Z"
   }
 ]
