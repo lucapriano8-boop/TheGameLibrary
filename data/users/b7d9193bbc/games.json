@@ -260,5 +260,22 @@
     "review": "",
     "createdAt": "2026-11-13T18:00:52.973Z",
     "updatedAt": "2026-11-13T18:00:52.973Z"
+  },
+  {
+    "id": "c87b9c44-d1a0-46dd-8258-0be81dc48679",
+    "title": "Call of Duty: Modern Warfare 2",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/5/52/Call_of_Duty_Modern_Warfare_2_%282009%29_cover.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Infinity Ward, Aspyr Media",
+    "genre": "First-person shooter",
+    "franchise": "Call of Duty",
+    "console": "PC",
+    "score": 92,
+    "hours": null,
+    "status": "Completato",
+    "releaseYear": 2009,
+    "playedYear": 2025,
+    "review": "",
+    "createdAt": "2026-11-13T18:01:57.839Z",
+    "updatedAt": "2026-11-13T18:01:57.839Z"
   }
 ]
