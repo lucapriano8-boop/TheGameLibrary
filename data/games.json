@@ -84,5 +84,22 @@
     "review": "",
     "createdAt": "2026-11-13T18:57:38.220Z",
     "updatedAt": "2026-11-13T18:57:38.220Z"
+  },
+  {
+    "id": "e61f2fd9-c921-460c-8969-cc71e80d2054",
+    "title": "ARC Raiders",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/7/73/Arc_Raiders_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Embark Studios",
+    "genre": "Sparatutto",
+    "franchise": "",
+    "console": "Ps5",
+    "score": 60,
+    "hours": 2,
+    "status": "Giocato",
+    "releaseYear": 2025,
+    "playedYear": 2025,
+    "review": "",
+    "createdAt": "2026-11-13T18:59:54.512Z",
+    "updatedAt": "2026-11-13T18:59:54.512Z"
   }
 ]
