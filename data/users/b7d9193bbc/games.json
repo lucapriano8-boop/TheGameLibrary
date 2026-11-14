@@ -777,5 +777,22 @@
     "review": "",
     "createdAt": "2026-11-14T14:56:20.536Z",
     "updatedAt": "2026-11-14T14:56:20.536Z"
+  },
+  {
+    "id": "fbbeb9f5-fbfb-4b77-ba5b-bc4061670d5d",
+    "title": "Wolfenstein II: The New Colossus",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/5/54/Wolfenstein-ii-the-new-colossus-cover.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "First-person shooter",
+    "franchise": "Wolfenstein",
+    "console": "PC",
+    "score": 78,
+    "hours": 9,
+    "status": "Completato",
+    "releaseYear": 2017,
+    "playedYear": 2021,
+    "review": "",
+    "createdAt": "2026-11-14T14:56:53.047Z",
+    "updatedAt": "2026-11-14T14:56:53.047Z"
   }
 ]
