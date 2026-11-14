@@ -484,5 +484,22 @@
     "review": "",
     "createdAt": "2026-11-14T10:28:21.870Z",
     "updatedAt": "2026-11-14T10:28:21.870Z"
+  },
+  {
+    "id": "3392e86b-73a5-4d32-b489-bc3345ff0f24",
+    "title": "Heavy Rain",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/c/c1/Heavy_Rain_Cover_Art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Quantic Dream, Virtuos",
+    "genre": "Interactive film",
+    "franchise": "",
+    "console": "PS5",
+    "score": 86,
+    "hours": null,
+    "status": "Completato",
+    "releaseYear": 2010,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-14T10:28:48.529Z",
+    "updatedAt": "2026-11-14T10:28:48.529Z"
   }
 ]
