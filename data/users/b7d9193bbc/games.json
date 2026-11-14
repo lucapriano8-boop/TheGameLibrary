@@ -795,5 +795,22 @@
     "review": "",
     "createdAt": "2026-11-14T14:56:53.047Z",
     "updatedAt": "2026-11-14T14:56:53.047Z"
+  },
+  {
+    "id": "c7f8294f-d978-4198-b2e0-a60992e31955",
+    "title": "Watch Dogs",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/d/d9/Watch_Dogs_box_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "Action-adventure",
+    "franchise": "Watch Dogs",
+    "console": "PS4",
+    "score": 75,
+    "hours": null,
+    "status": "Completato",
+    "releaseYear": 2014,
+    "playedYear": 2014,
+    "review": "",
+    "createdAt": "2026-11-14T14:57:50.711Z",
+    "updatedAt": "2026-11-14T14:57:50.711Z"
   }
 ]
