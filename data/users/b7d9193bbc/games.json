@@ -416,5 +416,22 @@
     "review": "",
     "createdAt": "2026-11-14T10:23:19.595Z",
     "updatedAt": "2026-11-14T10:23:19.595Z"
+  },
+  {
+    "id": "a3e1d0cf-a9fe-4590-af0f-21fe6f8329b2",
+    "title": "Spider-man 2",
+    "cover": "",
+    "developer": "Treyarch",
+    "genre": "Action-adventure",
+    "franchise": "",
+    "console": "PS5",
+    "score": 90,
+    "hours": null,
+    "status": "Completato",
+    "releaseYear": 2023,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-14T10:25:37.031Z",
+    "updatedAt": "2026-11-14T10:25:37.031Z"
   }
 ]
