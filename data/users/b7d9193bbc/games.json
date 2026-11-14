@@ -950,5 +950,23 @@
     "startedAt": "2026-11-14",
     "createdAt": "2026-11-14T15:15:51.428Z",
     "updatedAt": "2026-11-14T15:15:51.428Z"
+  },
+  {
+    "id": "b86bfa52-b7c6-4529-b675-74a8b6925d9e",
+    "title": "Kingdom Hearts II",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/e/ed/Kingdom_Hearts_II_%28PS2%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PS3",
+    "score": null,
+    "hours": null,
+    "status": "In corso",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "startedAt": "2026-11-14",
+    "createdAt": "2026-11-14T15:15:57.018Z",
+    "updatedAt": "2026-11-14T15:15:57.018Z"
   }
 ]
