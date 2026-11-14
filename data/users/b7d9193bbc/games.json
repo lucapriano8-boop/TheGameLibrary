@@ -743,5 +743,22 @@
     "review": "",
     "createdAt": "2026-11-14T14:54:50.487Z",
     "updatedAt": "2026-11-14T14:54:50.487Z"
+  },
+  {
+    "id": "5e9368ed-49be-47c2-8fc6-54099dfcc5a3",
+    "title": "Factorio",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/0/08/Factorio_cover.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Wube software",
+    "genre": "Survival",
+    "franchise": "",
+    "console": "PC",
+    "score": 80,
+    "hours": 120,
+    "status": "Completato",
+    "releaseYear": 2016,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-14T14:55:48.331Z",
+    "updatedAt": "2026-11-14T14:55:48.331Z"
   }
 ]
