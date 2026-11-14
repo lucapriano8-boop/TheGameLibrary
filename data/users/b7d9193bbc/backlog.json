@@ -26,19 +26,6 @@
     "addedAt": "2026-11-14T00:11:08.025Z"
   },
   {
-    "id": "f25f0097-9c3d-4e27-9da1-0da28d02f907",
-    "title": "Kingdom Hearts II",
-    "cover": "https://upload.wikimedia.org/wikipedia/en/e/ed/Kingdom_Hearts_II_%28PS2%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "console": "PS3",
-    "notes": "",
-    "time": {
-      "main": 32,
-      "extra": null,
-      "complete": null
-    },
-    "addedAt": "2026-11-14T15:10:51.895Z"
-  },
-  {
     "id": "b54e6e95-4734-4112-b69b-b2e218237efb",
     "title": "BioShock Infinite",
     "cover": "https://upload.wikimedia.org/wikipedia/en/a/a3/Official_cover_art_for_Bioshock_Infinite.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
