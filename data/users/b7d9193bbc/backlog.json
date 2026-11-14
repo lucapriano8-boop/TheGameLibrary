@@ -63,5 +63,18 @@
       "complete": null
     },
     "addedAt": "2026-11-14T15:12:14.704Z"
+  },
+  {
+    "id": "bbb76f10-4d46-4c51-9122-646211634b72",
+    "title": "Batman: Arkham Knight",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/6/6c/Batman_Arkham_Knight_Cover_Art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "",
+    "notes": "",
+    "time": {
+      "main": 20,
+      "extra": null,
+      "complete": null
+    },
+    "addedAt": "2026-11-14T15:12:34.668Z"
   }
 ]
