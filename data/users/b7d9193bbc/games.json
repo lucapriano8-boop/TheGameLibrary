@@ -706,5 +706,22 @@
     "review": "",
     "createdAt": "2026-11-14T14:49:05.634Z",
     "updatedAt": "2026-11-14T14:49:05.634Z"
+  },
+  {
+    "id": "5b8145c7-e8c1-4990-80d1-90275c0358ff",
+    "title": "Watch Dogs 2",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/b/b0/Watch_Dogs_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Ubisoft Toronto, Ubisoft Kyiv",
+    "genre": "Action-adventure",
+    "franchise": "Watch Dogs",
+    "console": "PS4",
+    "score": 80,
+    "hours": null,
+    "status": "Completato",
+    "releaseYear": 2016,
+    "playedYear": 2017,
+    "review": "",
+    "createdAt": "2026-11-14T14:50:22.662Z",
+    "updatedAt": "2026-11-14T14:50:22.662Z"
   }
 ]
