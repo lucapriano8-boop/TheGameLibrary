@@ -5,7 +5,11 @@
     "cover": "https://upload.wikimedia.org/wikipedia/en/6/68/Bloodborne_Cover_Wallpaper.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "console": "PS4",
     "notes": "",
-    "time": null,
+    "time": {
+      "main": 32,
+      "extra": null,
+      "complete": null
+    },
     "addedAt": "2026-11-14T00:10:50.683Z"
   },
   {
