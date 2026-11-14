@@ -115,5 +115,18 @@
       "complete": null
     },
     "addedAt": "2026-11-14T15:14:17.906Z"
+  },
+  {
+    "id": "dbf1f3b0-3adb-4547-8922-1f0b2d54cdb8",
+    "title": "Kingdom Hearts III",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/5/5c/Kingdom_Hearts_III_box_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "",
+    "notes": "",
+    "time": {
+      "main": 29,
+      "extra": null,
+      "complete": null
+    },
+    "addedAt": "2026-11-14T15:14:41.831Z"
   }
 ]
