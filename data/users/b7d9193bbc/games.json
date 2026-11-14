@@ -420,7 +420,7 @@
   {
     "id": "a3e1d0cf-a9fe-4590-af0f-21fe6f8329b2",
     "title": "Spider-man 2",
-    "cover": "",
+    "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202306/1219/60eca3ac155247e21850c7d075d01ebf0f3f5dbf19ccd2a1.jpg",
     "developer": "Treyarch",
     "genre": "Action-adventure",
     "franchise": "",
@@ -432,7 +432,7 @@
     "playedYear": 2023,
     "review": "",
     "createdAt": "2026-11-14T10:25:37.031Z",
-    "updatedAt": "2026-11-14T10:25:37.031Z"
+    "updatedAt": "2026-11-14T14:52:43.765Z"
   },
   {
     "id": "f1838b6e-73be-4bc6-8fe3-14d54059060b",
