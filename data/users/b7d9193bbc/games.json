@@ -450,5 +450,22 @@
     "review": "",
     "createdAt": "2026-11-14T10:26:25.149Z",
     "updatedAt": "2026-11-14T10:26:25.149Z"
+  },
+  {
+    "id": "d5c9f9e0-b484-4855-9c3d-2dbeae4271cc",
+    "title": "Uncharted: Drake's Fortune",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/5/5b/Uncharted_Drake%27s_Fortune.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PS5",
+    "score": 88,
+    "hours": null,
+    "status": "Completato",
+    "releaseYear": 2007,
+    "playedYear": 2025,
+    "review": "",
+    "createdAt": "2026-11-14T10:27:42.306Z",
+    "updatedAt": "2026-11-14T10:27:42.306Z"
   }
 ]
