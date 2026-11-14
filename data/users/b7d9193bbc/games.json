@@ -689,5 +689,22 @@
     "review": "",
     "createdAt": "2026-11-14T14:48:14.192Z",
     "updatedAt": "2026-11-14T14:48:14.192Z"
+  },
+  {
+    "id": "caffa3f3-4720-4237-a989-00f3f4e13f8b",
+    "title": "RimWorld",
+    "cover": "https://www.codiciprodotto.it/wp-content/uploads/2021/01/rimworld.jpg",
+    "developer": "Ludeon Studios",
+    "genre": "Construction and management simulation",
+    "franchise": "",
+    "console": "PC",
+    "score": 80,
+    "hours": 52,
+    "status": "Completato",
+    "releaseYear": 2013,
+    "playedYear": 2025,
+    "review": "",
+    "createdAt": "2026-11-14T14:49:05.634Z",
+    "updatedAt": "2026-11-14T14:49:05.634Z"
   }
 ]
