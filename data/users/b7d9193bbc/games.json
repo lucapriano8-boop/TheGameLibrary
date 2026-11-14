@@ -399,5 +399,22 @@
     "review": "",
     "createdAt": "2026-11-14T00:20:01.278Z",
     "updatedAt": "2026-11-14T00:20:01.278Z"
+  },
+  {
+    "id": "0977f16c-086c-42f8-a14d-3d58ff9bd356",
+    "title": "Spider-Man",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/e/e1/Spider-Man_PS4_cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Insomniac Games",
+    "genre": "Action-adventure",
+    "franchise": "Spider-Man",
+    "console": "PS4",
+    "score": 90,
+    "hours": null,
+    "status": "Completato",
+    "releaseYear": 2018,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-14T10:23:19.595Z",
+    "updatedAt": "2026-11-14T10:23:19.595Z"
   }
 ]
