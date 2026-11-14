@@ -672,5 +672,22 @@
     "review": "",
     "createdAt": "2026-11-14T14:46:59.583Z",
     "updatedAt": "2026-11-14T14:46:59.583Z"
+  },
+  {
+    "id": "a2eda31f-72f9-4b3c-94e8-b63f94c6085e",
+    "title": "Fallout 4",
+    "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdHbtTs7josF-R7vYDWo-6LPdAzmVxpsjs3Lkdnzh0Cw&s=10",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": 81,
+    "hours": null,
+    "status": "Completato",
+    "releaseYear": null,
+    "playedYear": 2021,
+    "review": "",
+    "createdAt": "2026-11-14T14:48:14.192Z",
+    "updatedAt": "2026-11-14T14:48:14.192Z"
   }
 ]
