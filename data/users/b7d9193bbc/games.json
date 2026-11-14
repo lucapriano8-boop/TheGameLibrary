@@ -569,5 +569,22 @@
     "review": "",
     "createdAt": "2026-11-14T10:35:31.344Z",
     "updatedAt": "2026-11-14T10:35:31.344Z"
+  },
+  {
+    "id": "41630434-214f-4dae-9903-5409577c72a4",
+    "title": "Detroit: Become Human",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/e/ee/Detroit_Become_Human.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PS5",
+    "score": 84,
+    "hours": null,
+    "status": "Completato",
+    "releaseYear": 2018,
+    "playedYear": 2025,
+    "review": "",
+    "createdAt": "2026-11-14T10:36:24.730Z",
+    "updatedAt": "2026-11-14T10:36:24.730Z"
   }
 ]
