@@ -270,13 +270,13 @@
     "franchise": "Call of Duty",
     "console": "PC",
     "score": 92,
-    "hours": null,
+    "hours": 5,
     "status": "Completato",
     "releaseYear": 2009,
-    "playedYear": 2025,
+    "playedYear": 2023,
     "review": "",
     "createdAt": "2026-11-13T18:01:57.839Z",
-    "updatedAt": "2026-11-13T18:01:57.839Z"
+    "updatedAt": "2026-11-14T15:02:56.718Z"
   },
   {
     "id": "d8efd4bb-28a4-4770-a8d4-7dbf76869819",
