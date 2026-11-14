@@ -50,5 +50,18 @@
       "complete": null
     },
     "addedAt": "2026-11-14T15:11:24.856Z"
+  },
+  {
+    "id": "3af3607a-e63c-41ca-a79f-6b8e61103c07",
+    "title": "Batman: Arkham City",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/0/00/Batman_Arkham_City_Game_Cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "",
+    "notes": "",
+    "time": {
+      "main": 13,
+      "extra": null,
+      "complete": null
+    },
+    "addedAt": "2026-11-14T15:12:14.704Z"
   }
 ]
