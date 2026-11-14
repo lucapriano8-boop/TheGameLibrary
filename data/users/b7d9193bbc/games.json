@@ -812,5 +812,22 @@
     "review": "",
     "createdAt": "2026-11-14T14:57:50.711Z",
     "updatedAt": "2026-11-14T14:57:50.711Z"
+  },
+  {
+    "id": "5d540fa2-ab4c-4f17-9403-0a38f031c4b9",
+    "title": "Far Cry 5",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/0/03/Far_Cry_5_boxshot.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Ubisoft Toronto, Ubisoft Kyiv",
+    "genre": "First-person shooter",
+    "franchise": "Far Cry",
+    "console": "PC",
+    "score": 75,
+    "hours": 22,
+    "status": "Completato",
+    "releaseYear": 2018,
+    "playedYear": 2021,
+    "review": "",
+    "createdAt": "2026-11-14T14:58:22.929Z",
+    "updatedAt": "2026-11-14T14:58:22.929Z"
   }
 ]
