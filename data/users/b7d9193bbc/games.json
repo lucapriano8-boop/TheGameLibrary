@@ -726,5 +726,22 @@
     "review": "",
     "createdAt": "2026-11-14T14:50:22.662Z",
     "updatedAt": "2026-11-14T14:50:22.662Z"
+  },
+  {
+    "id": "368c2149-bcce-401f-a491-6c752ae18ef5",
+    "title": "Hogwarts Legacy",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/f/fb/Hogwarts_legacyboxart.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": 80,
+    "hours": 37,
+    "status": "Completato",
+    "releaseYear": 2023,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-14T14:54:50.487Z",
+    "updatedAt": "2026-11-14T14:54:50.487Z"
   }
 ]
