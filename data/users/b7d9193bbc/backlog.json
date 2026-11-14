@@ -50,5 +50,18 @@
       "complete": null
     },
     "addedAt": "2026-11-14T15:11:24.856Z"
+  },
+  {
+    "id": "909d69ec-322e-4200-902f-69896b5bed73",
+    "title": "Batman: Arkham Asylum",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/4/42/Batman_Arkham_Asylum_Videogame_Cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "",
+    "notes": "",
+    "time": {
+      "main": 11,
+      "extra": null,
+      "complete": null
+    },
+    "addedAt": "2026-11-14T15:11:48.917Z"
   }
 ]
