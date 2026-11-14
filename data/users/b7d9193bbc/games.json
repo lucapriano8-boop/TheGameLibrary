@@ -638,5 +638,22 @@
     "review": "",
     "createdAt": "2026-11-14T14:45:35.148Z",
     "updatedAt": "2026-11-14T14:45:35.148Z"
+  },
+  {
+    "id": "fd59fb33-99a2-4bd5-8853-f040c2594ef5",
+    "title": "Mafia: Definitive Edition",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/a/ae/Mafia_Definitive_Edition.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "Action-adventure",
+    "franchise": "Mafia",
+    "console": "PC",
+    "score": 82,
+    "hours": null,
+    "status": "Completato",
+    "releaseYear": 2020,
+    "playedYear": 2021,
+    "review": "",
+    "createdAt": "2026-11-14T14:46:18.446Z",
+    "updatedAt": "2026-11-14T14:46:18.446Z"
   }
 ]
