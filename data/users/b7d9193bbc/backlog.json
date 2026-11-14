@@ -115,5 +115,18 @@
       "complete": null
     },
     "addedAt": "2026-11-14T15:14:41.831Z"
+  },
+  {
+    "id": "12aa979f-07e1-4756-b192-c4e68f63256f",
+    "title": "Clair Obscur: Expedition 33",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/5/5a/Clair_Obscur%2C_Expedition_33_Cover_1.webp?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PS5",
+    "notes": "",
+    "time": {
+      "main": 30,
+      "extra": null,
+      "complete": null
+    },
+    "addedAt": "2026-11-14T22:16:15.766Z"
   }
 ]
