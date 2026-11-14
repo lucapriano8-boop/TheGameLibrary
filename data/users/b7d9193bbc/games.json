@@ -365,5 +365,22 @@
     "createdAt": "2026-11-13T18:05:56.240Z",
     "updatedAt": "2026-11-13T18:05:56.240Z",
     "favorite": true
+  },
+  {
+    "id": "c186f264-b63b-4728-b62e-c359c80de067",
+    "title": "Dishonored: Death of the Outsider",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/0/01/Death_of_the_Outsider_cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Arkane Studios",
+    "genre": "Action-adventure",
+    "franchise": "Dishonored",
+    "console": "PC",
+    "score": 90,
+    "hours": null,
+    "status": "Completato",
+    "releaseYear": 2017,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-14T00:15:59.190Z",
+    "updatedAt": "2026-11-14T00:15:59.190Z"
   }
 ]
