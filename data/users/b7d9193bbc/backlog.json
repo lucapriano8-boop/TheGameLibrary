@@ -14,7 +14,11 @@
     "cover": "https://upload.wikimedia.org/wikipedia/en/e/e0/Death_Stranding_2_Icon.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "console": "Ps5",
     "notes": "",
-    "time": null,
+    "time": {
+      "main": 35,
+      "extra": null,
+      "complete": null
+    },
     "addedAt": "2026-11-14T00:11:08.025Z"
   }
 ]
