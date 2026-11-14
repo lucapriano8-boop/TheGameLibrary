@@ -467,5 +467,22 @@
     "review": "",
     "createdAt": "2026-11-14T10:27:42.306Z",
     "updatedAt": "2026-11-14T10:27:42.306Z"
+  },
+  {
+    "id": "78ef0f58-be8d-4ef7-b108-7464e7b5951c",
+    "title": "Death Stranding",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/2/22/Death_Stranding.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Guerrilla Games",
+    "genre": "Stealth",
+    "franchise": "Death Stranding",
+    "console": "PS5",
+    "score": 87,
+    "hours": null,
+    "status": "Completato",
+    "releaseYear": 2019,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-14T10:28:21.870Z",
+    "updatedAt": "2026-11-14T10:28:21.870Z"
   }
 ]
