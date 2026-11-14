@@ -829,5 +829,22 @@
     "review": "",
     "createdAt": "2026-11-14T14:58:22.929Z",
     "updatedAt": "2026-11-14T14:58:22.929Z"
+  },
+  {
+    "id": "03b39f13-1a12-4c1a-9722-a12477e57fef",
+    "title": "Uncharted 2: Il covo dei ladri",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/7/7b/Uncharted_2_box_artwork.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Naughty Dog",
+    "genre": "Action-adventure",
+    "franchise": "Uncharted",
+    "console": "PS4",
+    "score": 74,
+    "hours": null,
+    "status": "Completato",
+    "releaseYear": 2009,
+    "playedYear": 2025,
+    "review": "",
+    "createdAt": "2026-11-14T14:58:56.341Z",
+    "updatedAt": "2026-11-14T14:58:56.341Z"
   }
 ]
