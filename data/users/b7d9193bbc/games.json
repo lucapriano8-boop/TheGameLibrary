@@ -501,5 +501,22 @@
     "review": "",
     "createdAt": "2026-11-14T10:28:48.529Z",
     "updatedAt": "2026-11-14T10:28:48.529Z"
+  },
+  {
+    "id": "438409c5-9c08-45ef-857f-4e22eaf91394",
+    "title": "Wolfenstein: The New Order",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/9/95/Wolfenstein_The_New_Order_cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "First-person shooter",
+    "franchise": "Wolfenstein",
+    "console": "PC",
+    "score": 86,
+    "hours": 9,
+    "status": "Completato",
+    "releaseYear": 2014,
+    "playedYear": 2020,
+    "review": "",
+    "createdAt": "2026-11-14T10:30:12.120Z",
+    "updatedAt": "2026-11-14T10:30:12.120Z"
   }
 ]
