@@ -846,5 +846,22 @@
     "review": "",
     "createdAt": "2026-11-14T14:58:56.341Z",
     "updatedAt": "2026-11-14T14:58:56.341Z"
+  },
+  {
+    "id": "cf018c3c-b488-4b0a-a060-d030cbe66ca8",
+    "title": "Vader Immortal: A Star Wars VR Series",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/5/5a/Vader_immortal.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "ILMxLAB",
+    "genre": "",
+    "franchise": "Guerre stellari",
+    "console": "VR",
+    "score": 73,
+    "hours": null,
+    "status": "Completato",
+    "releaseYear": 2019,
+    "playedYear": 2024,
+    "review": "",
+    "createdAt": "2026-11-14T14:59:32.405Z",
+    "updatedAt": "2026-11-14T14:59:32.405Z"
   }
 ]
