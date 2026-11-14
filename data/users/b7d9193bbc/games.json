@@ -603,5 +603,23 @@
     "review": "",
     "createdAt": "2026-11-14T10:37:07.040Z",
     "updatedAt": "2026-11-14T10:37:07.040Z"
+  },
+  {
+    "id": "0cacce61-3d28-4418-8df6-bfdf0f7ceef0",
+    "title": "Baldur's Gate 3",
+    "cover": "",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PS5",
+    "score": null,
+    "hours": null,
+    "status": "In corso",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "startedAt": "2026-11-14",
+    "createdAt": "2026-11-14T10:38:58.390Z",
+    "updatedAt": "2026-11-14T10:38:58.390Z"
   }
 ]
