@@ -586,5 +586,22 @@
     "review": "",
     "createdAt": "2026-11-14T10:36:24.730Z",
     "updatedAt": "2026-11-14T10:36:24.730Z"
+  },
+  {
+    "id": "70b45138-d7b9-4cec-a4e7-df2668e7ca9d",
+    "title": "Way Out",
+    "cover": "",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PS4",
+    "score": 83,
+    "hours": null,
+    "status": "Completato",
+    "releaseYear": 2018,
+    "playedYear": 2018,
+    "review": "",
+    "createdAt": "2026-11-14T10:37:07.040Z",
+    "updatedAt": "2026-11-14T10:37:07.040Z"
   }
 ]
