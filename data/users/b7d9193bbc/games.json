@@ -534,7 +534,8 @@
     "playedYear": 2013,
     "review": "",
     "createdAt": "2026-11-14T10:33:48.706Z",
-    "updatedAt": "2026-11-14T10:33:48.706Z"
+    "updatedAt": "2026-11-14T10:33:48.706Z",
+    "favorite": true
   },
   {
     "id": "8edb1daa-39b2-45dd-91d8-487fd14c8288",
