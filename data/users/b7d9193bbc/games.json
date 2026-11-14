@@ -535,5 +535,22 @@
     "review": "",
     "createdAt": "2026-11-14T10:33:48.706Z",
     "updatedAt": "2026-11-14T10:33:48.706Z"
+  },
+  {
+    "id": "8edb1daa-39b2-45dd-91d8-487fd14c8288",
+    "title": "Grand Theft Auto IV",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/b/b7/Grand_Theft_Auto_IV_cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Rockstar Toronto",
+    "genre": "Action-adventure",
+    "franchise": "Grand Theft Auto",
+    "console": "Steam deck",
+    "score": 85,
+    "hours": null,
+    "status": "Completato",
+    "releaseYear": 2008,
+    "playedYear": 2025,
+    "review": "",
+    "createdAt": "2026-11-14T10:34:47.331Z",
+    "updatedAt": "2026-11-14T10:34:47.331Z"
   }
 ]
