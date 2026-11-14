@@ -942,14 +942,14 @@
     "franchise": "",
     "console": "",
     "score": null,
-    "hours": null,
+    "hours": 10,
     "status": "In corso",
     "releaseYear": null,
     "playedYear": 2026,
     "review": "",
     "startedAt": "2026-11-14",
     "createdAt": "2026-11-14T15:15:51.428Z",
-    "updatedAt": "2026-11-14T15:15:51.428Z"
+    "updatedAt": "2026-11-14T15:16:16.001Z"
   },
   {
     "id": "b86bfa52-b7c6-4529-b675-74a8b6925d9e",
