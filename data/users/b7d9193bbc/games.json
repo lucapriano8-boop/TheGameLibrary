@@ -880,5 +880,22 @@
     "review": "",
     "createdAt": "2026-11-14T15:00:16.335Z",
     "updatedAt": "2026-11-14T15:00:16.335Z"
+  },
+  {
+    "id": "4c6d8ff1-f86b-43be-bb14-6f1375be88b8",
+    "title": "Project Wingman",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/c/c8/Pwingman_logo.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "Post-apocalyptic",
+    "franchise": "",
+    "console": "PC",
+    "score": 70,
+    "hours": 15,
+    "status": "Completato",
+    "releaseYear": 2020,
+    "playedYear": 2022,
+    "review": "",
+    "createdAt": "2026-11-14T15:00:58.008Z",
+    "updatedAt": "2026-11-14T15:00:58.008Z"
   }
 ]
