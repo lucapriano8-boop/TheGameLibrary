@@ -924,14 +924,14 @@
     "franchise": "",
     "console": "",
     "score": null,
-    "hours": null,
+    "hours": 10,
     "status": "In corso",
     "releaseYear": null,
     "playedYear": 2026,
     "review": "",
     "startedAt": "2026-11-14",
     "createdAt": "2026-11-14T15:11:51.946Z",
-    "updatedAt": "2026-11-14T15:11:51.946Z"
+    "updatedAt": "2026-11-14T15:16:25.628Z"
   },
   {
     "id": "7d7dc7d1-6b1e-4fa6-beee-f95536031d94",
