@@ -552,5 +552,22 @@
     "review": "",
     "createdAt": "2026-11-14T10:34:47.331Z",
     "updatedAt": "2026-11-14T10:34:47.331Z"
+  },
+  {
+    "id": "d7c640c1-0eb5-4e84-bf06-7bef5a2db4d0",
+    "title": "Starfield",
+    "cover": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Starfield_-_game_cover.png/500px-Starfield_-_game_cover.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "developer": "",
+    "genre": "Platform",
+    "franchise": "",
+    "console": "PC",
+    "score": 85,
+    "hours": null,
+    "status": "Completato",
+    "releaseYear": 2021,
+    "playedYear": 2021,
+    "review": "",
+    "createdAt": "2026-11-14T10:35:31.344Z",
+    "updatedAt": "2026-11-14T10:35:31.344Z"
   }
 ]
