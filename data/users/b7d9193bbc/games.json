@@ -932,5 +932,23 @@
     "startedAt": "2026-11-14",
     "createdAt": "2026-11-14T15:11:51.946Z",
     "updatedAt": "2026-11-14T15:11:51.946Z"
+  },
+  {
+    "id": "7d7dc7d1-6b1e-4fa6-beee-f95536031d94",
+    "title": "Resident Evil 2",
+    "cover": "https://store-images.s-microsoft.com/image/apps.36567.71571739681700792.c61fa2d7-3d69-4edf-8e51-accc41d47823.a8c614fc-0dcb-4788-89ed-958635753296",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "",
+    "score": null,
+    "hours": null,
+    "status": "In corso",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "startedAt": "2026-11-14",
+    "createdAt": "2026-11-14T15:15:51.428Z",
+    "updatedAt": "2026-11-14T15:15:51.428Z"
   }
 ]
