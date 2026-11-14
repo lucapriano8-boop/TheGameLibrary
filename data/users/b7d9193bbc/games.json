@@ -863,5 +863,22 @@
     "review": "",
     "createdAt": "2026-11-14T14:59:32.405Z",
     "updatedAt": "2026-11-14T14:59:32.405Z"
+  },
+  {
+    "id": "bfb55ee1-04d5-4416-9c25-c219858e93ee",
+    "title": "Watch Dogs: Legion",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/d/dc/Watch_Dogs_Legion_cover_art.webp?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Ubisoft Toronto, Ubisoft Paris",
+    "genre": "Action-adventure",
+    "franchise": "Watch Dogs",
+    "console": "PC",
+    "score": 73,
+    "hours": null,
+    "status": "Completato",
+    "releaseYear": 2020,
+    "playedYear": 2021,
+    "review": "",
+    "createdAt": "2026-11-14T15:00:16.335Z",
+    "updatedAt": "2026-11-14T15:00:16.335Z"
   }
 ]
