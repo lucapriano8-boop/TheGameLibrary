@@ -37,5 +37,18 @@
       "complete": null
     },
     "addedAt": "2026-11-14T15:10:51.895Z"
+  },
+  {
+    "id": "b54e6e95-4734-4112-b69b-b2e218237efb",
+    "title": "BioShock Infinite",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/a/a3/Official_cover_art_for_Bioshock_Infinite.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "",
+    "notes": "",
+    "time": {
+      "main": 12,
+      "extra": null,
+      "complete": null
+    },
+    "addedAt": "2026-11-14T15:11:24.856Z"
   }
 ]
