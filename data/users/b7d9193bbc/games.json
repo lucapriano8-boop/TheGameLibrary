@@ -382,5 +382,22 @@
     "review": "",
     "createdAt": "2026-11-14T00:15:59.190Z",
     "updatedAt": "2026-11-14T00:15:59.190Z"
+  },
+  {
+    "id": "30325570-a0a8-4552-8156-679f9654b253",
+    "title": "Far Cry 3",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/c/c6/Far_Cry_3_PAL_box_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Massive Entertainment, Ubisoft Shanghai",
+    "genre": "Action-adventure",
+    "franchise": "Far Cry",
+    "console": "Ps3",
+    "score": 90,
+    "hours": null,
+    "status": "Completato",
+    "releaseYear": 2012,
+    "playedYear": 2024,
+    "review": "",
+    "createdAt": "2026-11-14T00:20:01.278Z",
+    "updatedAt": "2026-11-14T00:20:01.278Z"
   }
 ]
