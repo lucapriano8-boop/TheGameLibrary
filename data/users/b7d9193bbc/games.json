@@ -518,5 +518,22 @@
     "review": "",
     "createdAt": "2026-11-14T10:30:12.120Z",
     "updatedAt": "2026-11-14T10:30:12.120Z"
+  },
+  {
+    "id": "2572fb10-bd30-4082-995f-b1f162a22a69",
+    "title": "Grand Theft Auto V",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/a/a5/Grand_Theft_Auto_V.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Rockstar Toronto, Rockstar New England",
+    "genre": "Action-adventure",
+    "franchise": "Grand Theft Auto",
+    "console": "PS3",
+    "score": 80,
+    "hours": null,
+    "status": "Completato",
+    "releaseYear": 2013,
+    "playedYear": 2013,
+    "review": "",
+    "createdAt": "2026-11-14T10:33:48.706Z",
+    "updatedAt": "2026-11-14T10:33:48.706Z"
   }
 ]
