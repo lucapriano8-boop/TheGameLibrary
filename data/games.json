@@ -1516,5 +1516,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:06:44.746Z",
     "updatedAt": "2026-11-15T15:06:44.746Z"
+  },
+  {
+    "id": "483b3397-2d51-493e-bfed-8d7b20885a41",
+    "title": "Metal Gear Solid",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/3/33/Metal_Gear_Solid_cover_art.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Konami",
+    "genre": "Action-adventure",
+    "franchise": "Metal Gear",
+    "console": "Ps5",
+    "score": 96,
+    "hours": 23,
+    "status": "Completato",
+    "releaseYear": 1998,
+    "playedYear": 2024,
+    "review": "",
+    "createdAt": "2026-11-15T15:07:36.388Z",
+    "updatedAt": "2026-11-15T15:07:36.388Z"
   }
 ]
