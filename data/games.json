@@ -2588,5 +2588,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:54:43.530Z",
     "updatedAt": "2026-11-15T15:54:43.530Z"
+  },
+  {
+    "id": "29732a49-932e-4d91-ab5f-d3a2a6e63205",
+    "title": "Super Mario Galaxy",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/7/76/SuperMarioGalaxy.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Nintendo EAD",
+    "genre": "3D platform",
+    "franchise": "Super Mario",
+    "console": "Nintendo Switch 2",
+    "score": 95,
+    "hours": 10,
+    "status": "Completato",
+    "releaseYear": 2007,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-15T15:55:27.150Z",
+    "updatedAt": "2026-11-15T15:55:27.150Z"
   }
 ]
