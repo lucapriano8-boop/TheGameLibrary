@@ -1618,5 +1618,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:11:37.720Z",
     "updatedAt": "2026-11-15T15:11:37.720Z"
+  },
+  {
+    "id": "ef2b6144-30dc-4ea5-9e7d-0d2cac6b9b3b",
+    "title": "Mortal Kombat 11",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/7/7e/Mortal_Kombat_11_cover_art.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "NetherRealm Studios",
+    "genre": "Fighting",
+    "franchise": "Mortal Kombat",
+    "console": "Ps4",
+    "score": 85,
+    "hours": 5,
+    "status": "Completato",
+    "releaseYear": 2019,
+    "playedYear": 2021,
+    "review": "",
+    "createdAt": "2026-11-15T15:12:11.481Z",
+    "updatedAt": "2026-11-15T15:12:11.481Z"
   }
 ]
