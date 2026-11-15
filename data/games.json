@@ -1261,5 +1261,22 @@
     "review": "",
     "createdAt": "2026-11-13T21:18:28.055Z",
     "updatedAt": "2026-11-13T21:18:28.055Z"
+  },
+  {
+    "id": "be5a8679-9085-4853-9ed2-2b1ae32d09fb",
+    "title": "Horizon Zero Dawn Complete Edition",
+    "cover": "",
+    "developer": "Guerrilla Games",
+    "genre": "Action-adventure",
+    "franchise": "Horizon",
+    "console": "Ps4",
+    "score": 83,
+    "hours": 60,
+    "status": "Platinato",
+    "releaseYear": 2020,
+    "playedYear": 2022,
+    "review": "",
+    "createdAt": "2026-11-15T14:06:59.024Z",
+    "updatedAt": "2026-11-15T14:06:59.024Z"
   }
 ]
