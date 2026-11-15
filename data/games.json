@@ -2860,5 +2860,22 @@
     "review": "",
     "createdAt": "2026-11-15T16:06:22.301Z",
     "updatedAt": "2026-11-15T16:06:22.301Z"
+  },
+  {
+    "id": "62209352-cae4-4179-91b9-ea5bd610ef15",
+    "title": "Assetto Corsa",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/c/c8/Assetto_Corsa_cover.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Kunos Simulazioni",
+    "genre": "Sim racing",
+    "franchise": "Assetto Corsa",
+    "console": "Ps4",
+    "score": 79,
+    "hours": 20,
+    "status": "Completato",
+    "releaseYear": 2013,
+    "playedYear": 2016,
+    "review": "",
+    "createdAt": "2026-11-15T16:07:10.880Z",
+    "updatedAt": "2026-11-15T16:07:10.880Z"
   }
 ]
