@@ -2554,5 +2554,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:51:48.816Z",
     "updatedAt": "2026-11-15T15:51:48.816Z"
+  },
+  {
+    "id": "3480a6f0-346a-4f85-abcd-3f60d423bc37",
+    "title": "Metal Gear Solid 4: Guns of the Patriots",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/4/4b/Mgs4us_cover_small.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Kojima Production",
+    "genre": "Action-adventure",
+    "franchise": "Metal Gear",
+    "console": "PS3",
+    "score": 100,
+    "hours": 20,
+    "status": "Completato",
+    "releaseYear": 2008,
+    "playedYear": 2025,
+    "review": "",
+    "createdAt": "2026-11-15T15:53:44.063Z",
+    "updatedAt": "2026-11-15T15:53:44.063Z"
   }
 ]
