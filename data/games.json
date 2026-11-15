@@ -2707,5 +2707,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:59:44.928Z",
     "updatedAt": "2026-11-15T15:59:44.928Z"
+  },
+  {
+    "id": "10b1a108-85b9-4d98-9121-7e90d80e4497",
+    "title": "Pokémon Giallo",
+    "cover": "https://thumb.wikimedia.org/wikipedia/en/thumb/a/af/Pok%C3%A9mon_Red_and_Blue_cover_art.webp/500px-Pok%C3%A9mon_Red_and_Blue_cover_art.webp?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "developer": "Game Freak",
+    "genre": "RPG",
+    "franchise": "serie principale di Pokémon",
+    "console": "Nintendo",
+    "score": 92,
+    "hours": 12,
+    "status": "Completato",
+    "releaseYear": 1998,
+    "playedYear": 2024,
+    "review": "",
+    "createdAt": "2026-11-15T16:00:18.585Z",
+    "updatedAt": "2026-11-15T16:00:18.585Z"
   }
 ]
