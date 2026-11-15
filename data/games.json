@@ -2537,5 +2537,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:51:03.125Z",
     "updatedAt": "2026-11-15T15:51:03.125Z"
+  },
+  {
+    "id": "7af9d1d8-33a3-40e7-b95d-217d6e24218f",
+    "title": "Wo Long: Fallen Dynasty Digital Deluxe Edition",
+    "cover": "",
+    "developer": "Koei Tecmo Games",
+    "genre": "Soulslike",
+    "franchise": "Wo long",
+    "console": "Ps5",
+    "score": 80,
+    "hours": 11,
+    "status": "Giocato",
+    "releaseYear": 2023,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-15T15:51:48.816Z",
+    "updatedAt": "2026-11-15T15:51:48.816Z"
   }
 ]
