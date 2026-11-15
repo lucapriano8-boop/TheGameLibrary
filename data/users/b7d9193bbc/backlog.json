@@ -154,18 +154,5 @@
       "complete": null
     },
     "addedAt": "2026-11-15T14:58:54.052Z"
-  },
-  {
-    "id": "9a60ce50-a8f1-4e7e-aae4-ceba77a8fe2f",
-    "title": "Assassin's Creed: Revelations",
-    "cover": "https://upload.wikimedia.org/wikipedia/en/d/d9/Assassins_Creed_Revelations_Cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "console": "",
-    "notes": "",
-    "time": {
-      "main": 12,
-      "extra": null,
-      "complete": null
-    },
-    "addedAt": "2026-11-15T14:59:15.395Z"
   }
 ]
