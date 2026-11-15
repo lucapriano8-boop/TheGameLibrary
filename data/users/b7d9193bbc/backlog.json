@@ -120,14 +120,15 @@
     "id": "51c66954-4380-4f2e-984a-5f23b1b63edc",
     "title": "La Terra di Mezzo: L'ombra di Mordor",
     "cover": "https://upload.wikimedia.org/wikipedia/en/0/01/Shadow_of_Mordor_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "console": "",
+    "console": "PC",
     "notes": "",
     "time": {
       "main": 15,
       "extra": null,
       "complete": null
     },
-    "addedAt": "2026-11-15T14:55:18.934Z"
+    "addedAt": "2026-11-15T14:55:18.934Z",
+    "owned": "yes"
   },
   {
     "id": "3d125f23-f1d7-4bfc-b899-9eb15f0f2866",
