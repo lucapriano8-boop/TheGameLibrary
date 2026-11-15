@@ -154,5 +154,19 @@
       "complete": null
     },
     "addedAt": "2026-11-15T15:05:47.480Z"
+  },
+  {
+    "id": "c7736c72-b5bd-4ff6-aaa3-601234aebc7c",
+    "title": "Outer Wilds",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/f/f6/Outer_Wilds_Steam_artwork.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "",
+    "notes": "",
+    "owned": "no",
+    "time": {
+      "main": 17,
+      "extra": null,
+      "complete": null
+    },
+    "addedAt": "2026-11-15T15:18:09.816Z"
   }
 ]
