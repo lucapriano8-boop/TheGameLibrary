@@ -146,14 +146,15 @@
     "id": "8acaa6f6-f198-42bd-92ac-77c7b87ba12e",
     "title": "Assassin's Creed",
     "cover": "https://upload.wikimedia.org/wikipedia/en/5/52/Assassin%27s_Creed.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "console": "",
+    "console": "PC",
     "notes": "",
     "time": {
       "main": 15,
       "extra": null,
       "complete": null
     },
-    "addedAt": "2026-11-15T14:58:54.052Z"
+    "addedAt": "2026-11-15T14:58:54.052Z",
+    "owned": "yes"
   },
   {
     "id": "1929d15c-8c61-4061-9819-c810f1989ce6",
