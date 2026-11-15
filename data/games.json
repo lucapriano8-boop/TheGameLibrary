@@ -2078,5 +2078,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:31:31.750Z",
     "updatedAt": "2026-11-15T15:31:31.750Z"
+  },
+  {
+    "id": "ef1d95e2-137b-4b9a-8766-03e2ff49297f",
+    "title": "Stray",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/f/f1/Stray_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "BlueTwelve Studio",
+    "genre": "Puzzle",
+    "franchise": "Stray",
+    "console": "Ps5",
+    "score": 81,
+    "hours": 7,
+    "status": "Completato",
+    "releaseYear": 2022,
+    "playedYear": 2022,
+    "review": "",
+    "createdAt": "2026-11-15T15:32:10.547Z",
+    "updatedAt": "2026-11-15T15:32:10.547Z"
   }
 ]
