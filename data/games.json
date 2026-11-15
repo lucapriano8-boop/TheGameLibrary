@@ -2452,5 +2452,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:47:48.022Z",
     "updatedAt": "2026-11-15T15:47:48.022Z"
+  },
+  {
+    "id": "f49b258f-c4db-47a8-8179-2dc6837930e5",
+    "title": "Vampire Survivors",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/e/e6/Vampire_Survivors_key_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Luca Galante",
+    "genre": "Bullethell",
+    "franchise": "Vampire",
+    "console": "Ps5",
+    "score": 85,
+    "hours": 40,
+    "status": "Completato",
+    "releaseYear": 2022,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-15T15:48:44.710Z",
+    "updatedAt": "2026-11-15T15:48:44.710Z"
   }
 ]
