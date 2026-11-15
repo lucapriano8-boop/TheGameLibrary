@@ -8,6 +8,7 @@ La mia libreria digitale personale dei videogiochi giocati.
 - **In corso**: imposta lo stato "In corso" (o premi **▶ Inizia** su un gioco del backlog) e il gioco compare in cima alla Home, con **⏱ Ore** per aggiornare le ore e **✔ Finito** per dargli il voto. I giochi in corso entrano in classifica e nelle statistiche solo quando li finisci.
 - **Statistiche** (barra in basso): **Riepilogo anno** con gioco dell'anno, ore, voto medio, console e genere preferiti, distribuzione dei voti e classifica dell'anno; **Confronto** tra due profili con percentuale di affinità, numeri a confronto, giochi in comune e giochi consigliati dall'altro profilo (con **+ Backlog**).
 - **Impostazioni**: sul telefono si aprono dall'ingranaggio ⚙ in alto, accanto all'avatar.
+- **Acquisto**: per i giochi in uscita (🛒 Da comprare / 📦 Preordinato / ✔ Comprato) e nel backlog (Da comprare / Comprato). Si sceglie nel modulo oppure si cambia con un tocco sul badge nella lista; nel backlog c'è il filtro "Acquisto".
 - **Home**: voto medio, ore totali, numero di giochi, grafico dei giochi giocati per anno, Top 5 e prossime uscite.
 - **Classifica**: tutti i giochi, ordinati per voto (o per titolo, stato, ore, anno giocato, anno di uscita, console). Ricerca e filtro per stato. Clicca un gioco per vederne i dettagli, modificarlo o eliminarlo.
 - **In uscita**: giochi futuri con la data di uscita, in ordine cronologico con conto alla rovescia. Quando un gioco è uscito, il pulsante **+ Libreria** lo sposta nella libreria.

@@ -4,6 +4,13 @@
 
   // Ordine "logico" degli stati, usato anche per l'ordinamento per stato
   const PLAYING = 'In corso';
+  // stato di acquisto per uscite e backlog
+  const OWNED = {
+    no: { icon: '🛒', label: 'Da comprare', cls: 'buy-no' },
+    preorder: { icon: '📦', label: 'Preordinato', cls: 'buy-pre' },
+    yes: { icon: '✔', label: 'Comprato', cls: 'buy-yes' },
+  };
+  const OWNED_CYCLE = { upcoming: ['no', 'preorder', 'yes'], backlog: ['no', 'yes'] };
   const STATUSES = ['Platinato', 'Completato', 'Giocato', 'Abbandonato'];
   const STATUS_HINT = {
     [PLAYING]: 'In corso (lo sto giocando)',
@@ -47,6 +54,7 @@
     editingBacklogId: null,
     backlogSort: 'recent',
     favOnly: false,
+    backlogOwned: '',
     busy: false,
   };
 
@@ -519,6 +527,7 @@
           <div class="up-main">
             <div class="up-title">${esc(u.title)}</div>
             <div class="up-sub">${esc([u.console, releaseLabel(u)].filter(Boolean).join(' · '))}</div>
+            <div class="buy-row">${ownedBadge(u, 'upcoming')}</div>
             ${u.notes ? `<div class="up-notes">${esc(u.notes)}</div>` : ''}
           </div>
           <div class="up-side">
@@ -686,6 +695,7 @@
     $('#upcoming-delete').hidden = !u;
     const src = u || {};
     ['title', 'cover', 'console', 'releaseDate', 'notes'].forEach((k) => { f.elements[k].value = src[k] ?? ''; });
+    setOwnedRadio(f, u ? u.owned : 'no');
     resetLookup('upcoming');
     $('#upcoming-dialog').showModal();
   }
@@ -702,6 +712,7 @@
       releaseDate,
       releaseYear: releaseDate ? Number(releaseDate.slice(0, 4)) : null,
       notes: f.notes.value.trim(),
+      owned: f.owned.value || undefined,
     };
     const editingId = state.editingUpcomingId;
     setBusy(true, 'Salvataggio in corso…');
@@ -772,7 +783,8 @@
   }
 
   function renderBacklog() {
-    const list = sortedBacklog();
+    const all = sortedBacklog();
+    const list = state.backlogOwned ? all.filter((b) => (b.owned || 'unset') === state.backlogOwned) : all;
     $('#backlog-list').innerHTML = list.map((b) => {
       const chips = timeChips(b);
       return `
@@ -781,7 +793,7 @@
           <div class="up-main">
             <div class="up-title">${esc(b.title)}</div>
             ${b.console ? `<div class="up-sub">${esc(b.console)}</div>` : ''}
-            <div class="time-chips">${chips || '<span class="muted small">Tempo non ancora inserito</span>'}</div>
+            <div class="time-chips">${ownedBadge(b, 'backlog')}${chips || '<span class="muted small">Tempo non ancora inserito</span>'}</div>
             ${b.notes ? `<div class="up-notes">${esc(b.notes)}</div>` : ''}
           </div>
           <div class="up-side">
@@ -795,7 +807,14 @@
         </li>`;
     }).join('');
     $('#backlog-empty').hidden = list.length > 0;
-    $('#backlog-toolbar').hidden = list.length < 2;
+    $('#backlog-toolbar').hidden = all.length < 2;
+    if (!list.length && all.length) {
+      $('#backlog-empty').hidden = false;
+      $('#backlog-empty').textContent = { no: 'Hai già comprato tutto il backlog 🎉', yes: 'Nessun gioco comprato nel backlog.', unset: 'Hai indicato l\'acquisto per tutti i giochi ✔' }[state.backlogOwned];
+    } else {
+      $('#backlog-empty').textContent = 'Il backlog è vuoto. Aggiungi i giochi che vuoi giocare!';
+    }
+    const toBuy = all.filter((b) => b.owned === 'no').length;
     const withTime = list.filter((b) => b.time?.main != null);
     const total = withTime.reduce((a, b) => a + b.time.main, 0);
     const missing = list.length - withTime.length;
@@ -803,6 +822,7 @@
       ? `${list.length} ${list.length === 1 ? 'gioco' : 'giochi'}`
         + (withTime.length ? ` · circa ${fmtHours(Math.round(total))} per finire le storie principali` : '')
         + (missing ? ` · ${missing} senza tempo` : '')
+        + (toBuy ? ` · ${toBuy} da comprare` : '')
       : '';
   }
 
@@ -819,6 +839,7 @@
     $('#backlog-delete').hidden = !b;
     const src = b || {};
     ['title', 'cover', 'console', 'notes'].forEach((k) => { f.elements[k].value = src[k] ?? ''; });
+    setOwnedRadio(f, b ? b.owned : 'no');
     ['main', 'extra', 'complete'].forEach((k) => { f.elements[`time_${k}`].value = src.time?.[k] ?? ''; });
     resetLookup('backlog');
     updateHltbLink();
@@ -836,6 +857,7 @@
       cover: f.cover.value.trim(),
       console: f.console.value.trim(),
       notes: f.notes.value.trim(),
+      owned: f.owned.value || undefined,
       time: Object.values(time).some((v) => v != null) ? time : null,
     };
     const editingId = state.editingBacklogId;
@@ -875,6 +897,44 @@
       toast(err.message, 'error');
     } finally {
       setBusy(false);
+    }
+  }
+
+  // ---------- ACQUISTO (uscite e backlog) ----------
+  function ownedBadge(item, kind) {
+    const o = OWNED[item.owned];
+    const next = OWNED[OWNED_CYCLE[kind][(OWNED_CYCLE[kind].indexOf(item.owned) + 1) % OWNED_CYCLE[kind].length]];
+    const title = `Tocca per cambiare in “${next.label}”`;
+    return o
+      ? `<button type="button" class="buy-chip ${o.cls}" data-action="cycle-owned" data-kind="${kind}" data-id="${esc(item.id)}" title="${title}">${o.icon} ${o.label}</button>`
+      : `<button type="button" class="buy-chip buy-unset" data-action="cycle-owned" data-kind="${kind}" data-id="${esc(item.id)}" title="Indica se l'hai comprato">🛒 Comprato?</button>`;
+  }
+
+  function setOwnedRadio(form, value) {
+    $$('input[name="owned"]', form).forEach((r) => { r.checked = r.value === value; });
+  }
+
+  async function cycleOwned(kind, id) {
+    const list = kind === 'upcoming' ? state.upcoming : state.backlog;
+    const item = list.find((x) => x.id === id);
+    if (!item) return;
+    if (!Storage.canWrite()) { toast('Per salvare serve il token GitHub (⚙ Impostazioni).', 'error'); return; }
+    const cycle = OWNED_CYCLE[kind];
+    const value = cycle[(cycle.indexOf(item.owned) + 1) % cycle.length];
+    const prev = item.owned;
+    const apply = (v) => {
+      const upd = (arr) => arr.map((x) => (x.id === id ? { ...x, owned: v } : x));
+      if (kind === 'upcoming') state.upcoming = upd(state.upcoming); else state.backlog = upd(state.backlog);
+      renderAll();
+    };
+    apply(value); // il badge cambia subito, il salvataggio avviene in background
+    try {
+      const saved = await save(kind, (arr) => arr.map((x) => (x.id === id ? { ...x, owned: value } : x)), `${OWNED[value].label}: ${item.title}`);
+      if (kind === 'upcoming') state.upcoming = saved; else state.backlog = saved;
+      renderAll();
+    } catch (err) {
+      apply(prev);
+      toast(err.message, 'error');
     }
   }
 
@@ -1594,6 +1654,7 @@
         if (action === 'finish-playing') finishPlaying(id);
         if (action === 'hours-playing') updatePlayingHours(id);
         if (action === 'compare-to-backlog') addToBacklogFromCompare(id);
+        if (action === 'cycle-owned') cycleOwned(act.dataset.kind, id);
         if (action === 'start-backlog') {
           const b = state.backlog.find((x) => x.id === id);
           state.pendingBacklogToRemove = id;
@@ -1668,6 +1729,7 @@
     $('#backlog-form').addEventListener('submit', submitBacklog);
     $('#backlog-delete').addEventListener('click', deleteBacklog);
     $('#backlog-form').elements.title.addEventListener('input', updateHltbLink);
+    $('#backlog-owned').addEventListener('change', (e) => { state.backlogOwned = e.target.value; renderBacklog(); });
     $('#backlog-sort').addEventListener('change', (e) => {
       state.backlogSort = e.target.value;
       try { localStorage.setItem('tgl-backlog-sort', state.backlogSort); } catch { /* ignore */ }
