@@ -2758,5 +2758,22 @@
     "review": "",
     "createdAt": "2026-11-15T16:01:39.340Z",
     "updatedAt": "2026-11-15T16:01:39.340Z"
+  },
+  {
+    "id": "beca1d0f-9938-43d2-8fc6-46c9912343ff",
+    "title": "Final Fantasy",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/d/d8/FF1_USA_boxart.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Square",
+    "genre": "RPG",
+    "franchise": "Final Fantasy",
+    "console": "Ps5",
+    "score": 89,
+    "hours": 8,
+    "status": "Completato",
+    "releaseYear": 1987,
+    "playedYear": 2024,
+    "review": "",
+    "createdAt": "2026-11-15T16:02:27.173Z",
+    "updatedAt": "2026-11-15T16:02:27.173Z"
   }
 ]
