@@ -2571,5 +2571,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:53:44.063Z",
     "updatedAt": "2026-11-15T15:53:44.063Z"
+  },
+  {
+    "id": "08acdc1b-a802-46bb-9674-2309e4086f02",
+    "title": "Metal Gear Solid: Peace Walker",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/8/86/Metal_Gear_Solid_Peace_Walker_Cover_Art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Kojima Production",
+    "genre": "Action-adventure",
+    "franchise": "Metal Gear",
+    "console": "Ps3",
+    "score": 95,
+    "hours": 15,
+    "status": "Completato",
+    "releaseYear": 2010,
+    "playedYear": 2025,
+    "review": "",
+    "createdAt": "2026-11-15T15:54:43.530Z",
+    "updatedAt": "2026-11-15T15:54:43.530Z"
   }
 ]
