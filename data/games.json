@@ -1721,5 +1721,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:15:41.032Z",
     "updatedAt": "2026-11-15T15:15:41.032Z"
+  },
+  {
+    "id": "83836bd7-5bf2-4f3e-b468-e4726fefa75b",
+    "title": "Need for Speed Unbound",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/d/db/Need_for_Speed_Unbound.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "EA Gothenburg",
+    "genre": "Corse",
+    "franchise": "Need for Speed",
+    "console": "Ps5",
+    "score": 72,
+    "hours": 24,
+    "status": "Completato",
+    "releaseYear": 2022,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-15T15:16:22.283Z",
+    "updatedAt": "2026-11-15T15:16:22.283Z"
   }
 ]
