@@ -432,6 +432,30 @@ body[data-view="profili"] .fab { display: none !important; }
 .settings-link svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .settings-link.active, .settings-link:hover { color: var(--accent-2); background: var(--surface); }
 
+/* ---------- acquisto ---------- */
+.buy-row { margin-top: 6px; }
+.buy-chip {
+  font: inherit; font-size: .76rem; font-weight: 650; cursor: pointer; white-space: nowrap;
+  padding: 3px 10px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg-2); color: var(--text-2);
+  transition: transform .1s;
+}
+.buy-chip:active { transform: scale(.94); }
+.buy-no { color: #f2a65a; border-color: rgba(242, 166, 90, .5); background: rgba(242, 166, 90, .1); }
+.buy-pre { color: var(--blue); border-color: rgba(88, 180, 255, .5); background: rgba(88, 180, 255, .1); }
+.buy-yes { color: var(--green); border-color: rgba(79, 209, 139, .5); background: rgba(79, 209, 139, .1); }
+.buy-unset { border-style: dashed; color: var(--muted); }
+.buy-field { border: 0; padding: 0; margin: 0; min-width: 0; }
+.buy-field legend { font-size: .86rem; color: var(--text-2); font-weight: 550; padding: 0; margin-bottom: 6px; }
+.buy-options { display: flex; gap: 6px; flex-wrap: wrap; }
+.buy-options label { flex: 1 1 0; min-width: 110px; cursor: pointer; }
+.buy-options input { position: absolute; opacity: 0; pointer-events: none; }
+.buy-options span {
+  display: block; text-align: center; padding: 10px 8px; border-radius: 10px; font-weight: 600; font-size: .9rem;
+  background: var(--bg-2); border: 1px solid var(--border); color: var(--text-2);
+}
+.buy-options input:checked + span { background: rgba(108, 140, 255, .16); border-color: var(--accent); color: var(--text); }
+.buy-options input:focus-visible + span { outline: 2px solid var(--text); outline-offset: 2px; }
+
 /* ---------- in corso ---------- */
 .playing-card { border-color: rgba(108, 140, 255, .45); background: linear-gradient(180deg, rgba(108, 140, 255, .1), var(--surface) 70%); }
 .live-dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--green); margin-right: 4px; vertical-align: 1px; box-shadow: 0 0 0 0 rgba(79, 209, 139, .6); animation: pulse 2s infinite; }
@@ -655,6 +679,10 @@ body[data-view="statistiche"] .fab { display: none !important; }
   .hltb-fields { gap: 8px; }
   .hltb-fields label { font-size: .74rem; }
   .settings-link { display: flex; }
+  .buy-options label { min-width: 0; }
+  .buy-options span { font-size: .84rem; padding: 11px 4px; }
+  #backlog-toolbar { grid-template-columns: 1fr; }
+  #backlog-toolbar .select-wrap { grid-column: 1 / -1; }
   .playing-list { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 10px; margin: 0 -14px; padding: 0 14px 4px; scrollbar-width: none; }
   .playing-list::-webkit-scrollbar { display: none; }
   .playing-item { flex: 0 0 82%; scroll-snap-align: start; }
