@@ -1482,5 +1482,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:04:29.218Z",
     "updatedAt": "2026-11-15T15:04:29.218Z"
+  },
+  {
+    "id": "8a55ce37-3162-485d-8ed4-9ed1ddef9b84",
+    "title": "Spider-Man 2",
+    "cover": "",
+    "developer": "Insomniac Games",
+    "genre": "Action-adventure",
+    "franchise": "Spider-Man",
+    "console": "Ps5",
+    "score": 93,
+    "hours": 28,
+    "status": "Platinato",
+    "releaseYear": 2023,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-15T15:05:24.203Z",
+    "updatedAt": "2026-11-15T15:05:24.203Z"
   }
 ]
