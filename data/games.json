@@ -2622,5 +2622,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:56:21.517Z",
     "updatedAt": "2026-11-15T15:56:21.517Z"
+  },
+  {
+    "id": "a731f7a0-36d0-4ae2-b948-8f6656217f94",
+    "title": "Super Mario Bros.",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/0/03/Super_Mario_Bros._box.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Nintendo EAD",
+    "genre": "2D platform",
+    "franchise": "Super Mario",
+    "console": "Nintendo Switch 2",
+    "score": 94,
+    "hours": 4,
+    "status": "Completato",
+    "releaseYear": 1985,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-15T15:57:00.245Z",
+    "updatedAt": "2026-11-15T15:57:00.245Z"
   }
 ]
