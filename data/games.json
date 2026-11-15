@@ -2367,5 +2367,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:44:00.132Z",
     "updatedAt": "2026-11-15T15:44:00.132Z"
+  },
+  {
+    "id": "c27ee65c-cb18-447f-9b71-80ff7d53523a",
+    "title": "Uncharted 3: L'inganno di Drake",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/0/02/Uncharted_3_Boxart.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Naughty Dog",
+    "genre": "Action-adventure",
+    "franchise": "Uncharted",
+    "console": "PS3",
+    "score": 92,
+    "hours": 12,
+    "status": "Completato",
+    "releaseYear": 2011,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-15T15:44:47.499Z",
+    "updatedAt": "2026-11-15T15:44:47.499Z"
   }
 ]
