@@ -1601,5 +1601,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:10:55.755Z",
     "updatedAt": "2026-11-15T15:10:55.755Z"
+  },
+  {
+    "id": "16731656-7152-44a6-91e7-223afd5ede9a",
+    "title": "Mortal Kombat X",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/d/d0/Mortal_Kombat_X_Cover_Art.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "NetherRealm Studios",
+    "genre": "Fighting",
+    "franchise": "Mortal Kombat",
+    "console": "Ps4",
+    "score": 82,
+    "hours": 12,
+    "status": "Completato",
+    "releaseYear": 2015,
+    "playedYear": 2021,
+    "review": "",
+    "createdAt": "2026-11-15T15:11:37.720Z",
+    "updatedAt": "2026-11-15T15:11:37.720Z"
   }
 ]
