@@ -2418,5 +2418,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:46:11.993Z",
     "updatedAt": "2026-11-15T15:46:11.993Z"
+  },
+  {
+    "id": "0b7e0d11-260c-43e0-afec-1e03e08019d2",
+    "title": "Undertale",
+    "cover": "",
+    "developer": "Toby Fox, 8-4",
+    "genre": "RPG",
+    "franchise": "Undertale",
+    "console": "Ps4",
+    "score": 96,
+    "hours": 16,
+    "status": "Platinato",
+    "releaseYear": 2015,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-15T15:46:55.882Z",
+    "updatedAt": "2026-11-15T15:46:55.882Z"
   }
 ]
