@@ -1329,5 +1329,22 @@
     "review": "",
     "createdAt": "2026-11-15T14:12:02.948Z",
     "updatedAt": "2026-11-15T14:12:02.948Z"
+  },
+  {
+    "id": "563947b1-220c-4073-bbac-498d971a2435",
+    "title": "Lords of the Fallen",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/6/64/Lords_of_The_Fallen.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Deck13 Interactive",
+    "genre": "Action RPG",
+    "franchise": "Lords of the Fallen",
+    "console": "Ps4",
+    "score": 75,
+    "hours": 5,
+    "status": "Giocato",
+    "releaseYear": 2014,
+    "playedYear": 2024,
+    "review": "",
+    "createdAt": "2026-11-15T14:13:11.538Z",
+    "updatedAt": "2026-11-15T14:13:11.538Z"
   }
 ]
