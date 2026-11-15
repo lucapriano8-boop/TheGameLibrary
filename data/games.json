@@ -2996,5 +2996,22 @@
     "review": "",
     "createdAt": "2026-11-15T16:11:31.920Z",
     "updatedAt": "2026-11-15T16:11:31.920Z"
+  },
+  {
+    "id": "9163643b-d944-4ab0-9c06-d347b432c81b",
+    "title": "Pico Park",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/6/60/Pico_Park_cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "Action",
+    "franchise": "Pico Park",
+    "console": "Nintendo Switch 2",
+    "score": 69,
+    "hours": 5,
+    "status": "Completato",
+    "releaseYear": 2019,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-15T16:12:02.845Z",
+    "updatedAt": "2026-11-15T16:12:02.845Z"
   }
 ]
