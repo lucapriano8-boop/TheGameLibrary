@@ -1397,5 +1397,22 @@
     "review": "",
     "createdAt": "2026-11-15T14:25:26.898Z",
     "updatedAt": "2026-11-15T14:25:26.898Z"
+  },
+  {
+    "id": "cb2077c5-6641-4a96-a683-003e4f3b4147",
+    "title": "Mafia: Terra Madre",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/a/af/Mafia_The_Old_Country_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "2k Games",
+    "genre": "Action-adventure",
+    "franchise": "Mafia",
+    "console": "Ps5",
+    "score": 87,
+    "hours": 13,
+    "status": "Completato",
+    "releaseYear": 2025,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-15T14:37:35.939Z",
+    "updatedAt": "2026-11-15T14:37:35.939Z"
   }
 ]
