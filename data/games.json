@@ -1380,5 +1380,22 @@
     "review": "",
     "createdAt": "2026-11-15T14:24:52.644Z",
     "updatedAt": "2026-11-15T14:24:52.644Z"
+  },
+  {
+    "id": "1602930d-026f-43e3-a7cf-f1b91e216240",
+    "title": "Mafia: Definitive Edition",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/a/ae/Mafia_Definitive_Edition.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "2k Games",
+    "genre": "Action-adventure",
+    "franchise": "Mafia",
+    "console": "Ps4",
+    "score": 87,
+    "hours": 16,
+    "status": "Completato",
+    "releaseYear": 2020,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-15T14:25:26.898Z",
+    "updatedAt": "2026-11-15T14:25:26.898Z"
   }
 ]
