@@ -2656,5 +2656,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:57:36.567Z",
     "updatedAt": "2026-11-15T15:57:36.567Z"
+  },
+  {
+    "id": "7d65811a-dcf8-4f5c-8491-910e81c155e0",
+    "title": "Pokémon Rubino",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/b/be/PokemonRubySapphireBox.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Game Freak",
+    "genre": "RPG",
+    "franchise": "serie principale di Pokémon",
+    "console": "Nintendo",
+    "score": 93,
+    "hours": 20,
+    "status": "Completato",
+    "releaseYear": 2002,
+    "playedYear": 2025,
+    "review": "",
+    "createdAt": "2026-11-15T15:58:15.247Z",
+    "updatedAt": "2026-11-15T15:58:15.247Z"
   }
 ]
