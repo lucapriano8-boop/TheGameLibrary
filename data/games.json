@@ -2282,5 +2282,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:40:29.581Z",
     "updatedAt": "2026-11-15T15:40:29.581Z"
+  },
+  {
+    "id": "44d4c3c3-8f6e-467e-84b7-5104b743cb6a",
+    "title": "Thymesia",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/3/33/Thymesiacoverart.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "OverBorder Studio",
+    "genre": "Action RPG",
+    "franchise": "",
+    "console": "Ps5",
+    "score": 78,
+    "hours": 9,
+    "status": "Completato",
+    "releaseYear": 2022,
+    "playedYear": 2024,
+    "review": "",
+    "createdAt": "2026-11-15T15:41:00.478Z",
+    "updatedAt": "2026-11-15T15:41:00.478Z"
   }
 ]
