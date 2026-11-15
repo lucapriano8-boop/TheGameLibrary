@@ -1584,5 +1584,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:09:48.650Z",
     "updatedAt": "2026-11-15T15:09:48.650Z"
+  },
+  {
+    "id": "19de0fa4-b447-4753-b412-d7301c39549d",
+    "title": "Minecraft",
+    "cover": "https://commons.wikimedia.org/wiki/Special:FilePath/Minecraft%20-%20Block%20breaking%20(Full%20frame).png?width=500",
+    "developer": "Mojang, Microsoft",
+    "genre": "Survival",
+    "franchise": "Minecraft",
+    "console": "Ps4",
+    "score": 89,
+    "hours": 309,
+    "status": "Platinato",
+    "releaseYear": 2009,
+    "playedYear": 2013,
+    "review": "",
+    "createdAt": "2026-11-15T15:10:55.755Z",
+    "updatedAt": "2026-11-15T15:10:55.755Z"
   }
 ]
