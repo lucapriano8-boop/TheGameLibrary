@@ -1533,5 +1533,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:07:36.388Z",
     "updatedAt": "2026-11-15T15:07:36.388Z"
+  },
+  {
+    "id": "4ae2177a-1278-4936-8025-3aea11f960b2",
+    "title": "Metal Gear Solid 2: Sons of Liberty",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/6/6a/Metalgear2boxart.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Konami",
+    "genre": "Action-adventure",
+    "franchise": "Metal Gear",
+    "console": "Ps5",
+    "score": 98,
+    "hours": 20,
+    "status": "Completato",
+    "releaseYear": 2001,
+    "playedYear": 2024,
+    "review": "",
+    "createdAt": "2026-11-15T15:08:07.209Z",
+    "updatedAt": "2026-11-15T15:08:07.209Z"
   }
 ]
