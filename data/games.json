@@ -2197,5 +2197,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:35:59.756Z",
     "updatedAt": "2026-11-15T15:35:59.756Z"
+  },
+  {
+    "id": "0cf019c8-2c8e-4a31-a943-c85ba17e9608",
+    "title": "The Last Guardian",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/2/25/The_Last_Guardian_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Japan Studio, genDESIGN",
+    "genre": "Action-adventure",
+    "franchise": "",
+    "console": "PS4",
+    "score": 92,
+    "hours": 9,
+    "status": "Completato",
+    "releaseYear": 2016,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-15T15:36:49.013Z",
+    "updatedAt": "2026-11-15T15:36:49.013Z"
   }
 ]
