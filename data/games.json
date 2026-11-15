@@ -2333,5 +2333,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:42:41.166Z",
     "updatedAt": "2026-11-15T15:42:41.166Z"
+  },
+  {
+    "id": "a5902716-58a5-4434-89ae-7de222327437",
+    "title": "Uncharted 4: Fine di un ladro",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/1/1a/Uncharted_4_box_artwork.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Naughty Dog",
+    "genre": "Action-adventure",
+    "franchise": "Uncharted",
+    "console": "PS4",
+    "score": 97,
+    "hours": 23,
+    "status": "Completato",
+    "releaseYear": 2016,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-15T15:43:26.493Z",
+    "updatedAt": "2026-11-15T15:43:26.493Z"
   }
 ]
