@@ -1022,5 +1022,22 @@
     "startedAt": "2026-11-15",
     "createdAt": "2026-11-15T14:59:18.236Z",
     "updatedAt": "2026-11-15T14:59:18.236Z"
+  },
+  {
+    "id": "32b2e94c-2bc6-4c8f-9bf6-48c55c1ca4fb",
+    "title": "Dark Souls III",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/b/bb/Dark_souls_3_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "From Software",
+    "genre": "Action RPG",
+    "franchise": "Dark Souls",
+    "console": "PC",
+    "score": 96,
+    "hours": 32,
+    "status": "Completato",
+    "releaseYear": 2016,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-15T18:34:25.848Z",
+    "updatedAt": "2026-11-15T18:34:25.848Z"
   }
 ]
