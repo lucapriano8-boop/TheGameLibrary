@@ -1278,5 +1278,22 @@
     "review": "",
     "createdAt": "2026-11-15T14:06:59.024Z",
     "updatedAt": "2026-11-15T14:06:59.024Z"
+  },
+  {
+    "id": "78409d8e-8777-4172-b60e-5cf116e3cd91",
+    "title": "It Takes Two",
+    "cover": "",
+    "developer": "Hazelight Studios",
+    "genre": "Action-adventure",
+    "franchise": "It Takes Two",
+    "console": "Ps4",
+    "score": 93,
+    "hours": 18,
+    "status": "Completato",
+    "releaseYear": 2021,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-15T14:09:33.245Z",
+    "updatedAt": "2026-11-15T14:09:33.245Z"
   }
 ]
