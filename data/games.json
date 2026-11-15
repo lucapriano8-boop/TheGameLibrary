@@ -1755,5 +1755,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:17:03.030Z",
     "updatedAt": "2026-11-15T15:17:03.030Z"
+  },
+  {
+    "id": "5076fb5a-b085-41e8-b832-c1e9dc9fffe5",
+    "title": "Nine Sols",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/b/b7/I0_nine-sols-promotional-art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Red Candle Games",
+    "genre": "Side-scrolling",
+    "franchise": "Nine sols",
+    "console": "Ps5",
+    "score": 93,
+    "hours": 45,
+    "status": "Completato",
+    "releaseYear": 2024,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-15T15:17:33.596Z",
+    "updatedAt": "2026-11-15T15:17:33.596Z"
   }
 ]
