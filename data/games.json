@@ -2265,5 +2265,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:39:43.726Z",
     "updatedAt": "2026-11-15T15:39:43.726Z"
+  },
+  {
+    "id": "84893261-b964-4905-b65d-1e4b17e68d56",
+    "title": "The Witcher 3: Wild Hunt",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/0/0c/Witcher_3_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "CD Projekt RED STUDIO",
+    "genre": "Action RPG",
+    "franchise": "The Witcher",
+    "console": "Ps4",
+    "score": 97,
+    "hours": 117,
+    "status": "Completato",
+    "releaseYear": 2015,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-15T15:40:29.581Z",
+    "updatedAt": "2026-11-15T15:40:29.581Z"
   }
 ]
