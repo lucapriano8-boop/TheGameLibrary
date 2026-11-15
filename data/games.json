@@ -2605,5 +2605,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:55:27.150Z",
     "updatedAt": "2026-11-15T15:55:27.150Z"
+  },
+  {
+    "id": "a362807b-5d45-4641-91ea-6d746fcac13c",
+    "title": "Super Mario Bros. 2",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/7/78/Super_Mario_Bros._2_box_art.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Nintendo EAD",
+    "genre": "2D platform",
+    "franchise": "Super Mario",
+    "console": "Nintendo Switch 2",
+    "score": 94,
+    "hours": 6,
+    "status": "Completato",
+    "releaseYear": 1988,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-15T15:56:21.517Z",
+    "updatedAt": "2026-11-15T15:56:21.517Z"
   }
 ]
