@@ -2741,5 +2741,22 @@
     "review": "",
     "createdAt": "2026-11-15T16:00:58.412Z",
     "updatedAt": "2026-11-15T16:00:58.412Z"
+  },
+  {
+    "id": "c5e722b2-01fd-43ad-8e13-91e9311323ef",
+    "title": "Final Fantasy III",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/8/86/Ff3cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Square Enix",
+    "genre": "Japanese RPG",
+    "franchise": "Final Fantasy",
+    "console": "Ps5",
+    "score": 90,
+    "hours": 10,
+    "status": "Completato",
+    "releaseYear": 2021,
+    "playedYear": 2024,
+    "review": "",
+    "createdAt": "2026-11-15T16:01:39.340Z",
+    "updatedAt": "2026-11-15T16:01:39.340Z"
   }
 ]
