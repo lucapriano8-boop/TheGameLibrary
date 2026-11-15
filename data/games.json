@@ -2486,5 +2486,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:49:21.891Z",
     "updatedAt": "2026-11-15T15:49:21.891Z"
+  },
+  {
+    "id": "f53ad389-e7e2-4549-b3de-b85cd548d612",
+    "title": "Watch Dogs: Legion",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/d/dc/Watch_Dogs_Legion_cover_art.webp?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Ubisoft Toronto, Ubisoft Paris",
+    "genre": "Action-adventure",
+    "franchise": "Watch Dogs",
+    "console": "Ps5",
+    "score": 83,
+    "hours": 8,
+    "status": "Giocato",
+    "releaseYear": 2020,
+    "playedYear": 2025,
+    "review": "",
+    "createdAt": "2026-11-15T15:50:01.394Z",
+    "updatedAt": "2026-11-15T15:50:01.394Z"
   }
 ]
