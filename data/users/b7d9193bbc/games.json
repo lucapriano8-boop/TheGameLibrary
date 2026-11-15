@@ -1004,5 +1004,23 @@
     "startedAt": "2026-11-15",
     "createdAt": "2026-11-15T14:52:31.451Z",
     "updatedAt": "2026-11-15T14:52:31.451Z"
+  },
+  {
+    "id": "895f610d-6f24-4e8b-a520-e02074f22c23",
+    "title": "Assassin's Creed: Revelations",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/d/d9/Assassins_Creed_Revelations_Cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "",
+    "score": null,
+    "hours": null,
+    "status": "In corso",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "startedAt": "2026-11-15",
+    "createdAt": "2026-11-15T14:59:18.236Z",
+    "updatedAt": "2026-11-15T14:59:18.236Z"
   }
 ]
