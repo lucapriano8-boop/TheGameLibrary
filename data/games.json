@@ -1567,5 +1567,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:08:45.750Z",
     "updatedAt": "2026-11-15T15:08:45.750Z"
+  },
+  {
+    "id": "4c42e4cc-ae01-4852-80f5-13618c08f3b1",
+    "title": "Metal Gear 2",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/b/bd/Metal_Gear_cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Konami",
+    "genre": "Stealth",
+    "franchise": "Metal Gear",
+    "console": "Ps5",
+    "score": 95,
+    "hours": 10,
+    "status": "Completato",
+    "releaseYear": 1989,
+    "playedYear": 2024,
+    "review": "",
+    "createdAt": "2026-11-15T15:09:48.650Z",
+    "updatedAt": "2026-11-15T15:09:48.650Z"
   }
 ]
