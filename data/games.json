@@ -1704,5 +1704,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:15:03.000Z",
     "updatedAt": "2026-11-15T15:15:03.000Z"
+  },
+  {
+    "id": "ea632f43-49f2-4e6e-b816-9bf3edad628b",
+    "title": "Need for Speed Payback",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/6/64/Need_for_Speed_Payback_standard_edition_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "EA Gothenburg",
+    "genre": "Racing",
+    "franchise": "Need for Speed",
+    "console": "Ps4",
+    "score": 65,
+    "hours": 2,
+    "status": "Completato",
+    "releaseYear": 2017,
+    "playedYear": 2019,
+    "review": "",
+    "createdAt": "2026-11-15T15:15:41.032Z",
+    "updatedAt": "2026-11-15T15:15:41.032Z"
   }
 ]
