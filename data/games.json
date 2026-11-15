@@ -32,7 +32,8 @@
     "review": "Bruttino",
     "createdAt": "2026-11-13T13:13:32.596Z",
     "updatedAt": "2026-11-13T13:44:37.673Z",
-    "cover": ""
+    "cover": "",
+    "favorite": true
   },
   {
     "id": "d39242f5-ce73-422d-8935-404104d9434f",
