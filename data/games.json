@@ -2639,5 +2639,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:57:00.245Z",
     "updatedAt": "2026-11-15T15:57:00.245Z"
+  },
+  {
+    "id": "e0c9c321-5c68-4bc0-a811-26573cfe635f",
+    "title": "Pokémon Oro",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/4/4c/Pok%C3%A9mon_box_art_-_Gold_Version.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Game Freak",
+    "genre": "RPG",
+    "franchise": "serie principale di Pokémon",
+    "console": "Game Boy Color",
+    "score": 94,
+    "hours": 20,
+    "status": "Completato",
+    "releaseYear": 1999,
+    "playedYear": 2025,
+    "review": "",
+    "createdAt": "2026-11-15T15:57:36.567Z",
+    "updatedAt": "2026-11-15T15:57:36.567Z"
   }
 ]
