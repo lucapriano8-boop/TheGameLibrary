@@ -1499,5 +1499,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:05:24.203Z",
     "updatedAt": "2026-11-15T15:05:24.203Z"
+  },
+  {
+    "id": "9376b558-5336-4556-a8d2-32353d4a436d",
+    "title": "Metal Gear Solid 3: Snake Eater",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/b/b3/Mgs3box.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Konami",
+    "genre": "Action-adventure",
+    "franchise": "Metal Gear Solid",
+    "console": "Ps5",
+    "score": 100,
+    "hours": 26,
+    "status": "Completato",
+    "releaseYear": 2004,
+    "playedYear": 2025,
+    "review": "",
+    "createdAt": "2026-11-15T15:06:44.746Z",
+    "updatedAt": "2026-11-15T15:06:44.746Z"
   }
 ]
