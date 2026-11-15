@@ -1550,5 +1550,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:08:07.209Z",
     "updatedAt": "2026-11-15T15:08:07.209Z"
+  },
+  {
+    "id": "9d436d62-e43c-42cf-8431-53c4ba02a101",
+    "title": "Metal Gear",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/b/bd/Metal_Gear_cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Konami",
+    "genre": "Stealth",
+    "franchise": "Metal Gear",
+    "console": "Ps5",
+    "score": 94,
+    "hours": 9,
+    "status": "Completato",
+    "releaseYear": 1987,
+    "playedYear": 2024,
+    "review": "",
+    "createdAt": "2026-11-15T15:08:45.750Z",
+    "updatedAt": "2026-11-15T15:08:45.750Z"
   }
 ]
