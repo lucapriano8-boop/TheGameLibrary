@@ -1806,5 +1806,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:19:19.862Z",
     "updatedAt": "2026-11-15T15:19:19.862Z"
+  },
+  {
+    "id": "122ae392-ee00-433c-b9ef-7a4353a246c6",
+    "title": "Peggle 2",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/d/d7/Peggle_2_icon.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "Puzzle",
+    "franchise": "Peggle",
+    "console": "PS4",
+    "score": 75,
+    "hours": 12,
+    "status": "Giocato",
+    "releaseYear": 2013,
+    "playedYear": 2024,
+    "review": "",
+    "createdAt": "2026-11-15T15:19:59.309Z",
+    "updatedAt": "2026-11-15T15:19:59.309Z"
   }
 ]
