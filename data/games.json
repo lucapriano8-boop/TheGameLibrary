@@ -1942,5 +1942,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:25:37.336Z",
     "updatedAt": "2026-11-15T15:25:37.336Z"
+  },
+  {
+    "id": "08867b83-76ea-4d5d-ad37-32c835f5a3bf",
+    "title": "Sekiro: Shadows Die Twice",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/6/6e/Sekiro_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "From Software, Yoshitaka Suzuki",
+    "genre": "Action-adventure",
+    "franchise": "Sekiro",
+    "console": "Ps4",
+    "score": 98,
+    "hours": 125,
+    "status": "Platinato",
+    "releaseYear": 2019,
+    "playedYear": 2019,
+    "review": "",
+    "createdAt": "2026-11-15T15:26:09.845Z",
+    "updatedAt": "2026-11-15T15:26:09.845Z"
   }
 ]
