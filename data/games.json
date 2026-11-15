@@ -2180,5 +2180,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:35:19.883Z",
     "updatedAt": "2026-11-15T15:35:19.883Z"
+  },
+  {
+    "id": "c4b56720-f80a-451f-b9f9-c5a8dd314970",
+    "title": "The Exit 8",
+    "cover": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/The_Exit_8_logo.svg/500px-The_Exit_8_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "developer": "Kotake Create",
+    "genre": "Walking simulator",
+    "franchise": "",
+    "console": "Ps5",
+    "score": 57,
+    "hours": 2,
+    "status": "Completato",
+    "releaseYear": 2023,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-15T15:35:59.756Z",
+    "updatedAt": "2026-11-15T15:35:59.756Z"
   }
 ]
