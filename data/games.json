@@ -1789,5 +1789,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:18:45.804Z",
     "updatedAt": "2026-11-15T15:18:45.804Z"
+  },
+  {
+    "id": "5d780f5d-0183-4572-b1fa-4a6a153a3eda",
+    "title": "Overcooked 2",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/0/03/Overcooked_2_cover_art.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "Simulation",
+    "franchise": "Overcooked!",
+    "console": "Ps5",
+    "score": 75,
+    "hours": 4,
+    "status": "Completato",
+    "releaseYear": 2018,
+    "playedYear": 2025,
+    "review": "",
+    "createdAt": "2026-11-15T15:19:19.862Z",
+    "updatedAt": "2026-11-15T15:19:19.862Z"
   }
 ]
