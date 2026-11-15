@@ -1993,5 +1993,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:27:37.198Z",
     "updatedAt": "2026-11-15T15:27:37.198Z"
+  },
+  {
+    "id": "79a8cd35-3a5b-493c-b707-869cbde2b0ac",
+    "title": "Split Fiction",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/4/40/Split_Fiction_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Hazelight Studios",
+    "genre": "Action-adventure",
+    "franchise": "",
+    "console": "Ps5",
+    "score": 91,
+    "hours": 19,
+    "status": "Completato",
+    "releaseYear": 2025,
+    "playedYear": 2025,
+    "review": "",
+    "createdAt": "2026-11-15T15:28:18.916Z",
+    "updatedAt": "2026-11-15T15:28:18.916Z"
   }
 ]
