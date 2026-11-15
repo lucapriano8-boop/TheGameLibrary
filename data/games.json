@@ -1687,5 +1687,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:14:22.784Z",
     "updatedAt": "2026-11-15T15:14:22.784Z"
+  },
+  {
+    "id": "3e2fc661-2565-4a40-8448-cf8db1c0f4d6",
+    "title": "Need for Speed Heat",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/7/7f/Cover_Art_of_Need_for_Speed_Heat.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "EA Gothenburg",
+    "genre": "Racing",
+    "franchise": "Need for Speed",
+    "console": "Ps4",
+    "score": 70,
+    "hours": 29,
+    "status": "Completato",
+    "releaseYear": 2019,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-15T15:15:03.000Z",
+    "updatedAt": "2026-11-15T15:15:03.000Z"
   }
 ]
