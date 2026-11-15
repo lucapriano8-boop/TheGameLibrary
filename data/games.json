@@ -1925,5 +1925,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:24:54.926Z",
     "updatedAt": "2026-11-15T15:24:54.926Z"
+  },
+  {
+    "id": "9f1a6d21-0b55-48b0-8ab5-f13760f561e2",
+    "title": "Sea of Thieves",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/7/77/Sea_of_thieves_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Rare",
+    "genre": "Action-adventure",
+    "franchise": "Sea of Thieves",
+    "console": "Ps5",
+    "score": 75,
+    "hours": 3,
+    "status": "Giocato",
+    "releaseYear": 2018,
+    "playedYear": 2025,
+    "review": "",
+    "createdAt": "2026-11-15T15:25:37.336Z",
+    "updatedAt": "2026-11-15T15:25:37.336Z"
   }
 ]
