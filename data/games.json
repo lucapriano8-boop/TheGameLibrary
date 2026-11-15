@@ -2673,5 +2673,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:58:15.247Z",
     "updatedAt": "2026-11-15T15:58:15.247Z"
+  },
+  {
+    "id": "3d6e25f3-c095-4052-9bb8-016555e6750a",
+    "title": "Metal Gear Rising: Revengeance",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/3/3b/Metal_Gear_Rising_Revengeance_box_artwork.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Platinum Games",
+    "genre": "Action",
+    "franchise": "Metal Gear",
+    "console": "Ps3",
+    "score": 92,
+    "hours": 15,
+    "status": "Completato",
+    "releaseYear": 2013,
+    "playedYear": 2025,
+    "review": "",
+    "createdAt": "2026-11-15T15:58:50.661Z",
+    "updatedAt": "2026-11-15T15:58:50.661Z"
   }
 ]
