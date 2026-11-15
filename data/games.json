@@ -2231,5 +2231,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:37:38.962Z",
     "updatedAt": "2026-11-15T15:37:38.962Z"
+  },
+  {
+    "id": "a43f47a6-3a00-4202-ab8b-56237cdbcdae",
+    "title": "The last of Us Parte I",
+    "cover": "",
+    "developer": "Naughty Dog",
+    "genre": "Stealth",
+    "franchise": "The last of us",
+    "console": "Ps5",
+    "score": 97,
+    "hours": 19,
+    "status": "Completato",
+    "releaseYear": 2023,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-15T15:38:51.186Z",
+    "updatedAt": "2026-11-15T15:38:51.186Z"
   }
 ]
