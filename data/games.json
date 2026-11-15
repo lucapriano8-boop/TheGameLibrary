@@ -2435,5 +2435,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:46:55.882Z",
     "updatedAt": "2026-11-15T15:46:55.882Z"
+  },
+  {
+    "id": "cffe7138-72bf-4885-b126-734b57a271c2",
+    "title": "Until Dawn",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/d/d7/Until_Dawn_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "Survival horror",
+    "franchise": "Until Dawn",
+    "console": "Ps4",
+    "score": 80,
+    "hours": 10,
+    "status": "Completato",
+    "releaseYear": 2015,
+    "playedYear": 2024,
+    "review": "",
+    "createdAt": "2026-11-15T15:47:48.022Z",
+    "updatedAt": "2026-11-15T15:47:48.022Z"
   }
 ]
