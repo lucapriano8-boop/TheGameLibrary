@@ -2027,5 +2027,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:28:55.524Z",
     "updatedAt": "2026-11-15T15:29:14.613Z"
+  },
+  {
+    "id": "8c1b0ade-5437-4905-95c8-d243a27028c3",
+    "title": "Star Wars Jedi: Survivor",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/4/43/Star_Wars_Jedi_Survivor.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Respawn Entertainment",
+    "genre": "Action-adventure",
+    "franchise": "Star Wars Jedi",
+    "console": "Ps5",
+    "score": 90,
+    "hours": 37,
+    "status": "Completato",
+    "releaseYear": 2023,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-15T15:29:47.955Z",
+    "updatedAt": "2026-11-15T15:29:47.955Z"
   }
 ]
