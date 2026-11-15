@@ -2163,5 +2163,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:34:37.863Z",
     "updatedAt": "2026-11-15T15:34:37.863Z"
+  },
+  {
+    "id": "6870f9b2-f90b-49aa-9a02-e3620b5db851",
+    "title": "The Elder Scrolls V: Skyrim Special Edition",
+    "cover": "",
+    "developer": "Bethesda Game Studios",
+    "genre": "RPG",
+    "franchise": "The Elder Scrolls",
+    "console": "PC",
+    "score": 94,
+    "hours": 70,
+    "status": "Completato",
+    "releaseYear": 2016,
+    "playedYear": 2016,
+    "review": "",
+    "createdAt": "2026-11-15T15:35:19.883Z",
+    "updatedAt": "2026-11-15T15:35:19.883Z"
   }
 ]
