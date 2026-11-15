@@ -2928,5 +2928,22 @@
     "review": "",
     "createdAt": "2026-11-15T16:08:56.199Z",
     "updatedAt": "2026-11-15T16:08:56.199Z"
+  },
+  {
+    "id": "8d8e9132-bdbb-4117-8699-d60f18cea1a2",
+    "title": "Rage",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/b/bd/Rage_cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "id Software",
+    "genre": "Racing",
+    "franchise": "Rage",
+    "console": "Ps3",
+    "score": 75,
+    "hours": 15,
+    "status": "Completato",
+    "releaseYear": 2011,
+    "playedYear": 2014,
+    "review": "",
+    "createdAt": "2026-11-15T16:09:42.919Z",
+    "updatedAt": "2026-11-15T16:09:42.919Z"
   }
 ]
