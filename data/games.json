@@ -1959,5 +1959,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:26:09.845Z",
     "updatedAt": "2026-11-15T15:26:09.845Z"
+  },
+  {
+    "id": "59d872eb-5070-43f2-9879-7efa5b65f782",
+    "title": "Shadow of the Colossus",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/a/a4/ShadowOfTheColossus2018.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Team Ico",
+    "genre": "Action-adventure",
+    "franchise": "",
+    "console": "PS4",
+    "score": 96,
+    "hours": 12,
+    "status": "Completato",
+    "releaseYear": 2018,
+    "playedYear": 2024,
+    "review": "",
+    "createdAt": "2026-11-15T15:27:07.677Z",
+    "updatedAt": "2026-11-15T15:27:07.677Z"
   }
 ]
