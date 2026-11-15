@@ -2724,5 +2724,22 @@
     "review": "",
     "createdAt": "2026-11-15T16:00:18.585Z",
     "updatedAt": "2026-11-15T16:00:18.585Z"
+  },
+  {
+    "id": "eaa8f34d-f195-4ef7-89c5-a047e3987a89",
+    "title": "Final Fantasy IV",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/9/90/Final_Fantasy_IV.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Square Enix",
+    "genre": "Japanese RPG",
+    "franchise": "Final Fantasy",
+    "console": "Ps5",
+    "score": 90,
+    "hours": 15,
+    "status": "Completato",
+    "releaseYear": 2021,
+    "playedYear": 2025,
+    "review": "",
+    "createdAt": "2026-11-15T16:00:58.412Z",
+    "updatedAt": "2026-11-15T16:00:58.412Z"
   }
 ]
