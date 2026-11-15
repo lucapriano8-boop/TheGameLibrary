@@ -2826,5 +2826,22 @@
     "review": "",
     "createdAt": "2026-11-15T16:04:59.668Z",
     "updatedAt": "2026-11-15T16:04:59.668Z"
+  },
+  {
+    "id": "ebfb7e69-b2c8-4ece-8e7b-65807ae442c1",
+    "title": "Call of Duty: Advanced Warfare",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/3/3b/Advanced_Warfare.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Sledgehammer Games, High Moon Studios",
+    "genre": "First-person shooter",
+    "franchise": "Call of Duty",
+    "console": "Ps3",
+    "score": 85,
+    "hours": 40,
+    "status": "Completato",
+    "releaseYear": 2014,
+    "playedYear": 2015,
+    "review": "",
+    "createdAt": "2026-11-15T16:05:32.810Z",
+    "updatedAt": "2026-11-15T16:05:32.810Z"
   }
 ]
