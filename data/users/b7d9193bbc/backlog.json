@@ -29,14 +29,15 @@
     "id": "b54e6e95-4734-4112-b69b-b2e218237efb",
     "title": "BioShock Infinite",
     "cover": "https://upload.wikimedia.org/wikipedia/en/a/a3/Official_cover_art_for_Bioshock_Infinite.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "console": "",
+    "console": "PC",
     "notes": "",
     "time": {
       "main": 12,
       "extra": null,
       "complete": null
     },
-    "addedAt": "2026-11-14T15:11:24.856Z"
+    "addedAt": "2026-11-14T15:11:24.856Z",
+    "owned": "yes"
   },
   {
     "id": "3af3607a-e63c-41ca-a79f-6b8e61103c07",
