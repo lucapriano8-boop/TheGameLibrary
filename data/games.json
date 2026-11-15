@@ -1295,5 +1295,22 @@
     "review": "",
     "createdAt": "2026-11-15T14:09:33.245Z",
     "updatedAt": "2026-11-15T14:09:33.245Z"
+  },
+  {
+    "id": "1fcf5399-5740-4c41-9f94-6ba3843fd42d",
+    "title": "LEGO Star Wars: La Saga degli Skywalker",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/0/0a/Lego_Star_Wars_The_Skywalker_Saga.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Traveller's Tales",
+    "genre": "Action-adventure",
+    "franchise": "Lego Star Wars",
+    "console": "Ps5",
+    "score": 75,
+    "hours": 5,
+    "status": "Giocato",
+    "releaseYear": 2022,
+    "playedYear": 2024,
+    "review": "",
+    "createdAt": "2026-11-15T14:10:46.393Z",
+    "updatedAt": "2026-11-15T14:10:46.393Z"
   }
 ]
