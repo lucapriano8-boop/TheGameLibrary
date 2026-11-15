@@ -2350,5 +2350,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:43:26.493Z",
     "updatedAt": "2026-11-15T15:43:26.493Z"
+  },
+  {
+    "id": "a2501386-8954-4da0-b496-93c973848cfd",
+    "title": "Uncharted: L'eredità perduta",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/8/85/Uncharted_The_Lost_Legacy_box_artwork_%28fair_use%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Naughty Dog",
+    "genre": "Action-adventure",
+    "franchise": "Uncharted",
+    "console": "PS4",
+    "score": 92,
+    "hours": 8,
+    "status": "Completato",
+    "releaseYear": 2017,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-15T15:44:00.132Z",
+    "updatedAt": "2026-11-15T15:44:00.132Z"
   }
 ]
