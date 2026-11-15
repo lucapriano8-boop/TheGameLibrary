@@ -1823,5 +1823,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:19:59.309Z",
     "updatedAt": "2026-11-15T15:19:59.309Z"
+  },
+  {
+    "id": "582839bd-fb15-481f-843a-f243d3ef30d2",
+    "title": "Ratchet & Clank",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/3/37/Ratchet_and_Clank_cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Insomniac Games",
+    "genre": "Platform",
+    "franchise": "Ratchet & Clank",
+    "console": "PS4",
+    "score": 80,
+    "hours": 19,
+    "status": "Completato",
+    "releaseYear": 2016,
+    "playedYear": 2020,
+    "review": "",
+    "createdAt": "2026-11-15T15:20:29.343Z",
+    "updatedAt": "2026-11-15T15:20:29.343Z"
   }
 ]
