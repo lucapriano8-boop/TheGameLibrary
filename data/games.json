@@ -2146,5 +2146,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:34:03.050Z",
     "updatedAt": "2026-11-15T15:34:03.050Z"
+  },
+  {
+    "id": "9416f5bd-60f8-45bb-8ec8-86e099197199",
+    "title": "The Elder Scrolls IV: Oblivion",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/4/4b/The_Elder_Scrolls_IV_Oblivion_cover.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Bethesda Game Studios, Superscape",
+    "genre": "RPG",
+    "franchise": "The Elder Scrolls",
+    "console": "Ps5",
+    "score": 93,
+    "hours": 69,
+    "status": "Platinato",
+    "releaseYear": 2006,
+    "playedYear": 2025,
+    "review": "",
+    "createdAt": "2026-11-15T15:34:37.863Z",
+    "updatedAt": "2026-11-15T15:34:37.863Z"
   }
 ]
