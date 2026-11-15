@@ -1414,5 +1414,22 @@
     "review": "",
     "createdAt": "2026-11-15T14:37:35.939Z",
     "updatedAt": "2026-11-15T14:37:35.939Z"
+  },
+  {
+    "id": "7d49c209-4e3c-4967-a8ac-986c7579a2b7",
+    "title": "Mafia III",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/9/9f/Mafia_III_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Aspyr Media",
+    "genre": "Third-person shooter",
+    "franchise": "Mafia",
+    "console": "Ps4",
+    "score": 83,
+    "hours": 27,
+    "status": "Completato",
+    "releaseYear": 2016,
+    "playedYear": 2024,
+    "review": "",
+    "createdAt": "2026-11-15T15:01:22.094Z",
+    "updatedAt": "2026-11-15T15:01:22.094Z"
   }
 ]
