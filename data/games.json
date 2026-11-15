@@ -2979,5 +2979,22 @@
     "review": "",
     "createdAt": "2026-11-15T16:10:52.115Z",
     "updatedAt": "2026-11-15T16:10:52.115Z"
+  },
+  {
+    "id": "c3c1608b-a993-4ba9-8e8d-b9708d649d87",
+    "title": "Red Faction: Armageddon",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/d/de/Red_Faction_Armageddon_Game_Cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "Third-person shooter",
+    "franchise": "Red Faction",
+    "console": "Ps3",
+    "score": 70,
+    "hours": 20,
+    "status": "Completato",
+    "releaseYear": 2011,
+    "playedYear": 2013,
+    "review": "",
+    "createdAt": "2026-11-15T16:11:31.920Z",
+    "updatedAt": "2026-11-15T16:11:31.920Z"
   }
 ]
