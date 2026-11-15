@@ -1312,5 +1312,22 @@
     "review": "",
     "createdAt": "2026-11-15T14:10:46.393Z",
     "updatedAt": "2026-11-15T14:10:46.393Z"
+  },
+  {
+    "id": "d563d50d-8d53-4270-bdcb-8dcd7fce9187",
+    "title": "Lies of P",
+    "cover": "",
+    "developer": "Neowiz Games",
+    "genre": "Soulslike",
+    "franchise": "Lies of",
+    "console": "Ps5",
+    "score": 94,
+    "hours": 77,
+    "status": "Platinato",
+    "releaseYear": 2023,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-15T14:12:02.948Z",
+    "updatedAt": "2026-11-15T14:12:02.948Z"
   }
 ]
