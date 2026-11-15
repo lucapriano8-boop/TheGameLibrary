@@ -1857,5 +1857,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:21:15.528Z",
     "updatedAt": "2026-11-15T15:21:15.528Z"
+  },
+  {
+    "id": "f06d9ec0-5ca4-424c-b7aa-e18526cf377c",
+    "title": "Red Dead Redemption 2",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/4/44/Red_Dead_Redemption_II.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Rockstar Toronto, Rockstar New England",
+    "genre": "Action-adventure",
+    "franchise": "Red Dead",
+    "console": "Ps4",
+    "score": 98,
+    "hours": 62,
+    "status": "Completato",
+    "releaseYear": 2018,
+    "playedYear": 2024,
+    "review": "",
+    "createdAt": "2026-11-15T15:21:55.392Z",
+    "updatedAt": "2026-11-15T15:21:55.392Z"
   }
 ]
