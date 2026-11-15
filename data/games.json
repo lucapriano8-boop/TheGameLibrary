@@ -2690,5 +2690,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:58:50.661Z",
     "updatedAt": "2026-11-15T15:58:50.661Z"
+  },
+  {
+    "id": "eb6e92e6-b085-406e-a05f-75babe161353",
+    "title": "Final Fantasy V",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/0/00/Final_Fantasy_V_Box_JAP.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Square Enix",
+    "genre": "Japanese RPG",
+    "franchise": "Final Fantasy",
+    "console": "Ps5",
+    "score": 92,
+    "hours": 18,
+    "status": "Completato",
+    "releaseYear": 2021,
+    "playedYear": 2025,
+    "review": "",
+    "createdAt": "2026-11-15T15:59:44.928Z",
+    "updatedAt": "2026-11-15T15:59:44.928Z"
   }
 ]
