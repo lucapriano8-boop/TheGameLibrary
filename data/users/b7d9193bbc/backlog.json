@@ -180,5 +180,18 @@
       "complete": null
     },
     "addedAt": "2026-11-15T15:01:26.845Z"
+  },
+  {
+    "id": "310c8770-7bb2-4280-af76-2e2c33720368",
+    "title": "Halo: The Master Chief Collection",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/a/a3/Halo_TMCC_KeyArt_Vert_2019.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "",
+    "notes": "",
+    "time": {
+      "main": 60,
+      "extra": null,
+      "complete": null
+    },
+    "addedAt": "2026-11-15T15:02:07.592Z"
   }
 ]
