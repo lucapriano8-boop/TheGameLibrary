@@ -128,5 +128,18 @@
       "complete": null
     },
     "addedAt": "2026-11-15T14:55:18.934Z"
+  },
+  {
+    "id": "3d125f23-f1d7-4bfc-b899-9eb15f0f2866",
+    "title": "La Terra di Mezzo: L'ombra della guerra",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/8/8f/MiddleEarthShadowOfWar.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "",
+    "notes": "",
+    "time": {
+      "main": 21,
+      "extra": null,
+      "complete": null
+    },
+    "addedAt": "2026-11-15T14:55:42.041Z"
   }
 ]
