@@ -2095,5 +2095,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:32:10.547Z",
     "updatedAt": "2026-11-15T15:32:10.547Z"
+  },
+  {
+    "id": "762f3b95-0a25-452f-a28b-56cdf8eaa345",
+    "title": "Tekken 7",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/1/17/Official_Tekken_7_Logo.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Bandai Namco Studios, Bandai Namco Entertainment",
+    "genre": "3D fighting",
+    "franchise": "Tekken",
+    "console": "Ps4",
+    "score": 84,
+    "hours": 7,
+    "status": "Completato",
+    "releaseYear": 2015,
+    "playedYear": 2024,
+    "review": "",
+    "createdAt": "2026-11-15T15:32:47.271Z",
+    "updatedAt": "2026-11-15T15:32:47.271Z"
   }
 ]
