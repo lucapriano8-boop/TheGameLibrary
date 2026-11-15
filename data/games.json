@@ -1636,5 +1636,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:12:11.481Z",
     "updatedAt": "2026-11-15T15:12:11.481Z"
+  },
+  {
+    "id": "88e165c0-76eb-4a57-ba57-db1b059a68e2",
+    "title": "MotoGP 22",
+    "cover": "",
+    "developer": "Milestone",
+    "genre": "Motorcycle",
+    "franchise": "MotoGP",
+    "console": "Ps4",
+    "score": 84,
+    "hours": 9,
+    "status": "Completato",
+    "releaseYear": 2022,
+    "playedYear": 2024,
+    "review": "",
+    "createdAt": "2026-11-15T15:13:30.413Z",
+    "updatedAt": "2026-11-15T15:13:30.413Z"
   }
 ]
