@@ -1976,5 +1976,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:27:07.677Z",
     "updatedAt": "2026-11-15T15:27:07.677Z"
+  },
+  {
+    "id": "6dec4ae4-0aa3-4370-91e3-30c369e31c00",
+    "title": "Sifu",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/e/e3/Sifu_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Sloclap",
+    "genre": "Action-adventure",
+    "franchise": "Sifu",
+    "console": "Ps5",
+    "score": 87,
+    "hours": 9,
+    "status": "Completato",
+    "releaseYear": 2022,
+    "playedYear": 2024,
+    "review": "",
+    "createdAt": "2026-11-15T15:27:37.198Z",
+    "updatedAt": "2026-11-15T15:27:37.198Z"
   }
 ]
