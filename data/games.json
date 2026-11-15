@@ -3013,5 +3013,22 @@
     "review": "",
     "createdAt": "2026-11-15T16:12:02.845Z",
     "updatedAt": "2026-11-15T16:12:02.845Z"
+  },
+  {
+    "id": "e9501b27-2dc4-458c-a389-6e8df4f96a68",
+    "title": "Dragon Ball: Xenoverse",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/0/0a/DB_Xenoverse.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Dimps",
+    "genre": "Arena fighter",
+    "franchise": "Videogiochi di Dragon Ball",
+    "console": "Ps3",
+    "score": 67,
+    "hours": 15,
+    "status": "Completato",
+    "releaseYear": 2015,
+    "playedYear": 2015,
+    "review": "",
+    "createdAt": "2026-11-15T16:12:39.346Z",
+    "updatedAt": "2026-11-15T16:12:39.346Z"
   }
 ]
