@@ -1346,5 +1346,22 @@
     "review": "",
     "createdAt": "2026-11-15T14:13:11.538Z",
     "updatedAt": "2026-11-15T14:13:11.538Z"
+  },
+  {
+    "id": "6ec463ed-08f4-4e87-9aea-cf29798ec65c",
+    "title": "Lords of the Fallen",
+    "cover": "",
+    "developer": "Hexworks",
+    "genre": "Soulslike",
+    "franchise": "Lords of the Fallen",
+    "console": "Ps5",
+    "score": 84,
+    "hours": 44,
+    "status": "Completato",
+    "releaseYear": 2023,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-15T14:21:43.862Z",
+    "updatedAt": "2026-11-15T14:21:43.862Z"
   }
 ]
