@@ -1891,5 +1891,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:23:12.569Z",
     "updatedAt": "2026-11-15T15:23:12.569Z"
+  },
+  {
+    "id": "1f5096fa-4a52-45da-9a0e-f37b712dfe97",
+    "title": "Salt and Sanctuary",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/b/bf/SaltAndSanctuary.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Ska Studios",
+    "genre": "Action RPG",
+    "franchise": "Salt and",
+    "console": "Ps4",
+    "score": 83,
+    "hours": 16,
+    "status": "Completato",
+    "releaseYear": 2016,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-15T15:24:23.534Z",
+    "updatedAt": "2026-11-15T15:24:23.534Z"
   }
 ]
