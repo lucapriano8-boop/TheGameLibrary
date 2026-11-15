@@ -2809,5 +2809,22 @@
     "review": "",
     "createdAt": "2026-11-15T16:03:41.901Z",
     "updatedAt": "2026-11-15T16:03:41.901Z"
+  },
+  {
+    "id": "059025b7-3df5-4875-9f12-173bbfe2bc0d",
+    "title": "Call of Duty®: Ghosts",
+    "cover": "",
+    "developer": "Activision",
+    "genre": "Action",
+    "franchise": "Call of Duty",
+    "console": "Ps3",
+    "score": 85,
+    "hours": 60,
+    "status": "Completato",
+    "releaseYear": 2013,
+    "playedYear": 2015,
+    "review": "",
+    "createdAt": "2026-11-15T16:04:59.668Z",
+    "updatedAt": "2026-11-15T16:04:59.668Z"
   }
 ]
