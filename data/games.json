@@ -2877,5 +2877,22 @@
     "review": "",
     "createdAt": "2026-11-15T16:07:10.880Z",
     "updatedAt": "2026-11-15T16:07:10.880Z"
+  },
+  {
+    "id": "53a6be06-7a6f-4131-beef-5eb07d9c7a8c",
+    "title": "Crash Team Racing Nitro-Fueled",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/3/36/Crash_Team_Racing_Nitro-Fueled_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Beenox",
+    "genre": "Racing",
+    "franchise": "Crash Bandicoot",
+    "console": "PS4",
+    "score": 78,
+    "hours": 6,
+    "status": "Completato",
+    "releaseYear": 2019,
+    "playedYear": 2024,
+    "review": "",
+    "createdAt": "2026-11-15T16:07:43.277Z",
+    "updatedAt": "2026-11-15T16:07:43.277Z"
   }
 ]
