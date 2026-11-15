@@ -1670,5 +1670,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:13:56.407Z",
     "updatedAt": "2026-11-15T15:13:56.407Z"
+  },
+  {
+    "id": "8a3fb531-6174-4984-ac2e-34d3ce8737cf",
+    "title": "MotoGP 24",
+    "cover": "",
+    "developer": "Milestone",
+    "genre": "Racing",
+    "franchise": "MotoGP",
+    "console": "Ps5",
+    "score": 85,
+    "hours": 17,
+    "status": "Completato",
+    "releaseYear": 2024,
+    "playedYear": 2024,
+    "review": "",
+    "createdAt": "2026-11-15T15:14:22.784Z",
+    "updatedAt": "2026-11-15T15:14:22.784Z"
   }
 ]
