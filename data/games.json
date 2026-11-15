@@ -2401,5 +2401,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:45:14.685Z",
     "updatedAt": "2026-11-15T15:45:14.685Z"
+  },
+  {
+    "id": "15ccb96d-2037-459e-9f55-efc062955b89",
+    "title": "Uncharted: Drake's Fortune",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/5/5b/Uncharted_Drake%27s_Fortune.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Naughty Dog",
+    "genre": "Action-adventure",
+    "franchise": "Uncharted",
+    "console": "Ps4",
+    "score": 88,
+    "hours": 8,
+    "status": "Completato",
+    "releaseYear": 2007,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-15T15:46:11.993Z",
+    "updatedAt": "2026-11-15T15:46:11.993Z"
   }
 ]
