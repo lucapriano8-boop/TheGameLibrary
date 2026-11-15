@@ -1874,5 +1874,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:21:55.392Z",
     "updatedAt": "2026-11-15T15:21:55.392Z"
+  },
+  {
+    "id": "418c734c-dfff-4da4-af51-8e211433bf85",
+    "title": "Resident Evil 2",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/4/40/NTSC_Resident_Evil_2_Cover.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Capcom, Factor 5",
+    "genre": "Survival horror",
+    "franchise": "Resident Evil",
+    "console": "Ps5",
+    "score": 93,
+    "hours": 17,
+    "status": "Completato",
+    "releaseYear": 1998,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-15T15:23:12.569Z",
+    "updatedAt": "2026-11-15T15:23:12.569Z"
   }
 ]
