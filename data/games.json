@@ -2061,5 +2061,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:30:35.891Z",
     "updatedAt": "2026-11-15T15:30:35.891Z"
+  },
+  {
+    "id": "8b419a79-b852-444f-8f7e-400e84b5965a",
+    "title": "Stellar Blade",
+    "cover": "",
+    "developer": "Shift Up",
+    "genre": "Crossover fiction",
+    "franchise": "Stellar Blade",
+    "console": "Ps5",
+    "score": 87,
+    "hours": 46,
+    "status": "Completato",
+    "releaseYear": 2024,
+    "playedYear": 2024,
+    "review": "",
+    "createdAt": "2026-11-15T15:31:31.750Z",
+    "updatedAt": "2026-11-15T15:31:31.750Z"
   }
 ]
