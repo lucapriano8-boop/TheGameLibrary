@@ -1653,5 +1653,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:13:30.413Z",
     "updatedAt": "2026-11-15T15:13:30.413Z"
+  },
+  {
+    "id": "45a0b889-2d15-484f-b018-63240288b557",
+    "title": "MotoGP 23",
+    "cover": "",
+    "developer": "Milestone",
+    "genre": "Racing",
+    "franchise": "MotoGP",
+    "console": "Ps4",
+    "score": 85,
+    "hours": 36,
+    "status": "Completato",
+    "releaseYear": 2023,
+    "playedYear": 2024,
+    "review": "",
+    "createdAt": "2026-11-15T15:13:56.407Z",
+    "updatedAt": "2026-11-15T15:13:56.407Z"
   }
 ]
