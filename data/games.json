@@ -2044,5 +2044,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:29:47.955Z",
     "updatedAt": "2026-11-15T15:29:47.955Z"
+  },
+  {
+    "id": "a192a32a-42e9-4a02-829b-7ff63c065cbd",
+    "title": "Star Wars Battlefront II",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/2/23/SWBF2_box.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Digital Illusions Creative Entertainment, Criterion Games",
+    "genre": "Third-person shooter",
+    "franchise": "Star Wars: Battlefront",
+    "console": "Ps4",
+    "score": 83,
+    "hours": 24,
+    "status": "Completato",
+    "releaseYear": 2017,
+    "playedYear": 2018,
+    "review": "",
+    "createdAt": "2026-11-15T15:30:35.891Z",
+    "updatedAt": "2026-11-15T15:30:35.891Z"
   }
 ]
