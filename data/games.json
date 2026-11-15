@@ -2775,5 +2775,22 @@
     "review": "",
     "createdAt": "2026-11-15T16:02:27.173Z",
     "updatedAt": "2026-11-15T16:02:27.173Z"
+  },
+  {
+    "id": "8927edac-e2ec-4545-9745-de266ea1c827",
+    "title": "Final Fantasy II",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/f/f0/Ff2cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Square Enix",
+    "genre": "Japanese RPG",
+    "franchise": "Final Fantasy",
+    "console": "Ps5",
+    "score": 88,
+    "hours": 12,
+    "status": "Completato",
+    "releaseYear": 2021,
+    "playedYear": 2024,
+    "review": "",
+    "createdAt": "2026-11-15T16:03:04.623Z",
+    "updatedAt": "2026-11-15T16:03:04.623Z"
   }
 ]
