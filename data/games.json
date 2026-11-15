@@ -2299,5 +2299,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:41:00.478Z",
     "updatedAt": "2026-11-15T15:41:00.478Z"
+  },
+  {
+    "id": "f43764e3-13f9-4c3e-8baf-43e7dd1e7ec1",
+    "title": "Top Spin 2k25",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/5/55/Topspin2k25.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "2k Games",
+    "genre": "Tennis",
+    "franchise": "Top Spin",
+    "console": "Ps5",
+    "score": 75,
+    "hours": 12,
+    "status": "Completato",
+    "releaseYear": 2024,
+    "playedYear": 2025,
+    "review": "",
+    "createdAt": "2026-11-15T15:42:08.171Z",
+    "updatedAt": "2026-11-15T15:42:08.171Z"
   }
 ]
