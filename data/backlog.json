@@ -141,5 +141,18 @@
       "complete": null
     },
     "addedAt": "2026-11-15T14:07:40.366Z"
+  },
+  {
+    "id": "2c9d9ea2-b44e-4f1c-b53b-e44ccb1f4411",
+    "title": "Mass Effect Legendary Edition",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/9/97/Mass_Effect_Legendary_Edition.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "",
+    "notes": "",
+    "time": {
+      "main": 110,
+      "extra": null,
+      "complete": null
+    },
+    "addedAt": "2026-11-15T15:05:47.480Z"
   }
 ]
