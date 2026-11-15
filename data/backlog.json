@@ -182,5 +182,19 @@
       "complete": null
     },
     "addedAt": "2026-11-15T15:41:29.407Z"
+  },
+  {
+    "id": "05763459-de8e-4024-8d01-8cae953c1d65",
+    "title": "Wuchang: Fallen Feathers",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/c/c4/Wuchang_Fallen_Feathers_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "",
+    "notes": "",
+    "owned": "no",
+    "time": {
+      "main": 26,
+      "extra": null,
+      "complete": null
+    },
+    "addedAt": "2026-11-15T15:52:22.076Z"
   }
 ]
