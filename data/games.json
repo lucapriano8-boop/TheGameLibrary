@@ -1465,5 +1465,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:03:41.751Z",
     "updatedAt": "2026-11-15T15:03:41.751Z"
+  },
+  {
+    "id": "e9f8f5ab-1bf7-403d-9e4e-aa177cafd490",
+    "title": "Spider-Man: Miles Morales",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/a/a3/Spider-Man_Miles_Morales.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Insomniac Games",
+    "genre": "Action-adventure",
+    "franchise": "Spider-Man",
+    "console": "Ps5",
+    "score": 89,
+    "hours": 15,
+    "status": "Completato",
+    "releaseYear": 2020,
+    "playedYear": 2020,
+    "review": "",
+    "createdAt": "2026-11-15T15:04:29.218Z",
+    "updatedAt": "2026-11-15T15:04:29.218Z"
   }
 ]
