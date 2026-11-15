@@ -1908,5 +1908,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:24:23.534Z",
     "updatedAt": "2026-11-15T15:24:23.534Z"
+  },
+  {
+    "id": "e31d9163-0dbf-4aad-8314-df375defa11f",
+    "title": "Salt and Sacrifice",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/0/0d/Salt_and_Sacrifice_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Ska Studios",
+    "genre": "Action RPG",
+    "franchise": "Salt and",
+    "console": "Ps5",
+    "score": 78,
+    "hours": 25,
+    "status": "Completato",
+    "releaseYear": 2022,
+    "playedYear": 2024,
+    "review": "",
+    "createdAt": "2026-11-15T15:24:54.926Z",
+    "updatedAt": "2026-11-15T15:24:54.926Z"
   }
 ]
