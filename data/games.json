@@ -2129,5 +2129,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:33:23.408Z",
     "updatedAt": "2026-11-15T15:33:23.408Z"
+  },
+  {
+    "id": "038b3fd9-7b4d-4c9e-afd8-46587db33968",
+    "title": "Tennis World Tour 2",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/9/9a/TennisWorldTourCover.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Big Ant Studios",
+    "genre": "Tennis",
+    "franchise": "Tennis",
+    "console": "Ps5",
+    "score": 80,
+    "hours": 22,
+    "status": "Completato",
+    "releaseYear": 2020,
+    "playedYear": 2024,
+    "review": "",
+    "createdAt": "2026-11-15T15:34:03.050Z",
+    "updatedAt": "2026-11-15T15:34:03.050Z"
   }
 ]
