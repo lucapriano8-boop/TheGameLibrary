@@ -1431,5 +1431,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:01:22.094Z",
     "updatedAt": "2026-11-15T15:01:22.094Z"
+  },
+  {
+    "id": "e78573b1-bfd0-4c23-82b8-cca2763f9bfc",
+    "title": "Guardians of the Galaxy",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/2/22/Guardians_of_the_Galaxy_game_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Eidos Montréal",
+    "genre": "Action-adventure",
+    "franchise": "Marvel",
+    "console": "Ps5",
+    "score": 85,
+    "hours": 11,
+    "status": "Completato",
+    "releaseYear": 2021,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-15T15:02:15.307Z",
+    "updatedAt": "2026-11-15T15:02:15.307Z"
   }
 ]
