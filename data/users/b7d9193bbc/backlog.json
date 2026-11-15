@@ -222,5 +222,19 @@
     },
     "addedAt": "2026-11-15T15:02:30.366Z",
     "owned": "yes"
+  },
+  {
+    "id": "18504d4c-fb99-4350-8a73-aae73a71b878",
+    "title": "Lords of the Fallen",
+    "cover": "https://cdn.loaded.com/500x706/media/catalog/product/n/e/new_project_-_2023-05-22t155012.513_3.jpg",
+    "console": "PS5",
+    "notes": "",
+    "owned": "yes",
+    "time": {
+      "main": 28,
+      "extra": null,
+      "complete": null
+    },
+    "addedAt": "2026-11-15T15:13:22.749Z"
   }
 ]
