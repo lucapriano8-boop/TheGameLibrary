@@ -2469,5 +2469,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:48:44.710Z",
     "updatedAt": "2026-11-15T15:48:44.710Z"
+  },
+  {
+    "id": "547e7a4f-8424-4292-9de2-a562d51aa062",
+    "title": "Vampyr",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/b/b3/Vampyr_cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Dont't Nod",
+    "genre": "Action RPG",
+    "franchise": "Vampir",
+    "console": "Ps4",
+    "score": 75,
+    "hours": 9,
+    "status": "Giocato",
+    "releaseYear": 2018,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-15T15:49:21.891Z",
+    "updatedAt": "2026-11-15T15:49:21.891Z"
   }
 ]
