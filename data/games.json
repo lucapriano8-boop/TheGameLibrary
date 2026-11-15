@@ -2843,5 +2843,22 @@
     "review": "",
     "createdAt": "2026-11-15T16:05:32.810Z",
     "updatedAt": "2026-11-15T16:05:32.810Z"
+  },
+  {
+    "id": "50713b84-e016-48a9-9103-c5d9bfefec7e",
+    "title": "Mario + Rabbids Sparks of Hope",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/6/66/Mario_%2B_Rabbids_Sparks_of_Hope_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Ubisoft Milano, Ubisoft Paris",
+    "genre": "Turn-based tactics",
+    "franchise": "Mario",
+    "console": "Nintendo Switch 2",
+    "score": 83,
+    "hours": 25,
+    "status": "Completato",
+    "releaseYear": 2022,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-15T16:06:22.301Z",
+    "updatedAt": "2026-11-15T16:06:22.301Z"
   }
 ]
