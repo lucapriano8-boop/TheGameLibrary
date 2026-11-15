@@ -2962,5 +2962,22 @@
     "review": "",
     "createdAt": "2026-11-15T16:10:17.767Z",
     "updatedAt": "2026-11-15T16:10:17.767Z"
+  },
+  {
+    "id": "95661093-5659-4706-b1d2-f530929b2776",
+    "title": "Need for Speed: Shift",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/0/00/Need_for_Speed_Shift.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Slightly Mad Studios",
+    "genre": "Racing",
+    "franchise": "Need for Speed",
+    "console": "Psp",
+    "score": 72,
+    "hours": 10,
+    "status": "Completato",
+    "releaseYear": 2009,
+    "playedYear": 2013,
+    "review": "",
+    "createdAt": "2026-11-15T16:10:52.115Z",
+    "updatedAt": "2026-11-15T16:10:52.115Z"
   }
 ]
