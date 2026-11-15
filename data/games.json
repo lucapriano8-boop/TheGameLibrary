@@ -2010,5 +2010,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:28:18.916Z",
     "updatedAt": "2026-11-15T15:28:18.916Z"
+  },
+  {
+    "id": "b26cbbdb-0854-460f-83fe-9b9a2fa2e40b",
+    "title": "Star Wars Jedi: Fallen Order",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/1/13/Cover_art_of_Star_Wars_Jedi_Fallen_Order.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Respawn Entertainment, Criterion Games",
+    "genre": "Action-adventure",
+    "franchise": "Star Wars Jedi",
+    "console": "Ps4",
+    "score": 78,
+    "hours": 25,
+    "status": "Completato",
+    "releaseYear": 2019,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-15T15:28:55.524Z",
+    "updatedAt": "2026-11-15T15:28:55.524Z"
   }
 ]
