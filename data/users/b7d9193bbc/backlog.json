@@ -68,14 +68,15 @@
     "id": "18a8e196-9b3f-4e21-9f5b-ffc4dad2afac",
     "title": "Call of Duty: Black Ops",
     "cover": "https://upload.wikimedia.org/wikipedia/en/0/02/CoD_Black_Ops_cover.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "console": "DS",
+    "console": "PC",
     "notes": "",
     "time": {
       "main": 7,
       "extra": null,
       "complete": null
     },
-    "addedAt": "2026-11-14T15:13:07.977Z"
+    "addedAt": "2026-11-14T15:13:07.977Z",
+    "owned": "yes"
   },
   {
     "id": "f681e1a3-31fb-4771-a9f3-28755668ea75",
