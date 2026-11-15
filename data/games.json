@@ -1772,5 +1772,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:17:33.596Z",
     "updatedAt": "2026-11-15T15:17:33.596Z"
+  },
+  {
+    "id": "e1d4a42c-d0cd-491c-8e9e-c4561e488066",
+    "title": "Overcooked",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/6/69/Overcooked_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Ghost Town Games",
+    "genre": "Simulation",
+    "franchise": "Overcooked!",
+    "console": "PC",
+    "score": 75,
+    "hours": 5,
+    "status": "Completato",
+    "releaseYear": 2016,
+    "playedYear": 2025,
+    "review": "",
+    "createdAt": "2026-11-15T15:18:45.804Z",
+    "updatedAt": "2026-11-15T15:18:45.804Z"
   }
 ]
