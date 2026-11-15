@@ -1738,5 +1738,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:16:22.283Z",
     "updatedAt": "2026-11-15T15:16:22.283Z"
+  },
+  {
+    "id": "04007b5a-befc-4bc9-ad41-26df4c27d991",
+    "title": "Nier: Automata",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/2/21/Nier_Automata_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Platinum Games",
+    "genre": "Action RPG",
+    "franchise": "Drakengard",
+    "console": "Ps4",
+    "score": 99,
+    "hours": 35,
+    "status": "Completato",
+    "releaseYear": 2017,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-15T15:17:03.030Z",
+    "updatedAt": "2026-11-15T15:17:03.030Z"
   }
 ]
