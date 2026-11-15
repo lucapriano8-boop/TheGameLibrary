@@ -3030,5 +3030,22 @@
     "review": "",
     "createdAt": "2026-11-15T16:12:39.346Z",
     "updatedAt": "2026-11-15T16:12:39.346Z"
+  },
+  {
+    "id": "e19fc836-1db1-434a-8c53-9a11000e8230",
+    "title": "Need for Speed: The Run",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/7/7c/Needforspeedtheruncover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "EA Gothenburg",
+    "genre": "Racing",
+    "franchise": "Need for Speed",
+    "console": "Pc",
+    "score": 65,
+    "hours": 5,
+    "status": "Completato",
+    "releaseYear": 2011,
+    "playedYear": 2013,
+    "review": "",
+    "createdAt": "2026-11-15T16:13:10.268Z",
+    "updatedAt": "2026-11-15T16:13:10.268Z"
   }
 ]
