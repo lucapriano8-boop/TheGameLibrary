@@ -1840,5 +1840,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:20:29.343Z",
     "updatedAt": "2026-11-15T15:20:29.343Z"
+  },
+  {
+    "id": "e28e0c06-1781-407c-93ab-8322aad0fd83",
+    "title": "Ratchet & Clank: Rift Apart",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/a/a3/Ratchet_%26_Clank_-_Rift_Apart.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Insomniac Games",
+    "genre": "Platform",
+    "franchise": "Ratchet & Clank",
+    "console": "Ps5",
+    "score": 87,
+    "hours": 8,
+    "status": "Completato",
+    "releaseYear": 2021,
+    "playedYear": 2023,
+    "review": "",
+    "createdAt": "2026-11-15T15:21:15.528Z",
+    "updatedAt": "2026-11-15T15:21:15.528Z"
   }
 ]
