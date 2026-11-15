@@ -2792,5 +2792,22 @@
     "review": "",
     "createdAt": "2026-11-15T16:03:04.623Z",
     "updatedAt": "2026-11-15T16:03:04.623Z"
+  },
+  {
+    "id": "8597c195-c22f-4ea3-8321-77edcd4cb271",
+    "title": "Pokémon Spada",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/f/fa/Pok%C3%A9mon_Sword_and_Shield.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Game Freak",
+    "genre": "RPG",
+    "franchise": "serie principale di Pokémon",
+    "console": "Nintendo Switch 2",
+    "score": 87,
+    "hours": 23,
+    "status": "Completato",
+    "releaseYear": 2019,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-15T16:03:41.901Z",
+    "updatedAt": "2026-11-15T16:03:41.901Z"
   }
 ]
