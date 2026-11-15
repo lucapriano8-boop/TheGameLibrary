@@ -2911,5 +2911,22 @@
     "review": "",
     "createdAt": "2026-11-15T16:08:18.180Z",
     "updatedAt": "2026-11-15T16:08:18.180Z"
+  },
+  {
+    "id": "b2c5217f-225a-4c41-959d-d886f62314d5",
+    "title": "Need for Speed: Most Wanted",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/b/b0/Nfs-most-wanted-2012-gen-packart.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Criterion Games",
+    "genre": "Racing",
+    "franchise": "Need for Speed",
+    "console": "Pc",
+    "score": 77,
+    "hours": 5,
+    "status": "Completato",
+    "releaseYear": 2012,
+    "playedYear": 2015,
+    "review": "",
+    "createdAt": "2026-11-15T16:08:56.199Z",
+    "updatedAt": "2026-11-15T16:08:56.199Z"
   }
 ]
