@@ -2248,5 +2248,22 @@
     "review": "",
     "createdAt": "2026-11-15T15:38:51.186Z",
     "updatedAt": "2026-11-15T15:38:51.186Z"
+  },
+  {
+    "id": "c3def8d7-be59-4747-acb0-f3b438de1cd0",
+    "title": "The last of Us",
+    "cover": "",
+    "developer": "Naughty Dog",
+    "genre": "Stealth",
+    "franchise": "The last of us",
+    "console": "Ps4",
+    "score": 92,
+    "hours": 24,
+    "status": "Completato",
+    "releaseYear": 2012,
+    "playedYear": 2014,
+    "review": "",
+    "createdAt": "2026-11-15T15:39:43.726Z",
+    "updatedAt": "2026-11-15T15:39:43.726Z"
   }
 ]
