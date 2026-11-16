@@ -1675,5 +1675,17 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T19:16:07.385Z"
+  },
+  {
+    "id": "ccef0d88-c482-41cc-8874-b48eba59e83f",
+    "title": "Assassin's Creed Revelations",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/d/d9/Assassins_Creed_Revelations_Cover.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original",
+    "console": "PC",
+    "format": "digital",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "gameId": "895f610d-6f24-4e8b-a520-e02074f22c23",
+    "addedAt": "2026-11-16T19:16:39.171Z"
   }
 ]
