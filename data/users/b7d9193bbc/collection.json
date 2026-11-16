@@ -1286,5 +1286,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T18:59:03.984Z"
+  },
+  {
+    "id": "f1a29277-538f-43c4-afbf-d0c81fad6237",
+    "title": "Prison Architect",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/7/7b/Prison_Architect_Logo.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PC",
+    "format": "digital",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T18:59:30.886Z"
   }
 ]
