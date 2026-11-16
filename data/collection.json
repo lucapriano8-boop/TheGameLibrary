@@ -1696,11 +1696,12 @@
     "title": "Assassin's Creed IV: Black Flag - Freedom Cry",
     "cover": "https://upload.wikimedia.org/wikipedia/en/3/3d/FreedomCry.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "console": "Ps4",
-    "format": "physical",
+    "format": "digital",
     "edition": "",
     "notes": "",
     "gameId": "b168c0e6-c114-4ae5-a4a3-a078176814bf",
-    "addedAt": "2026-11-16T12:20:49.645Z"
+    "addedAt": "2026-11-16T12:20:49.645Z",
+    "value": null
   },
   {
     "id": "2d2324ab-cf2b-49cc-b4b3-b2baa66e88c8",
