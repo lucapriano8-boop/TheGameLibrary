@@ -1964,7 +1964,8 @@
     "playedYear": 2019,
     "review": "",
     "createdAt": "2026-11-15T15:26:09.845Z",
-    "updatedAt": "2026-11-15T15:26:09.845Z"
+    "updatedAt": "2026-11-15T15:26:09.845Z",
+    "favorite": true
   },
   {
     "id": "59d872eb-5070-43f2-9879-7efa5b65f782",
