@@ -93,17 +93,6 @@
     "addedAt": "2026-11-16T10:47:16.009Z"
   },
   {
-    "id": "225f874f-48cd-4a79-ad12-8e03085edde1",
-    "title": "Kingdom Hearts",
-    "cover": "https://upload.wikimedia.org/wikipedia/en/8/85/Kingdom_Hearts.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "console": "PC",
-    "format": "digital",
-    "edition": "",
-    "notes": "",
-    "gameId": "c9eea810-d828-46c1-a02d-bf2639ad8f7a",
-    "addedAt": "2026-11-16T10:47:16.009Z"
-  },
-  {
     "id": "c3ceb4bd-cf9d-4d39-990c-ff813edc123f",
     "title": "Red Dead Redemption 2",
     "cover": "https://upload.wikimedia.org/wikipedia/en/4/44/Red_Dead_Redemption_II.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
