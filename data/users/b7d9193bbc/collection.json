@@ -1466,5 +1466,16 @@
     "notes": "",
     "gameId": "7d7dc7d1-6b1e-4fa6-beee-f95536031d94",
     "addedAt": "2026-11-16T19:09:10.250Z"
+  },
+  {
+    "id": "27163fb9-88c4-4397-ae1d-5c3205211e3c",
+    "title": "Star Wars Jedi: Fallen Order",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/1/13/Cover_art_of_Star_Wars_Jedi_Fallen_Order.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PC",
+    "format": "digital",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T19:09:50.074Z"
   }
 ]
