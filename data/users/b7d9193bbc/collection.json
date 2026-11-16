@@ -1044,5 +1044,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T18:41:47.229Z"
+  },
+  {
+    "id": "1a5eca6b-e4a9-41a5-bdaf-33e164ed337c",
+    "title": "Final Fantasy X",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/a/a7/Ffxboxart.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PS2",
+    "format": "physical",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T18:42:04.902Z"
   }
 ]
