@@ -711,5 +711,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T18:28:19.276Z"
+  },
+  {
+    "id": "b1dae339-d60a-4307-b893-c64fd24be06f",
+    "title": "BioShock 2",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/8/8c/Bioshock2_cover.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PC",
+    "format": "physical",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T18:28:40.769Z"
   }
 ]
