@@ -171,7 +171,7 @@ main { max-width: 1120px; margin: 0 auto; padding: 24px 16px 64px; }
 
 /* ---------- ranking ---------- */
 .toolbar { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; align-items: center; }
-.toolbar input[type=search] { flex: 1 1 240px; }
+.toolbar input[type=search], .toolbar > .clear-wrap { flex: 1 1 240px; }
 .select-wrap { display: flex; align-items: center; gap: 8px; color: var(--text-2); font-size: .88rem; }
 
 input, select, textarea {
@@ -457,6 +457,28 @@ body[data-view="profili"] .fab { display: none !important; }
 .buy-options input:checked + span { background: rgba(108, 140, 255, .16); border-color: var(--accent); color: var(--text); }
 .buy-options input:focus-visible + span { outline: 2px solid var(--text); outline-offset: 2px; }
 
+/* ---------- X per cancellare ---------- */
+.clear-wrap { position: relative; display: block; width: 100%; min-width: 0; }
+.clear-wrap > input, .clear-wrap > textarea { padding-right: 40px; }
+.clear-wrap > input[type=number] { padding-right: 34px; }
+input[type=search]::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; }
+.clear-btn {
+  position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
+  width: 28px; height: 28px; padding: 0; border: 0; border-radius: 50%; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--surface-2); color: var(--text-2);
+}
+.clear-btn::before { content: ""; position: absolute; inset: -8px; } /* area da toccare più grande */
+.clear-btn svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; }
+.clear-btn:hover { color: var(--text); background: #3f4862; }
+.clear-btn:active { transform: translateY(-50%) scale(.9); }
+.clear-wrap.is-area .clear-btn { top: 8px; transform: none; }
+.clear-wrap.is-area .clear-btn:active { transform: scale(.9); }
+.clear-wrap > :placeholder-shown ~ .clear-btn,
+.clear-wrap > :disabled ~ .clear-btn { display: none; }
+.clear-wrap > input[type=number] ~ .clear-btn { right: 4px; width: 24px; height: 24px; }
+.topbar { cursor: default; }
+
 /* ---------- collezione ---------- */
 .ico { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; vertical-align: -0.12em; flex: 0 0 auto; }
 .fmt-physical { --fmt: var(--gold); }
@@ -512,7 +534,7 @@ body[data-view="profili"] .fab { display: none !important; }
 .view-toggle button { width: 40px; height: 36px; border: 0; border-radius: 7px; background: transparent; color: var(--muted); display: flex; align-items: center; justify-content: center; cursor: pointer; }
 .view-toggle svg { width: 18px; height: 18px; }
 .view-toggle button[aria-pressed="true"] { background: var(--surface-2); color: var(--text); }
-.coll-toolbar input[type=search] { flex: 1 1 200px; }
+.coll-toolbar input[type=search], .coll-toolbar > .clear-wrap { flex: 1 1 200px; }
 
 /* modulo collezione */
 #coll-tabs { margin-bottom: 14px; }
@@ -717,7 +739,7 @@ body[data-view="statistiche"] .fab { display: none !important; }
 
   /* barra di ricerca/ordinamento della classifica */
   .toolbar { display: grid; grid-template-columns: 1fr auto; gap: 8px; }
-  .toolbar input[type=search] { grid-column: 1 / -1; }
+  .toolbar input[type=search], .toolbar > .clear-wrap { grid-column: 1 / -1; }
   .toolbar .select-wrap { font-size: .8rem; }
   .toolbar .select-wrap select { flex: 1; min-width: 0; }
   .toolbar .select-wrap:first-of-type { grid-column: 1; }

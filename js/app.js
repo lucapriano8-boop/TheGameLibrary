@@ -2252,7 +2252,54 @@
     } catch { /* offline: riprova più tardi */ }
   }
 
+  // ---------- X per cancellare il testo nei campi ----------
+  const CLEARABLE = 'input:not([type]), input[type="text"], input[type="search"], input[type="url"], input[type="number"], textarea';
+  function setupClearButtons(root = document) {
+    $$(CLEARABLE, root).forEach((el) => {
+      if (el.closest('.clear-wrap')) return;
+      // il pulsante si nasconde da solo quando il campo è vuoto (:placeholder-shown), anche se il valore cambia via codice
+      if (!el.hasAttribute('placeholder')) el.setAttribute('placeholder', ' ');
+      const wrap = document.createElement('span');
+      wrap.className = `clear-wrap${el.tagName === 'TEXTAREA' ? ' is-area' : ''}`;
+      el.parentNode.insertBefore(wrap, el);
+      wrap.appendChild(el);
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'clear-btn';
+      btn.tabIndex = -1;
+      btn.setAttribute('aria-label', 'Cancella il testo');
+      btn.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg>';
+      // pointerdown senza perdere il focus: su iPhone la tastiera resta aperta
+      btn.addEventListener('pointerdown', (e) => e.preventDefault());
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        el.value = '';
+        el.dispatchEvent(new Event('input', { bubbles: true }));
+        el.dispatchEvent(new Event('change', { bubbles: true }));
+        el.focus();
+      });
+      wrap.appendChild(btn);
+    });
+  }
+
+  // ---------- tocco in cima: torna all'inizio della pagina ----------
+  function setupScrollToTop() {
+    const interactive = 'a, button, input, select, textarea, label';
+    $('.topbar').addEventListener('click', (e) => {
+      if (e.target.closest(interactive)) return;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    // nelle finestre (a schermo intero sul telefono) lo fa il titolo in alto
+    $$('dialog .dialog-head').forEach((head) => head.addEventListener('click', (e) => {
+      if (e.target.closest(interactive)) return;
+      head.closest('dialog').scrollTo({ top: 0, behavior: 'smooth' });
+    }));
+  }
+
   function init() {
+    setupClearButtons();
+    setupScrollToTop();
     try {
       const cv = localStorage.getItem('tgl-coll-view');
       if (cv === 'grid' || cv === 'list') state.collView = cv;
