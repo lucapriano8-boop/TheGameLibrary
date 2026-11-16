@@ -1431,5 +1431,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T19:06:10.216Z"
+  },
+  {
+    "id": "47978870-4056-4f7c-a668-662d484b28fc",
+    "title": "Deep Rock Galactic",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/b/b3/Deep_rock_galactic_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PC",
+    "format": "digital",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T19:06:25.519Z"
   }
 ]
