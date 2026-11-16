@@ -989,5 +989,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T18:39:31.493Z"
+  },
+  {
+    "id": "987e176e-f560-45c7-b603-db5abd61ed6f",
+    "title": "Burnout Paradise",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/a/ab/Burnout_Paradise_Boxart_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PS3",
+    "format": "physical",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T18:39:51.146Z"
   }
 ]
