@@ -16,5 +16,14 @@
     "value": 150,
     "notes": "",
     "addedAt": "2026-11-16T15:21:35.059Z"
+  },
+  {
+    "id": "2ad33803-04e4-42bd-af17-6881bdfa08fb",
+    "name": "PlayStation 3",
+    "model": "",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/PS3_consoles_montage_HQ.png/960px-PS3_consoles_montage_HQ.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "value": 150,
+    "notes": "",
+    "addedAt": "2026-11-16T15:22:05.140Z"
   }
 ]
