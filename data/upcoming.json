@@ -5,8 +5,9 @@
     "console": "PS5",
     "releaseDate": "2026-11-19",
     "releaseYear": 2026,
-    "notes": "Da comprare",
+    "notes": "",
     "createdAt": "2026-11-13T13:14:27.548Z",
-    "cover": "https://upload.wikimedia.org/wikipedia/en/4/46/Grand_Theft_Auto_VI.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    "cover": "https://upload.wikimedia.org/wikipedia/en/4/46/Grand_Theft_Auto_VI.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "owned": "yes"
   }
 ]
