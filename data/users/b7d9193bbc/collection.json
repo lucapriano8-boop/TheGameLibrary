@@ -878,5 +878,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T18:35:08.419Z"
+  },
+  {
+    "id": "c38ec702-16bb-4803-bd0c-19ac5d9d5b54",
+    "title": "Infamous: Second Son",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/3/34/Infamous_second_son_boxart.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PS4",
+    "format": "physical",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T18:35:43.786Z"
   }
 ]
