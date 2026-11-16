@@ -1408,5 +1408,17 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T19:05:16.803Z"
+  },
+  {
+    "id": "5b63969a-d86b-4062-a247-29e8e21343a1",
+    "title": "Baldur's Gate 3",
+    "cover": "https://preview.redd.it/new-game-cover-from-larians-website-v0-m2lmw222h0ka1.png?auto=webp&s=ba904ad42906960a96a70ce1c27ee6d3ff5edead",
+    "console": "PC",
+    "format": "digital",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "gameId": "0cacce61-3d28-4418-8df6-bfdf0f7ceef0",
+    "addedAt": "2026-11-16T19:05:42.260Z"
   }
 ]
