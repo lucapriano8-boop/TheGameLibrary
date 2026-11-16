@@ -237,5 +237,19 @@
       "complete": null
     },
     "addedAt": "2026-11-16T12:37:19.130Z"
+  },
+  {
+    "id": "b9f3eba3-ee93-45e9-8650-c8ae7b4aed2e",
+    "title": "Super Mario Galaxy 2",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/6/65/Super_Mario_Galaxy_2_Box_Art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "",
+    "notes": "",
+    "owned": "yes",
+    "time": {
+      "main": 13,
+      "extra": null,
+      "complete": null
+    },
+    "addedAt": "2026-11-16T12:37:55.475Z"
   }
 ]
