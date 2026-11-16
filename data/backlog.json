@@ -279,5 +279,19 @@
       "complete": null
     },
     "addedAt": "2026-11-16T12:38:55.546Z"
+  },
+  {
+    "id": "907a15fa-816a-4564-8aee-4c8c6c8e29ed",
+    "title": "Super Mario 3D World + Bowser's Fury",
+    "cover": "https://upload.wikimedia.org/wikipedia/it/8/89/Bowser%27s_Fury_cover.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "Nintendo Switch 2",
+    "notes": "",
+    "owned": "yes",
+    "time": {
+      "main": 10,
+      "extra": null,
+      "complete": null
+    },
+    "addedAt": "2026-11-16T12:39:39.405Z"
   }
 ]
