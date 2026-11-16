@@ -1465,5 +1465,17 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T19:08:34.142Z"
+  },
+  {
+    "id": "0670a1cf-89b4-498e-a2c1-2ebaac689abf",
+    "title": "Resident Evil 2",
+    "cover": "https://images.everyeye.it/img-cover/resident-evil-2-remake-v11-31728.jpg",
+    "console": "PC",
+    "format": "digital",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "gameId": "7d7dc7d1-6b1e-4fa6-beee-f95536031d94",
+    "addedAt": "2026-11-16T19:09:10.250Z"
   }
 ]
