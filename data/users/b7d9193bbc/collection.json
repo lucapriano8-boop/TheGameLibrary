@@ -1576,5 +1576,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T19:13:32.195Z"
+  },
+  {
+    "id": "3129e31b-40e9-4b4f-8a16-4a089e0b29f7",
+    "title": "F1 22",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/b/be/F1_22_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PC",
+    "format": "digital",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T19:13:45.104Z"
   }
 ]
