@@ -1143,5 +1143,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T18:53:13.224Z"
+  },
+  {
+    "id": "13cf9b53-4aa7-49aa-ba39-f87aa97b1719",
+    "title": "BeamNG.Drive",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/6/6c/BeamNGdrive_cover.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PC",
+    "format": "digital",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T18:53:29.835Z"
   }
 ]
