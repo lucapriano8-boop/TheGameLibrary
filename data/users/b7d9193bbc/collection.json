@@ -1609,5 +1609,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T19:14:34.451Z"
+  },
+  {
+    "id": "f6d391ec-bb0e-4c52-9b99-b910d2dfa6e3",
+    "title": "NASCAR Heat 4",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/f/fd/NASCAR_Heat_4_Box_Art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PC",
+    "format": "digital",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T19:14:46.707Z"
   }
 ]
