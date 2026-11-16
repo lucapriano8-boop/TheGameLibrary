@@ -1620,5 +1620,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T19:14:46.707Z"
+  },
+  {
+    "id": "d96db7a1-98e5-4382-b9a8-cfe798b60f33",
+    "title": "Project CARS",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/d/df/Project_Cars_boxart.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PC",
+    "format": "digital",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T19:15:08.205Z"
   }
 ]
