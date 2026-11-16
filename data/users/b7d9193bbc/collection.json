@@ -1033,5 +1033,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T18:41:18.481Z"
+  },
+  {
+    "id": "8d96fbed-85cf-4b5e-8b05-e7397e541a42",
+    "title": "Midnight Club 3: DUB Edition",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/6/69/Midnight_Club_3_-_DUB_Edition_Coverart.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PS2",
+    "format": "physical",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T18:41:47.229Z"
   }
 ]
