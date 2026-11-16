@@ -1022,5 +1022,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T18:41:01.784Z"
+  },
+  {
+    "id": "0848a40b-0970-4d21-b1ee-f3c2e9346c26",
+    "title": "L.A. Rush",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/d/d2/LA_Rush.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PS3",
+    "format": "physical",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T18:41:18.481Z"
   }
 ]
