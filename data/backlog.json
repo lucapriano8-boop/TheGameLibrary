@@ -321,5 +321,19 @@
       "complete": null
     },
     "addedAt": "2026-11-16T12:40:44.754Z"
+  },
+  {
+    "id": "cf932c1a-d638-4bb6-9db9-a63f4bc27ef2",
+    "title": "Ōkami",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/b/be/OkamiNTSCcoverFinal.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "Pc",
+    "notes": "",
+    "owned": "yes",
+    "time": {
+      "main": 33,
+      "extra": null,
+      "complete": null
+    },
+    "addedAt": "2026-11-16T12:41:10.012Z"
   }
 ]
