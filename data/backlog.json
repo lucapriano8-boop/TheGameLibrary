@@ -265,5 +265,19 @@
       "complete": null
     },
     "addedAt": "2026-11-16T12:38:32.197Z"
+  },
+  {
+    "id": "8c8c86ef-8c04-4a9d-9ce2-c4d95201295b",
+    "title": "Kena: Bridge of Spirits",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/6/65/Kena_Bridge_of_Spirits_key_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "",
+    "notes": "",
+    "owned": "no",
+    "time": {
+      "main": 11,
+      "extra": null,
+      "complete": null
+    },
+    "addedAt": "2026-11-16T12:38:55.546Z"
   }
 ]
