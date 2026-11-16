@@ -447,5 +447,19 @@
       "complete": null
     },
     "addedAt": "2026-11-16T12:45:03.332Z"
+  },
+  {
+    "id": "09bb75b2-82f5-40c6-abcf-56d0e5a92aa9",
+    "title": "Mortal Shell II",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/f/f6/Mortal_Shell_II_key_art.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "Ps5",
+    "notes": "",
+    "owned": "no",
+    "time": {
+      "main": 30,
+      "extra": null,
+      "complete": null
+    },
+    "addedAt": "2026-11-16T12:45:30.870Z"
   }
 ]
