@@ -42,5 +42,16 @@
     "notes": "",
     "createdAt": "2026-11-13T17:45:21.881Z",
     "owned": "no"
+  },
+  {
+    "id": "b72e397f-deb0-41ce-b8d4-afe4971512a4",
+    "title": "The Witcher 4",
+    "cover": "https://images.everyeye.it/img-cover/the-witcher-4-v8-44461.jpg",
+    "console": "PS5",
+    "releaseDate": "",
+    "releaseYear": null,
+    "notes": "",
+    "owned": "no",
+    "createdAt": "2026-11-16T13:08:42.338Z"
   }
 ]
