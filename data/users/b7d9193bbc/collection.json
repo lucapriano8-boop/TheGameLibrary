@@ -1664,5 +1664,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T19:15:49.552Z"
+  },
+  {
+    "id": "f957d780-4b2c-474b-aaee-2e42be14c88a",
+    "title": "Assassin's Creed",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/5/52/Assassin%27s_Creed.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PC",
+    "format": "digital",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T19:16:07.385Z"
   }
 ]
