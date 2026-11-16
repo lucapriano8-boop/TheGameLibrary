@@ -916,24 +916,6 @@
     "updatedAt": "2026-11-14T15:01:21.978Z"
   },
   {
-    "id": "5d0ada47-1350-4d63-9cbb-462828cab014",
-    "title": "Batman: Arkham Asylum",
-    "cover": "https://upload.wikimedia.org/wikipedia/en/4/42/Batman_Arkham_Asylum_Videogame_Cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "developer": "Rocksteady Studios",
-    "genre": "Action-adventure",
-    "franchise": "Batman: Arkham",
-    "console": "",
-    "score": null,
-    "hours": 10,
-    "status": "In corso",
-    "releaseYear": null,
-    "playedYear": 2026,
-    "review": "",
-    "startedAt": "2026-11-14",
-    "createdAt": "2026-11-14T15:11:51.946Z",
-    "updatedAt": "2026-11-14T15:16:25.628Z"
-  },
-  {
     "id": "7d7dc7d1-6b1e-4fa6-beee-f95536031d94",
     "title": "Resident Evil 2",
     "cover": "https://store-images.s-microsoft.com/image/apps.36567.71571739681700792.c61fa2d7-3d69-4edf-8e51-accc41d47823.a8c614fc-0dcb-4788-89ed-958635753296",
