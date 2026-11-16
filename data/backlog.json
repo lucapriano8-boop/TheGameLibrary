@@ -377,5 +377,19 @@
       "complete": null
     },
     "addedAt": "2026-11-16T12:42:43.043Z"
+  },
+  {
+    "id": "e3035107-d326-4dc6-826f-38c5a796823c",
+    "title": "Pragmata",
+    "cover": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Pragmata_cover.jpg/500px-Pragmata_cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "console": "Ps5",
+    "notes": "",
+    "owned": "no",
+    "time": {
+      "main": 12,
+      "extra": null,
+      "complete": null
+    },
+    "addedAt": "2026-11-16T12:43:11.155Z"
   }
 ]
