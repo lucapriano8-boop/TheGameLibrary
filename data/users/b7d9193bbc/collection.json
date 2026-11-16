@@ -789,5 +789,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T18:31:34.118Z"
+  },
+  {
+    "id": "34d4c852-cf59-4793-ad1a-3817d409d539",
+    "title": "EA Sports FC 26",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/2/2f/FC_26_Cover.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PS5",
+    "format": "physical",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T18:31:52.697Z"
   }
 ]
