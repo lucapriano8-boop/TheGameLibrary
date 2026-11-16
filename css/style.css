@@ -115,6 +115,7 @@ main { max-width: 1120px; margin: 0 auto; padding: 24px 16px 64px; }
 .chart .baseline { stroke: #4b5670; stroke-width: 1; }
 .chart .axis { fill: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
 .chart .bar { fill: var(--accent); }
+.chart-range { display: block; font-size: .8rem; font-weight: 500; margin-top: 2px; }
 .chart .bar-label { fill: var(--text-2); font-size: 12px; font-weight: 600; }
 .chart .hit { fill: transparent; cursor: default; }
 .chart .hit.on { fill: rgba(255, 255, 255, .04); }

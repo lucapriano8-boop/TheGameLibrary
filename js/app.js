@@ -269,7 +269,12 @@
   }
 
   function renderChart() {
-    const data = yearCounts();
+    const all = yearCounts();
+    // sul telefono il grafico mostra solo gli ultimi 5 anni (la tabella li ha tutti)
+    const MOBILE_YEARS = 5;
+    const isPhone = window.matchMedia('(max-width: 640px)').matches;
+    const data = isPhone && all.length > MOBILE_YEARS ? all.slice(-MOBILE_YEARS) : all;
+    $('#chart-range').textContent = data.length < all.length ? `ultimi ${MOBILE_YEARS} anni` : '';
     const el = $('#chart');
     const tableEl = $('#chart-table');
     if (!data.length) {
@@ -320,7 +325,7 @@
     el.innerHTML = svg;
 
     tableEl.innerHTML = `<table class="simple"><thead><tr><th>Anno</th><th class="num">Giochi</th></tr></thead><tbody>${
-      data.slice().reverse().map((d) => `<tr><td>${d.year}</td><td class="num">${d.count}</td></tr>`).join('')
+      all.slice().reverse().map((d) => `<tr><td>${d.year}</td><td class="num">${d.count}</td></tr>`).join('')
     }</tbody></table>`;
   }
 
