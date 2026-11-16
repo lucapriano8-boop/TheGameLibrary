@@ -1477,5 +1477,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T19:09:50.074Z"
+  },
+  {
+    "id": "f262868a-531f-4c45-a076-0607bdffbcb6",
+    "title": "Talisman: Digital Edition",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/0/00/Talisman_2012_video_game_cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PC",
+    "format": "digital",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T19:10:24.880Z"
   }
 ]
