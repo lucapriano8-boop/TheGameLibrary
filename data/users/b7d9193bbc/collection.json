@@ -1397,5 +1397,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T19:05:01.144Z"
+  },
+  {
+    "id": "c66f1244-72d2-4abb-b589-da225df95b86",
+    "title": "ARC Raiders",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/7/73/Arc_Raiders_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PC",
+    "format": "digital",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T19:05:16.803Z"
   }
 ]
