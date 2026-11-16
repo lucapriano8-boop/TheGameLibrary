@@ -1132,5 +1132,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T18:52:54.150Z"
+  },
+  {
+    "id": "ff835cd2-c736-4dc8-9feb-bd634cc952ce",
+    "title": "Assetto Corsa",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/c/c8/Assetto_Corsa_cover.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PC",
+    "format": "digital",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T18:53:13.224Z"
   }
 ]
