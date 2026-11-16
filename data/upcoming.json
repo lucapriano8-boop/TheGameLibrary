@@ -70,8 +70,8 @@
     "title": "Final Fantasy VII Revelation",
     "cover": "https://upload.wikimedia.org/wikipedia/en/4/47/Final_Fantasy_VII_Revelation_cover_art.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "console": "Ps5",
-    "releaseDate": "2027-04-01",
-    "releaseYear": 2027,
+    "releaseDate": "",
+    "releaseYear": null,
     "notes": "",
     "owned": "no",
     "createdAt": "2026-11-16T12:52:19.755Z"
