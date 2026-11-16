@@ -1521,5 +1521,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T19:11:39.483Z"
+  },
+  {
+    "id": "05830837-01da-4fdd-86f5-33c7a63941d4",
+    "title": "Assetto Corsa Competizione",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/a/aa/Assetto_Corsa_Competizione_cover_art_full.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PC",
+    "format": "digital",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T19:11:56.538Z"
   }
 ]
