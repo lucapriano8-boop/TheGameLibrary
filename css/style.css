@@ -484,6 +484,8 @@ input[type=search]::-webkit-search-cancel-button { -webkit-appearance: none; app
 .fmt-physical { --fmt: var(--gold); }
 .fmt-digital { --fmt: var(--blue); }
 .coll-summary { margin: 4px 0 0; }
+.coll-value-total { margin: 4px 0 0; font-weight: 650; color: var(--text); font-size: .92rem; }
+.coll-value { color: var(--text); font-weight: 650; font-variant-numeric: tabular-nums; }
 .coll-format { max-width: 460px; }
 .coll-format button { display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
 .coll-format .ico { font-size: 1rem; }
