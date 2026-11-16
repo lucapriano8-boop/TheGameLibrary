@@ -811,5 +811,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T18:32:26.339Z"
+  },
+  {
+    "id": "c8b8ffa4-0148-4755-87cd-cedac041b5e6",
+    "title": "Star Wars Jedi: Survivor",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/4/43/Star_Wars_Jedi_Survivor.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PS5",
+    "format": "physical",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T18:32:48.629Z"
   }
 ]
