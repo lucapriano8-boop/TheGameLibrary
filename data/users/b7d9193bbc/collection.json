@@ -603,5 +603,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T13:40:35.554Z"
+  },
+  {
+    "id": "ca033b4c-1021-4473-8460-c7c61032392e",
+    "title": "The Witcher 2: Assassins of Kings",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/4/40/Witcher_2_cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PC",
+    "format": "physical",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T13:41:22.810Z"
   }
 ]
