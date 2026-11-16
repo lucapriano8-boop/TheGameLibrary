@@ -649,5 +649,16 @@
     "notes": "",
     "gameId": "c9eea810-d828-46c1-a02d-bf2639ad8f7a",
     "addedAt": "2026-11-16T13:48:08.088Z"
+  },
+  {
+    "id": "94f6abe4-0407-47d8-87d4-2c8f83f7df7d",
+    "title": "Grand Theft Auto III",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/b/be/GTA3boxcover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PS2",
+    "format": "physical",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T13:49:15.547Z"
   }
 ]
