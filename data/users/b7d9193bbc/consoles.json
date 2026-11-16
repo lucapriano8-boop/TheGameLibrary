@@ -16,5 +16,14 @@
     "value": null,
     "notes": "Day One",
     "addedAt": "2026-11-16T15:07:36.975Z"
+  },
+  {
+    "id": "f42d2d70-7e78-41c3-8f61-7753864af52d",
+    "name": "PlayStation 3",
+    "model": "",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwYQDT6T9uR_QcRZ2Urp90hNSh23KsdCRa099-L5jacm8GHs5R8VrOA8w&s=10",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T15:09:32.084Z"
   }
 ]
