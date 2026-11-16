@@ -391,5 +391,19 @@
       "complete": null
     },
     "addedAt": "2026-11-16T12:43:11.155Z"
+  },
+  {
+    "id": "7ca4a518-ec47-4c68-befe-f9ffa3f0ba37",
+    "title": "Phantom Blade Zero",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/4/41/Phantom_Blade_Zero_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "Ps5",
+    "notes": "",
+    "owned": "no",
+    "time": {
+      "main": 27,
+      "extra": null,
+      "complete": null
+    },
+    "addedAt": "2026-11-16T12:43:35.269Z"
   }
 ]
