@@ -169,11 +169,12 @@
     "title": "Hollow Knight: Silksong",
     "cover": "https://upload.wikimedia.org/wikipedia/en/0/05/Silksong.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "console": "Ps5",
-    "format": "physical",
+    "format": "digital",
     "edition": "",
     "notes": "",
     "gameId": "05cb8045-02b8-44e3-898c-726ec20fa36e",
-    "addedAt": "2026-11-16T12:20:49.645Z"
+    "addedAt": "2026-11-16T12:20:49.645Z",
+    "value": null
   },
   {
     "id": "415ea65f-9170-4b07-a845-ae6214727056",
@@ -1391,7 +1392,7 @@
     "notes": "",
     "gameId": "7d49c209-4e3c-4967-a8ac-986c7579a2b7",
     "addedAt": "2026-11-16T12:20:49.645Z",
-    "value": 5.0
+    "value": 5
   },
   {
     "id": "561e8ae9-c60e-463b-844c-49b9ac9ef7c4",
