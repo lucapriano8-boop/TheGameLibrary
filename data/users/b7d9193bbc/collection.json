@@ -1364,5 +1364,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T19:02:01.840Z"
+  },
+  {
+    "id": "78cdc7c6-9d38-4a1e-800a-3e1448b52734",
+    "title": "The Elder Scrolls IV Oblivion Remastered",
+    "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202504/0320/3d4ad7dd46baa8aeb93741a1a07a422f26bdff904f7b243e.jpg",
+    "console": "PC",
+    "format": "digital",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T19:03:48.092Z"
   }
 ]
