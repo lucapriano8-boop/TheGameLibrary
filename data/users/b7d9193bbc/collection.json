@@ -592,5 +592,16 @@
     "notes": "",
     "gameId": "7d7dc7d1-6b1e-4fa6-beee-f95536031d94",
     "addedAt": "2026-11-16T10:47:16.009Z"
+  },
+  {
+    "id": "44d8f835-2912-4827-8165-fd1bb7966821",
+    "title": "The Witcher",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/b/b0/The_Witcher_EU_box.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PC",
+    "format": "physical",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T13:40:35.554Z"
   }
 ]
