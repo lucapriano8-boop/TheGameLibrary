@@ -1308,5 +1308,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T18:59:45.296Z"
+  },
+  {
+    "id": "9872ed26-c530-468a-ac6a-398651247bd8",
+    "title": "Splitgate",
+    "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202209/1515/Du9tEU5TH4kxc36UsOar1yPT.png",
+    "console": "PC",
+    "format": "digital",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T19:00:10.225Z"
   }
 ]
