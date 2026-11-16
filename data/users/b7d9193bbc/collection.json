@@ -660,5 +660,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T13:49:15.547Z"
+  },
+  {
+    "id": "81a58c24-71df-4abd-8bbb-16737cd7c27f",
+    "title": "Grand Theft Auto: Vice City",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/c/ce/Vice-city-cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PS2",
+    "format": "physical",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T13:50:01.595Z"
   }
 ]
