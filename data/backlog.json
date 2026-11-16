@@ -433,5 +433,19 @@
       "complete": null
     },
     "addedAt": "2026-11-16T12:44:32.865Z"
+  },
+  {
+    "id": "067a07f0-34a2-496d-bce9-588b950ba0c2",
+    "title": "Final Fantasy Resonance",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/2/28/Final_Fantasy_Resonance_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "Ps5",
+    "notes": "",
+    "owned": "no",
+    "time": {
+      "main": 40,
+      "extra": null,
+      "complete": null
+    },
+    "addedAt": "2026-11-16T12:45:03.332Z"
   }
 ]
