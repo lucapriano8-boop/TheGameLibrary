@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>The Game Library</title>
   <meta name="description" content="La mia libreria personale dei videogiochi giocati.">
-  <meta name="app-version" content="20261116-101626">
+  <meta name="app-version" content="20261116-104127">
   <meta name="theme-color" content="#1a1f2c">
   <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
@@ -15,7 +15,7 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Game Library">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <link rel="stylesheet" href="css/style.css?v=20261116-101626">
+  <link rel="stylesheet" href="css/style.css?v=20261116-104127">
 </head>
 <body>
   <header class="topbar">
@@ -26,6 +26,7 @@
     <nav class="tabs" id="tabs">
       <a href="#home" data-view="home">Home</a>
       <a href="#classifica" data-view="classifica">Classifica</a>
+      <a href="#collezione" data-view="collezione">Collezione</a>
       <a href="#uscite" data-view="uscite">Da giocare</a>
       <a href="#statistiche" data-view="statistiche">Statistiche</a>
       <a href="#impostazioni" data-view="impostazioni" title="Impostazioni" aria-label="Impostazioni">⚙</a>
@@ -206,6 +207,67 @@
       <p id="backlog-empty" class="empty" hidden>Il backlog è vuoto. Aggiungi i giochi che vuoi giocare!</p>
     </section>
 
+    <!-- COLLEZIONE -->
+    <section id="view-collezione" class="view" hidden>
+      <!-- panoramica -->
+      <div id="coll-overview">
+        <div class="view-head">
+          <div>
+            <h1>Collezione</h1>
+            <p class="muted coll-summary" id="coll-summary"></p>
+          </div>
+          <button class="btn primary" data-action="add-collection">+ Aggiungi</button>
+        </div>
+        <div class="segmented coll-format" role="tablist" aria-label="Formato">
+          <button type="button" role="tab" data-coll-format="" aria-selected="true">Tutti</button>
+          <button type="button" role="tab" data-coll-format="physical" aria-selected="false"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/></svg> Fisici</button>
+          <button type="button" role="tab" data-coll-format="digital" aria-selected="false"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg> Digitali</button>
+        </div>
+        <div class="chip-row" id="coll-consoles"></div>
+        <div id="coll-sections"></div>
+        <div class="card empty-state" id="coll-empty" hidden>
+          <div class="big-emoji">📀</div>
+          <p>La tua collezione è vuota.</p>
+          <p class="muted">Aggiungi i giochi che possiedi, fisici o digitali, oppure importali dalla classifica.</p>
+          <button class="btn primary" data-action="add-collection">+ Aggiungi alla collezione</button>
+        </div>
+      </div>
+
+      <!-- una console -->
+      <div id="coll-console" hidden>
+        <div class="coll-console-head">
+          <a href="#collezione" class="icon-link" aria-label="Torna alla collezione">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+          </a>
+          <div class="coll-console-title">
+            <h1 id="coll-console-name"></h1>
+            <p class="muted" id="coll-console-meta"></p>
+          </div>
+          <div class="view-toggle" role="group" aria-label="Vista">
+            <button type="button" id="coll-view-grid" aria-label="Vista griglia" aria-pressed="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></svg>
+            </button>
+            <button type="button" id="coll-view-list" aria-label="Vista lista" aria-pressed="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="segmented coll-format" role="tablist" aria-label="Formato" id="coll-console-format"></div>
+        <div class="toolbar coll-toolbar">
+          <input type="search" id="coll-search" placeholder="Cerca nella collezione" aria-label="Cerca nella collezione">
+          <label class="select-wrap">
+            <span>Ordina</span>
+            <select id="coll-sort">
+              <option value="title">A–Z</option>
+              <option value="recent">Aggiunti di recente</option>
+            </select>
+          </label>
+        </div>
+        <div id="coll-items"></div>
+        <p class="empty" id="coll-items-empty" hidden>Nessun gioco corrisponde alla ricerca.</p>
+      </div>
+    </section>
+
     <!-- STATISTICHE -->
     <section id="view-statistiche" class="view" hidden>
       <div class="view-head"><h1>Statistiche</h1></div>
@@ -307,6 +369,10 @@
     <a href="#classifica" data-view="classifica">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM7 6H4v1a3 3 0 0 0 3 3M17 6h3v1a3 3 0 0 1-3 3"/></svg>
       <span>Classifica</span>
+    </a>
+    <a href="#collezione" data-view="collezione">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h4v16H4zM10 4h4v16h-4zM16.5 5l3.5 1-3.5 14-3.5-1z"/></svg>
+      <span>Collezione</span>
     </a>
     <a href="#uscite" data-view="uscite">
       <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
@@ -499,6 +565,109 @@
     </form>
   </dialog>
 
+  <!-- MODALE: aggiungi/modifica collezione -->
+  <dialog id="collection-dialog" class="dialog">
+    <div class="dialog-head">
+      <h2 id="collection-dialog-title">Aggiungi alla collezione</h2>
+      <button type="button" class="icon-btn" data-close aria-label="Chiudi">✕</button>
+    </div>
+    <div class="segmented" role="tablist" aria-label="Come aggiungere" id="coll-tabs">
+      <button type="button" role="tab" data-coll-tab="new" aria-selected="true">Nuovo gioco</button>
+      <button type="button" role="tab" data-coll-tab="import" aria-selected="false">Dalla classifica</button>
+    </div>
+
+    <form id="collection-form" class="form" method="dialog">
+      <div class="form-grid">
+        <div class="span-2 title-row">
+          <label>Titolo *
+            <input name="title" required maxlength="200" autocomplete="off">
+          </label>
+          <button type="button" class="btn" data-lookup="collection">🔍 Cerca dati</button>
+        </div>
+        <div class="span-2 lookup" id="collection-lookup" hidden></div>
+        <div class="span-2 cover-row">
+          <div class="cover-preview" id="collection-cover-preview"></div>
+          <label>Copertina <span class="muted">(facoltativa)</span>
+            <input name="cover" type="url" placeholder="https://…" autocomplete="off">
+          </label>
+        </div>
+        <div class="span-2 console-pick">
+          <label>Console *
+            <input name="console" list="dl-console" required maxlength="80" autocomplete="off">
+          </label>
+          <div class="chip-row" id="coll-console-chips"></div>
+        </div>
+        <fieldset class="span-2 format-field">
+          <legend>Formato *</legend>
+          <div class="format-options">
+            <label class="fmt-physical"><input type="radio" name="format" value="physical" required><span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/></svg> Fisico</span></label>
+            <label class="fmt-digital"><input type="radio" name="format" value="digital"><span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg> Digitale</span></label>
+          </div>
+        </fieldset>
+        <label class="span-2">Edizione <span class="muted">(facoltativa)</span>
+          <input name="edition" maxlength="120" placeholder="Es. Steelbook, Deluxe, Collector's" autocomplete="off">
+        </label>
+        <label class="span-2">Note
+          <textarea name="notes" rows="2" maxlength="2000"></textarea>
+        </label>
+        <label class="span-2 check-row" id="coll-also-backlog-row">
+          <input type="checkbox" name="alsoBacklog">
+          <span><strong>Aggiungi anche al backlog</strong><br><span class="muted">Non l'hai ancora giocato</span></span>
+        </label>
+      </div>
+      <div class="form-actions">
+        <button type="button" class="btn danger" id="collection-delete" hidden>Togli</button>
+        <span class="spacer"></span>
+        <button type="button" class="btn ghost" data-close>Annulla</button>
+        <button type="submit" class="btn primary">Salva</button>
+      </div>
+    </form>
+
+    <div id="coll-import" hidden>
+      <input type="search" id="import-search" placeholder="Cerca in classifica" aria-label="Cerca in classifica">
+      <div class="import-filters">
+        <div class="chip-row" id="import-consoles"></div>
+        <button type="button" class="btn ghost small" id="import-all">Seleziona tutti</button>
+      </div>
+      <ul class="import-list" id="import-list"></ul>
+      <p class="empty" id="import-empty" hidden>Nessun gioco da importare.</p>
+      <div class="form-actions import-actions">
+        <span class="muted small" id="import-count"></span>
+        <span class="spacer"></span>
+        <button type="button" class="btn primary" id="import-submit" disabled>Importa</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- MODALE: scheda collezione -->
+  <dialog id="coll-detail-dialog" class="dialog">
+    <div class="dialog-head">
+      <h2 id="coll-detail-title"></h2>
+      <button type="button" class="icon-btn" data-close aria-label="Chiudi">✕</button>
+    </div>
+    <div id="coll-detail-body"></div>
+    <div class="form-actions">
+      <button type="button" class="btn danger" id="coll-detail-delete">Togli</button>
+      <span class="spacer"></span>
+      <button type="button" class="btn primary" id="coll-detail-edit">Modifica</button>
+    </div>
+  </dialog>
+
+  <!-- MODALE: formato dopo "Comprato" -->
+  <dialog id="format-dialog" class="dialog small-dialog">
+    <div class="dialog-head">
+      <h2>Aggiungo alla collezione?</h2>
+    </div>
+    <p id="format-dialog-text"></p>
+    <div class="format-options big">
+      <button type="button" class="fmt-btn fmt-physical" data-format="physical"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/></svg> Fisico</button>
+      <button type="button" class="fmt-btn fmt-digital" data-format="digital"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg> Digitale</button>
+    </div>
+    <div class="form-actions">
+      <button type="button" class="btn ghost" data-format="">Non aggiungere</button>
+    </div>
+  </dialog>
+
   <!-- MODALE: profilo -->
   <dialog id="profile-dialog" class="dialog">
     <form id="profile-form" class="form" method="dialog">
@@ -531,8 +700,8 @@
   <div id="tooltip" class="tooltip" hidden></div>
   <div id="toast" class="toast" hidden></div>
 
-  <script src="js/storage.js?v=20261116-101626"></script>
-  <script src="js/lookup.js?v=20261116-101626"></script>
-  <script src="js/app.js?v=20261116-101626"></script>
+  <script src="js/storage.js?v=20261116-104127"></script>
+  <script src="js/lookup.js?v=20261116-104127"></script>
+  <script src="js/app.js?v=20261116-104127"></script>
 </body>
 </html>

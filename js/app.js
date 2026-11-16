@@ -4,6 +4,7 @@
 
   // Ordine "logico" degli stati, usato anche per l'ordinamento per stato
   const PLAYING = 'In corso';
+  const KNOWN_CONSOLES = ['PS5', 'PS4', 'PS3', 'PS2', 'PS1', 'PS Vita', 'PSP', 'Xbox Series X|S', 'Xbox One', 'Xbox 360', 'Switch', 'Switch 2', 'Wii U', 'Wii', '3DS', 'DS', 'Game Boy', 'PC', 'Steam Deck', 'Mobile'];
   // stato di acquisto per uscite e backlog
   const OWNED = {
     no: { icon: '🛒', label: 'Da comprare', cls: 'buy-no' },
@@ -55,6 +56,17 @@
     backlogSort: 'recent',
     favOnly: false,
     backlogOwned: '',
+    collection: [],
+    collFormat: '',
+    collConsole: null,
+    collView: 'list',
+    collSearch: '',
+    collSort: 'title',
+    editingCollId: null,
+    collTab: 'new',
+    importSel: new Map(),
+    importConsole: '',
+    importSearch: '',
     busy: false,
   };
 
@@ -144,10 +156,11 @@
   }
 
   // ---------- routing ----------
-  const VIEWS = ['profili', 'home', 'classifica', 'uscite', 'statistiche', 'impostazioni'];
+  const VIEWS = ['profili', 'home', 'classifica', 'collezione', 'uscite', 'statistiche', 'impostazioni'];
   function route() {
-    const v = (location.hash || '#home').slice(1);
+    const [v, arg] = (location.hash || '#home').slice(1).split('/');
     let view = VIEWS.includes(v) ? v : 'home';
+    state.collConsole = view === 'collezione' && arg ? decodeURIComponent(arg) : null;
     if (view !== 'profili' && !state.profile) {
       // nessun profilo scelto: prima la schermata "Chi gioca?"
       state.afterProfile = view;
@@ -161,6 +174,7 @@
     $('#fab-menu').hidden = true;
     if (view === 'impostazioni') fillSettings();
     if (view === 'statistiche' && state.profile) renderStatsView();
+    if (view === 'collezione' && state.profile) renderCollection();
     if (view === 'home') renderChart(); // il grafico si adatta alla larghezza visibile
     if (view === 'uscite' && state.scrollTo) { const el = $(`#${state.scrollTo}`); state.scrollTo = null; requestAnimationFrame(() => el.scrollIntoView()); }
     else window.scrollTo(0, 0);
@@ -177,13 +191,15 @@
     if (!state.profile) return;
     lastLoad = Date.now();
     const profileId = state.profile.id;
-    const [g, u, b] = await Promise.all([
+    const [g, u, b, c] = await Promise.all([
       Storage.load(fileFor('games')), Storage.load(fileFor('upcoming')), Storage.load(fileFor('backlog')),
+      Storage.load(fileFor('collection')),
     ]);
     if (!state.profile || state.profile.id !== profileId) return; // nel frattempo è cambiato profilo
     state.games = g.data;
     state.upcoming = u.data;
     state.backlog = b.data;
+    state.collection = c.data;
     updateBanner(g.warning || u.warning, g.source);
     renderAll();
   }
@@ -229,6 +245,7 @@
     renderRanking();
     renderUpcoming();
     renderBacklog();
+    renderCollection();
     renderDatalists();
     if (document.body.dataset.view === 'statistiche' && state.profile) renderStatsView();
   }
@@ -549,14 +566,14 @@
 
   function renderDatalists() {
     const fill = (id, field, extra = []) => {
-      const vals = [...new Set([...extra, ...state.games.map((g) => g[field]), ...(field === 'console' ? state.upcoming.map((u) => u.console) : [])].filter(Boolean))]
+      const vals = [...new Set([...extra, ...state.games.map((g) => g[field]), ...(field === 'console' ? [...state.upcoming, ...state.collection].map((u) => u.console) : [])].filter(Boolean))]
         .sort(collator.compare);
       $(`#dl-${id}`).innerHTML = vals.map((v) => `<option value="${esc(v)}">`).join('');
     };
     fill('developer', 'developer');
     fill('genre', 'genre', ['Action', 'Avventura', 'GDR', 'Sparatutto', 'Platform', 'Picchiaduro', 'Sportivo', 'Corse', 'Strategia', 'Horror', 'Puzzle', 'Simulazione', 'Metroidvania', 'Roguelike', 'Soulslike', 'Open world']);
     fill('franchise', 'franchise');
-    fill('console', 'console', ['PS5', 'PS4', 'PS3', 'PS2', 'PS1', 'PS Vita', 'PSP', 'Xbox Series X|S', 'Xbox One', 'Xbox 360', 'Switch', 'Switch 2', 'Wii U', 'Wii', '3DS', 'DS', 'Game Boy', 'PC', 'Steam Deck', 'Mobile']);
+    fill('console', 'console', KNOWN_CONSOLES);
   }
 
   // ---------- DIALOG: gioco ----------
@@ -720,6 +737,7 @@
       owned: f.owned.value || undefined,
     };
     const editingId = state.editingUpcomingId;
+    const prevOwned = editingId ? state.upcoming.find((x) => x.id === editingId)?.owned : undefined;
     setBusy(true, 'Salvataggio in corso…');
     try {
       state.upcoming = await save('upcoming', (list) => {
@@ -735,6 +753,7 @@
       $('#upcoming-dialog').close();
       renderAll();
       toast('Uscita salvata ✔');
+      if (data.owned === 'yes' && prevOwned !== 'yes') setTimeout(() => offerCollection(data), 0);
     } catch (err) {
       toast(err.message, 'error');
     } finally {
@@ -866,6 +885,7 @@
       time: Object.values(time).some((v) => v != null) ? time : null,
     };
     const editingId = state.editingBacklogId;
+    const prevOwned = editingId ? state.backlog.find((x) => x.id === editingId)?.owned : undefined;
     setBusy(true, 'Salvataggio in corso…');
     try {
       state.backlog = await save('backlog', (list) => {
@@ -881,6 +901,7 @@
       $('#backlog-dialog').close();
       renderAll();
       toast(editingId ? 'Backlog aggiornato ✔' : `“${data.title}” aggiunto al backlog ✔`);
+      if (data.owned === 'yes' && prevOwned !== 'yes') setTimeout(() => offerCollection(data), 0);
     } catch (err) {
       toast(err.message, 'error');
     } finally {
@@ -937,8 +958,393 @@
       const saved = await save(kind, (arr) => arr.map((x) => (x.id === id ? { ...x, owned: value } : x)), `${OWNED[value].label}: ${item.title}`);
       if (kind === 'upcoming') state.upcoming = saved; else state.backlog = saved;
       renderAll();
+      if (value === 'yes') offerCollection(item);
     } catch (err) {
       apply(prev);
+      toast(err.message, 'error');
+    }
+  }
+
+  // ---------- COLLEZIONE ----------
+  const ICON_DISC = '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/></svg>';
+  const ICON_DIGI = '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>';
+  const FORMATS = {
+    physical: { label: 'Fisico', plural: 'fisici', icon: ICON_DISC, cls: 'fmt-physical' },
+    digital: { label: 'Digitale', plural: 'digitali', icon: ICON_DIGI, cls: 'fmt-digital' },
+  };
+  const NO_CONSOLE = 'Senza console';
+  const consoleOf = (c) => (c.console || '').trim() || NO_CONSOLE;
+  // "PS5" e "Ps5" sono la stessa console: si raggruppa senza maiuscole e si mostra la grafia più usata
+  const consoleKey = (c) => consoleOf(c).toLowerCase();
+  function consoleDisplayNames(list) {
+    const variants = new Map();
+    list.forEach((x) => {
+      const name = consoleOf(x);
+      const k = name.toLowerCase();
+      if (!variants.has(k)) variants.set(k, new Map());
+      variants.get(k).set(name, (variants.get(k).get(name) || 0) + 1);
+    });
+    const out = new Map();
+    const canon = new Map(KNOWN_CONSOLES.map((c) => [c.toLowerCase(), c]));
+    variants.forEach((m, k) => {
+      if (canon.has(k)) { out.set(k, canon.get(k)); return; }
+      const upper = (t) => (t.match(/[A-Z]/g) || []).length;
+      out.set(k, [...m.entries()].sort((a, b) => b[1] - a[1] || upper(b[0]) - upper(a[0]))[0][0]);
+    });
+    return out;
+  }
+  const consoleHash = (name) => `#collezione/${encodeURIComponent(name)}`;
+  const countFormats = (list) => ({
+    total: list.length,
+    physical: list.filter((x) => x.format === 'physical').length,
+    digital: list.filter((x) => x.format === 'digital').length,
+  });
+  const formatMeta = (c) => `${c.total} ${c.total === 1 ? 'gioco' : 'giochi'} · ${c.physical} fisici · ${c.digital} digitali`;
+
+  function groupByConsole(list) {
+    const names = consoleDisplayNames([...state.collection, ...state.games]);
+    const m = new Map();
+    list.forEach((it) => {
+      const k = consoleKey(it);
+      if (!m.has(k)) m.set(k, []);
+      m.get(k).push(it);
+    });
+    return [...m.entries()].map(([k, items]) => ({ name: names.get(k) || consoleOf(items[0]), items }))
+      .sort((a, b) => (a.name === NO_CONSOLE) - (b.name === NO_CONSOLE) || b.items.length - a.items.length || collator.compare(a.name, b.name));
+  }
+
+  // legame con classifica e backlog (per id se importato, altrimenti per titolo)
+  function linkedGame(it) {
+    return state.games.find((g) => g.id === it.gameId) || state.games.find((g) => sameGameKey(g.title) === sameGameKey(it.title));
+  }
+  const inBacklog = (it) => state.backlog.find((b) => sameGameKey(b.title) === sameGameKey(it.title));
+
+  function playTag(it) {
+    const g = linkedGame(it);
+    if (g && !isPlaying(g) && g.score != null) return `<span class="score ${scoreClass(g.score)}" title="Voto in classifica">${g.score}</span>`;
+    if (g && isPlaying(g)) return '<span class="play-tag playing">In corso</span>';
+    if (g) return '<span class="play-tag">Giocato</span>';
+    if (inBacklog(it)) return '<span class="play-tag backlog">Nel backlog</span>';
+    return '<span class="play-tag none">Non giocato</span>';
+  }
+
+  function collTile(it) {
+    const f = FORMATS[it.format] || FORMATS.physical;
+    return `<button type="button" class="coll-tile" data-coll-id="${esc(it.id)}" aria-label="${esc(it.title)} (${f.label})">
+      ${coverHTML(it.cover, it.title, 'fill')}
+      <span class="fmt-badge ${f.cls}" aria-hidden="true">${f.icon}</span>
+    </button>`;
+  }
+
+  function collRow(it) {
+    const f = FORMATS[it.format] || FORMATS.physical;
+    return `<button type="button" class="coll-row" data-coll-id="${esc(it.id)}">
+      ${coverHTML(it.cover, it.title, 'sm')}
+      <span class="coll-row-main">
+        <span class="coll-row-title">${esc(it.title)}</span>
+        <span class="coll-row-sub"><span class="fmt-text ${f.cls}">${f.label}</span>${it.edition ? ` · ${esc(it.edition)}` : ''}</span>
+      </span>
+      ${playTag(it)}
+    </button>`;
+  }
+
+  function formatTabs(counts) {
+    const tab = (val, label) => `<button type="button" role="tab" data-coll-format="${val}" aria-selected="${state.collFormat === val}">${label}</button>`;
+    return tab('', `Tutti ${counts.total}`) + tab('physical', `${ICON_DISC} Fisici ${counts.physical}`) + tab('digital', `${ICON_DIGI} Digitali ${counts.digital}`);
+  }
+
+  function renderCollection() {
+    if (!$('#view-collezione')) return;
+    const all = state.collection;
+    const byFormat = state.collFormat ? all.filter((x) => x.format === state.collFormat) : all;
+    const inConsole = state.collConsole != null;
+    $('#coll-overview').hidden = inConsole;
+    $('#coll-console').hidden = !inConsole;
+
+    if (!inConsole) {
+      $('#coll-summary').textContent = all.length ? formatMeta(countFormats(all)) : '';
+      $$('#coll-overview [data-coll-format]').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.collFormat === state.collFormat)));
+      $('#coll-empty').hidden = all.length > 0;
+      $('#coll-overview .coll-format').hidden = all.length === 0;
+      const groups = groupByConsole(byFormat);
+      $('#coll-consoles').innerHTML = all.length ? groups.map((gr) => `<a class="chip-link" href="${consoleHash(gr.name)}">${esc(gr.name)} <span>${gr.items.length}</span></a>`).join('') : '';
+      $('#coll-sections').innerHTML = groups.length
+        ? groups.map((gr) => {
+          const items = gr.items.slice().sort((a, b) => (b.addedAt || '').localeCompare(a.addedAt || ''));
+          return `<section class="coll-section">
+            <div class="coll-section-head">
+              <h2>${esc(gr.name)}</h2>
+              <span class="muted small">${formatMeta(countFormats(gr.items))}</span>
+              <a class="link" href="${consoleHash(gr.name)}">Vedi tutti</a>
+            </div>
+            <div class="coll-grid">${items.slice(0, 8).map(collTile).join('')}</div>
+          </section>`;
+        }).join('')
+        : (all.length ? `<p class="empty">Nessun gioco ${FORMATS[state.collFormat]?.plural || ''} in collezione.</p>` : '');
+      return;
+    }
+
+    // pagina di una console
+    const key = state.collConsole.toLowerCase();
+    const consoleItems = all.filter((x) => consoleKey(x) === key);
+    $('#coll-console-name').textContent = consoleDisplayNames([...all, ...state.games]).get(key) || state.collConsole;
+    $('#coll-console-meta').textContent = formatMeta(countFormats(consoleItems));
+    $('#coll-console-format').innerHTML = formatTabs(countFormats(consoleItems));
+    $('#coll-view-grid').setAttribute('aria-pressed', String(state.collView === 'grid'));
+    $('#coll-view-list').setAttribute('aria-pressed', String(state.collView === 'list'));
+    $('#coll-sort').value = state.collSort;
+    const q = state.collSearch.trim().toLowerCase();
+    const items = consoleItems
+      .filter((x) => !state.collFormat || x.format === state.collFormat)
+      .filter((x) => !q || [x.title, x.edition, x.notes].some((v) => (v || '').toLowerCase().includes(q)))
+      .sort(state.collSort === 'recent' ? (a, b) => (b.addedAt || '').localeCompare(a.addedAt || '') : (a, b) => collator.compare(a.title, b.title));
+    $('#coll-items').className = state.collView === 'grid' ? 'coll-grid' : 'coll-list';
+    $('#coll-items').innerHTML = items.map(state.collView === 'grid' ? collTile : collRow).join('');
+    $('#coll-items-empty').hidden = items.length > 0;
+    $('#coll-items-empty').textContent = consoleItems.length ? 'Nessun gioco corrisponde alla ricerca.' : 'Nessun gioco per questa console.';
+  }
+
+  // ----- scheda -----
+  function openCollDetail(id) {
+    const it = state.collection.find((x) => x.id === id);
+    if (!it) return;
+    state.collDetailId = id;
+    const f = FORMATS[it.format] || FORMATS.physical;
+    const other = it.format === 'digital' ? 'physical' : 'digital';
+    const g = linkedGame(it);
+    const b = !g && inBacklog(it);
+    const rank = g && !isPlaying(g) ? rankedGames().find((r) => r.g.id === g.id)?.rank : null;
+    const added = it.addedAt ? new Date(it.addedAt).toLocaleDateString('it-IT', { month: 'short', year: 'numeric' }) : '';
+    $('#coll-detail-title').textContent = it.title;
+    $('#coll-detail-body').innerHTML = `
+      <div class="detail-top">
+        ${coverHTML(it.cover, it.title, 'lg')}
+        <div class="coll-detail-chips">
+          <span class="chip">${esc(consoleOf(it))}</span>
+          <span class="chip ${f.cls}">${f.icon} ${f.label}</span>
+        </div>
+      </div>
+      <div class="kv-grid">
+        ${it.edition ? `<div class="kv"><span>Edizione</span><strong>${esc(it.edition)}</strong></div>` : ''}
+        ${added ? `<div class="kv"><span>In collezione dal</span><strong>${esc(added)}</strong></div>` : ''}
+      </div>
+      ${g ? `<button type="button" class="link-card" id="coll-open-game">
+          <span class="score ${scoreClass(g.score)}">${g.score ?? '–'}</span>
+          <span class="link-card-text"><strong>${rank ? `Nella tua classifica: #${rank}` : 'Nella tua libreria'}</strong>
+            <span class="muted small">${esc([g.status, g.hours ? `${fmt1.format(g.hours)} h` : '', g.playedYear ? `giocato nel ${g.playedYear}` : ''].filter(Boolean).join(' · '))}</span></span>
+          <span aria-hidden="true">›</span>
+        </button>`
+        : b ? `<a class="link-card" href="#uscite" data-scroll="backlog"><span class="play-tag backlog">Backlog</span><span class="link-card-text"><strong>È nel tuo backlog</strong><span class="muted small">Non l'hai ancora giocato</span></span><span aria-hidden="true">›</span></a>`
+          : '<p class="muted">Non l\'hai ancora giocato.</p>'}
+      ${it.notes ? `<h3>Note</h3><p class="review">${esc(it.notes)}</p>` : ''}
+      <button type="button" class="btn ghost small" id="coll-add-copy">+ Ce l'hai anche ${other === 'digital' ? 'in digitale' : 'fisico'}? Aggiungi un'altra copia</button>`;
+    $('#coll-open-game')?.addEventListener('click', () => { $('#coll-detail-dialog').close(); openDetail(g.id); });
+    $('#coll-add-copy').addEventListener('click', () => {
+      $('#coll-detail-dialog').close();
+      openCollectionForm(null, { title: it.title, cover: it.cover, console: it.console, format: other, gameId: it.gameId });
+    });
+    $('#coll-detail-dialog').showModal();
+  }
+
+  // ----- aggiungi / modifica -----
+  function openCollectionForm(item = null, prefill = null, tab = 'new') {
+    if (!Storage.canWrite()) { toast('Per salvare serve il token GitHub (⚙ Impostazioni).', 'error'); return; }
+    state.editingCollId = item ? item.id : null;
+    state.collPrefillGameId = prefill?.gameId || null;
+    const f = $('#collection-form');
+    f.reset();
+    const src = item || prefill || {};
+    ['title', 'cover', 'console', 'edition', 'notes'].forEach((k) => { f.elements[k].value = src[k] ?? ''; });
+    $$('input[name="format"]', f).forEach((r) => { r.checked = r.value === (src.format || ''); });
+    $('#collection-dialog-title').textContent = item ? 'Modifica' : 'Aggiungi alla collezione';
+    $('#coll-tabs').hidden = Boolean(item || prefill);
+    $('#collection-delete').hidden = !item;
+    $('#coll-also-backlog-row').hidden = Boolean(item);
+    resetLookup('collection');
+    renderConsoleChips();
+    state.importSel = new Map();
+    state.importSearch = '';
+    $('#import-search').value = '';
+    setCollTab(item || prefill ? 'new' : tab);
+    $('#collection-dialog').showModal();
+  }
+
+  function knownConsoles() {
+    const all = [...state.collection, ...state.games].filter((x) => (x.console || '').trim());
+    const names = consoleDisplayNames(all);
+    const count = new Map();
+    all.forEach((x) => count.set(consoleKey(x), (count.get(consoleKey(x)) || 0) + 1));
+    return [...count.entries()].sort((a, b) => b[1] - a[1]).map(([k]) => names.get(k));
+  }
+
+  function renderConsoleChips() {
+    const cur = $('#collection-form').elements.console.value.trim().toLowerCase();
+    $('#coll-console-chips').innerHTML = knownConsoles().slice(0, 6)
+      .map((c) => `<button type="button" class="chip-btn" data-pick-console="${esc(c)}" aria-pressed="${c.toLowerCase() === cur}">${esc(c)}</button>`).join('');
+  }
+
+  function setCollTab(tab) {
+    state.collTab = tab;
+    $$('[data-coll-tab]').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.collTab === tab)));
+    $('#collection-form').hidden = tab !== 'new';
+    $('#coll-import').hidden = tab !== 'import';
+    if (tab === 'import') renderImport();
+  }
+
+  const sameCopy = (a, b) => sameGameKey(a.title) === sameGameKey(b.title)
+    && consoleOf(a).toLowerCase() === consoleOf(b).toLowerCase() && a.format === b.format;
+
+  async function submitCollection(e) {
+    e.preventDefault();
+    if (state.busy) return;
+    const f = $('#collection-form').elements;
+    const data = {
+      title: f.title.value.trim(),
+      cover: f.cover.value.trim(),
+      console: f.console.value.trim(),
+      format: f.format.value,
+      edition: f.edition.value.trim(),
+      notes: f.notes.value.trim(),
+    };
+    const editingId = state.editingCollId;
+    const alsoBacklog = !editingId && f.alsoBacklog.checked;
+    if (!editingId && state.collection.some((x) => sameCopy(x, data))
+      && !confirm(`Hai già “${data.title}” ${FORMATS[data.format].label.toLowerCase()} per ${data.console}. Aggiungere un'altra copia?`)) return;
+    setBusy(true, 'Salvataggio in corso…');
+    try {
+      const game = state.games.find((g) => g.id === state.collPrefillGameId) || state.games.find((g) => sameGameKey(g.title) === sameGameKey(data.title));
+      state.collection = await save('collection', (list) => {
+        if (editingId) {
+          const i = list.findIndex((x) => x.id === editingId);
+          if (i === -1) throw new Error('Questo gioco non è più in collezione.');
+          list[i] = { ...list[i], ...data };
+        } else {
+          list.push({ id: uid(), ...data, gameId: game?.id || undefined, addedAt: new Date().toISOString() });
+        }
+        return list;
+      }, `${editingId ? 'Modificato in collezione' : 'Aggiunto alla collezione'}: ${data.title}`);
+      if (alsoBacklog && !inBacklog(data)) {
+        state.backlog = await save('backlog', (list) => {
+          list.push({ id: uid(), title: data.title, cover: data.cover, console: data.console, notes: '', owned: 'yes', time: null, addedAt: new Date().toISOString() });
+          return list;
+        }, `Aggiunto al backlog: ${data.title}`);
+      }
+      $('#collection-dialog').close();
+      renderAll();
+      toast(editingId ? 'Collezione aggiornata ✔' : `“${data.title}” aggiunto alla collezione ✔${alsoBacklog ? ' (e al backlog)' : ''}`);
+    } catch (err) {
+      toast(err.message, 'error');
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function deleteCollectionItem(id, dialogSel) {
+    const it = state.collection.find((x) => x.id === id);
+    if (!it || state.busy) return;
+    if (!confirm(`Togliere “${it.title}” (${FORMATS[it.format]?.label || ''}, ${consoleOf(it)}) dalla collezione?`)) return;
+    setBusy(true, 'Eliminazione in corso…');
+    try {
+      state.collection = await save('collection', (list) => list.filter((x) => x.id !== id), `Tolto dalla collezione: ${it.title}`);
+      $(dialogSel).close();
+      renderAll();
+      toast('Tolto dalla collezione');
+    } catch (err) {
+      toast(err.message, 'error');
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  // ----- importa dalla classifica -----
+  function importCandidates() {
+    const q = state.importSearch.trim().toLowerCase();
+    return state.games
+      .filter((g) => !state.importConsole || consoleKey(g) === state.importConsole.toLowerCase())
+      .filter((g) => !q || (g.title || '').toLowerCase().includes(q))
+      .sort((a, b) => (b.score ?? -1) - (a.score ?? -1) || collator.compare(a.title, b.title))
+      .map((g) => ({
+        g,
+        already: state.collection.some((c) => c.gameId === g.id
+          || (sameGameKey(c.title) === sameGameKey(g.title) && consoleOf(c).toLowerCase() === consoleOf(g).toLowerCase())),
+      }));
+  }
+
+  function renderImport() {
+    const consoles = knownConsoles().filter((c) => state.games.some((g) => consoleKey(g) === c.toLowerCase()));
+    $('#import-consoles').innerHTML = [['', 'Tutte'], ...consoles.map((c) => [c, c])]
+      .map(([v, l]) => `<button type="button" class="chip-btn" data-import-console="${esc(v)}" aria-pressed="${state.importConsole.toLowerCase() === v.toLowerCase()}">${esc(l)}</button>`).join('');
+    const list = importCandidates();
+    $('#import-list').innerHTML = list.map(({ g, already }) => {
+      const fmt = state.importSel.get(g.id);
+      const on = Boolean(fmt) && !already;
+      return `<li class="import-row${on ? ' on' : ''}${already ? ' done' : ''}">
+        <label class="import-check">
+          <input type="checkbox" data-import-check="${esc(g.id)}" ${on ? 'checked' : ''} ${already ? 'disabled' : ''}>
+          ${coverHTML(g.cover, g.title, 'xs')}
+          <span class="import-text"><span class="import-title">${esc(g.title)}</span>
+            <span class="muted small">${esc([g.console, g.score != null ? `voto ${g.score}` : '', g.status].filter(Boolean).join(' · '))}</span></span>
+        </label>
+        ${already ? '<span class="import-done">Già presente</span>' : on ? `<span class="fmt-toggle" role="group" aria-label="Formato di ${esc(g.title)}">
+          <button type="button" class="fmt-physical" data-import-id="${esc(g.id)}" data-import-fmt="physical" aria-pressed="${fmt === 'physical'}" aria-label="Fisico">${ICON_DISC}</button>
+          <button type="button" class="fmt-digital" data-import-id="${esc(g.id)}" data-import-fmt="digital" aria-pressed="${fmt === 'digital'}" aria-label="Digitale">${ICON_DIGI}</button>
+        </span>` : ''}
+      </li>`;
+    }).join('');
+    $('#import-empty').hidden = list.length > 0;
+    const sel = [...state.importSel.values()];
+    const phys = sel.filter((v) => v === 'physical').length;
+    $('#import-count').textContent = sel.length ? `${sel.length} selezionati · ${phys} fisici, ${sel.length - phys} digitali` : 'Tocca i giochi da importare';
+    $('#import-submit').disabled = sel.length === 0;
+    $('#import-submit').textContent = sel.length ? `Importa ${sel.length} ${sel.length === 1 ? 'gioco' : 'giochi'}` : 'Importa';
+  }
+
+  async function submitImport() {
+    if (state.busy || !state.importSel.size) return;
+    const now = new Date().toISOString();
+    const items = [...state.importSel.entries()].map(([id, format]) => {
+      const g = state.games.find((x) => x.id === id);
+      return g && { id: uid(), title: g.title, cover: g.cover || '', console: g.console || '', format, edition: '', notes: '', gameId: g.id, addedAt: now };
+    }).filter(Boolean);
+    setBusy(true, 'Importazione in corso…');
+    try {
+      state.collection = await save('collection', (list) => list.concat(items.filter((it) => !list.some((c) => c.gameId === it.gameId && c.format === it.format))),
+        `Importati in collezione: ${items.length} giochi`);
+      state.importSel = new Map();
+      $('#collection-dialog').close();
+      renderAll();
+      toast(`${items.length} ${items.length === 1 ? 'gioco importato' : 'giochi importati'} nella collezione ✔`);
+    } catch (err) {
+      toast(err.message, 'error');
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  // ----- "Comprato" nel backlog o nelle uscite: proponi di aggiungerlo alla collezione -----
+  function askFormat(item) {
+    return new Promise((resolve) => {
+      const d = $('#format-dialog');
+      d.dataset.choice = '';
+      $('#format-dialog-text').textContent = `Hai comprato “${item.title}”${item.console ? ` per ${item.console}` : ''}. In che formato?`;
+      d.addEventListener('close', () => resolve(d.dataset.choice || null), { once: true });
+      d.showModal();
+    });
+  }
+
+  async function offerCollection(item) {
+    if (!Storage.canWrite() || !item?.title) return;
+    const already = state.collection.some((c) => sameGameKey(c.title) === sameGameKey(item.title)
+      && (!item.console || consoleOf(c).toLowerCase() === item.console.trim().toLowerCase()));
+    if (already) return;
+    const format = await askFormat(item);
+    if (!format) return;
+    try {
+      const entry = { id: uid(), title: item.title, cover: item.cover || '', console: item.console || '', format, edition: '', notes: '', addedAt: new Date().toISOString() };
+      state.collection = await save('collection', (list) => { list.push(entry); return list; }, `Aggiunto alla collezione: ${item.title}`);
+      renderAll();
+      toast(`“${item.title}” aggiunto alla collezione (${FORMATS[format].label.toLowerCase()}) ✔`);
+    } catch (err) {
       toast(err.message, 'error');
     }
   }
@@ -1257,6 +1663,7 @@
     game: { seq: 0, results: [], timer: null },
     upcoming: { seq: 0, results: [], timer: null },
     backlog: { seq: 0, results: [], timer: null },
+    collection: { seq: 0, results: [], timer: null },
   };
   const formOf = (kind) => $(`#${kind}-form`);
 
@@ -1339,7 +1746,7 @@
     const st = lookupState[kind];
     clearTimeout(st.timer);
     // ricerca automatica solo quando si aggiunge (non quando si modifica)
-    const editing = { game: state.editingGameId, upcoming: state.editingUpcomingId, backlog: state.editingBacklogId }[kind];
+    const editing = { game: state.editingGameId, upcoming: state.editingUpcomingId, backlog: state.editingBacklogId, collection: state.editingCollId }[kind];
     if (editing) return;
     st.timer = setTimeout(() => runLookup(kind), 700);
   }
@@ -1439,6 +1846,8 @@
       state.games = [];
       state.upcoming = [];
       state.backlog = [];
+      state.collection = [];
+      state.importSel = new Map();
       state.search = '';
       state.statusFilter = '';
       $('#search').value = '';
@@ -1660,6 +2069,7 @@
         if (action === 'hours-playing') updatePlayingHours(id);
         if (action === 'compare-to-backlog') addToBacklogFromCompare(id);
         if (action === 'cycle-owned') cycleOwned(act.dataset.kind, id);
+        if (action === 'add-collection') openCollectionForm();
         if (action === 'start-backlog') {
           const b = state.backlog.find((x) => x.id === id);
           state.pendingBacklogToRemove = id;
@@ -1681,6 +2091,18 @@
       if (lk) { runLookup(lk.dataset.lookup); return; }
       const lkClose = e.target.closest('[data-lookup-close]');
       if (lkClose) { lookupState[lkClose.dataset.lookupClose].seq++; $(`#${lkClose.dataset.lookupClose}-lookup`).hidden = true; return; }
+      const collItem = e.target.closest('[data-coll-id]');
+      if (collItem) { openCollDetail(collItem.dataset.collId); return; }
+      const fmtTab = e.target.closest('[data-coll-format]');
+      if (fmtTab) { state.collFormat = fmtTab.dataset.collFormat; renderCollection(); return; }
+      const collTab = e.target.closest('[data-coll-tab]');
+      if (collTab) { setCollTab(collTab.dataset.collTab); return; }
+      const pickConsole = e.target.closest('[data-pick-console]');
+      if (pickConsole) { $('#collection-form').elements.console.value = pickConsole.dataset.pickConsole; renderConsoleChips(); return; }
+      const impFmt = e.target.closest('[data-import-fmt]');
+      if (impFmt) { state.importSel.set(impFmt.dataset.importId, impFmt.dataset.importFmt); renderImport(); return; }
+      const impCons = e.target.closest('[data-import-console]');
+      if (impCons) { state.importConsole = impCons.dataset.importConsole; renderImport(); return; }
       const favBtn = e.target.closest('[data-fav]');
       if (favBtn) { toggleFavorite(favBtn.dataset.fav); return; }
       const row = e.target.closest('.clickable[data-id]');
@@ -1696,7 +2118,7 @@
       if (!state.busy) { state.pendingUpcomingToRemove = null; state.pendingBacklogToRemove = null; }
     });
 
-    ['game', 'upcoming', 'backlog'].forEach((kind) => {
+    ['game', 'upcoming', 'backlog', 'collection'].forEach((kind) => {
       const f = formOf(kind);
       f.elements.title.addEventListener('input', () => scheduleLookup(kind));
       f.elements.title.addEventListener('keydown', (e) => {
@@ -1728,10 +2150,40 @@
     $('#fab').addEventListener('click', (e) => {
       e.stopPropagation();
       if (document.body.dataset.view === 'uscite') { $('#fab-menu').hidden = !$('#fab-menu').hidden; return; }
+      if (document.body.dataset.view === 'collezione') { openCollectionForm(); return; }
       openGameForm();
     });
     document.addEventListener('click', (e) => { if (!e.target.closest('#fab-menu')) closeFabMenu(); });
     $('#backlog-form').addEventListener('submit', submitBacklog);
+    $('#collection-form').addEventListener('submit', submitCollection);
+    $('#collection-form').elements.console.addEventListener('input', renderConsoleChips);
+    $('#collection-delete').addEventListener('click', () => deleteCollectionItem(state.editingCollId, '#collection-dialog'));
+    $('#coll-detail-delete').addEventListener('click', () => deleteCollectionItem(state.collDetailId, '#coll-detail-dialog'));
+    $('#coll-detail-edit').addEventListener('click', () => {
+      const it = state.collection.find((x) => x.id === state.collDetailId);
+      $('#coll-detail-dialog').close();
+      if (it) openCollectionForm(it);
+    });
+    $('#coll-search').addEventListener('input', (e) => { state.collSearch = e.target.value; renderCollection(); });
+    $('#coll-sort').addEventListener('change', (e) => { state.collSort = e.target.value; renderCollection(); });
+    $('#coll-view-grid').addEventListener('click', () => { state.collView = 'grid'; saveCollView(); renderCollection(); });
+    $('#coll-view-list').addEventListener('click', () => { state.collView = 'list'; saveCollView(); renderCollection(); });
+    $('#import-search').addEventListener('input', (e) => { state.importSearch = e.target.value; renderImport(); });
+    $('#import-list').addEventListener('change', (e) => {
+      const cb = e.target.closest('[data-import-check]');
+      if (!cb) return;
+      if (cb.checked) state.importSel.set(cb.dataset.importCheck, 'physical'); else state.importSel.delete(cb.dataset.importCheck);
+      renderImport();
+    });
+    $('#import-all').addEventListener('click', () => {
+      importCandidates().filter((x) => !x.already).forEach((x) => { if (!state.importSel.has(x.g.id)) state.importSel.set(x.g.id, 'physical'); });
+      renderImport();
+    });
+    $('#import-submit').addEventListener('click', submitImport);
+    $$('#format-dialog [data-format]').forEach((b) => b.addEventListener('click', () => {
+      $('#format-dialog').dataset.choice = b.dataset.format;
+      $('#format-dialog').close();
+    }));
     $('#backlog-delete').addEventListener('click', deleteBacklog);
     $('#backlog-form').elements.title.addEventListener('input', updateHltbLink);
     $('#backlog-owned').addEventListener('change', (e) => { state.backlogOwned = e.target.value; renderBacklog(); });
@@ -1778,6 +2230,7 @@
   }
 
   function closeFabMenu() { $('#fab-menu').hidden = true; }
+  function saveCollView() { try { localStorage.setItem('tgl-coll-view', state.collView); } catch { /* ignore */ } }
 
   // ---------- aggiornamenti del sito ----------
   // Se su GitHub è stata pubblicata una versione nuova, ricarica la pagina per scaricare i file nuovi
@@ -1800,6 +2253,10 @@
   }
 
   function init() {
+    try {
+      const cv = localStorage.getItem('tgl-coll-view');
+      if (cv === 'grid' || cv === 'list') state.collView = cv;
+    } catch { /* ignore */ }
     try {
       const t = localStorage.getItem('tgl-stats-tab');
       if (t === 'anno' || t === 'confronto') state.statsTab = t;
