@@ -223,5 +223,19 @@
       "complete": null
     },
     "addedAt": "2026-11-16T12:36:27.424Z"
+  },
+  {
+    "id": "1b77e496-99f6-42f0-b675-27025df1b147",
+    "title": "God of War Sons of Sparta",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/f/fd/God_of_War_Sons_of_Sparta.webp?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "",
+    "notes": "",
+    "owned": "no",
+    "time": {
+      "main": 21,
+      "extra": null,
+      "complete": null
+    },
+    "addedAt": "2026-11-16T12:37:19.130Z"
   }
 ]
