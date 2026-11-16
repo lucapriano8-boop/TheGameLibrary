@@ -215,5 +215,24 @@ const Lookup = (() => {
     return results;
   }
 
-  return { search, norm, baseTitle };
+  // Immagini (es. di una console) dalle voci di Wikipedia che corrispondono alla ricerca
+  async function searchImages(query, limit = 8) {
+    const q = query.trim();
+    if (q.length < 2) return [];
+    const out = [];
+    for (const lang of ['en', 'it']) {
+      const r = await getJSON(`https://${lang}.wikipedia.org/w/api.php`, {
+        action: 'query', generator: 'search', gsrsearch: q, gsrlimit: '10', gsrnamespace: '0',
+        prop: 'pageimages', piprop: 'thumbnail', pithumbsize: '600', pilicense: 'any',
+      });
+      Object.values(r.query?.pages || {})
+        .filter((p) => p.thumbnail?.source && !out.some((o) => o.image === p.thumbnail.source))
+        .sort((a, b) => (a.index || 0) - (b.index || 0))
+        .forEach((p) => out.push({ title: p.title, image: p.thumbnail.source }));
+      if (out.length >= limit) break;
+    }
+    return out.slice(0, limit);
+  }
+
+  return { search, norm, baseTitle, searchImages };
 })();

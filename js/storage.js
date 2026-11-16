@@ -190,6 +190,23 @@ const Storage = (() => {
     throw lastErr;
   }
 
+  // Carica un file binario (es. una foto JPEG già in base64) nella repository e restituisce il suo indirizzo.
+  async function uploadFile(path, base64, message) {
+    const cfg = getConfig();
+    if (!canWrite(cfg)) throw new Error('Per salvare serve il token GitHub: aprilo da Impostazioni (⚙).');
+    const res = await fetch(apiUrl(cfg, path), {
+      method: 'PUT',
+      headers: { ...headers(cfg), 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message, content: base64, branch: cfg.branch || 'main' }),
+    });
+    if (!res.ok) throw await apiError(res);
+    return rawUrl(path, cfg);
+  }
+
+  function rawUrl(path, cfg = getConfig()) {
+    return `https://raw.githubusercontent.com/${encodeURIComponent(cfg.owner)}/${encodeURIComponent(cfg.repo)}/${encodeURIComponent(cfg.branch || 'main')}/${path}`;
+  }
+
   async function testConnection(cfg) {
     const res = await fetch(`https://api.github.com/repos/${encodeURIComponent(cfg.owner)}/${encodeURIComponent(cfg.repo)}`, {
       headers: headers(cfg), cache: 'no-store',
@@ -211,5 +228,7 @@ const Storage = (() => {
       setConfig(cfg);
     },
     _forget() { safeRemove(CONFIG_KEY); },
+    uploadFile,
+    rawUrl,
   };
 })();
