@@ -31,5 +31,16 @@
     "notes": "",
     "owned": "no",
     "createdAt": "2026-11-16T12:49:07.627Z"
+  },
+  {
+    "id": "ec1b0a8c-6fd3-4485-97d2-e28ef67aa201",
+    "title": "God of War Laufey",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/0/0b/God_of_War_Laufey_cover.webp?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "Ps5",
+    "releaseDate": "2027-05-01",
+    "releaseYear": 2027,
+    "notes": "",
+    "owned": "no",
+    "createdAt": "2026-11-16T12:49:29.451Z"
   }
 ]
