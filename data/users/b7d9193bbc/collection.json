@@ -1066,5 +1066,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T18:42:23.510Z"
+  },
+  {
+    "id": "f785cf88-c562-4e8e-980b-49cf1e0b8e55",
+    "title": "Prince of Persia: Spirito guerriero",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/6/6f/Prince_of_Persia_-_Warrior_Within_Coverart.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PS2",
+    "format": "physical",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T18:42:39.038Z"
   }
 ]
