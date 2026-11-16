@@ -978,5 +978,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T18:39:14.574Z"
+  },
+  {
+    "id": "802025bf-f0bf-4c12-baeb-db32e8f19963",
+    "title": "Fallout: New Vegas",
+    "cover": "https://upload.wikimedia.org/wikipedia/commons/4/43/Free_depiction_of_the_Fallout_New_Vegas_Xbox_360_box_art_%28cropped%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PS3",
+    "format": "physical",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T18:39:31.493Z"
   }
 ]
