@@ -1520,7 +1520,8 @@
     "playedYear": 2025,
     "review": "",
     "createdAt": "2026-11-15T15:06:44.746Z",
-    "updatedAt": "2026-11-15T15:06:44.746Z"
+    "updatedAt": "2026-11-15T15:06:44.746Z",
+    "favorite": true
   },
   {
     "id": "483b3397-2d51-493e-bfed-8d7b20885a41",
