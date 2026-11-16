@@ -1454,5 +1454,16 @@
     "notes": "",
     "gameId": "c9eea810-d828-46c1-a02d-bf2639ad8f7a",
     "addedAt": "2026-11-16T19:07:44.434Z"
+  },
+  {
+    "id": "a2446c77-aac8-4d1a-b948-3790284e286e",
+    "title": "Red Dead Redemption",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/a/a7/Red_Dead_Redemption.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PC",
+    "format": "digital",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T19:08:34.142Z"
   }
 ]
