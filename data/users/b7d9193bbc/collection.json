@@ -722,5 +722,17 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T18:28:40.769Z"
+  },
+  {
+    "id": "fa44d528-08c0-444f-b537-6a84f747c8e4",
+    "title": "Dishonored",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/6/65/Dishonored_box_art_Bethesda.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PC",
+    "format": "physical",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "gameId": "1330941f-245a-4903-bbff-c7d9fe971cb9",
+    "addedAt": "2026-11-16T18:29:07.637Z"
   }
 ]
