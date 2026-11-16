@@ -7,5 +7,14 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T15:07:16.905Z"
+  },
+  {
+    "id": "41af05bf-11ec-4a0a-831f-90922c4f6416",
+    "name": "PlayStation 4",
+    "model": "",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Sony-PlayStation-4-PS4-wDualShock-4.jpg/960px-Sony-PlayStation-4-PS4-wDualShock-4.jpg?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "value": null,
+    "notes": "Day One",
+    "addedAt": "2026-11-16T15:07:36.975Z"
   }
 ]
