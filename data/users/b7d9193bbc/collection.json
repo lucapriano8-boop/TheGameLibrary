@@ -1055,5 +1055,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T18:42:04.902Z"
+  },
+  {
+    "id": "065bffe0-eeb2-4556-b094-00ac02701da5",
+    "title": "WWE SmackDown! vs. RAW 2006",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/8/8e/SmackDown%21vsRAW2006.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PS2",
+    "format": "physical",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T18:42:23.510Z"
   }
 ]
