@@ -626,5 +626,16 @@
     "notes": "",
     "gameId": "2572fb10-bd30-4082-995f-b1f162a22a69",
     "addedAt": "2026-11-16T13:42:00.022Z"
+  },
+  {
+    "id": "78bc4e4f-2503-41d0-8a67-ae32c9f6bef2",
+    "title": "Dark Souls Trilogy",
+    "cover": "",
+    "console": "PS4",
+    "format": "physical",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T13:47:16.220Z"
   }
 ]
