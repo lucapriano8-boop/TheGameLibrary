@@ -499,6 +499,17 @@
     const d = new Date();
     return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
   }
+  // modulo uscite: data esatta / solo anno / TBA
+  function setReleaseMode(mode) {
+    const f = $('#upcoming-form').elements;
+    $$('input[name="releaseMode"]', $('#upcoming-form')).forEach((r) => { r.checked = r.value === mode; });
+    $('#release-date-row').hidden = mode !== 'date';
+    $('#release-year-row').hidden = mode !== 'year';
+    $('#release-tba-note').hidden = mode !== 'tba';
+    f.releaseDate.required = mode === 'date';
+    f.releaseYear.required = mode === 'year';
+  }
+
   function isReleased(u) {
     if (u.releaseDate) return u.releaseDate <= todayISO();
     return u.releaseYear && u.releaseYear < new Date().getFullYear();
@@ -520,7 +531,7 @@
       const date = new Date(y, m - 1, d);
       return short ? date.toLocaleDateString('it-IT', { day: 'numeric', month: 'short', year: 'numeric' }) : fmtDate.format(date);
     }
-    return u.releaseYear ? `${u.releaseYear} (data da annunciare)` : 'Data da annunciare';
+    return u.releaseYear ? `${u.releaseYear} · data da annunciare` : 'TBA · data da annunciare';
   }
   function countdown(u) {
     if (!u.releaseDate) return '';
@@ -544,7 +555,7 @@
           ${u.cover ? coverHTML(u.cover, u.title, 'md') : `<div class="up-date">
             ${u.releaseDate
               ? `<span class="d">${Number(u.releaseDate.slice(8, 10))}</span><span class="m">${new Date(u.releaseDate + 'T00:00').toLocaleDateString('it-IT', { month: 'short' })}</span>`
-              : '<span class="m">TBA</span>'}
+              : u.releaseYear ? `<span class="d d-year">${u.releaseYear}</span>` : '<span class="m">TBA</span>'}
           </div>`}
           <div class="up-main">
             <div class="up-title">${esc(u.title)}</div>
@@ -718,6 +729,8 @@
     const src = u || {};
     ['title', 'cover', 'console', 'releaseDate', 'notes'].forEach((k) => { f.elements[k].value = src[k] ?? ''; });
     setOwnedRadio(f, u ? u.owned : 'no');
+    f.elements.releaseYear.value = u && !u.releaseDate && u.releaseYear ? u.releaseYear : '';
+    setReleaseMode(!u || u.releaseDate ? 'date' : u.releaseYear ? 'year' : 'tba');
     resetLookup('upcoming');
     $('#upcoming-dialog').showModal();
   }
@@ -726,13 +739,15 @@
     e.preventDefault();
     if (state.busy) return;
     const f = $('#upcoming-form').elements;
-    const releaseDate = f.releaseDate.value || '';
+    const mode = f.releaseMode.value || 'date';
+    const releaseDate = mode === 'date' ? f.releaseDate.value || '' : '';
+    const yearOnly = mode === 'year' ? num(f.releaseYear.value) : null;
     const data = {
       title: f.title.value.trim(),
       cover: f.cover.value.trim(),
       console: f.console.value.trim(),
       releaseDate,
-      releaseYear: releaseDate ? Number(releaseDate.slice(0, 4)) : null,
+      releaseYear: releaseDate ? Number(releaseDate.slice(0, 4)) : yearOnly,
       notes: f.notes.value.trim(),
       owned: f.owned.value || undefined,
     };
@@ -1761,6 +1776,10 @@
       fillEmpty('releaseYear', r.releaseYear);
     } else if (kind === 'upcoming' && r.releaseDate) {
       f.releaseDate.value = r.releaseDate;
+      setReleaseMode('date');
+    } else if (kind === 'upcoming' && r.releaseYear && r.releaseYear >= new Date().getFullYear()) {
+      f.releaseYear.value = r.releaseYear;
+      setReleaseMode('year');
     }
     if (kind === 'backlog') updateHltbLink();
     // le piattaforme del gioco diventano i primi suggerimenti per la console
@@ -2187,6 +2206,11 @@
       openGameForm();
     });
     document.addEventListener('click', (e) => { if (!e.target.closest('#fab-menu')) closeFabMenu(); });
+    $$('input[name="releaseMode"]').forEach((r) => r.addEventListener('change', () => {
+      setReleaseMode(r.value);
+      const f = $('#upcoming-form').elements;
+      if (r.value === 'year' && !f.releaseYear.value) f.releaseYear.value = f.releaseDate.value ? f.releaseDate.value.slice(0, 4) : new Date().getFullYear() + 1;
+    }));
     $('#backlog-form').addEventListener('submit', submitBacklog);
     $('#collection-form').addEventListener('submit', submitCollection);
     $('#collection-form').elements.console.addEventListener('input', renderConsoleChips);

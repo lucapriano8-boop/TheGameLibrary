@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>The Game Library</title>
   <meta name="description" content="La mia libreria personale dei videogiochi giocati.">
-  <meta name="app-version" content="20261116-122554">
+  <meta name="app-version" content="20261116-125954">
   <meta name="theme-color" content="#1a1f2c">
   <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
@@ -15,7 +15,7 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Game Library">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <link rel="stylesheet" href="css/style.css?v=20261116-122554">
+  <link rel="stylesheet" href="css/style.css?v=20261116-125954">
 </head>
 <body>
   <header class="topbar">
@@ -482,9 +482,21 @@
         <label>Console
           <input name="console" list="dl-console" maxlength="80">
         </label>
-        <label>Data di uscita *
-          <input name="releaseDate" type="date" required>
-        </label>
+        <fieldset class="span-2 release-field">
+          <legend>Uscita *</legend>
+          <div class="buy-options release-mode">
+            <label><input type="radio" name="releaseMode" value="date"><span>Data esatta</span></label>
+            <label><input type="radio" name="releaseMode" value="year"><span>Solo anno</span></label>
+            <label><input type="radio" name="releaseMode" value="tba"><span>TBA</span></label>
+          </div>
+          <label class="release-input" id="release-date-row">Data di uscita
+            <input name="releaseDate" type="date">
+          </label>
+          <label class="release-input" id="release-year-row" hidden>Anno di uscita
+            <input name="releaseYear" type="number" min="1970" max="2100" step="1" inputmode="numeric" placeholder="Es. 2027">
+          </label>
+          <p class="muted small release-note" id="release-tba-note" hidden>Data non ancora annunciata: il gioco va in fondo alla lista, sotto “Da annunciare”.</p>
+        </fieldset>
         <fieldset class="span-2 buy-field">
           <legend>Acquisto</legend>
           <div class="buy-options">
@@ -706,8 +718,8 @@
   <div id="tooltip" class="tooltip" hidden></div>
   <div id="toast" class="toast" hidden></div>
 
-  <script src="js/storage.js?v=20261116-122554"></script>
-  <script src="js/lookup.js?v=20261116-122554"></script>
-  <script src="js/app.js?v=20261116-122554"></script>
+  <script src="js/storage.js?v=20261116-125954"></script>
+  <script src="js/lookup.js?v=20261116-125954"></script>
+  <script src="js/app.js?v=20261116-125954"></script>
 </body>
 </html>
