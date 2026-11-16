@@ -1420,5 +1420,16 @@
     "notes": "",
     "gameId": "0cacce61-3d28-4418-8df6-bfdf0f7ceef0",
     "addedAt": "2026-11-16T19:05:42.260Z"
+  },
+  {
+    "id": "95ebbae1-d3c1-41f7-aed5-81ed8a83952c",
+    "title": "Crimson Desert",
+    "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsu9DJerTEinkCaE5CplqXY4ZrtqSXrpoA60-bM1coeIsAYhwx_RrI70s&s=10",
+    "console": "PC",
+    "format": "digital",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T19:06:10.216Z"
   }
 ]
