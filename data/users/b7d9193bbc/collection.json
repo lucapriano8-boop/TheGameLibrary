@@ -1099,5 +1099,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T18:43:26.943Z"
+  },
+  {
+    "id": "c52e071b-8c7d-4d00-a237-318f40d2e2e8",
+    "title": "Crash Bandicoot",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/4/44/Crash_Bandicoot_Cover.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PS1",
+    "format": "physical",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T18:43:58.890Z"
   }
 ]
