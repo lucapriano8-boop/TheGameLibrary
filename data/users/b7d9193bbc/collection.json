@@ -1353,5 +1353,16 @@
     "notes": "",
     "gameId": "0da022d3-94cd-4798-8036-b1a9a35b3dee",
     "addedAt": "2026-11-16T19:01:29.199Z"
+  },
+  {
+    "id": "ed2beba5-60ef-4330-9b16-29de86e47b88",
+    "title": "The Elder Scrolls IV: Oblivion",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/4/4b/The_Elder_Scrolls_IV_Oblivion_cover.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PC",
+    "format": "digital",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T19:02:01.840Z"
   }
 ]
