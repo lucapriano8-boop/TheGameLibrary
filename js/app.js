@@ -57,6 +57,11 @@
     favOnly: false,
     backlogOwned: '',
     collection: [],
+    hardware: [],
+    collSection: 'games',
+    editingHwId: null,
+    hwDetailId: null,
+    hwPhoto: null,
     collFormat: '',
     collConsole: null,
     collView: 'list',
@@ -191,15 +196,16 @@
     if (!state.profile) return;
     lastLoad = Date.now();
     const profileId = state.profile.id;
-    const [g, u, b, c] = await Promise.all([
+    const [g, u, b, c, hw] = await Promise.all([
       Storage.load(fileFor('games')), Storage.load(fileFor('upcoming')), Storage.load(fileFor('backlog')),
-      Storage.load(fileFor('collection')),
+      Storage.load(fileFor('collection')), Storage.load(fileFor('consoles')),
     ]);
     if (!state.profile || state.profile.id !== profileId) return; // nel frattempo è cambiato profilo
     state.games = g.data;
     state.upcoming = u.data;
     state.backlog = b.data;
     state.collection = c.data;
+    state.hardware = hw.data;
     updateBanner(g.warning || u.warning, g.source);
     renderAll();
   }
@@ -1094,6 +1100,11 @@
     $('#coll-console').hidden = !inConsole;
 
     if (!inConsole) {
+      const hwMode = state.collSection === 'hardware';
+      $$('[data-coll-section]').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.collSection === state.collSection)));
+      $('#coll-games-pane').hidden = hwMode;
+      $('#coll-hw-pane').hidden = !hwMode;
+      if (hwMode) { renderHardware(); return; }
       $('#coll-summary').textContent = all.length ? formatMeta(countFormats(all)) : '';
       $('#coll-value').textContent = valueSummary(all);
       $('#coll-value').hidden = !all.some(hasValue);
@@ -1394,6 +1405,194 @@
       toast(`“${item.title}” aggiunto alla collezione (${FORMATS[format].label.toLowerCase()}) ✔`);
     } catch (err) {
       toast(err.message, 'error');
+    }
+  }
+
+  // ---------- COLLEZIONE: CONSOLE ----------
+  const CONSOLE_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="20" height="11" rx="4"/><path d="M7 11v3M5.5 12.5h3M15.5 12h.01M18 13.5h.01"/></svg>';
+  const HW_NAMES = ['PlayStation 5', 'PlayStation 5 Pro', 'PlayStation 4', 'PlayStation 4 Pro', 'PlayStation 3', 'PlayStation 2',
+    'PlayStation', 'PlayStation Portal', 'PS Vita', 'PSP', 'Nintendo Switch 2', 'Nintendo Switch', 'Nintendo Switch OLED',
+    'Nintendo Switch Lite', 'Wii U', 'Wii', 'GameCube', 'Nintendo 64', 'Super Nintendo', 'NES', 'Nintendo 3DS', 'Nintendo DS',
+    'Game Boy Advance', 'Game Boy Color', 'Game Boy', 'Xbox Series X', 'Xbox Series S', 'Xbox One', 'Xbox 360', 'Xbox',
+    'Steam Deck', 'Sega Mega Drive', 'Sega Dreamcast', 'Meta Quest 3', 'PlayStation VR2'];
+
+  const hwImg = (it, cls = '') => (it.image
+    ? `<img class="hw-img ${cls}" src="${esc(it.image)}" alt="" loading="lazy" referrerpolicy="no-referrer">`
+    : `<span class="hw-img ph ${cls}" aria-hidden="true">${CONSOLE_ICON}</span>`);
+
+  function renderHardware() {
+    const list = state.hardware.slice().sort((a, b) => (b.addedAt || '').localeCompare(a.addedAt || ''));
+    const games = state.collection;
+    $('#coll-summary').textContent = list.length ? `${list.length} ${list.length === 1 ? 'console' : 'console'}` : '';
+    const hwVal = totalValue(list);
+    $('#coll-value').hidden = !list.some(hasValue);
+    $('#coll-value').textContent = list.some(hasValue)
+      ? `Valore: ${fmtEuro.format(hwVal)}` + (games.some(hasValue) ? ` · con i videogiochi: ${fmtEuro.format(hwVal + totalValue(games))}` : '')
+        + (list.length - list.filter(hasValue).length ? ` · ${list.length - list.filter(hasValue).length} senza valore` : '')
+      : '';
+    $('#hw-empty').hidden = list.length > 0;
+    $('#hw-grid').innerHTML = list.map((it) => `
+      <button type="button" class="hw-card" data-hw-id="${esc(it.id)}">
+        ${hwImg(it)}
+        <span class="hw-card-text">
+          <span class="hw-name">${esc(it.name)}</span>
+          ${it.model ? `<span class="hw-model">${esc(it.model)}</span>` : ''}
+          ${hasValue(it) ? `<span class="hw-value">${fmtEuro.format(it.value)}</span>` : ''}
+        </span>
+      </button>`).join('');
+  }
+
+  function openHwDetail(id) {
+    const it = state.hardware.find((x) => x.id === id);
+    if (!it) return;
+    state.hwDetailId = id;
+    const added = it.addedAt ? new Date(it.addedAt).toLocaleDateString('it-IT', { month: 'short', year: 'numeric' }) : '';
+    $('#hw-detail-title').textContent = it.name;
+    $('#hw-detail-body').innerHTML = `
+      <div class="hw-detail-img">${hwImg(it, 'big')}</div>
+      <div class="kv-grid">
+        ${it.model ? `<div class="kv"><span>Modello / edizione</span><strong>${esc(it.model)}</strong></div>` : ''}
+        ${hasValue(it) ? `<div class="kv"><span>Valore attuale</span><strong>${fmtEuro.format(it.value)}</strong></div>` : ''}
+        ${added ? `<div class="kv"><span>In collezione dal</span><strong>${esc(added)}</strong></div>` : ''}
+      </div>
+      ${it.notes ? `<h3>Note</h3><p class="review">${esc(it.notes)}</p>` : ''}`;
+    $('#hw-detail-dialog').showModal();
+  }
+
+  function renderHwPreview(url) {
+    $('#hw-preview').innerHTML = hwImg({ image: url });
+    $('#hw-image-remove').hidden = !url;
+  }
+
+  function setHwImage(url) {
+    state.hwPhoto = null;
+    $('#hw-form').elements.image.value = url;
+    renderHwPreview(url);
+  }
+
+  function openHwForm(item = null) {
+    if (!Storage.canWrite()) { toast('Per salvare serve il token GitHub (⚙ Impostazioni).', 'error'); return; }
+    state.editingHwId = item ? item.id : null;
+    state.hwPhoto = null;
+    const f = $('#hw-form');
+    f.reset();
+    $('#hw-form-title').textContent = item ? 'Modifica console' : 'Aggiungi console';
+    $('#hw-delete').hidden = !item;
+    f.elements.name.value = item?.name || '';
+    f.elements.model.value = item?.model || '';
+    f.elements.notes.value = item?.notes || '';
+    f.elements.worth.value = item && hasValue(item) ? (Number.isInteger(item.value) ? String(item.value) : item.value.toFixed(2).replace('.', ',')) : '';
+    $('#dl-hw').innerHTML = HW_NAMES.map((n) => `<option value="${esc(n)}">`).join('');
+    $('#hw-image-results').hidden = true;
+    setHwImage(item?.image || '');
+    $('#hw-dialog').showModal();
+  }
+
+  // foto dal telefono: ridotta a max 1000 px e salvata come JPEG
+  function shrinkImage(file, max = 1000) {
+    return new Promise((resolve, reject) => {
+      const url = URL.createObjectURL(file);
+      const img = new Image();
+      img.onload = () => {
+        const k = Math.min(1, max / Math.max(img.width, img.height));
+        const c = document.createElement('canvas');
+        c.width = Math.round(img.width * k);
+        c.height = Math.round(img.height * k);
+        c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+        URL.revokeObjectURL(url);
+        resolve(c.toDataURL('image/jpeg', 0.82));
+      };
+      img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('Immagine non leggibile')); };
+      img.src = url;
+    });
+  }
+
+  async function onHwPhoto(e) {
+    const file = e.target.files[0];
+    e.target.value = '';
+    if (!file) return;
+    try {
+      const dataUrl = await shrinkImage(file);
+      state.hwPhoto = dataUrl;
+      $('#hw-form').elements.image.value = '';
+      renderHwPreview(dataUrl);
+      toast('Foto pronta: verrà caricata quando premi Salva', 'info');
+    } catch (err) {
+      toast(err.message, 'error');
+    }
+  }
+
+  async function searchHwImages() {
+    const f = $('#hw-form').elements;
+    const q = [f.name.value.trim(), f.model.value.trim()].filter(Boolean).join(' ');
+    const box = $('#hw-image-results');
+    if (!q) { toast('Scrivi prima il nome della console', 'error'); return; }
+    box.hidden = false;
+    box.innerHTML = '<p class="muted small">Cerco immagini…</p>';
+    try {
+      const res = await Lookup.searchImages(`${q} console`);
+      box.innerHTML = res.length
+        ? res.map((r) => `<button type="button" class="hw-pick" data-hw-pick="${esc(r.image)}" title="${esc(r.title)}"><img src="${esc(r.image)}" alt="${esc(r.title)}" loading="lazy" referrerpolicy="no-referrer"></button>`).join('')
+        : '<p class="muted small">Nessuna immagine trovata. Prova con una foto o un link.</p>';
+    } catch (err) {
+      box.innerHTML = `<p class="muted small">⚠️ Ricerca non disponibile: ${esc(err.message)}</p>`;
+    }
+  }
+
+  async function submitHw(e) {
+    e.preventDefault();
+    if (state.busy) return;
+    const f = $('#hw-form').elements;
+    const editingId = state.editingHwId;
+    const id = editingId || uid();
+    const data = {
+      name: f.name.value.trim(),
+      model: f.model.value.trim(),
+      image: f.image.value.trim(),
+      value: parseEuro(f.worth.value),
+      notes: f.notes.value.trim(),
+    };
+    setBusy(true, 'Salvataggio in corso…');
+    try {
+      if (state.hwPhoto) {
+        const path = `${state.profile.dir}/images/console-${id.slice(0, 8)}-${Date.now()}.jpg`;
+        data.image = await Storage.uploadFile(path, state.hwPhoto.split(',')[1], `Foto console: ${data.name} [${state.profile.name}]`);
+        state.hwPhoto = null;
+      }
+      state.hardware = await save('consoles', (list) => {
+        if (editingId) {
+          const i = list.findIndex((x) => x.id === editingId);
+          if (i === -1) throw new Error('Questa console non è più in collezione.');
+          list[i] = { ...list[i], ...data };
+        } else {
+          list.push({ id, ...data, addedAt: new Date().toISOString() });
+        }
+        return list;
+      }, `${editingId ? 'Modificata console' : 'Aggiunta console'}: ${data.name}`);
+      $('#hw-dialog').close();
+      renderAll();
+      toast(editingId ? 'Console aggiornata ✔' : `“${data.name}” aggiunta alla collezione ✔`);
+    } catch (err) {
+      toast(err.message, 'error');
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function deleteHw(id, dialogSel) {
+    const it = state.hardware.find((x) => x.id === id);
+    if (!it || state.busy) return;
+    if (!confirm(`Togliere “${it.name}” dalla collezione?`)) return;
+    setBusy(true, 'Eliminazione in corso…');
+    try {
+      state.hardware = await save('consoles', (list) => list.filter((x) => x.id !== id), `Tolta console: ${it.name}`);
+      $(dialogSel).close();
+      renderAll();
+      toast('Console tolta dalla collezione');
+    } catch (err) {
+      toast(err.message, 'error');
+    } finally {
+      setBusy(false);
     }
   }
 
@@ -1899,6 +2098,7 @@
       state.upcoming = [];
       state.backlog = [];
       state.collection = [];
+      state.hardware = [];
       state.importSel = new Map();
       state.search = '';
       state.statusFilter = '';
@@ -2121,7 +2321,7 @@
         if (action === 'hours-playing') updatePlayingHours(id);
         if (action === 'compare-to-backlog') addToBacklogFromCompare(id);
         if (action === 'cycle-owned') cycleOwned(act.dataset.kind, id);
-        if (action === 'add-collection') openCollectionForm();
+        if (action === 'add-collection') { if (state.collSection === 'hardware') openHwForm(); else openCollectionForm(); }
         if (action === 'start-backlog') {
           const b = state.backlog.find((x) => x.id === id);
           state.pendingBacklogToRemove = id;
@@ -2143,6 +2343,17 @@
       if (lk) { runLookup(lk.dataset.lookup); return; }
       const lkClose = e.target.closest('[data-lookup-close]');
       if (lkClose) { lookupState[lkClose.dataset.lookupClose].seq++; $(`#${lkClose.dataset.lookupClose}-lookup`).hidden = true; return; }
+      const hwItem = e.target.closest('[data-hw-id]');
+      if (hwItem) { openHwDetail(hwItem.dataset.hwId); return; }
+      const hwPick = e.target.closest('[data-hw-pick]');
+      if (hwPick) { setHwImage(hwPick.dataset.hwPick); $('#hw-image-results').hidden = true; return; }
+      const secTab = e.target.closest('[data-coll-section]');
+      if (secTab) {
+        state.collSection = secTab.dataset.collSection;
+        try { localStorage.setItem('tgl-coll-section', state.collSection); } catch { /* ignore */ }
+        renderCollection();
+        return;
+      }
       const collItem = e.target.closest('[data-coll-id]');
       if (collItem) { openCollDetail(collItem.dataset.collId); return; }
       const fmtTab = e.target.closest('[data-coll-format]');
@@ -2181,6 +2392,13 @@
     // immagine non raggiungibile -> riquadro con le iniziali
     document.addEventListener('error', (e) => {
       const img = e.target;
+      if (img.tagName === 'IMG' && img.classList.contains('hw-img')) {
+        const span = document.createElement('span');
+        span.className = img.className + ' ph';
+        span.innerHTML = CONSOLE_ICON;
+        img.replaceWith(span);
+        return;
+      }
       if (img.tagName === 'IMG' && img.classList.contains('cover')) {
         const span = document.createElement('span');
         span.className = img.className + ' ph';
@@ -2202,7 +2420,7 @@
     $('#fab').addEventListener('click', (e) => {
       e.stopPropagation();
       if (document.body.dataset.view === 'uscite') { $('#fab-menu').hidden = !$('#fab-menu').hidden; return; }
-      if (document.body.dataset.view === 'collezione') { openCollectionForm(); return; }
+      if (document.body.dataset.view === 'collezione') { if (state.collSection === 'hardware' && !state.collConsole) openHwForm(); else openCollectionForm(); return; }
       openGameForm();
     });
     document.addEventListener('click', (e) => { if (!e.target.closest('#fab-menu')) closeFabMenu(); });
@@ -2213,6 +2431,18 @@
     }));
     $('#backlog-form').addEventListener('submit', submitBacklog);
     $('#collection-form').addEventListener('submit', submitCollection);
+    $('#hw-form').addEventListener('submit', submitHw);
+    $('#hw-delete').addEventListener('click', () => deleteHw(state.editingHwId, '#hw-dialog'));
+    $('#hw-detail-delete').addEventListener('click', () => deleteHw(state.hwDetailId, '#hw-detail-dialog'));
+    $('#hw-detail-edit').addEventListener('click', () => {
+      const it = state.hardware.find((x) => x.id === state.hwDetailId);
+      $('#hw-detail-dialog').close();
+      if (it) openHwForm(it);
+    });
+    $('#hw-photo').addEventListener('change', onHwPhoto);
+    $('#hw-image-search').addEventListener('click', searchHwImages);
+    $('#hw-image-remove').addEventListener('click', () => setHwImage(''));
+    $('#hw-form').elements.image.addEventListener('input', (e) => { state.hwPhoto = null; renderHwPreview(e.target.value.trim()); });
     $('#collection-form').elements.console.addEventListener('input', renderConsoleChips);
     $('#collection-delete').addEventListener('click', () => deleteCollectionItem(state.editingCollId, '#collection-dialog'));
     $('#coll-detail-delete').addEventListener('click', () => deleteCollectionItem(state.collDetailId, '#coll-detail-dialog'));
@@ -2355,6 +2585,10 @@
   }
 
   function init() {
+    try {
+      const sec = localStorage.getItem('tgl-coll-section');
+      if (sec === 'games' || sec === 'hardware') state.collSection = sec;
+    } catch { /* ignore */ }
     setupClearButtons();
     setupScrollToTop();
     try {

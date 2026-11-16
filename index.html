@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>The Game Library</title>
   <meta name="description" content="La mia libreria personale dei videogiochi giocati.">
-  <meta name="app-version" content="20261116-125954">
+  <meta name="app-version" content="20261116-150358">
   <meta name="theme-color" content="#1a1f2c">
   <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
@@ -15,7 +15,7 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Game Library">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <link rel="stylesheet" href="css/style.css?v=20261116-125954">
+  <link rel="stylesheet" href="css/style.css?v=20261116-150358">
 </head>
 <body>
   <header class="topbar">
@@ -219,6 +219,11 @@
           </div>
           <button class="btn primary" data-action="add-collection">+ Aggiungi</button>
         </div>
+        <div class="segmented coll-section-tabs" role="tablist" aria-label="Sezione della collezione">
+          <button type="button" role="tab" data-coll-section="games" aria-selected="true">🎮 Videogiochi</button>
+          <button type="button" role="tab" data-coll-section="hardware" aria-selected="false">🕹️ Console</button>
+        </div>
+        <div id="coll-games-pane">
         <div class="segmented coll-format" role="tablist" aria-label="Formato">
           <button type="button" role="tab" data-coll-format="" aria-selected="true">Tutti</button>
           <button type="button" role="tab" data-coll-format="physical" aria-selected="false"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/></svg> Fisici</button>
@@ -231,6 +236,18 @@
           <p>La tua collezione è vuota.</p>
           <p class="muted">Aggiungi i giochi che possiedi, fisici o digitali, oppure importali dalla classifica.</p>
           <button class="btn primary" data-action="add-collection">+ Aggiungi alla collezione</button>
+        </div>
+        </div>
+
+        <!-- console possedute -->
+        <div id="coll-hw-pane" hidden>
+          <div class="hw-grid" id="hw-grid"></div>
+          <div class="card empty-state" id="hw-empty" hidden>
+            <div class="big-emoji">🕹️</div>
+            <p>Nessuna console ancora.</p>
+            <p class="muted">Aggiungi le console che possiedi, con una foto e il loro valore.</p>
+            <button class="btn primary" data-action="add-collection">+ Aggiungi console</button>
+          </div>
         </div>
       </div>
 
@@ -657,6 +674,67 @@
     </div>
   </dialog>
 
+  <!-- MODALE: console (aggiungi/modifica) -->
+  <dialog id="hw-dialog" class="dialog">
+    <form id="hw-form" class="form" method="dialog">
+      <div class="dialog-head">
+        <h2 id="hw-form-title">Aggiungi console</h2>
+        <button type="button" class="icon-btn" data-close aria-label="Chiudi">✕</button>
+      </div>
+      <div class="form-grid">
+        <label class="span-2">Console *
+          <input name="name" required maxlength="80" list="dl-hw" autocomplete="off" placeholder="Es. PlayStation 5">
+        </label>
+        <label class="span-2">Modello / edizione <span class="muted">(facoltativo)</span>
+          <input name="model" maxlength="120" autocomplete="off" placeholder="Es. Slim Digital, Edizione limitata">
+        </label>
+        <div class="span-2 hw-image-field">
+          <span class="field-label">Immagine</span>
+          <div class="hw-image-row">
+            <div class="hw-preview" id="hw-preview"></div>
+            <div class="hw-image-actions">
+              <label class="btn">📷 Foto<input type="file" id="hw-photo" accept="image/*" hidden></label>
+              <button type="button" class="btn" id="hw-image-search">🔍 Cerca immagine</button>
+              <button type="button" class="btn ghost small" id="hw-image-remove">Rimuovi immagine</button>
+            </div>
+          </div>
+          <div class="hw-image-results" id="hw-image-results" hidden></div>
+          <label class="hw-url">Oppure incolla il link di un'immagine
+            <input name="image" type="url" placeholder="https://…" autocomplete="off">
+          </label>
+        </div>
+        <label class="span-2">Valore attuale <span class="muted">(€, facoltativo)</span>
+          <input name="worth" type="text" inputmode="decimal" maxlength="12" placeholder="Es. 349,90" autocomplete="off"
+            pattern="\s*[0-9]{1,7}([.,][0-9]{1,2})?\s*" title="Un importo in euro, per esempio 349,90">
+        </label>
+        <label class="span-2">Note
+          <textarea name="notes" rows="2" maxlength="2000" placeholder="Es. con 2 controller, scatola originale"></textarea>
+        </label>
+      </div>
+      <div class="form-actions">
+        <button type="button" class="btn danger" id="hw-delete" hidden>Togli</button>
+        <span class="spacer"></span>
+        <button type="button" class="btn ghost" data-close>Annulla</button>
+        <button type="submit" class="btn primary">Salva</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- MODALE: scheda console -->
+  <dialog id="hw-detail-dialog" class="dialog">
+    <div class="dialog-head">
+      <h2 id="hw-detail-title"></h2>
+      <button type="button" class="icon-btn" data-close aria-label="Chiudi">✕</button>
+    </div>
+    <div id="hw-detail-body"></div>
+    <div class="form-actions">
+      <button type="button" class="btn danger" id="hw-detail-delete">Togli</button>
+      <span class="spacer"></span>
+      <button type="button" class="btn primary" id="hw-detail-edit">Modifica</button>
+    </div>
+  </dialog>
+  <datalist id="dl-hw"></datalist>
+
   <!-- MODALE: scheda collezione -->
   <dialog id="coll-detail-dialog" class="dialog">
     <div class="dialog-head">
@@ -718,8 +796,8 @@
   <div id="tooltip" class="tooltip" hidden></div>
   <div id="toast" class="toast" hidden></div>
 
-  <script src="js/storage.js?v=20261116-125954"></script>
-  <script src="js/lookup.js?v=20261116-125954"></script>
-  <script src="js/app.js?v=20261116-125954"></script>
+  <script src="js/storage.js?v=20261116-150358"></script>
+  <script src="js/lookup.js?v=20261116-150358"></script>
+  <script src="js/app.js?v=20261116-150358"></script>
 </body>
 </html>
