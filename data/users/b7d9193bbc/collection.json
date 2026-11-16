@@ -1154,5 +1154,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T18:53:29.835Z"
+  },
+  {
+    "id": "b63d49bb-c699-4f22-9ca8-f204d3398779",
+    "title": "Cities Skylines",
+    "cover": "https://thumb.wikimedia.org/wikipedia/en/thumb/5/58/Cities_Skylines_cover_art.jpg/250px-Cities_Skylines_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
+    "console": "PC",
+    "format": "digital",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T18:53:58.434Z"
   }
 ]
