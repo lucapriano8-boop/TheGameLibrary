@@ -530,7 +530,7 @@
     "notes": "",
     "gameId": "f922441d-aec8-4abe-ab30-01cefb538011",
     "addedAt": "2026-11-16T10:47:16.009Z",
-    "value": 5.0
+    "value": 5
   },
   {
     "id": "a79916f8-1f13-496c-88d3-5cec36da76e6",
@@ -647,7 +647,7 @@
   {
     "id": "78bc4e4f-2503-41d0-8a67-ae32c9f6bef2",
     "title": "Dark Souls Trilogy",
-    "cover": "",
+    "cover": "https://m.media-amazon.com/images/M/MV5BNDk3OGEzODItNzNhZC00OWNhLWE1ZTAtMjM4ODUxMGEzZjBhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
     "console": "PS4",
     "format": "physical",
     "edition": "",
