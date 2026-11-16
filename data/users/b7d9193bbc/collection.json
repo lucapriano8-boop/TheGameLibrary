@@ -637,5 +637,17 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T13:47:16.220Z"
+  },
+  {
+    "id": "5d7193a6-6f1c-424e-87f6-27739415fc46",
+    "title": "Kingdom Hearts",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/8/85/Kingdom_Hearts.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PS2",
+    "format": "physical",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "gameId": "c9eea810-d828-46c1-a02d-bf2639ad8f7a",
+    "addedAt": "2026-11-16T13:48:08.088Z"
   }
 ]
