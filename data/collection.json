@@ -1960,11 +1960,12 @@
     "id": "ade8a013-d560-41f0-b3cd-18785b543a0d",
     "title": "Code Vein",
     "cover": "https://upload.wikimedia.org/wikipedia/en/8/8c/Code_vein.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "console": "",
+    "console": "Ps5",
     "format": "physical",
     "edition": "",
     "notes": "",
-    "addedAt": "2026-11-16T12:36:31.709Z"
+    "addedAt": "2026-11-16T12:36:31.709Z",
+    "value": null
   },
   {
     "id": "fd0cc665-2f93-4d5f-9ac5-f7b5ca36cd05",
