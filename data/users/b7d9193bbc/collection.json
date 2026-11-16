@@ -1110,5 +1110,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T18:43:58.890Z"
+  },
+  {
+    "id": "485e8b3b-d690-401f-944e-d1e9dc024794",
+    "title": "American Truck Simulator",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/2/20/American_Truck_Simulator_Steam_Cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PC",
+    "format": "digital",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T18:52:39.835Z"
   }
 ]
