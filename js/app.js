@@ -537,6 +537,7 @@
       const date = new Date(y, m - 1, d);
       return short ? date.toLocaleDateString('it-IT', { day: 'numeric', month: 'short', year: 'numeric' }) : fmtDate.format(date);
     }
+    if (short) return u.releaseYear ? String(u.releaseYear) : 'TBA';
     return u.releaseYear ? `${u.releaseYear} · data da annunciare` : 'TBA · data da annunciare';
   }
   function countdown(u) {
