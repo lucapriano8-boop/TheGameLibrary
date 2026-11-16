@@ -1341,5 +1341,17 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T19:01:15.669Z"
+  },
+  {
+    "id": "eb8d8ee6-b56a-4730-953c-9004fba0019b",
+    "title": "The Witcher 3: Wild Hunt",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/0/0c/Witcher_3_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PC",
+    "format": "digital",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "gameId": "0da022d3-94cd-4798-8036-b1a9a35b3dee",
+    "addedAt": "2026-11-16T19:01:29.199Z"
   }
 ]
