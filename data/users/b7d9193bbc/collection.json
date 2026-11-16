@@ -270,7 +270,7 @@
     "notes": "",
     "gameId": "d5c9f9e0-b484-4855-9c3d-2dbeae4271cc",
     "addedAt": "2026-11-16T10:47:16.009Z",
-    "value": null
+    "value": 4.31
   },
   {
     "id": "e9999886-c73f-49ce-a5eb-832d7d7e303a",
@@ -475,7 +475,7 @@
     "notes": "",
     "gameId": "03b39f13-1a12-4c1a-9722-a12477e57fef",
     "addedAt": "2026-11-16T10:47:16.009Z",
-    "value": 8.61
+    "value": 4.31
   },
   {
     "id": "aea6ae60-f96e-4962-b1b2-036e5ec28f22",
@@ -686,7 +686,7 @@
     "console": "PC",
     "format": "physical",
     "edition": "",
-    "value": null,
+    "value": 7.38,
     "notes": "",
     "addedAt": "2026-11-16T18:28:19.276Z"
   },
@@ -697,7 +697,7 @@
     "console": "PC",
     "format": "physical",
     "edition": "",
-    "value": null,
+    "value": 6.45,
     "notes": "",
     "addedAt": "2026-11-16T18:28:40.769Z"
   },
@@ -708,7 +708,7 @@
     "console": "PC",
     "format": "physical",
     "edition": "",
-    "value": null,
+    "value": 13.78,
     "notes": "",
     "gameId": "1330941f-245a-4903-bbff-c7d9fe971cb9",
     "addedAt": "2026-11-16T18:29:07.637Z"
@@ -720,7 +720,7 @@
     "console": "PC",
     "format": "physical",
     "edition": "",
-    "value": null,
+    "value": 9.66,
     "notes": "",
     "addedAt": "2026-11-16T18:29:23.604Z"
   },
@@ -753,7 +753,7 @@
     "console": "PC",
     "format": "physical",
     "edition": "",
-    "value": null,
+    "value": 18.92,
     "notes": "",
     "addedAt": "2026-11-16T18:31:11.631Z"
   },
@@ -764,7 +764,7 @@
     "console": "PS5",
     "format": "physical",
     "edition": "",
-    "value": null,
+    "value": 27.09,
     "notes": "",
     "addedAt": "2026-11-16T18:31:34.118Z"
   },
@@ -775,7 +775,7 @@
     "console": "PS5",
     "format": "physical",
     "edition": "",
-    "value": null,
+    "value": 13.51,
     "notes": "",
     "addedAt": "2026-11-16T18:31:52.697Z"
   },
@@ -786,7 +786,7 @@
     "console": "PS5",
     "format": "physical",
     "edition": "",
-    "value": null,
+    "value": 34.29,
     "notes": "",
     "addedAt": "2026-11-16T18:32:26.339Z"
   },
@@ -797,7 +797,7 @@
     "console": "PS5",
     "format": "physical",
     "edition": "",
-    "value": null,
+    "value": 10.4,
     "notes": "",
     "addedAt": "2026-11-16T18:32:48.629Z"
   },
@@ -808,7 +808,7 @@
     "console": "PS4",
     "format": "physical",
     "edition": "",
-    "value": null,
+    "value": 8.65,
     "notes": "",
     "gameId": "2572fb10-bd30-4082-995f-b1f162a22a69",
     "addedAt": "2026-11-16T18:33:14.366Z"
@@ -831,7 +831,7 @@
     "console": "PS4",
     "format": "physical",
     "edition": "",
-    "value": null,
+    "value": 7.49,
     "notes": "",
     "addedAt": "2026-11-16T18:34:30.725Z"
   },
@@ -842,7 +842,7 @@
     "console": "PS4",
     "format": "physical",
     "edition": "",
-    "value": null,
+    "value": 5.46,
     "notes": "",
     "addedAt": "2026-11-16T18:34:52.579Z"
   },
@@ -853,7 +853,7 @@
     "console": "PS4",
     "format": "physical",
     "edition": "",
-    "value": null,
+    "value": 8.98,
     "notes": "",
     "addedAt": "2026-11-16T18:35:08.419Z"
   },
@@ -864,7 +864,7 @@
     "console": "PS4",
     "format": "physical",
     "edition": "",
-    "value": null,
+    "value": 5.6,
     "notes": "",
     "addedAt": "2026-11-16T18:35:43.786Z"
   },
@@ -875,7 +875,7 @@
     "console": "PS4",
     "format": "physical",
     "edition": "",
-    "value": null,
+    "value": 9.51,
     "notes": "",
     "addedAt": "2026-11-16T18:36:13.064Z"
   },
@@ -886,7 +886,7 @@
     "console": "PS4",
     "format": "physical",
     "edition": "",
-    "value": null,
+    "value": 4.26,
     "notes": "",
     "addedAt": "2026-11-16T18:36:34.846Z"
   },
@@ -897,7 +897,7 @@
     "console": "PS5",
     "format": "physical",
     "edition": "",
-    "value": null,
+    "value": 24.48,
     "notes": "",
     "addedAt": "2026-11-16T18:37:03.241Z"
   },
@@ -908,7 +908,7 @@
     "console": "PS3",
     "format": "physical",
     "edition": "",
-    "value": null,
+    "value": 5.54,
     "notes": "",
     "addedAt": "2026-11-16T18:37:31.909Z"
   },
@@ -930,7 +930,7 @@
     "console": "PS3",
     "format": "physical",
     "edition": "",
-    "value": null,
+    "value": 16.12,
     "notes": "",
     "addedAt": "2026-11-16T18:38:35.179Z"
   },
@@ -941,7 +941,7 @@
     "console": "PS3",
     "format": "physical",
     "edition": "",
-    "value": null,
+    "value": 10.11,
     "notes": "",
     "gameId": "8edb1daa-39b2-45dd-91d8-487fd14c8288",
     "addedAt": "2026-11-16T18:38:53.712Z"
@@ -953,7 +953,7 @@
     "console": "PS3",
     "format": "physical",
     "edition": "",
-    "value": null,
+    "value": 4.57,
     "notes": "",
     "addedAt": "2026-11-16T18:39:14.574Z"
   },
@@ -964,7 +964,7 @@
     "console": "PS3",
     "format": "physical",
     "edition": "",
-    "value": null,
+    "value": 7.33,
     "notes": "",
     "addedAt": "2026-11-16T18:39:31.493Z"
   },
@@ -975,7 +975,7 @@
     "console": "PS3",
     "format": "physical",
     "edition": "",
-    "value": null,
+    "value": 6.16,
     "notes": "",
     "addedAt": "2026-11-16T18:39:51.146Z"
   },
@@ -986,7 +986,7 @@
     "console": "PS3",
     "format": "physical",
     "edition": "",
-    "value": null,
+    "value": 4.27,
     "notes": "",
     "addedAt": "2026-11-16T18:40:20.971Z"
   },
@@ -997,7 +997,7 @@
     "console": "PS2",
     "format": "physical",
     "edition": "",
-    "value": null,
+    "value": 5.18,
     "notes": "",
     "addedAt": "2026-11-16T18:41:01.784Z"
   },
@@ -1019,7 +1019,7 @@
     "console": "PS2",
     "format": "physical",
     "edition": "",
-    "value": null,
+    "value": 15.17,
     "notes": "",
     "addedAt": "2026-11-16T18:41:47.229Z"
   },
@@ -1030,7 +1030,7 @@
     "console": "PS2",
     "format": "physical",
     "edition": "",
-    "value": null,
+    "value": 6.71,
     "notes": "",
     "addedAt": "2026-11-16T18:42:04.902Z"
   },
@@ -1041,7 +1041,7 @@
     "console": "PS2",
     "format": "physical",
     "edition": "",
-    "value": null,
+    "value": 5.59,
     "notes": "",
     "addedAt": "2026-11-16T18:42:23.510Z"
   },
@@ -1052,7 +1052,7 @@
     "console": "PS2",
     "format": "physical",
     "edition": "",
-    "value": null,
+    "value": 6.54,
     "notes": "",
     "addedAt": "2026-11-16T18:42:39.038Z"
   },
@@ -1063,7 +1063,7 @@
     "console": "PS2",
     "format": "physical",
     "edition": "",
-    "value": null,
+    "value": 12.74,
     "notes": "",
     "addedAt": "2026-11-16T18:42:54.402Z"
   },
@@ -1074,7 +1074,7 @@
     "console": "PS1",
     "format": "physical",
     "edition": "",
-    "value": null,
+    "value": 28.24,
     "notes": "",
     "addedAt": "2026-11-16T18:43:26.943Z"
   },
@@ -1085,7 +1085,7 @@
     "console": "PS1",
     "format": "physical",
     "edition": "",
-    "value": null,
+    "value": 24.29,
     "notes": "",
     "addedAt": "2026-11-16T18:43:58.890Z"
   },
