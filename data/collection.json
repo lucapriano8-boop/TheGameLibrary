@@ -1975,5 +1975,15 @@
     "edition": "",
     "notes": "",
     "addedAt": "2026-11-16T12:37:58.887Z"
+  },
+  {
+    "id": "da562803-9f78-4fa0-9484-7901df9464b9",
+    "title": "The Legend of Zelda: Breath of the Wild",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/c/c6/The_Legend_of_Zelda_Breath_of_the_Wild.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "Nintendo Switch 2",
+    "format": "physical",
+    "edition": "",
+    "notes": "",
+    "addedAt": "2026-11-16T12:38:35.191Z"
   }
 ]
