@@ -1330,5 +1330,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T19:00:33.775Z"
+  },
+  {
+    "id": "ab1dcfaf-70e9-461c-a4e8-642da347b3c5",
+    "title": "The Elder Scrolls V: Skyrim Special Edition",
+    "cover": "https://www.codiciprodotto.it/wp-content/uploads/2021/01/the-elder-scrolls-v-skyrim-special-edition-special-edition-pc-game-steam-cover.jpg",
+    "console": "PC",
+    "format": "digital",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T19:01:15.669Z"
   }
 ]
