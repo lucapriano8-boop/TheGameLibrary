@@ -1587,5 +1587,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T19:13:45.104Z"
+  },
+  {
+    "id": "e720d58d-ab4a-4f29-8b68-63b589691529",
+    "title": "GRID Autosport",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/5/58/Grid_autosport.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PC",
+    "format": "digital",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T19:13:57.660Z"
   }
 ]
