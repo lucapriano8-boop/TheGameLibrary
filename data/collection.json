@@ -1970,11 +1970,12 @@
     "id": "fd0cc665-2f93-4d5f-9ac5-f7b5ca36cd05",
     "title": "Super Mario Galaxy 2",
     "cover": "https://upload.wikimedia.org/wikipedia/en/6/65/Super_Mario_Galaxy_2_Box_Art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "console": "",
+    "console": "Nintendo Switch 2",
     "format": "physical",
     "edition": "",
     "notes": "",
-    "addedAt": "2026-11-16T12:37:58.887Z"
+    "addedAt": "2026-11-16T12:37:58.887Z",
+    "value": null
   },
   {
     "id": "da562803-9f78-4fa0-9484-7901df9464b9",
