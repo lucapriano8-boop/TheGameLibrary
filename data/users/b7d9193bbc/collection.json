@@ -1176,5 +1176,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T18:54:35.412Z"
+  },
+  {
+    "id": "3601fc53-3de1-42b9-a959-7c638b83b5a2",
+    "title": "F1 2021",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/8/86/F1_2021_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PC",
+    "format": "digital",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T18:54:48.470Z"
   }
 ]
