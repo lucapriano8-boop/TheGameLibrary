@@ -209,5 +209,19 @@
       "complete": null
     },
     "addedAt": "2026-11-15T19:11:29.298Z"
+  },
+  {
+    "id": "4463a494-8219-49e6-9c1e-81019482d1b7",
+    "title": "Code Vein",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/8/8c/Code_vein.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "",
+    "notes": "",
+    "owned": "yes",
+    "time": {
+      "main": 27,
+      "extra": null,
+      "complete": null
+    },
+    "addedAt": "2026-11-16T12:36:27.424Z"
   }
 ]
