@@ -1088,5 +1088,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T18:42:54.402Z"
+  },
+  {
+    "id": "fc788f6b-364b-49e8-8be9-a878232868d8",
+    "title": "Tekken 3",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/7/7d/Tekken_3_flyer.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PS1",
+    "format": "physical",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T18:43:26.943Z"
   }
 ]
