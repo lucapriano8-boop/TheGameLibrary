@@ -363,5 +363,19 @@
       "complete": null
     },
     "addedAt": "2026-11-16T12:42:05.135Z"
+  },
+  {
+    "id": "38dc15f4-a5e5-4112-87ba-d5521da5efd2",
+    "title": "Dragon Quest III",
+    "cover": "",
+    "console": "Nintendo Switch 2",
+    "notes": "",
+    "owned": "yes",
+    "time": {
+      "main": 32,
+      "extra": null,
+      "complete": null
+    },
+    "addedAt": "2026-11-16T12:42:43.043Z"
   }
 ]
