@@ -503,5 +503,19 @@
       "complete": null
     },
     "addedAt": "2026-11-16T12:47:12.882Z"
+  },
+  {
+    "id": "b991e4c1-209e-4a0d-b348-7688b74a5c56",
+    "title": "The Legend of Zelda: Ocarina of Time",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/5/57/The_Legend_of_Zelda_Ocarina_of_Time.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "Nintendo Switch 2",
+    "notes": "",
+    "owned": "no",
+    "time": {
+      "main": 19,
+      "extra": null,
+      "complete": null
+    },
+    "addedAt": "2026-11-16T12:47:51.650Z"
   }
 ]
