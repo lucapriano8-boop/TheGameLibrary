@@ -1121,5 +1121,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T18:52:39.835Z"
+  },
+  {
+    "id": "ff5e2146-8d13-4db0-b11a-3af1801a557b",
+    "title": "ArmA III",
+    "cover": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/ArmA_3_Logo_%28Black%29.png/500px-ArmA_3_Logo_%28Black%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "console": "PC",
+    "format": "digital",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T18:52:54.150Z"
   }
 ]
