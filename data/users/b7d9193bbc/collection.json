@@ -911,5 +911,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T18:36:34.846Z"
+  },
+  {
+    "id": "781eb174-5cce-429c-9c01-1f1cae91155a",
+    "title": "Tekken 8",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/b/b4/Tekken_8_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PS5",
+    "format": "physical",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T18:37:03.241Z"
   }
 ]
