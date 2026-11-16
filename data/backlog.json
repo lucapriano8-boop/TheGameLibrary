@@ -405,5 +405,19 @@
       "complete": null
     },
     "addedAt": "2026-11-16T12:43:35.269Z"
+  },
+  {
+    "id": "0d0d4cb7-e9b9-4ae3-9718-66a5b141b417",
+    "title": "Onimusha: Way of the Sword",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/6/6a/Onimusha_Way_of_the_Sword.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "Ps5",
+    "notes": "",
+    "owned": "no",
+    "time": {
+      "main": 23,
+      "extra": null,
+      "complete": null
+    },
+    "addedAt": "2026-11-16T12:44:01.945Z"
   }
 ]
