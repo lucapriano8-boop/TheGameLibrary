@@ -293,5 +293,19 @@
       "complete": null
     },
     "addedAt": "2026-11-16T12:39:39.405Z"
+  },
+  {
+    "id": "8298fc09-65e4-4d01-86c8-32c6ab9d5dd7",
+    "title": "The First Berserker: Khazan",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/6/64/The_First_Berserker_Khazan_cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "Ps5",
+    "notes": "",
+    "owned": "no",
+    "time": {
+      "main": 33,
+      "extra": null,
+      "complete": null
+    },
+    "addedAt": "2026-11-16T12:40:14.546Z"
   }
 ]
