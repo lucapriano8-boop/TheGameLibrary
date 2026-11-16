@@ -19,5 +19,5 @@ Non serve per i commit dei soli dati.
 - `js/lookup.js` ricerca dati e copertine (Wikidata/Wikipedia)
 - `js/app.js` interfaccia
 - `data/users.json` profili; ogni profilo ha `dir` con `games.json`, `upcoming.json`, `backlog.json`, `collection.json`
-  (collezione: `format` `physical`/`digital`, `gameId` facoltativo che collega un gioco della classifica)
+  (collezione: `format` `physical`/`digital`, `value` valore attuale in € o null, `gameId` facoltativo che collega un gioco della classifica)
 - `assets/avatars/` avatar generati da `tools/make_avatars.py`

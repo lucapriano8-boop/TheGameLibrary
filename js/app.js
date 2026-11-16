@@ -1000,6 +1000,23 @@
     digital: list.filter((x) => x.format === 'digital').length,
   });
   const formatMeta = (c) => `${c.total} ${c.total === 1 ? 'gioco' : 'giochi'} · ${c.physical} fisici · ${c.digital} digitali`;
+  const EURO_INT = new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+  const EURO_DEC = new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  // 120 -> "120 €", 39.9 -> "39,90 €"
+  const fmtEuro = { format: (v) => (Number.isInteger(Math.round(v * 100) / 100) ? EURO_INT : EURO_DEC).format(v) };
+  const hasValue = (x) => typeof x.value === 'number' && Number.isFinite(x.value);
+  const totalValue = (list) => list.filter(hasValue).reduce((a, x) => a + x.value, 0);
+  // "· 320 €" (solo se almeno un gioco ha un valore)
+  const valueMeta = (list) => (list.some(hasValue) ? ` · ${fmtEuro.format(totalValue(list))}` : '');
+  function valueSummary(list) {
+    const withV = list.filter(hasValue);
+    if (!withV.length) return '';
+    const phys = totalValue(withV.filter((x) => x.format === 'physical'));
+    const dig = totalValue(withV.filter((x) => x.format === 'digital'));
+    const missing = list.length - withV.length;
+    return `Valore: ${fmtEuro.format(phys + dig)} · fisici ${fmtEuro.format(phys)} · digitali ${fmtEuro.format(dig)}`
+      + (missing ? ` · ${missing} senza valore` : '');
+  }
 
   function groupByConsole(list) {
     const names = consoleDisplayNames([...state.collection, ...state.games]);
@@ -1042,7 +1059,7 @@
       ${coverHTML(it.cover, it.title, 'sm')}
       <span class="coll-row-main">
         <span class="coll-row-title">${esc(it.title)}</span>
-        <span class="coll-row-sub"><span class="fmt-text ${f.cls}">${f.label}</span>${it.edition ? ` · ${esc(it.edition)}` : ''}</span>
+        <span class="coll-row-sub"><span class="fmt-text ${f.cls}">${f.label}</span>${it.edition ? ` · ${esc(it.edition)}` : ''}${hasValue(it) ? ` · <span class="coll-value">${fmtEuro.format(it.value)}</span>` : ''}</span>
       </span>
       ${playTag(it)}
     </button>`;
@@ -1063,6 +1080,8 @@
 
     if (!inConsole) {
       $('#coll-summary').textContent = all.length ? formatMeta(countFormats(all)) : '';
+      $('#coll-value').textContent = valueSummary(all);
+      $('#coll-value').hidden = !all.some(hasValue);
       $$('#coll-overview [data-coll-format]').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.collFormat === state.collFormat)));
       $('#coll-empty').hidden = all.length > 0;
       $('#coll-overview .coll-format').hidden = all.length === 0;
@@ -1074,7 +1093,7 @@
           return `<section class="coll-section">
             <div class="coll-section-head">
               <h2>${esc(gr.name)}</h2>
-              <span class="muted small">${formatMeta(countFormats(gr.items))}</span>
+              <span class="muted small">${formatMeta(countFormats(gr.items))}${valueMeta(gr.items)}</span>
               <a class="link" href="${consoleHash(gr.name)}">Vedi tutti</a>
             </div>
             <div class="coll-grid">${items.slice(0, 8).map(collTile).join('')}</div>
@@ -1088,7 +1107,7 @@
     const key = state.collConsole.toLowerCase();
     const consoleItems = all.filter((x) => consoleKey(x) === key);
     $('#coll-console-name').textContent = consoleDisplayNames([...all, ...state.games]).get(key) || state.collConsole;
-    $('#coll-console-meta').textContent = formatMeta(countFormats(consoleItems));
+    $('#coll-console-meta').textContent = formatMeta(countFormats(consoleItems)) + valueMeta(consoleItems);
     $('#coll-console-format').innerHTML = formatTabs(countFormats(consoleItems));
     $('#coll-view-grid').setAttribute('aria-pressed', String(state.collView === 'grid'));
     $('#coll-view-list').setAttribute('aria-pressed', String(state.collView === 'list'));
@@ -1097,7 +1116,10 @@
     const items = consoleItems
       .filter((x) => !state.collFormat || x.format === state.collFormat)
       .filter((x) => !q || [x.title, x.edition, x.notes].some((v) => (v || '').toLowerCase().includes(q)))
-      .sort(state.collSort === 'recent' ? (a, b) => (b.addedAt || '').localeCompare(a.addedAt || '') : (a, b) => collator.compare(a.title, b.title));
+      .sort({
+        recent: (a, b) => (b.addedAt || '').localeCompare(a.addedAt || ''),
+        value: (a, b) => (hasValue(b) ? b.value : -1) - (hasValue(a) ? a.value : -1) || collator.compare(a.title, b.title),
+      }[state.collSort] || ((a, b) => collator.compare(a.title, b.title)));
     $('#coll-items').className = state.collView === 'grid' ? 'coll-grid' : 'coll-list';
     $('#coll-items').innerHTML = items.map(state.collView === 'grid' ? collTile : collRow).join('');
     $('#coll-items-empty').hidden = items.length > 0;
@@ -1126,6 +1148,7 @@
       </div>
       <div class="kv-grid">
         ${it.edition ? `<div class="kv"><span>Edizione</span><strong>${esc(it.edition)}</strong></div>` : ''}
+        ${hasValue(it) ? `<div class="kv"><span>Valore attuale</span><strong>${fmtEuro.format(it.value)}</strong></div>` : ''}
         ${added ? `<div class="kv"><span>In collezione dal</span><strong>${esc(added)}</strong></div>` : ''}
       </div>
       ${g ? `<button type="button" class="link-card" id="coll-open-game">
@@ -1155,6 +1178,7 @@
     f.reset();
     const src = item || prefill || {};
     ['title', 'cover', 'console', 'edition', 'notes'].forEach((k) => { f.elements[k].value = src[k] ?? ''; });
+    f.elements.worth.value = item && hasValue(item) ? (Number.isInteger(item.value) ? String(item.value) : item.value.toFixed(2).replace('.', ',')) : '';
     $$('input[name="format"]', f).forEach((r) => { r.checked = r.value === (src.format || ''); });
     $('#collection-dialog-title').textContent = item ? 'Modifica' : 'Aggiungi alla collezione';
     $('#coll-tabs').hidden = Boolean(item || prefill);
@@ -1175,6 +1199,14 @@
     const count = new Map();
     all.forEach((x) => count.set(consoleKey(x), (count.get(consoleKey(x)) || 0) + 1));
     return [...count.entries()].sort((a, b) => b[1] - a[1]).map(([k]) => names.get(k));
+  }
+
+  // "39,90" o "39.90" -> 39.9; vuoto -> null
+  function parseEuro(text) {
+    const t = String(text || '').trim().replace(/\s|€/g, '').replace(',', '.');
+    if (!t) return null;
+    const n = Number(t);
+    return Number.isFinite(n) && n >= 0 ? Math.round(n * 100) / 100 : null;
   }
 
   function renderConsoleChips() {
@@ -1204,6 +1236,7 @@
       console: f.console.value.trim(),
       format: f.format.value,
       edition: f.edition.value.trim(),
+      value: parseEuro(f.worth.value),
       notes: f.notes.value.trim(),
     };
     const editingId = state.editingCollId;
@@ -2252,7 +2285,54 @@
     } catch { /* offline: riprova più tardi */ }
   }
 
+  // ---------- X per cancellare il testo nei campi ----------
+  const CLEARABLE = 'input:not([type]), input[type="text"], input[type="search"], input[type="url"], input[type="number"], textarea';
+  function setupClearButtons(root = document) {
+    $$(CLEARABLE, root).forEach((el) => {
+      if (el.closest('.clear-wrap')) return;
+      // il pulsante si nasconde da solo quando il campo è vuoto (:placeholder-shown), anche se il valore cambia via codice
+      if (!el.hasAttribute('placeholder')) el.setAttribute('placeholder', ' ');
+      const wrap = document.createElement('span');
+      wrap.className = `clear-wrap${el.tagName === 'TEXTAREA' ? ' is-area' : ''}`;
+      el.parentNode.insertBefore(wrap, el);
+      wrap.appendChild(el);
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'clear-btn';
+      btn.tabIndex = -1;
+      btn.setAttribute('aria-label', 'Cancella il testo');
+      btn.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg>';
+      // pointerdown senza perdere il focus: su iPhone la tastiera resta aperta
+      btn.addEventListener('pointerdown', (e) => e.preventDefault());
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        el.value = '';
+        el.dispatchEvent(new Event('input', { bubbles: true }));
+        el.dispatchEvent(new Event('change', { bubbles: true }));
+        el.focus();
+      });
+      wrap.appendChild(btn);
+    });
+  }
+
+  // ---------- tocco in cima: torna all'inizio della pagina ----------
+  function setupScrollToTop() {
+    const interactive = 'a, button, input, select, textarea, label';
+    $('.topbar').addEventListener('click', (e) => {
+      if (e.target.closest(interactive)) return;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    // nelle finestre (a schermo intero sul telefono) lo fa il titolo in alto
+    $$('dialog .dialog-head').forEach((head) => head.addEventListener('click', (e) => {
+      if (e.target.closest(interactive)) return;
+      head.closest('dialog').scrollTo({ top: 0, behavior: 'smooth' });
+    }));
+  }
+
   function init() {
+    setupClearButtons();
+    setupScrollToTop();
     try {
       const cv = localStorage.getItem('tgl-coll-view');
       if (cv === 'grid' || cv === 'list') state.collView = cv;
