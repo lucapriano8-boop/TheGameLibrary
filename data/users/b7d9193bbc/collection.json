@@ -1297,5 +1297,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T18:59:30.886Z"
+  },
+  {
+    "id": "030b5034-e815-4632-9c89-d488e596a214",
+    "title": "Scrap Mechanic",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/c/c5/Scrap_Mechanic_%282016_video_game%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PC",
+    "format": "digital",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T18:59:45.296Z"
   }
 ]
