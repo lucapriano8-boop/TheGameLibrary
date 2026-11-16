@@ -1375,5 +1375,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T19:03:48.092Z"
+  },
+  {
+    "id": "a5034983-11dc-46ec-83b5-4a1070b73895",
+    "title": "Return to Monkey Island",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/4/4f/Return-to-Monkey-Island.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PC",
+    "format": "digital",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T19:04:30.852Z"
   }
 ]
