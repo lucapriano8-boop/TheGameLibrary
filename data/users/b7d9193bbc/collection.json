@@ -1488,5 +1488,16 @@
     "value": null,
     "notes": "",
     "addedAt": "2026-11-16T19:10:24.880Z"
+  },
+  {
+    "id": "fa600b06-7c5e-4ad4-8fcd-485c63cbd440",
+    "title": "Terraria",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/1/1a/Terraria_Steam_artwork.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PC",
+    "format": "digital",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-16T19:10:37.080Z"
   }
 ]
