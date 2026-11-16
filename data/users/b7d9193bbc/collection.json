@@ -275,12 +275,13 @@
     "id": "c6bee705-535e-45d5-a806-0c3b17e7e1c1",
     "title": "Uncharted: Drake's Fortune",
     "cover": "https://upload.wikimedia.org/wikipedia/en/5/5b/Uncharted_Drake%27s_Fortune.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "console": "PS5",
+    "console": "PS4",
     "format": "physical",
     "edition": "",
     "notes": "",
     "gameId": "d5c9f9e0-b484-4855-9c3d-2dbeae4271cc",
-    "addedAt": "2026-11-16T10:47:16.009Z"
+    "addedAt": "2026-11-16T10:47:16.009Z",
+    "value": null
   },
   {
     "id": "e9999886-c73f-49ce-a5eb-832d7d7e303a",
