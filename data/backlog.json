@@ -307,5 +307,19 @@
       "complete": null
     },
     "addedAt": "2026-11-16T12:40:14.546Z"
+  },
+  {
+    "id": "015d8a04-3205-4e9d-96a6-625ec3bd297d",
+    "title": "Devil May Cry",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/1/1e/DMC1FrontCover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "Ps5",
+    "notes": "",
+    "owned": "yes",
+    "time": {
+      "main": 6,
+      "extra": null,
+      "complete": null
+    },
+    "addedAt": "2026-11-16T12:40:44.754Z"
   }
 ]
