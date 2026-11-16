@@ -203,7 +203,11 @@
     "cover": "https://upload.wikimedia.org/wikipedia/en/8/85/Kingdom_Hearts.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "console": "PC",
     "notes": "",
-    "time": null,
+    "time": {
+      "main": 29,
+      "extra": null,
+      "complete": null
+    },
     "addedAt": "2026-11-15T19:11:29.298Z"
   }
 ]
