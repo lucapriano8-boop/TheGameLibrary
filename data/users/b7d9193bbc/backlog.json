@@ -236,5 +236,22 @@
       "complete": null
     },
     "addedAt": "2026-11-15T15:13:22.749Z"
+  },
+  {
+    "id": "5c953f52-7902-4d9a-a1c2-5d81419e0c6e",
+    "title": "Baldur's Gate 3",
+    "cover": "https://i.redd.it/m2lmw222h0ka1.png",
+    "console": "PC",
+    "notes": "",
+    "owned": "yes",
+    "time": null,
+    "started": true,
+    "startedAt": "2026-11-14",
+    "hours": 49,
+    "developer": "Larian Studios",
+    "genre": "RPG",
+    "franchise": "Baldur's Gate",
+    "releaseYear": null,
+    "addedAt": "2026-11-17T20:30:46.763Z"
   }
 ]
