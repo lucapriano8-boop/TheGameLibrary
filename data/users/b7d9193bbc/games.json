@@ -1633,5 +1633,22 @@
     "review": "",
     "createdAt": "2026-11-17T20:57:37.885Z",
     "updatedAt": "2026-11-17T20:57:37.885Z"
+  },
+  {
+    "id": "8cfcbc12-a6ac-4470-9ed4-10b18eeeb955",
+    "title": "Street Legal Racing: Redline",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/2/2a/Street_Legal_Racing_box_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 40,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T20:57:51.094Z",
+    "updatedAt": "2026-11-17T20:57:51.094Z"
   }
 ]
