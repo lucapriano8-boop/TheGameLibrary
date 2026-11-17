@@ -1105,5 +1105,22 @@
     "review": "",
     "createdAt": "2026-11-17T20:36:49.193Z",
     "updatedAt": "2026-11-17T20:36:49.193Z"
+  },
+  {
+    "id": "663b8ef7-2f68-4f65-8a22-3408f0fb41d7",
+    "title": "BeamNG.Drive",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/6/6c/BeamNGdrive_cover.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 482,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T20:37:16.741Z",
+    "updatedAt": "2026-11-17T20:37:16.741Z"
   }
 ]
