@@ -1541,11 +1541,12 @@
     "console": "PC",
     "score": null,
     "hours": 5,
-    "status": "Giocato senza voto",
+    "status": "In corso",
     "releaseYear": null,
     "playedYear": 2026,
     "review": "",
     "createdAt": "2026-11-17T20:44:48.563Z",
-    "updatedAt": "2026-11-17T20:44:48.563Z"
+    "updatedAt": "2026-11-17T20:54:22.812Z",
+    "startedAt": "2026-11-17"
   }
 ]
