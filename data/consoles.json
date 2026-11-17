@@ -115,5 +115,14 @@
     "value": 50,
     "notes": "",
     "addedAt": "2026-11-17T15:13:29.862Z"
+  },
+  {
+    "id": "10e9689b-a536-41b4-a60e-e288b0160af4",
+    "name": "Nintendo DS",
+    "model": "Red",
+    "image": "https://raw.githubusercontent.com/lucapriano8-boop/TheGameLibrary/main/data/images/console-10e9689b-1794928435192.jpg",
+    "value": 40,
+    "notes": "",
+    "addedAt": "2026-11-17T15:13:57.305Z"
   }
 ]
