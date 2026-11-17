@@ -1496,5 +1496,22 @@
     "review": "",
     "createdAt": "2026-11-17T20:44:04.700Z",
     "updatedAt": "2026-11-17T20:44:04.700Z"
+  },
+  {
+    "id": "ebdaeaa6-cab5-4931-be1d-1258f2d01280",
+    "title": "Project CARS",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/d/df/Project_Cars_boxart.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 59,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T20:44:23.393Z",
+    "updatedAt": "2026-11-17T20:44:23.393Z"
   }
 ]
