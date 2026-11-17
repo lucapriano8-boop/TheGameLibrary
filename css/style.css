@@ -45,8 +45,7 @@ h3 { font-size: .95rem; margin: 18px 0 6px; color: var(--text-2); }
   position: sticky; top: 0; z-index: 10;
   display: flex; align-items: center; justify-content: space-between; gap: 12px;
   padding: 12px max(16px, calc((100vw - 1120px) / 2));
-  background: rgba(26, 31, 44, .86);
-  backdrop-filter: blur(12px);
+  background: #1a1f2c;
   border-bottom: 1px solid var(--border);
 }
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: -.01em; }
@@ -752,7 +751,7 @@ body[data-view="statistiche"] .fab { display: none !important; }
     display: grid; grid-template-columns: repeat(5, 1fr);
     position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
     padding: 6px max(6px, env(safe-area-inset-right)) calc(6px + env(safe-area-inset-bottom)) max(6px, env(safe-area-inset-left));
-    background: rgba(33, 39, 55, .94); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    background: #212737;
     border-top: 1px solid var(--border);
   }
   .bottom-nav a {
@@ -876,6 +875,8 @@ body[data-view="statistiche"] .fab { display: none !important; }
   .hltb-fields { gap: 8px; }
   .hltb-fields label { font-size: .74rem; }
   .settings-link { display: flex; }
+  .topbar { background: #1a1f2c; backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .bottom-nav { background: #212737; backdrop-filter: none; -webkit-backdrop-filter: none; }
   .coll-section-tabs { max-width: none; }
   .hw-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
   .hw-card-text { padding: 8px 10px 10px; }

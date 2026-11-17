@@ -243,6 +243,7 @@
         </button>
         <div class="playing-actions">
           <button type="button" class="btn small" data-action="hours-playing" data-id="${esc(g.id)}">⏱ Ore</button>
+          <button type="button" class="btn small ghost" data-action="back-to-backlog" data-id="${esc(g.id)}" title="Rimetti nel backlog">↩ Backlog</button>
           <button type="button" class="btn small primary" data-action="finish-playing" data-id="${esc(g.id)}">✔ Finito</button>
         </div>
       </div>`).join('');
@@ -1655,6 +1656,25 @@
     setTimeout(() => f.score.focus(), 50);
   }
 
+  async function backToBacklog(id) {
+    const g = state.games.find((x) => x.id === id);
+    if (!g || state.busy) return;
+    if (!Storage.canWrite()) { toast('Per salvare serve il token GitHub (⚙ Impostazioni).', 'error'); return; }
+    if (!confirm(`Rimettere “${g.title}” nel backlog? Il gioco esce dai giochi in corso.`)) return;
+    setBusy(true, 'Lo rimetto nel backlog…');
+    try {
+      const item = { id: uid(), title: g.title, cover: g.cover || '', console: g.console || '', notes: g.review || '', owned: 'yes', time: null, addedAt: new Date().toISOString() };
+      state.backlog = await save('backlog', (list) => { list.push(item); return list; }, `Dai giochi in corso al backlog: ${g.title}`);
+      state.games = await save('games', (list) => list.filter((x) => x.id !== id), `Tolto dai giochi in corso: ${g.title}`);
+      renderAll();
+      toast(`“${g.title}” è tornato nel backlog ✔`);
+    } catch (err) {
+      toast(err.message, 'error');
+    } finally {
+      setBusy(false);
+    }
+  }
+
   async function updatePlayingHours(id) {
     const g = state.games.find((x) => x.id === id);
     if (!g || state.busy) return;
@@ -2403,6 +2423,7 @@
         if (action === 'edit-backlog') openBacklogForm(state.backlog.find((b) => b.id === id));
         if (action === 'play-backlog') startPlayingFromBacklog(id);
         if (action === 'finish-playing') finishPlaying(id);
+        if (action === 'back-to-backlog') backToBacklog(id);
         if (action === 'hours-playing') updatePlayingHours(id);
         if (action === 'compare-to-backlog') addToBacklogFromCompare(id);
         if (action === 'cycle-owned') cycleOwned(act.dataset.kind, id);
