@@ -1599,5 +1599,22 @@
     "review": "",
     "createdAt": "2026-11-17T20:57:06.546Z",
     "updatedAt": "2026-11-17T20:57:06.546Z"
+  },
+  {
+    "id": "f0db3180-98bf-447e-9a88-e4ff563a3702",
+    "title": "Splitgate",
+    "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202209/1515/Du9tEU5TH4kxc36UsOar1yPT.png",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 15,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T20:57:20.467Z",
+    "updatedAt": "2026-11-17T20:57:20.467Z"
   }
 ]
