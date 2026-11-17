@@ -1021,5 +1021,22 @@
     "review": "",
     "createdAt": "2026-11-15T18:34:25.848Z",
     "updatedAt": "2026-11-15T18:34:52.325Z"
+  },
+  {
+    "id": "7a44fcd0-ecc0-4987-9f1c-b8ddfffa0c53",
+    "title": "BeamNG.Drive",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/6/6c/BeamNGdrive_cover.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "Vehicle simulation",
+    "franchise": "",
+    "console": "PC",
+    "score": 89,
+    "hours": 481,
+    "status": "Giocato",
+    "releaseYear": 2013,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T10:56:32.475Z",
+    "updatedAt": "2026-11-17T10:56:32.475Z"
   }
 ]
