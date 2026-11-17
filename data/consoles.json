@@ -142,5 +142,14 @@
     "value": 70,
     "notes": "",
     "addedAt": "2026-11-17T15:16:25.165Z"
+  },
+  {
+    "id": "0b4120f3-2088-4589-8af0-f8f3c0f577a4",
+    "name": "Nintendo Switch 2",
+    "model": "",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/Nintendo_Switch_2_20250605_HOF4954_RAW-Export.png/960px-Nintendo_Switch_2_20250605_HOF4954_RAW-Export.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "value": 450,
+    "notes": "",
+    "addedAt": "2026-11-17T15:16:52.339Z"
   }
 ]
