@@ -1258,5 +1258,22 @@
     "review": "",
     "createdAt": "2026-11-17T20:39:41.303Z",
     "updatedAt": "2026-11-17T20:39:41.303Z"
+  },
+  {
+    "id": "200f6a2d-327f-4d28-ace6-526cb39fe5ae",
+    "title": "F1 2021",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/8/86/F1_2021_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 52,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T20:39:53.481Z",
+    "updatedAt": "2026-11-17T20:39:53.481Z"
   }
 ]
