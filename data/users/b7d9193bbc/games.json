@@ -608,24 +608,6 @@
     "updatedAt": "2026-11-17T17:04:42.489Z"
   },
   {
-    "id": "0cacce61-3d28-4418-8df6-bfdf0f7ceef0",
-    "title": "Baldur's Gate 3",
-    "cover": "https://i.redd.it/m2lmw222h0ka1.png",
-    "developer": "Larian Studios",
-    "genre": "RPG",
-    "franchise": "Baldur's Gate",
-    "console": "PC",
-    "score": null,
-    "hours": 49,
-    "status": "In corso",
-    "releaseYear": null,
-    "playedYear": 2026,
-    "review": "",
-    "startedAt": "2026-11-14",
-    "createdAt": "2026-11-14T10:38:58.390Z",
-    "updatedAt": "2026-11-16T22:34:11.071Z"
-  },
-  {
     "id": "a0d105f2-3d97-4cde-a4ce-294012d1aff2",
     "title": "Mafia II",
     "cover": "https://upload.wikimedia.org/wikipedia/en/0/0d/Mafia_II_Boxart.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
