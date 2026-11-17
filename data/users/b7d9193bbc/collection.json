@@ -1672,5 +1672,16 @@
     "value": 13,
     "notes": "",
     "addedAt": "2026-11-17T15:19:59.332Z"
+  },
+  {
+    "id": "67875e92-2de0-4141-b7bc-e13b86d69279",
+    "title": "The Witcher Enchanced Edition",
+    "cover": "https://s.pacn.ws/1/p/oz/the-witcher-enhanced-edition-449959.21.jpg?v=rx7qcx",
+    "console": "PC",
+    "format": "digital",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-17T21:00:13.635Z"
   }
 ]
