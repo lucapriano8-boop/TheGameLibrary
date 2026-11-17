@@ -969,5 +969,22 @@
     "startedAt": "2026-11-17",
     "createdAt": "2026-11-17T19:16:43.082Z",
     "updatedAt": "2026-11-17T19:16:43.082Z"
+  },
+  {
+    "id": "be44d69b-7dfc-48fd-b1e9-ce956653af23",
+    "title": "American Truck Simulator",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/2/20/American_Truck_Simulator_Steam_Cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 40,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T20:33:41.443Z",
+    "updatedAt": "2026-11-17T20:33:41.443Z"
   }
 ]
