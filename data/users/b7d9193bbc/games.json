@@ -1650,5 +1650,22 @@
     "review": "",
     "createdAt": "2026-11-17T20:57:51.094Z",
     "updatedAt": "2026-11-17T20:57:51.094Z"
+  },
+  {
+    "id": "31e0dfa9-a58f-4572-bb0d-a10560b71ecd",
+    "title": "Terraria",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/1/1a/Terraria_Steam_artwork.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 2,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T20:58:06.398Z",
+    "updatedAt": "2026-11-17T20:58:06.398Z"
   }
 ]
