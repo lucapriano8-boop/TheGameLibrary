@@ -3076,5 +3076,22 @@
     "review": "",
     "createdAt": "2026-11-15T16:13:45.178Z",
     "updatedAt": "2026-11-15T16:13:45.178Z"
+  },
+  {
+    "id": "552ad500-28a8-41a7-ac94-2b7cdbf9b737",
+    "title": "Resident Evil 3",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/a/a5/Resident_Evil_3_Cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Capcom",
+    "genre": "Survival horror",
+    "franchise": "Resident Evil",
+    "console": "Ps5",
+    "score": 90,
+    "hours": 9,
+    "status": "Completato",
+    "releaseYear": 2020,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T09:12:40.807Z",
+    "updatedAt": "2026-11-17T09:12:40.807Z"
   }
 ]
