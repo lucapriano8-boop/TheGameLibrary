@@ -1619,5 +1619,16 @@
     "notes": "",
     "gameId": "895f610d-6f24-4e8b-a520-e02074f22c23",
     "addedAt": "2026-11-16T19:16:39.171Z"
+  },
+  {
+    "id": "619b95f4-8934-407b-aaa0-35251d90ce7b",
+    "title": "Grand Theft Auto: San Andreas",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/c/c4/GTASABOX.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PS2",
+    "format": "physical",
+    "edition": "",
+    "value": null,
+    "notes": "",
+    "addedAt": "2026-11-17T15:19:59.332Z"
   }
 ]
