@@ -972,24 +972,6 @@
     "updatedAt": "2026-11-17T17:15:11.660Z"
   },
   {
-    "id": "895f610d-6f24-4e8b-a520-e02074f22c23",
-    "title": "Assassin's Creed: Revelations",
-    "cover": "https://upload.wikimedia.org/wikipedia/en/d/d9/Assassins_Creed_Revelations_Cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "developer": "Ubisoft Montreal",
-    "genre": "Action-adventure",
-    "franchise": "Assassin's Creed",
-    "console": "",
-    "score": null,
-    "hours": 5,
-    "status": "In corso",
-    "releaseYear": null,
-    "playedYear": 2026,
-    "review": "",
-    "startedAt": "2026-11-15",
-    "createdAt": "2026-11-15T14:59:18.236Z",
-    "updatedAt": "2026-11-17T17:15:25.552Z"
-  },
-  {
     "id": "32b2e94c-2bc6-4c8f-9bf6-48c55c1ca4fb",
     "title": "Dark Souls III",
     "cover": "https://upload.wikimedia.org/wikipedia/en/b/bb/Dark_souls_3_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
