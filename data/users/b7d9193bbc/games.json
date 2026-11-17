@@ -1122,5 +1122,22 @@
     "review": "",
     "createdAt": "2026-11-17T20:37:16.741Z",
     "updatedAt": "2026-11-17T20:37:16.741Z"
+  },
+  {
+    "id": "e497ac5d-ea5f-476b-aa61-26b01f59d089",
+    "title": "Cities Skylines",
+    "cover": "https://thumb.wikimedia.org/wikipedia/en/thumb/5/58/Cities_Skylines_cover_art.jpg/250px-Cities_Skylines_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 137,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T20:37:45.618Z",
+    "updatedAt": "2026-11-17T20:37:45.618Z"
   }
 ]
