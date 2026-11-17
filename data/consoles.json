@@ -70,5 +70,14 @@
     "value": 140,
     "notes": "",
     "addedAt": "2026-11-17T15:07:09.961Z"
+  },
+  {
+    "id": "6aa4b976-1e97-4052-9479-79fce3b44f93",
+    "name": "Psp",
+    "model": "",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/PSP_E1000_illustration.svg/960px-PSP_E1000_illustration.svg.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "value": 130,
+    "notes": "",
+    "addedAt": "2026-11-17T15:07:48.462Z"
   }
 ]
