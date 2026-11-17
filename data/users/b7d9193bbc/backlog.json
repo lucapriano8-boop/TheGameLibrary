@@ -244,7 +244,11 @@
     "console": "PC",
     "notes": "",
     "owned": "yes",
-    "time": null,
+    "time": {
+      "main": 73,
+      "extra": null,
+      "complete": null
+    },
     "started": true,
     "startedAt": "2026-11-14",
     "hours": 49,
