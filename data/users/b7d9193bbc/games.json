@@ -1377,5 +1377,22 @@
     "review": "",
     "createdAt": "2026-11-17T20:41:30.703Z",
     "updatedAt": "2026-11-17T20:41:30.703Z"
+  },
+  {
+    "id": "cf294eb0-2d11-48ab-a7bc-061c954c2964",
+    "title": "Kerbal Space Program",
+    "cover": "https://cdn1.epicgames.com/offer/ca0530b485754032be50cb6f27be0c2c/EGS_KerbalSpaceProgram_Squad_S2_1200x1600-7442f5c8047e6ef3d062ea731b60f443",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 91,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T20:41:46.668Z",
+    "updatedAt": "2026-11-17T20:41:46.668Z"
   }
 ]
