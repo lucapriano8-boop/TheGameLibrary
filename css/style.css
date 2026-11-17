@@ -445,6 +445,8 @@ body[data-view="profili"] .fab { display: none !important; }
 }
 .buy-chip:active { transform: scale(.94); }
 .coll-hours-note { margin: 6px 0 0; }
+.coll-not-played { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin: 4px 0 12px; }
+.coll-not-played p { margin: 0; }
 .started-chip {
   display: inline-flex; align-items: center; gap: 4px; padding: 3px 9px; border-radius: 999px; font-size: .78rem; font-weight: 650;
   background: rgba(242, 193, 78, .14); color: #f2c14e; border: 1px solid rgba(242, 193, 78, .35); white-space: nowrap;
