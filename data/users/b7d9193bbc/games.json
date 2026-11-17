@@ -1513,5 +1513,22 @@
     "review": "",
     "createdAt": "2026-11-17T20:44:23.393Z",
     "updatedAt": "2026-11-17T20:44:23.393Z"
+  },
+  {
+    "id": "8bd62a2c-99d4-4c92-a992-10180e697309",
+    "title": "Project CARS 2",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/d/d7/Project_CARS_2_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 12,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T20:44:33.536Z",
+    "updatedAt": "2026-11-17T20:44:33.536Z"
   }
 ]
