@@ -2237,6 +2237,16 @@
   }
 
   // ---------- IMPOSTAZIONI ----------
+  function openLegal() {
+    // segnalazioni: le "issue" della repository del sito (nessun indirizzo personale)
+    const cfg = Storage.getConfig();
+    const report = $('#legal-report');
+    if (cfg.owner && cfg.repo) report.href = `https://github.com/${encodeURIComponent(cfg.owner)}/${encodeURIComponent(cfg.repo)}/issues/new`;
+    else report.removeAttribute('href');
+    $$('#legal-dialog details').forEach((d) => { d.open = false; });
+    $('#legal-dialog').showModal();
+  }
+
   function fillSettings() {
     const cfg = Storage.getConfig();
     const f = $('#settings-form').elements;
@@ -2337,6 +2347,7 @@
       if (act) {
         const { action, id } = act.dataset;
         if (action === 'add-profile') openProfileForm();
+        if (action === 'open-legal') openLegal();
         if (action === 'add-game') openGameForm();
         if (action === 'add-upcoming') { closeFabMenu(); openUpcomingForm(); }
         if (action === 'add-backlog') { closeFabMenu(); openBacklogForm(); }

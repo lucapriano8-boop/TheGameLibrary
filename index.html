@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>The Game Library</title>
   <meta name="description" content="La mia libreria personale dei videogiochi giocati.">
-  <meta name="app-version" content="20261117-134559">
+  <meta name="app-version" content="20261117-135404">
   <meta name="theme-color" content="#1a1f2c">
   <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
@@ -15,7 +15,7 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Game Library">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <link rel="stylesheet" href="css/style.css?v=20261117-134559">
+  <link rel="stylesheet" href="css/style.css?v=20261117-135404">
 </head>
 <body>
   <header class="topbar">
@@ -52,6 +52,7 @@
       <p id="profiles-hint" class="muted"></p>
       <div id="profile-grid" class="profile-grid"></div>
       <button type="button" class="btn ghost" id="manage-profiles" hidden>Gestisci profili</button>
+      <button type="button" class="legal-link" data-action="open-legal">Note legali</button>
     </section>
 
     <!-- HOME -->
@@ -375,6 +376,13 @@
             Importa backup
             <input type="file" id="import-file" accept="application/json,.json" hidden>
           </label>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Note legali e fonti</h2>
+        <p class="muted">Sito personale e non commerciale: marchi, immagini e fonti dei dati, privacy e richieste di rimozione.</p>
+        <div class="form-actions left">
+          <button type="button" class="btn" data-action="open-legal">Leggi le note legali</button>
         </div>
       </div>
     </section>
@@ -773,6 +781,68 @@
     </div>
   </dialog>
 
+  <!-- MODALE: note legali -->
+  <dialog id="legal-dialog" class="dialog">
+    <div class="dialog-head">
+      <h2>Note legali e fonti</h2>
+      <button type="button" class="icon-btn" data-close aria-label="Chiudi">✕</button>
+    </div>
+    <div class="legal">
+      <p class="muted small">Sito personale, non commerciale. Tocca una voce per leggerla.</p>
+        <details class="legal-item">
+          <summary>Che cos'è questo sito</summary>
+          <div class="legal-body">
+            <p>Una libreria personale di videogiochi, usata da un piccolo gruppo di amici. È <strong>non commerciale</strong>: nessuna pubblicità, nessuna vendita, nessun guadagno.</p>
+          </div>
+        </details>
+        <details class="legal-item">
+          <summary>Nessuna affiliazione e marchi</summary>
+          <div class="legal-body">
+            <p>Il sito non è affiliato, sponsorizzato o approvato da Sony, Nintendo, Microsoft, Valve, editori o sviluppatori di videogiochi, né da Wikipedia/Wikimedia, Wikidata o HowLongToBeat.</p>
+            <p>I nomi di giochi, console e aziende sono marchi dei rispettivi proprietari e sono usati solo per identificare i prodotti.</p>
+          </div>
+        </details>
+        <details class="legal-item">
+          <summary>Immagini</summary>
+          <div class="legal-body">
+            <p>Copertine e immagini cercate dal sito vengono <strong>mostrate tramite collegamento</strong> da Wikipedia e Wikimedia Commons, senza essere copiate; appartengono ai rispettivi titolari. Le immagini libere sono distribuite con le licenze indicate sulle relative pagine Wikimedia.</p>
+            <p>Le foto caricate dagli utenti (per esempio delle proprie console) sono di chi le carica.</p>
+          </div>
+        </details>
+        <details class="legal-item">
+          <summary>Fonti dei dati</summary>
+          <div class="legal-body">
+            <p>Le informazioni sui giochi (sviluppatore, serie, genere, data di uscita) possono provenire da <a href="https://www.wikidata.org" target="_blank" rel="noopener">Wikidata</a> (dati liberi, CC0) e da <a href="https://www.wikipedia.org" target="_blank" rel="noopener">Wikipedia</a> (CC BY-SA).</p>
+            <p>I tempi di gioco sono inseriti a mano dagli utenti; il sito offre solo un collegamento a HowLongToBeat.</p>
+            <p>I <strong>valori in euro</strong> sono stime personali inserite a mano, puramente indicative: non sono quotazioni né offerte.</p>
+          </div>
+        </details>
+        <details class="legal-item">
+          <summary>Contenuti degli utenti</summary>
+          <div class="legal-body">
+            <p>Ogni profilo inserisce e gestisce i propri dati (giochi, voti, recensioni, foto) ed è responsabile di ciò che pubblica.</p>
+          </div>
+        </details>
+        <details class="legal-item">
+          <summary>Privacy</summary>
+          <div class="legal-body">
+            <p>I dati della libreria sono salvati in una repository GitHub e <strong>sono visibili a chi conosce l'indirizzo del sito</strong>: non inserire informazioni personali o private.</p>
+            <p>Il sito <strong>non usa cookie di tracciamento</strong>, pubblicità o statistiche di visita. Nel browser vengono salvate solo preferenze tecniche (profilo scelto, ordinamenti) e, se inserito, il token di accesso a GitHub, che non lascia il dispositivo se non per comunicare con GitHub.</p>
+            <p>Per funzionare il sito si collega a GitHub (dati e foto) e a Wikipedia/Wikidata (ricerche e immagini), che possono ricevere l'indirizzo IP di chi lo usa secondo le loro informative.</p>
+          </div>
+        </details>
+        <details class="legal-item">
+          <summary>Richieste di rimozione</summary>
+          <div class="legal-body">
+            <p>Chi ritiene che un contenuto violi i propri diritti può chiederne la rimozione <a id="legal-report" href="#" target="_blank" rel="noopener">aprendo una segnalazione su GitHub</a>: il contenuto verrà tolto il prima possibile.</p>
+          </div>
+        </details>
+    </div>
+    <div class="form-actions">
+      <button type="button" class="btn primary" data-close>Ho capito</button>
+    </div>
+  </dialog>
+
   <!-- MODALE: profilo -->
   <dialog id="profile-dialog" class="dialog">
     <form id="profile-form" class="form" method="dialog">
@@ -805,8 +875,8 @@
   <div id="tooltip" class="tooltip" hidden></div>
   <div id="toast" class="toast" hidden></div>
 
-  <script src="js/storage.js?v=20261117-134559"></script>
-  <script src="js/lookup.js?v=20261117-134559"></script>
-  <script src="js/app.js?v=20261117-134559"></script>
+  <script src="js/storage.js?v=20261117-135404"></script>
+  <script src="js/lookup.js?v=20261117-135404"></script>
+  <script src="js/app.js?v=20261117-135404"></script>
 </body>
 </html>
