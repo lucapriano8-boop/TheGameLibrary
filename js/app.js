@@ -15,6 +15,7 @@
   const STATUSES = ['Platinato', 'Completato', 'Giocato', 'Abbandonato'];
   const STATUS_HINT = {
     [PLAYING]: 'In corso (lo sto giocando)',
+    'Giocato senza voto': 'Giocato (senza voto, fuori classifica)',
     Platinato: 'Platinato / 100%',
     Completato: 'Completato',
     Giocato: 'Giocato (senza finale)',
@@ -29,6 +30,10 @@
   // i giochi "in corso" non sono ancora in classifica né nelle statistiche
   const isPlaying = (g) => g.status === PLAYING;
   const finishedGames = () => state.games.filter((g) => !isPlaying(g));
+  // "Giocato (senza voto)": conta per ore e anni, ma resta fuori dalla classifica
+  const UNRATED = 'Giocato senza voto';
+  const isUnrated = (g) => g.status === UNRATED;
+  const rankedPool = () => finishedGames().filter((g) => !isUnrated(g));
 
   const state = {
     statsTab: 'anno',
@@ -104,7 +109,7 @@
     return 'score-d';
   }
   function statusChip(status) {
-    const cls = { Platinato: 'st-plat', Completato: 'st-done', Giocato: 'st-played', Abbandonato: 'st-drop', [PLAYING]: 'st-playing' }[status] || '';
+    const cls = { Platinato: 'st-plat', Completato: 'st-done', Giocato: 'st-played', Abbandonato: 'st-drop', [PLAYING]: 'st-playing', [UNRATED]: 'st-unrated' }[status] || '';
     return `<span class="chip ${cls}">${esc(status || '—')}</span>`;
   }
 
@@ -428,7 +433,7 @@
   // ---------- CLASSIFICA ----------
   // posizione in classifica sempre basata sul voto (a pari voto, stessa posizione)
   function rankedGames() {
-    const sorted = finishedGames().sort((a, b) => (b.score ?? -1) - (a.score ?? -1) || collator.compare(a.title, b.title));
+    const sorted = rankedPool().sort((a, b) => (b.score ?? -1) - (a.score ?? -1) || collator.compare(a.title, b.title));
     let lastScore = null, lastRank = 0;
     return sorted.map((g, i) => {
       if (g.score !== lastScore) { lastRank = i + 1; lastScore = g.score; }
@@ -447,10 +452,27 @@
     }
   }
 
+  function renderUnrated() {
+    const q = state.search.trim().toLowerCase();
+    const list = state.games.filter(isUnrated)
+      .filter((g) => !q || [g.title, g.developer, g.franchise, g.genre, g.console].some((f) => (f || '').toLowerCase().includes(q)))
+      .sort((a, b) => (b.hours || 0) - (a.hours || 0) || collator.compare(a.title, b.title));
+    $('#unrated-card').hidden = list.length === 0;
+    const hours = list.reduce((a, g) => a + (g.hours || 0), 0);
+    $('#unrated-meta').textContent = `${list.length} ${list.length === 1 ? 'gioco' : 'giochi'}${hours ? ` · ${fmtInt.format(Math.round(hours))} h` : ''}`;
+    $('#unrated-list').innerHTML = list.map((g) => `
+      <li class="mini-item clickable" data-id="${esc(g.id)}">
+        ${coverHTML(g.cover, g.title, 'xs')}
+        <span class="mini-main"><span class="mini-title">${esc(g.title)}</span><span class="mini-sub">${esc([g.console, g.playedYear].filter(Boolean).join(' · '))}</span></span>
+        <span class="mini-date">${g.hours ? `${fmt1.format(g.hours)} h` : '–'}</span>
+      </li>`).join('');
+  }
+
   function renderRanking() {
     const ranks = new Map(rankedGames().map(({ g, rank }) => [g.id, rank]));
     const q = state.search.trim().toLowerCase();
-    let list = finishedGames().filter((g) => {
+    renderUnrated();
+    let list = rankedPool().filter((g) => {
       if (state.statusFilter && g.status !== state.statusFilter) return false;
       if (state.favOnly && !g.favorite) return false;
       if (!q) return true;
@@ -474,7 +496,7 @@
 
     const empty = $('#ranking-empty');
     empty.hidden = list.length > 0;
-    empty.textContent = !finishedGames().length ? 'La classifica è vuota. Aggiungi il tuo primo gioco!'
+    empty.textContent = !rankedPool().length ? 'La classifica è vuota. Aggiungi il tuo primo gioco!'
       : state.favOnly && !state.games.some((g) => g.favorite) ? 'Nessun preferito ancora: tocca la stella ☆ accanto a un gioco.'
         : 'Nessun gioco corrisponde alla ricerca.';
     $('#fav-filter').setAttribute('aria-pressed', String(state.favOnly));
@@ -613,9 +635,9 @@
 
   function updateScoreRequired() {
     const f = $('#game-form').elements;
-    const playing = f.status.value === PLAYING;
+    const playing = f.status.value === PLAYING || f.status.value === UNRATED;
     f.score.required = !playing;
-    f.score.placeholder = playing ? 'lo darai quando lo finisci' : '';
+    f.score.placeholder = f.status.value === UNRATED ? 'non serve: resta fuori classifica' : playing ? 'lo darai quando lo finisci' : '';
     $('#score-label-text').textContent = playing ? 'Voto (0–100)' : 'Voto (0–100) *';
   }
 
@@ -692,7 +714,7 @@
         <span class="score big ${scoreClass(g.score)}">${g.score ?? '–'}</span>
         <div>
           <div>${statusChip(g.status)}</div>
-          <div class="muted">${isPlaying(g) ? (g.startedAt ? `Iniziato il ${fmtDate.format(new Date(g.startedAt + 'T00:00'))}` : 'Non ancora finito') : `#${rank} in classifica`}</div>
+          <div class="muted">${isPlaying(g) ? (g.startedAt ? `Iniziato il ${fmtDate.format(new Date(g.startedAt + 'T00:00'))}` : 'Non ancora finito') : isUnrated(g) ? 'Fuori classifica (senza voto)' : `#${rank} in classifica`}</div>
           <div id="detail-star" class="detail-star">${starButton(g)}</div>
         </div>
       </div>
@@ -1722,11 +1744,11 @@
     const dropped = games.filter((g) => g.status === 'Abbandonato').length;
     const delta = games.length - prev.length;
     const deltaTxt = prev.length ? (delta === 0 ? `come nel ${Y - 1}` : `${delta > 0 ? '▲' : '▼'} ${Math.abs(delta)} rispetto al ${Y - 1}`) : '';
-    const ranked = games.slice().sort((a, b) => (b.score ?? -1) - (a.score ?? -1) || (b.favorite ? 1 : 0) - (a.favorite ? 1 : 0) || (b.hours || 0) - (a.hours || 0));
+    const ranked = games.filter((g) => !isUnrated(g)).sort((a, b) => (b.score ?? -1) - (a.score ?? -1) || (b.favorite ? 1 : 0) - (a.favorite ? 1 : 0) || (b.hours || 0) - (a.hours || 0));
     const goty = ranked[0];
     const longest = games.filter((g) => g.hours).sort((a, b) => b.hours - a.hours)[0];
     // "la delusione" solo se il voto è davvero basso
-    const worst = ranked.filter((g) => g.score != null && g.score < 60 && g.id !== goty.id).slice(-1)[0] || null;
+    const worst = ranked.filter((g) => g.score != null && g.score < 60 && g.id !== goty?.id).slice(-1)[0] || null;
     const cons = topBy(games, 'console');
     const genre = topBy(games, 'genre');
     const dev = topBy(games, 'developer');
@@ -1750,7 +1772,7 @@
         <div class="stat"><div class="stat-label">Platinati</div><div class="stat-value">${plat}</div><div class="stat-sub">${dropped ? `${dropped} abbandonati` : 'trofei 🏆'}</div></div>
       </div>
 
-      <div class="card goty clickable" data-id="${esc(goty.id)}">
+      ${goty ? `      <div class="card goty clickable" data-id="${esc(goty.id)}">
         ${coverHTML(goty.cover, goty.title, 'lg')}
         <div class="goty-text">
           <div class="goty-label">🏆 Il tuo gioco dell'anno</div>
@@ -1759,6 +1781,7 @@
           <span class="score ${scoreClass(goty.score)}">${goty.score ?? '–'}</span>
         </div>
       </div>
+` : ''}
 
       <div class="card">
         <h2>I numeri del ${Y}</h2>
@@ -2290,7 +2313,8 @@
 
     // opzioni stato
     const statusOpts = STATUSES.map((s) => `<option value="${s}">${STATUS_HINT[s]}</option>`).join('');
-    $('#game-form').elements.status.innerHTML = `<option value="${PLAYING}">${STATUS_HINT[PLAYING]}</option>` + statusOpts;
+    $('#game-form').elements.status.innerHTML = `<option value="${PLAYING}">${STATUS_HINT[PLAYING]}</option>` + statusOpts
+      + `<option value="${UNRATED}">${STATUS_HINT[UNRATED]}</option>`;
     $('#game-form').elements.status.addEventListener('change', updateScoreRequired);
     $$('[data-stats-tab]').forEach((b) => b.addEventListener('click', () => {
       state.statsTab = b.dataset.statsTab;

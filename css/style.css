@@ -168,6 +168,10 @@ main { max-width: 1120px; margin: 0 auto; padding: 24px 16px 64px; }
 .st-drop::before { content: "✕ "; }
 .st-playing { color: var(--accent-2); border-color: rgba(108, 140, 255, .5); background: rgba(108, 140, 255, .12); }
 .st-playing::before { content: "● "; }
+.st-unrated { color: var(--text-2); border-color: #4b5670; background: rgba(255, 255, 255, .04); }
+.st-unrated::before { content: "⏱ "; }
+.unrated-card { margin-top: 18px; }
+.unrated-note { margin: -4px 0 6px; }
 
 /* ---------- ranking ---------- */
 .toolbar { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; align-items: center; }
