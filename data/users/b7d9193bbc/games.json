@@ -1275,5 +1275,22 @@
     "review": "",
     "createdAt": "2026-11-17T20:39:53.481Z",
     "updatedAt": "2026-11-17T20:39:53.481Z"
+  },
+  {
+    "id": "faeb34cb-61e1-4c5d-a2e4-984b4e493f03",
+    "title": "Farming Simulator 15",
+    "cover": "https://store-images.s-microsoft.com/image/apps.51149.68945816968790760.2f27a567-c5f4-43a7-b354-d84cfcab4459.fc0e2b28-3ac1-4d86-9661-c9aee5e012b3",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 52,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T20:40:10.525Z",
+    "updatedAt": "2026-11-17T20:40:10.525Z"
   }
 ]
