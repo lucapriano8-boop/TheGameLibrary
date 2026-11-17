@@ -1343,5 +1343,22 @@
     "review": "",
     "createdAt": "2026-11-17T20:40:56.457Z",
     "updatedAt": "2026-11-17T20:40:56.457Z"
+  },
+  {
+    "id": "feab5ddc-08d1-4394-a38c-f7723c305275",
+    "title": "Garry's Mod",
+    "cover": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Garry%27s_Mod_logo.svg/500px-Garry%27s_Mod_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 399,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T20:41:14.750Z",
+    "updatedAt": "2026-11-17T20:41:14.750Z"
   }
 ]
