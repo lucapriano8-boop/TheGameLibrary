@@ -1684,5 +1684,22 @@
     "review": "",
     "createdAt": "2026-11-17T20:58:24.055Z",
     "updatedAt": "2026-11-17T20:58:24.055Z"
+  },
+  {
+    "id": "825ad3ff-54cf-4f57-b3f6-bcd508cb7318",
+    "title": "The Elder Scrolls IV Oblivion Remastered",
+    "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202504/0320/3d4ad7dd46baa8aeb93741a1a07a422f26bdff904f7b243e.jpg",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 10,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T20:58:49.359Z",
+    "updatedAt": "2026-11-17T20:58:49.359Z"
   }
 ]
