@@ -253,5 +253,22 @@
     "franchise": "Baldur's Gate",
     "releaseYear": null,
     "addedAt": "2026-11-17T20:30:46.763Z"
+  },
+  {
+    "id": "ea5aa0d3-7468-411a-a053-bfb523603896",
+    "title": "Assassin's Creed: Revelations",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/d/d9/Assassins_Creed_Revelations_Cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "",
+    "notes": "",
+    "owned": "yes",
+    "time": null,
+    "started": true,
+    "startedAt": "2026-11-15",
+    "hours": 5,
+    "developer": "Ubisoft Montreal",
+    "genre": "Action-adventure",
+    "franchise": "Assassin's Creed",
+    "releaseYear": null,
+    "addedAt": "2026-11-17T20:30:55.398Z"
   }
 ]
