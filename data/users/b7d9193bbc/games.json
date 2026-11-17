@@ -1718,5 +1718,22 @@
     "review": "",
     "createdAt": "2026-11-17T20:59:12.414Z",
     "updatedAt": "2026-11-17T20:59:12.414Z"
+  },
+  {
+    "id": "d191ec40-e1d3-424d-b9f3-b613119b4cfb",
+    "title": "The Witcher Enchanced Edition",
+    "cover": "https://s.pacn.ws/1/p/oz/the-witcher-enhanced-edition-449959.21.jpg?v=rx7qcx",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 13,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T21:00:28.593Z",
+    "updatedAt": "2026-11-17T21:00:28.593Z"
   }
 ]
