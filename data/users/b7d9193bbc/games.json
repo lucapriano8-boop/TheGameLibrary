@@ -1037,5 +1037,22 @@
     "review": "",
     "createdAt": "2026-11-17T20:35:13.449Z",
     "updatedAt": "2026-11-17T20:35:13.449Z"
+  },
+  {
+    "id": "b5da0175-7092-4459-b811-c3205d94c39f",
+    "title": "Assetto Corsa Competizione",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/a/aa/Assetto_Corsa_Competizione_cover_art_full.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 10,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T20:35:22.567Z",
+    "updatedAt": "2026-11-17T20:35:22.567Z"
   }
 ]
