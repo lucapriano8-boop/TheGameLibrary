@@ -1462,5 +1462,22 @@
     "review": "",
     "createdAt": "2026-11-17T20:42:55.918Z",
     "updatedAt": "2026-11-17T20:42:55.918Z"
+  },
+  {
+    "id": "030d53d5-a354-4dc0-b048-a13bfc5ec42c",
+    "title": "Prey",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/2/29/Prey_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 18,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T20:43:10.833Z",
+    "updatedAt": "2026-11-17T20:43:10.833Z"
   }
 ]
