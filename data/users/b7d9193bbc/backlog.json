@@ -308,5 +308,15 @@
     "franchise": "Call of Duty",
     "releaseYear": null,
     "addedAt": "2026-11-17T20:31:11.089Z"
+  },
+  {
+    "id": "26c81663-0ad6-4ddc-bf97-9a2a01242589",
+    "title": "The Elder Scrolls IV Oblivion Remastered",
+    "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202504/0320/3d4ad7dd46baa8aeb93741a1a07a422f26bdff904f7b243e.jpg",
+    "console": "PC",
+    "notes": "",
+    "owned": "yes",
+    "time": null,
+    "addedAt": "2026-11-17T20:58:43.049Z"
   }
 ]
