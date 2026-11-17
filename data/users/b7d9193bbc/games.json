@@ -986,5 +986,22 @@
     "review": "",
     "createdAt": "2026-11-17T20:33:41.443Z",
     "updatedAt": "2026-11-17T20:33:41.443Z"
+  },
+  {
+    "id": "f74e3617-c8f9-4951-80a0-583d19f24bbf",
+    "title": "ARC Raiders",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/7/73/Arc_Raiders_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 8,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T20:34:09.607Z",
+    "updatedAt": "2026-11-17T20:34:09.607Z"
   }
 ]
