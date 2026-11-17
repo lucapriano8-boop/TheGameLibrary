@@ -1071,5 +1071,22 @@
     "review": "",
     "createdAt": "2026-11-17T20:35:39.988Z",
     "updatedAt": "2026-11-17T20:35:39.988Z"
+  },
+  {
+    "id": "35871f7a-afe2-43d1-8d60-1c6c3c17a77e",
+    "title": "Baldur's Gate 3",
+    "cover": "https://preview.redd.it/new-game-cover-from-larians-website-v0-m2lmw222h0ka1.png?auto=webp&s=ba904ad42906960a96a70ce1c27ee6d3ff5edead",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 49,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T20:36:29.617Z",
+    "updatedAt": "2026-11-17T20:36:29.617Z"
   }
 ]
