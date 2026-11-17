@@ -1582,5 +1582,22 @@
     "review": "",
     "createdAt": "2026-11-17T20:56:39.435Z",
     "updatedAt": "2026-11-17T20:56:39.435Z"
+  },
+  {
+    "id": "92d98be1-aa0b-4ab4-bc9a-f25b6c3af4fd",
+    "title": "Scrap Mechanic",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/c/c5/Scrap_Mechanic_%282016_video_game%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 168,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T20:57:06.546Z",
+    "updatedAt": "2026-11-17T20:57:06.546Z"
   }
 ]
