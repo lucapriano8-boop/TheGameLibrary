@@ -1214,18 +1214,43 @@
           <span aria-hidden="true">›</span>
         </button>`
         : b ? `<a class="link-card" href="#uscite" data-scroll="backlog"><span class="play-tag backlog">Backlog</span><span class="link-card-text"><strong>È nel tuo backlog</strong><span class="muted small">Non l'hai ancora giocato</span></span><span aria-hidden="true">›</span></a>`
-          : '<p class="muted">Non l\'hai ancora giocato.</p>'}
+          : `<div class="coll-not-played"><p class="muted">Non l'hai ancora giocato.</p>
+              <button type="button" class="btn small primary" id="coll-to-backlog">+ Manda nel backlog</button></div>`}
       ${!g || isUnrated(g) ? `<button type="button" class="btn small" id="coll-hours">⏱ ${g?.hours != null ? `Ore di gioco: ${fmt1.format(g.hours)} h · Modifica` : 'Segna le ore di gioco'}</button>
         <p class="muted small coll-hours-note">${g ? 'Gioco fuori classifica: le ore contano nelle statistiche.' : 'Il gioco entra nella libreria come “Giocato (senza voto)”: le ore contano nelle statistiche, ma resta fuori classifica.'}</p>` : ''}
       ${it.notes ? `<h3>Note</h3><p class="review">${esc(it.notes)}</p>` : ''}
       <button type="button" class="btn ghost small" id="coll-add-copy">+ Ce l'hai anche ${other === 'digital' ? 'in digitale' : 'fisico'}? Aggiungi un'altra copia</button>`;
     $('#coll-open-game')?.addEventListener('click', () => { $('#coll-detail-dialog').close(); openDetail(g.id); });
     $('#coll-hours')?.addEventListener('click', () => setCollectionHours(it.id));
+    $('#coll-to-backlog')?.addEventListener('click', () => collectionToBacklog(it.id));
     $('#coll-add-copy').addEventListener('click', () => {
       $('#coll-detail-dialog').close();
       openCollectionForm(null, { title: it.title, cover: it.cover, console: it.console, format: other, gameId: it.gameId });
     });
     $('#coll-detail-dialog').showModal();
+  }
+
+  // dalla collezione al backlog (il gioco resta in collezione)
+  async function collectionToBacklog(id) {
+    const it = state.collection.find((x) => x.id === id);
+    if (!it || state.busy) return;
+    if (!Storage.canWrite()) { toast('Per salvare serve il token GitHub (⚙ Impostazioni).', 'error'); return; }
+    if (inBacklog(it)) { toast(`“${it.title}” è già nel backlog.`); return; }
+    setBusy(true, 'Lo aggiungo al backlog…');
+    try {
+      const item = { id: uid(), title: it.title, cover: it.cover || '', console: it.console || '', notes: '', owned: 'yes', time: null, addedAt: new Date().toISOString() };
+      state.backlog = await save('backlog', (list) => {
+        if (list.some((b) => sameGameKey(b.title) === sameGameKey(it.title))) return list;
+        list.push(item); return list;
+      }, `Dalla collezione al backlog: ${it.title}`);
+      renderAll();
+      if ($('#coll-detail-dialog').open) openCollDetail(id);
+      toast(`“${it.title}” è nel backlog ✔`);
+    } catch (err) {
+      toast(err.message, 'error');
+    } finally {
+      setBusy(false);
+    }
   }
 
   // ore di gioco dalla collezione, per i giochi non in classifica
