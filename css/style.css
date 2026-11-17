@@ -444,6 +444,11 @@ body[data-view="profili"] .fab { display: none !important; }
   transition: transform .1s;
 }
 .buy-chip:active { transform: scale(.94); }
+.coll-hours-note { margin: 6px 0 0; }
+.started-chip {
+  display: inline-flex; align-items: center; gap: 4px; padding: 3px 9px; border-radius: 999px; font-size: .78rem; font-weight: 650;
+  background: rgba(242, 193, 78, .14); color: #f2c14e; border: 1px solid rgba(242, 193, 78, .35); white-space: nowrap;
+}
 .buy-no { color: #f2a65a; border-color: rgba(242, 166, 90, .5); background: rgba(242, 166, 90, .1); }
 .buy-pre { color: var(--blue); border-color: rgba(88, 180, 255, .5); background: rgba(88, 180, 255, .1); }
 .buy-yes { color: var(--green); border-color: rgba(79, 209, 139, .5); background: rgba(79, 209, 139, .1); }

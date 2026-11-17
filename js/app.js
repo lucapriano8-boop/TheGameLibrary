@@ -426,7 +426,7 @@
         <li class="mini-item">
           ${coverHTML(b.cover, b.title, 'xs')}
           <span class="mini-main"><span class="mini-title">${esc(b.title)}</span><span class="mini-sub">${esc(b.console || '')}</span></span>
-          <span class="mini-date">${b.time?.main ? `⏱ ${fmtHours(b.time.main)}` : ''}</span>
+          <span class="mini-date">${b.started ? '🕹️ Iniziato' : b.time?.main ? `⏱ ${fmtHours(b.time.main)}` : ''}</span>
         </li>`).join('')
       : '<li class="empty">Il backlog è vuoto.</li>';
   }
@@ -862,13 +862,13 @@
           <div class="up-main">
             <div class="up-title">${esc(b.title)}</div>
             ${b.console ? `<div class="up-sub">${esc(b.console)}</div>` : ''}
-            <div class="time-chips">${ownedBadge(b, 'backlog')}${chips || '<span class="muted small">Tempo non ancora inserito</span>'}</div>
+            <div class="time-chips">${startedBadge(b)}${ownedBadge(b, 'backlog')}${chips || '<span class="muted small">Tempo non ancora inserito</span>'}</div>
             ${b.notes ? `<div class="up-notes">${esc(b.notes)}</div>` : ''}
           </div>
           <div class="up-side">
             <a class="hltb-link" href="${hltbUrl(b.title)}" target="_blank" rel="noopener" title="Apri su HowLongToBeat">⏱ HLTB ↗</a>
             <div class="up-actions">
-              <button class="btn small primary" data-action="play-backlog" data-id="${esc(b.id)}" title="Inizia a giocarlo: va tra i giochi in corso">▶ Inizia</button>
+              <button class="btn small primary" data-action="play-backlog" data-id="${esc(b.id)}" title="${b.started ? 'Riprendi a giocarlo' : 'Inizia a giocarlo'}: va tra i giochi in corso">▶ ${b.started ? 'Riprendi' : 'Inizia'}</button>
               <button class="btn small" data-action="start-backlog" data-id="${esc(b.id)}" title="L'hai già finito? Spostalo nella libreria">✔ Giocato</button>
               <button class="btn ghost small" data-action="edit-backlog" data-id="${esc(b.id)}">Modifica</button>
             </div>
@@ -969,6 +969,12 @@
     } finally {
       setBusy(false);
     }
+  }
+
+  function startedBadge(b) {
+    if (!b.started) return '';
+    const bits = [b.startedAt ? `dal ${fmtDate.format(new Date(b.startedAt + 'T00:00'))}` : '', b.hours ? `${fmt1.format(b.hours)} h` : ''].filter(Boolean);
+    return `<span class="started-chip" title="Gioco già iniziato e messo in pausa${bits.length ? ' (' + bits.join(', ') + ')' : ''}">🕹️ Iniziato${b.hours ? ` · ${fmt1.format(b.hours)} h` : ''}</span>`;
   }
 
   // ---------- ACQUISTO (uscite e backlog) ----------
@@ -1209,14 +1215,53 @@
         </button>`
         : b ? `<a class="link-card" href="#uscite" data-scroll="backlog"><span class="play-tag backlog">Backlog</span><span class="link-card-text"><strong>È nel tuo backlog</strong><span class="muted small">Non l'hai ancora giocato</span></span><span aria-hidden="true">›</span></a>`
           : '<p class="muted">Non l\'hai ancora giocato.</p>'}
+      ${!g || isUnrated(g) ? `<button type="button" class="btn small" id="coll-hours">⏱ ${g?.hours != null ? `Ore di gioco: ${fmt1.format(g.hours)} h · Modifica` : 'Segna le ore di gioco'}</button>
+        <p class="muted small coll-hours-note">${g ? 'Gioco fuori classifica: le ore contano nelle statistiche.' : 'Il gioco entra nella libreria come “Giocato (senza voto)”: le ore contano nelle statistiche, ma resta fuori classifica.'}</p>` : ''}
       ${it.notes ? `<h3>Note</h3><p class="review">${esc(it.notes)}</p>` : ''}
       <button type="button" class="btn ghost small" id="coll-add-copy">+ Ce l'hai anche ${other === 'digital' ? 'in digitale' : 'fisico'}? Aggiungi un'altra copia</button>`;
     $('#coll-open-game')?.addEventListener('click', () => { $('#coll-detail-dialog').close(); openDetail(g.id); });
+    $('#coll-hours')?.addEventListener('click', () => setCollectionHours(it.id));
     $('#coll-add-copy').addEventListener('click', () => {
       $('#coll-detail-dialog').close();
       openCollectionForm(null, { title: it.title, cover: it.cover, console: it.console, format: other, gameId: it.gameId });
     });
     $('#coll-detail-dialog').showModal();
+  }
+
+  // ore di gioco dalla collezione, per i giochi non in classifica
+  async function setCollectionHours(id) {
+    const it = state.collection.find((x) => x.id === id);
+    if (!it || state.busy) return;
+    if (!Storage.canWrite()) { toast('Per salvare serve il token GitHub (⚙ Impostazioni).', 'error'); return; }
+    const g = linkedGame(it);
+    if (g && !isUnrated(g)) return;
+    const answer = prompt(`Quante ore hai giocato a “${it.title}”?`, g?.hours ?? '');
+    if (answer == null || !String(answer).trim()) return;
+    const hours = num(String(answer).replace(',', '.'));
+    if (hours == null || hours < 0) { toast('Scrivi un numero di ore valido.', 'error'); return; }
+    setBusy(true, 'Salvo le ore…');
+    try {
+      const now = new Date().toISOString();
+      if (g) {
+        state.games = await save('games', (list) => list.map((x) => (x.id === g.id ? { ...x, hours, updatedAt: now } : x)), `Ore aggiornate: ${g.title}`);
+        if (it.gameId !== g.id) state.collection = await save('collection', (list) => list.map((x) => (x.id === id ? { ...x, gameId: g.id } : x)), `Collegato alla libreria: ${it.title}`);
+      } else {
+        const game = {
+          id: uid(), title: it.title, cover: it.cover || '', developer: '', genre: '', franchise: '', console: it.console || '',
+          score: null, hours, status: UNRATED, releaseYear: null, playedYear: new Date().getFullYear(),
+          review: '', createdAt: now, updatedAt: now,
+        };
+        state.games = await save('games', (list) => { list.push(game); return list; }, `Giocato senza voto (dalla collezione): ${it.title}`);
+        state.collection = await save('collection', (list) => list.map((x) => (x.id === id ? { ...x, gameId: game.id } : x)), `Collegato alla libreria: ${it.title}`);
+      }
+      renderAll();
+      if ($('#coll-detail-dialog').open) openCollDetail(id);
+      toast(`${fmt1.format(hours)} h su “${it.title}” ✔`);
+    } catch (err) {
+      toast(err.message, 'error');
+    } finally {
+      setBusy(false);
+    }
   }
 
   // ----- aggiungi / modifica -----
@@ -1629,11 +1674,11 @@
     try {
       const now = new Date().toISOString();
       const game = {
-        id: uid(), title: b.title, cover: b.cover || '', developer: '', genre: '', franchise: '', console: b.console || '',
-        score: null, hours: null, status: PLAYING, releaseYear: null, playedYear: new Date().getFullYear(),
-        review: '', startedAt: todayISO(), createdAt: now, updatedAt: now,
+        id: uid(), title: b.title, cover: b.cover || '', developer: b.developer || '', genre: b.genre || '', franchise: b.franchise || '', console: b.console || '',
+        score: null, hours: b.hours ?? null, status: PLAYING, releaseYear: b.releaseYear ?? null, playedYear: new Date().getFullYear(),
+        review: '', startedAt: (b.started && b.startedAt) || todayISO(), createdAt: now, updatedAt: now,
       };
-      state.games = await save('games', (list) => { list.push(game); return list; }, `Iniziato: ${b.title}`);
+      state.games = await save('games', (list) => { list.push(game); return list; }, `${b.started ? 'Ripreso' : 'Iniziato'}: ${b.title}`);
       state.backlog = await save('backlog', (list) => list.filter((x) => x.id !== id), `Dal backlog a in corso: ${b.title}`);
       renderAll();
       toast(`“${b.title}” è tra i giochi in corso. Buon divertimento! 🎮`);
@@ -1663,11 +1708,16 @@
     if (!confirm(`Rimettere “${g.title}” nel backlog? Il gioco esce dai giochi in corso.`)) return;
     setBusy(true, 'Lo rimetto nel backlog…');
     try {
-      const item = { id: uid(), title: g.title, cover: g.cover || '', console: g.console || '', notes: g.review || '', owned: 'yes', time: null, addedAt: new Date().toISOString() };
+      const item = {
+        id: uid(), title: g.title, cover: g.cover || '', console: g.console || '', notes: g.review || '', owned: 'yes', time: null,
+        started: true, startedAt: g.startedAt || null, hours: g.hours ?? null,
+        developer: g.developer || '', genre: g.genre || '', franchise: g.franchise || '', releaseYear: g.releaseYear ?? null,
+        addedAt: new Date().toISOString(),
+      };
       state.backlog = await save('backlog', (list) => { list.push(item); return list; }, `Dai giochi in corso al backlog: ${g.title}`);
       state.games = await save('games', (list) => list.filter((x) => x.id !== id), `Tolto dai giochi in corso: ${g.title}`);
       renderAll();
-      toast(`“${g.title}” è tornato nel backlog ✔`);
+      toast(`“${g.title}” è tornato nel backlog, segnato come iniziato ✔`);
     } catch (err) {
       toast(err.message, 'error');
     } finally {
