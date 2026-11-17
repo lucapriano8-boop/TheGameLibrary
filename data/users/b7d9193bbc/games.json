@@ -1207,5 +1207,22 @@
     "review": "",
     "createdAt": "2026-11-17T20:38:51.384Z",
     "updatedAt": "2026-11-17T20:38:51.384Z"
+  },
+  {
+    "id": "112b4d8f-145a-48b9-b4e5-ecd2661f262b",
+    "title": "Euro Truck Simulator 2",
+    "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202507/3015/ad5c744446f36968301de151c78f6902037a549a964ec871.png",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 261,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T20:39:16.499Z",
+    "updatedAt": "2026-11-17T20:39:16.499Z"
   }
 ]
