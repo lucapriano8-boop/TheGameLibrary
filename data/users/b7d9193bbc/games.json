@@ -1411,5 +1411,22 @@
     "review": "",
     "createdAt": "2026-11-17T20:42:13.484Z",
     "updatedAt": "2026-11-17T20:42:13.484Z"
+  },
+  {
+    "id": "0f132361-f3a7-444d-a1dc-cd4a81acd62c",
+    "title": "MotoGP 21",
+    "cover": "https://cdn.loaded.com/500x706/media/catalog/product/m/o/motogp_21_pc.jpg",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 8,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T20:42:25.525Z",
+    "updatedAt": "2026-11-17T20:42:25.525Z"
   }
 ]
