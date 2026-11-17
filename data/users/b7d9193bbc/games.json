@@ -1156,5 +1156,22 @@
     "review": "",
     "createdAt": "2026-11-17T20:38:04.793Z",
     "updatedAt": "2026-11-17T20:38:04.793Z"
+  },
+  {
+    "id": "e11dc8da-b9bc-44d2-b5ba-2464d3d2fd22",
+    "title": "Crash Time III",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/0/09/Crash_Time_III_Coverart.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 16,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T20:38:14.968Z",
+    "updatedAt": "2026-11-17T20:38:14.968Z"
   }
 ]
