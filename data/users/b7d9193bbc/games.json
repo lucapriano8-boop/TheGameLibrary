@@ -1173,5 +1173,22 @@
     "review": "",
     "createdAt": "2026-11-17T20:38:14.968Z",
     "updatedAt": "2026-11-17T20:38:14.968Z"
+  },
+  {
+    "id": "652df0fb-57a8-4e62-9ed5-5b734469df0e",
+    "title": "Deep Rock Galactic",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/b/b3/Deep_rock_galactic_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 5,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T20:38:35.851Z",
+    "updatedAt": "2026-11-17T20:38:35.851Z"
   }
 ]
