@@ -318,5 +318,22 @@
     "owned": "yes",
     "time": null,
     "addedAt": "2026-11-17T20:58:43.049Z"
+  },
+  {
+    "id": "4ecde1cb-fe96-4845-b5b3-52000b559eba",
+    "title": "Red Dead Redemption",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/a/a7/Red_Dead_Redemption.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PC",
+    "notes": "",
+    "owned": "yes",
+    "time": null,
+    "started": true,
+    "startedAt": "2026-11-17",
+    "hours": 5,
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "releaseYear": null,
+    "addedAt": "2026-11-17T21:16:35.748Z"
   }
 ]
