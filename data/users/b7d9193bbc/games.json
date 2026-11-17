@@ -1428,5 +1428,22 @@
     "review": "",
     "createdAt": "2026-11-17T20:42:25.525Z",
     "updatedAt": "2026-11-17T20:42:25.525Z"
+  },
+  {
+    "id": "85f7784e-a2f2-4979-8413-fcb5056e183b",
+    "title": "NASCAR Heat 4",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/f/fd/NASCAR_Heat_4_Box_Art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 7,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T20:42:41.372Z",
+    "updatedAt": "2026-11-17T20:42:41.372Z"
   }
 ]
