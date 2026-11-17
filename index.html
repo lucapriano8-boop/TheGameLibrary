@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>The Game Library</title>
   <meta name="description" content="La mia libreria personale dei videogiochi giocati.">
-  <meta name="app-version" content="20261117-135404">
+  <meta name="app-version" content="20261117-171729">
   <meta name="theme-color" content="#1a1f2c">
   <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
@@ -15,7 +15,7 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Game Library">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <link rel="stylesheet" href="css/style.css?v=20261117-135404">
+  <link rel="stylesheet" href="css/style.css?v=20261117-171729">
 </head>
 <body>
   <header class="topbar">
@@ -377,6 +377,14 @@
             <input type="file" id="import-file" accept="application/json,.json" hidden>
           </label>
         </div>
+      </div>
+      <div class="card" id="full-backup-card" hidden>
+        <h2>Backup totale</h2>
+        <p class="muted">Un unico file con tutti i profili: giochi, uscite, backlog, collezione e console di ognuno, più l'elenco dei profili. Ci vuole qualche secondo.</p>
+        <div class="form-actions left">
+          <button class="btn primary" id="full-backup-btn">Scarica backup totale (JSON)</button>
+        </div>
+        <p id="full-backup-status" class="muted small"></p>
       </div>
       <div class="card">
         <h2>Note legali e fonti</h2>
@@ -875,8 +883,8 @@
   <div id="tooltip" class="tooltip" hidden></div>
   <div id="toast" class="toast" hidden></div>
 
-  <script src="js/storage.js?v=20261117-135404"></script>
-  <script src="js/lookup.js?v=20261117-135404"></script>
-  <script src="js/app.js?v=20261117-135404"></script>
+  <script src="js/storage.js?v=20261117-171729"></script>
+  <script src="js/lookup.js?v=20261117-171729"></script>
+  <script src="js/app.js?v=20261117-171729"></script>
 </body>
 </html>
