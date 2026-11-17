@@ -1190,5 +1190,22 @@
     "review": "",
     "createdAt": "2026-11-17T20:38:35.851Z",
     "updatedAt": "2026-11-17T20:38:35.851Z"
+  },
+  {
+    "id": "12d081c1-cdf4-4101-9e79-4ebb7e06ce17",
+    "title": "Dirt Rally 2.0",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/9/90/Dirt_Rally_2.0_artwork.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 19,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T20:38:51.384Z",
+    "updatedAt": "2026-11-17T20:38:51.384Z"
   }
 ]
