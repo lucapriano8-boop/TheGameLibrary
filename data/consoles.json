@@ -97,5 +97,14 @@
     "value": 110,
     "notes": "",
     "addedAt": "2026-11-17T15:09:52.700Z"
+  },
+  {
+    "id": "56efc2ad-8835-4187-9bf3-3650576fe5d5",
+    "name": "Nintendo DS Lite",
+    "model": "Ice blue",
+    "image": "https://raw.githubusercontent.com/lucapriano8-boop/TheGameLibrary/main/data/images/console-56efc2ad-1794928361619.jpg",
+    "value": 50,
+    "notes": "",
+    "addedAt": "2026-11-17T15:12:43.989Z"
   }
 ]
