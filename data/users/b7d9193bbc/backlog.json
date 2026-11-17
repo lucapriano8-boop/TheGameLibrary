@@ -270,5 +270,22 @@
     "franchise": "Assassin's Creed",
     "releaseYear": null,
     "addedAt": "2026-11-17T20:30:55.398Z"
+  },
+  {
+    "id": "4d2a625b-5087-429d-980c-0efe70729726",
+    "title": "Clair Obscur: Expedition 33",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/5/5a/Clair_Obscur%2C_Expedition_33_Cover_1.webp?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "console": "PS5",
+    "notes": "",
+    "owned": "yes",
+    "time": null,
+    "started": true,
+    "startedAt": "2026-11-14",
+    "hours": null,
+    "developer": "Sandfall Interactive",
+    "genre": "RPG",
+    "franchise": "Clair Obscur",
+    "releaseYear": null,
+    "addedAt": "2026-11-17T20:31:03.417Z"
   }
 ]
