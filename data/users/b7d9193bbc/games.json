@@ -1139,5 +1139,22 @@
     "review": "",
     "createdAt": "2026-11-17T20:37:45.618Z",
     "updatedAt": "2026-11-17T20:37:45.618Z"
+  },
+  {
+    "id": "785657f1-4b08-4711-b156-885d872039e9",
+    "title": "Crash Time II",
+    "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTE5joyTw4nlQFWzGPMKrrKnGv3VSFavIG6qrF_lkWTwPUCJwgbYK_r0g&s=10",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 1,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T20:38:04.793Z",
+    "updatedAt": "2026-11-17T20:38:04.793Z"
   }
 ]
