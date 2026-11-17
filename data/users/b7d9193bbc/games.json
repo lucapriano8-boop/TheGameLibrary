@@ -1565,5 +1565,22 @@
     "review": "",
     "createdAt": "2026-11-17T20:54:55.336Z",
     "updatedAt": "2026-11-17T20:54:55.336Z"
+  },
+  {
+    "id": "d323ce84-b85b-4d73-b189-12bd53890964",
+    "title": "Ride 4",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/9/99/Ride_4_cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 17,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T20:56:39.435Z",
+    "updatedAt": "2026-11-17T20:56:39.435Z"
   }
 ]
