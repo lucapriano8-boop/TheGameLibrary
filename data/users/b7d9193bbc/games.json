@@ -1667,5 +1667,22 @@
     "review": "",
     "createdAt": "2026-11-17T20:58:06.398Z",
     "updatedAt": "2026-11-17T20:58:06.398Z"
+  },
+  {
+    "id": "215cdbc4-a7bb-4297-8067-a44ee7f5c3fb",
+    "title": "The Binding Of Isaac Rebirth",
+    "cover": "https://image.api.playstation.com/cdn/EP2103/CUSA01344_00/qSMNUsGYGiQpkToF8tomiEHPOt7dMdMS.png",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 2,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T20:58:24.055Z",
+    "updatedAt": "2026-11-17T20:58:24.055Z"
   }
 ]
