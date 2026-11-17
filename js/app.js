@@ -2247,7 +2247,56 @@
     $('#legal-dialog').showModal();
   }
 
+  // Il backup totale è visibile solo nel profilo Lukeson76 (controllo di interfaccia, non di sicurezza)
+  const isBackupAdmin = () => Boolean(state.profile) && state.profile.name.trim().toLowerCase() === 'lukeson76';
+
+  async function exportFullBackup() {
+    if (state.busy) return;
+    if (!isBackupAdmin()) return;
+    const btn = $('#full-backup-btn');
+    const status = $('#full-backup-status');
+    btn.disabled = true;
+    const warnings = [];
+    try {
+      const users = state.users.slice();
+      const profiles = [];
+      for (const u of users) {
+        if (u.deleted) { profiles.push({ ...u, data: null }); continue; }
+        const data = {};
+        for (const k of ['games', 'upcoming', 'backlog', 'collection', 'consoles']) {
+          status.textContent = `Leggo ${u.name}: ${k}…`;
+          const r = await Storage.load(`${u.dir}/${k}.json`);
+          if (r.source !== 'github') warnings.push(`${u.name}/${k}: letto dal sito, non da GitHub`);
+          if (r.warning) warnings.push(`${u.name}/${k}: ${r.warning}`);
+          data[k] = r.data;
+        }
+        profiles.push({ ...u, data });
+      }
+      const backup = {
+        type: 'game-library-full-backup',
+        exportedAt: new Date().toISOString(),
+        exportedBy: state.profile.name,
+        repository: (() => { const c = Storage.getConfig(); return `${c.owner}/${c.repo}@${c.branch}`; })(),
+        profiles,
+      };
+      const blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `game-library-backup-totale-${todayISO()}.json`;
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+      const games = profiles.reduce((n, p) => n + (p.data?.games.length || 0), 0);
+      status.textContent = `Backup pronto: ${profiles.filter((p) => !p.deleted).length} profili, ${games} giochi.`
+        + (warnings.length ? ` Attenzione: ${warnings.join('; ')}` : '');
+    } catch (err) {
+      status.textContent = `❌ ${err.message}`;
+    } finally {
+      btn.disabled = false;
+    }
+  }
+
   function fillSettings() {
+    $('#full-backup-card').hidden = !isBackupAdmin();
     const cfg = Storage.getConfig();
     const f = $('#settings-form').elements;
     f.owner.value = cfg.owner || '';
@@ -2547,6 +2596,7 @@
       $('#settings-status').textContent = 'Token rimosso da questo browser.';
     });
     $('#export-btn').addEventListener('click', exportBackup);
+    $('#full-backup-btn').addEventListener('click', exportFullBackup);
     $('#import-file').addEventListener('change', importBackup);
 
     setupChartHover();
