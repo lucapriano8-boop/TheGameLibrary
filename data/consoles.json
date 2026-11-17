@@ -133,5 +133,14 @@
     "value": 50,
     "notes": "",
     "addedAt": "2026-11-17T15:15:49.436Z"
+  },
+  {
+    "id": "acf233e7-52cd-4972-b814-ca2c513eef85",
+    "name": "Psp",
+    "model": "E1000 White",
+    "image": "https://raw.githubusercontent.com/lucapriano8-boop/TheGameLibrary/main/data/images/console-acf233e7-1794928583070.jpg",
+    "value": 70,
+    "notes": "",
+    "addedAt": "2026-11-17T15:16:25.165Z"
   }
 ]
