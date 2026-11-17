@@ -1088,5 +1088,22 @@
     "review": "",
     "createdAt": "2026-11-17T20:36:29.617Z",
     "updatedAt": "2026-11-17T20:36:29.617Z"
+  },
+  {
+    "id": "4e3ade7e-194c-4d8a-a196-fac91ed3d451",
+    "title": "Batman: Arkham Asylum",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/4/42/Batman_Arkham_Asylum_Videogame_Cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 10,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T20:36:49.193Z",
+    "updatedAt": "2026-11-17T20:36:49.193Z"
   }
 ]
