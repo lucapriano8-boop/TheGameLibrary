@@ -1530,5 +1530,22 @@
     "review": "",
     "createdAt": "2026-11-17T20:44:33.536Z",
     "updatedAt": "2026-11-17T20:44:33.536Z"
+  },
+  {
+    "id": "07eea2db-b136-4b9c-b046-9272b72c86e6",
+    "title": "Red Dead Redemption",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/a/a7/Red_Dead_Redemption.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 5,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T20:44:48.563Z",
+    "updatedAt": "2026-11-17T20:44:48.563Z"
   }
 ]
