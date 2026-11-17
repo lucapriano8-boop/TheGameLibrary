@@ -1445,5 +1445,22 @@
     "review": "",
     "createdAt": "2026-11-17T20:42:41.372Z",
     "updatedAt": "2026-11-17T20:42:41.372Z"
+  },
+  {
+    "id": "8285bc30-7477-4d19-a848-cdc2ee61c396",
+    "title": "Payday 2",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/7/7b/Payday2cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 41,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T20:42:55.918Z",
+    "updatedAt": "2026-11-17T20:42:55.918Z"
   }
 ]
