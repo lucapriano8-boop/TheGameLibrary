@@ -1548,5 +1548,22 @@
     "createdAt": "2026-11-17T20:44:48.563Z",
     "updatedAt": "2026-11-17T20:54:22.812Z",
     "startedAt": "2026-11-17"
+  },
+  {
+    "id": "003b2945-1b79-44be-9e7f-d9fdc6c6d77f",
+    "title": "Return to Monkey Island",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/4/4f/Return-to-Monkey-Island.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 6,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T20:54:55.336Z",
+    "updatedAt": "2026-11-17T20:54:55.336Z"
   }
 ]
