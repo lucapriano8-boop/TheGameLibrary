@@ -1224,5 +1224,22 @@
     "review": "",
     "createdAt": "2026-11-17T20:39:16.499Z",
     "updatedAt": "2026-11-17T20:39:16.499Z"
+  },
+  {
+    "id": "027b5aa2-da0a-43e6-99cd-b6a0979504ea",
+    "title": "F1 22",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/b/be/F1_22_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 9,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T20:39:30.374Z",
+    "updatedAt": "2026-11-17T20:39:30.374Z"
   }
 ]
