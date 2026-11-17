@@ -1020,5 +1020,22 @@
     "review": "",
     "createdAt": "2026-11-17T20:34:54.043Z",
     "updatedAt": "2026-11-17T20:34:54.043Z"
+  },
+  {
+    "id": "6adbd85f-5be2-4b43-a7bf-b9f871baca61",
+    "title": "Assetto Corsa",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/c/c8/Assetto_Corsa_cover.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 218,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T20:35:13.449Z",
+    "updatedAt": "2026-11-17T20:35:13.449Z"
   }
 ]
