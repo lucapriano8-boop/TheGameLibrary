@@ -518,5 +518,19 @@
       "complete": null
     },
     "addedAt": "2026-11-16T12:47:51.650Z"
+  },
+  {
+    "id": "c454b53d-92b5-4c97-969c-f78982e1512e",
+    "title": "Resident Evil HD Remaster",
+    "cover": "",
+    "console": "Ps4",
+    "notes": "",
+    "owned": "yes",
+    "time": {
+      "main": 11,
+      "extra": null,
+      "complete": null
+    },
+    "addedAt": "2026-11-17T11:30:30.515Z"
   }
 ]
