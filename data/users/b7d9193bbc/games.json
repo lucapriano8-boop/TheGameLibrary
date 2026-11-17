@@ -1309,5 +1309,22 @@
     "review": "",
     "createdAt": "2026-11-17T20:40:25.664Z",
     "updatedAt": "2026-11-17T20:40:25.664Z"
+  },
+  {
+    "id": "c38f67b9-1ce4-4a23-82e2-4c80ce1dbb9a",
+    "title": "Farming Simulator 22",
+    "cover": "https://cdn1.epicgames.com/salesEvent/salesEvent/725818d8-9768-4a6a-a723-3039aaee1e23_1200x1600-3b6116d3fc1b566b71251d04bce27938",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 227,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T20:40:39.499Z",
+    "updatedAt": "2026-11-17T20:40:39.499Z"
   }
 ]
