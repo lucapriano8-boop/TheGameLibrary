@@ -1479,5 +1479,22 @@
     "review": "",
     "createdAt": "2026-11-17T20:43:10.833Z",
     "updatedAt": "2026-11-17T20:43:10.833Z"
+  },
+  {
+    "id": "e45aac4b-b539-4da9-b047-b75cdad46f45",
+    "title": "Prison Architect",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/7/7b/Prison_Architect_Logo.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 200,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T20:44:04.700Z",
+    "updatedAt": "2026-11-17T20:44:04.700Z"
   }
 ]
