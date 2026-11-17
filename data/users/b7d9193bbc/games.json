@@ -936,24 +936,6 @@
     "updatedAt": "2026-11-14T15:15:57.018Z"
   },
   {
-    "id": "f777aa96-c07b-4dc6-a7a8-671f99e3a2d3",
-    "title": "Call of Duty: Modern Warfare 3",
-    "cover": "https://upload.wikimedia.org/wikipedia/en/b/bf/Call_of_Duty_Modern_Warfare_3_box_art.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "developer": "Infinity Ward, Sledgehammer Games",
-    "genre": "First-person shooter",
-    "franchise": "Call of Duty",
-    "console": "",
-    "score": null,
-    "hours": 4,
-    "status": "In corso",
-    "releaseYear": null,
-    "playedYear": 2026,
-    "review": "",
-    "startedAt": "2026-11-15",
-    "createdAt": "2026-11-15T14:52:31.451Z",
-    "updatedAt": "2026-11-17T17:15:11.660Z"
-  },
-  {
     "id": "32b2e94c-2bc6-4c8f-9bf6-48c55c1ca4fb",
     "title": "Dark Souls III",
     "cover": "https://upload.wikimedia.org/wikipedia/en/b/bb/Dark_souls_3_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
