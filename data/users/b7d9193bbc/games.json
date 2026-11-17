@@ -1394,5 +1394,22 @@
     "review": "",
     "createdAt": "2026-11-17T20:41:46.668Z",
     "updatedAt": "2026-11-17T20:41:46.668Z"
+  },
+  {
+    "id": "5ef2b764-8d8e-4829-903d-08a1fa845d7c",
+    "title": "MotoGP 20",
+    "cover": "https://www.codiciprodotto.it/wp-content/uploads/2021/01/motogp-20_cover_original.jpg",
+    "developer": "",
+    "genre": "",
+    "franchise": "",
+    "console": "PC",
+    "score": null,
+    "hours": 53,
+    "status": "Giocato senza voto",
+    "releaseYear": null,
+    "playedYear": 2026,
+    "review": "",
+    "createdAt": "2026-11-17T20:42:13.484Z",
+    "updatedAt": "2026-11-17T20:42:13.484Z"
   }
 ]
