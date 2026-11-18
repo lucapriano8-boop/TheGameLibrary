@@ -3,25 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>The Game Library</title>
-  <meta name="description" content="La mia libreria personale dei videogiochi giocati.">
-  <meta name="app-version" content="20261117-204312">
+  <title>The Library</title>
+  <meta name="description" content="La mia libreria personale: videogiochi, manga, libri, film e serie TV.">
+  <meta name="app-version" content="20261118-100510">
   <meta name="theme-color" content="#1a1f2c">
-  <link rel="icon" type="image/svg+xml" href="assets/logo.svg?v=20261117-204312">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=20261117-204312">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=20261117-204312">
-  <link rel="manifest" href="manifest.webmanifest?v=20261117-204312">
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg?v=20261118-100510">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=20261118-100510">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=20261118-100510">
+  <link rel="manifest" href="manifest.webmanifest?v=20261118-100510">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-title" content="Game Library">
+  <meta name="apple-mobile-web-app-title" content="The Library">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <link rel="stylesheet" href="css/style.css?v=20261117-204312">
+  <link rel="stylesheet" href="css/style.css?v=20261118-100510">
 </head>
 <body>
   <header class="topbar">
     <div class="brand">
-      <img class="brand-icon" src="assets/logo.svg?v=20261117-204312" alt="" width="34" height="34">
-      <span class="brand-name">The Game Library</span>
+      <img class="brand-icon" src="assets/logo.svg?v=20261118-100510" alt="" width="34" height="34">
+      <span class="brand-name">The Library</span>
     </div>
     <nav class="tabs" id="tabs">
       <a href="#home" data-view="home">Home</a>
@@ -31,6 +31,7 @@
       <a href="#statistiche" data-view="statistiche">Statistiche</a>
       <a href="#impostazioni" data-view="impostazioni" title="Impostazioni" aria-label="Impostazioni">⚙</a>
     </nav>
+    <nav class="tabs" id="media-tabs" aria-label="Schede della sezione" hidden></nav>
     <div class="topbar-right">
       <a href="#impostazioni" class="settings-link" data-view="impostazioni" title="Impostazioni" aria-label="Impostazioni">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
@@ -40,6 +41,7 @@
         <span class="chip-name"></span>
       </a>
     </div>
+    <nav class="section-bar" id="section-bar" aria-label="Sezioni della libreria" hidden></nav>
   </header>
 
   <div id="banner" class="banner" hidden></div>
@@ -47,7 +49,7 @@
   <main>
     <!-- PROFILI -->
     <section id="view-profili" class="view profiles-screen" hidden>
-      <img class="profiles-logo" src="assets/logo.svg?v=20261117-204312" alt="" width="64" height="64">
+      <img class="profiles-logo" src="assets/logo.svg?v=20261118-100510" alt="" width="64" height="64">
       <h1 id="profiles-title">Chi gioca?</h1>
       <p id="profiles-hint" class="muted"></p>
       <div id="profile-grid" class="profile-grid"></div>
@@ -326,8 +328,18 @@
     </section>
 
     <!-- IMPOSTAZIONI -->
+    <!-- MANGA, LIBRI, FILM, SERIE TV (js/media.js) -->
+    <section id="view-media" class="view" hidden></section>
+
     <section id="view-impostazioni" class="view" hidden>
       <div class="view-head"><h1>Impostazioni</h1></div>
+
+      <div class="card" id="sections-card">
+        <h2>Sezioni della libreria</h2>
+        <p class="muted">Accendi solo quello che ti interessa: le sezioni spente spariscono dalla barra in alto.
+          Spegnere una sezione la nasconde soltanto, i suoi dati restano salvati. La scelta vale solo per il tuo profilo.</p>
+        <div id="sections-list" class="sections-list"></div>
+      </div>
 
       <div class="card">
         <h2>Collegamento a GitHub</h2>
@@ -358,7 +370,7 @@
       </div>
 
       <div class="card">
-        <h2>Copertine</h2>
+        <h2>Copertine dei videogiochi</h2>
         <p class="muted">Cerca automaticamente la copertina dei giochi che non ce l'hanno ancora (dati da Wikipedia/Wikidata).
           Se una copertina è sbagliata, apri il gioco → Modifica → “Cerca dati” e scegli quella giusta.</p>
         <div class="form-actions left">
@@ -369,7 +381,7 @@
 
       <div class="card">
         <h2>Backup</h2>
-        <p class="muted">Scarica una copia di tutti i dati o ripristinala da un file di backup.</p>
+        <p class="muted">Scarica una copia dei videogiochi e delle uscite del profilo o ripristinala da un file di backup.</p>
         <div class="form-actions left">
           <button class="btn" id="export-btn">Esporta backup (JSON)</button>
           <label class="btn">
@@ -380,7 +392,7 @@
       </div>
       <div class="card" id="full-backup-card" hidden>
         <h2>Backup totale</h2>
-        <p class="muted">Un unico file con tutti i profili: giochi, uscite, backlog, collezione e console di ognuno, più l'elenco dei profili. Ci vuole qualche secondo.</p>
+        <p class="muted">Un unico file con tutti i profili: giochi, uscite, backlog, collezione e console di ognuno, più manga, libri, film e serie, e l'elenco dei profili. Ci vuole qualche secondo.</p>
         <div class="form-actions left">
           <button class="btn primary" id="full-backup-btn">Scarica backup totale (JSON)</button>
         </div>
@@ -405,7 +417,7 @@
     <button type="button" data-action="add-backlog">🎯 Gioco nel backlog</button>
   </div>
 
-  <nav class="bottom-nav" aria-label="Navigazione">
+  <nav class="bottom-nav" id="games-nav" aria-label="Navigazione">
     <a href="#home" data-view="home">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg>
       <span>Home</span>
@@ -800,13 +812,13 @@
         <details class="legal-item">
           <summary>Che cos'è questo sito</summary>
           <div class="legal-body">
-            <p>Una libreria personale di videogiochi, usata da un piccolo gruppo di amici. È <strong>non commerciale</strong>: nessuna pubblicità, nessuna vendita, nessun guadagno.</p>
+            <p>Una libreria personale di videogiochi, manga, libri, film e serie TV, usata da un piccolo gruppo di amici. È <strong>non commerciale</strong>: nessuna pubblicità, nessuna vendita, nessun guadagno.</p>
           </div>
         </details>
         <details class="legal-item">
           <summary>Nessuna affiliazione e marchi</summary>
           <div class="legal-body">
-            <p>Il sito non è affiliato, sponsorizzato o approvato da Sony, Nintendo, Microsoft, Valve, editori o sviluppatori di videogiochi, né da Wikipedia/Wikimedia, Wikidata o HowLongToBeat.</p>
+            <p>Il sito non è affiliato, sponsorizzato o approvato da Sony, Nintendo, Microsoft, Valve, editori o sviluppatori di videogiochi, case editrici, case di produzione o piattaforme di streaming, né da Wikipedia/Wikimedia, Wikidata o HowLongToBeat.</p>
             <p>I nomi di giochi, console e aziende sono marchi dei rispettivi proprietari e sono usati solo per identificare i prodotti.</p>
           </div>
         </details>
@@ -881,10 +893,16 @@
   <datalist id="dl-console"></datalist>
 
   <div id="tooltip" class="tooltip" hidden></div>
+  <nav class="bottom-nav" id="media-nav" aria-label="Navigazione della sezione" hidden></nav>
+
+  <!-- MODALE: manga, libri, film, serie (contenuto creato da js/media.js) -->
+  <dialog id="media-dialog" class="dialog"></dialog>
+
   <div id="toast" class="toast" hidden></div>
 
-  <script src="js/storage.js?v=20261117-204312"></script>
-  <script src="js/lookup.js?v=20261117-204312"></script>
-  <script src="js/app.js?v=20261117-204312"></script>
+  <script src="js/storage.js?v=20261118-100510"></script>
+  <script src="js/lookup.js?v=20261118-100510"></script>
+  <script src="js/media.js?v=20261118-100510"></script>
+  <script src="js/app.js?v=20261118-100510"></script>
 </body>
 </html>
