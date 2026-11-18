@@ -242,5 +242,15 @@
     },
     "addedAt": "2026-11-18T11:50:29.013Z",
     "updatedAt": "2026-11-18T11:51:08.647Z"
+  },
+  {
+    "id": "33edb422-5c2b-4f80-bbb1-d0430f082e73",
+    "title": "Bloodborne",
+    "cover": "https://m.media-amazon.com/images/I/815R6XNaQdL._AC_UF1000,1000_QL80_.jpg",
+    "author": "Piotr Kowalsky",
+    "total": 6,
+    "notes": "",
+    "vols": {},
+    "addedAt": "2026-11-18T11:52:35.724Z"
   }
 ]
