@@ -132,17 +132,6 @@
     "value": null
   },
   {
-    "id": "415ea65f-9170-4b07-a845-ae6214727056",
-    "title": "The last of Us Parte I",
-    "cover": "",
-    "console": "Ps5",
-    "format": "physical",
-    "edition": "",
-    "notes": "",
-    "gameId": "a43f47a6-3a00-4202-ab8b-56237cdbcdae",
-    "addedAt": "2026-11-16T12:20:49.645Z"
-  },
-  {
     "id": "331cc661-9095-4326-974e-2bb72ed3d8b5",
     "title": "The Witcher 3: Wild Hunt",
     "cover": "https://upload.wikimedia.org/wikipedia/en/0/0c/Witcher_3_cover_art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
