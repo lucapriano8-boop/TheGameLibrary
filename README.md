@@ -1,6 +1,13 @@
-# 🎮 TheGameLibrary
+# 📚 The Library (TheGameLibrary)
 
-La mia libreria digitale personale dei videogiochi giocati.
+La mia libreria digitale personale: videogiochi, manga, libri, film e serie TV.
+
+- **Sezioni**: Videogiochi, Manga, Libri, Film e Serie TV. Ogni profilo sceglie da **⚙ Impostazioni → Sezioni della libreria** quali vedere; di base è accesa solo Videogiochi. Le sezioni accese compaiono nella barra in alto, ognuna con il suo logo; spegnere una sezione la nasconde soltanto, i dati restano salvati.
+- **Manga**: si aggiungono le **saghe** con il numero di volumi e quelli che possiedi (es. "1-10, 12"). Toccando una saga ogni volume passa da mancante → posseduto → letto. In **Da comprare** tocchi una saga e vedi la lista dei volumi mancanti, con **✔ Comprato** per ognuno. La Home mostra il prossimo volume da leggere e le saghe più vicine al completamento.
+- **Libri**: libreria (cartaceo, ebook, audiolibro) con **✓ Letto** e filtri Letti / Da leggere, più la lista **Da comprare** (con ✔ Comprato il libro passa in libreria).
+- **Film**: **classifica** con voto (cursore o numero scritto da tastiera), lista **Da vedere** (con ✔ Visto dai il voto e il film entra in classifica) e **Libreria** dei film fisici (4K UHD, Blu-ray, DVD).
+- **Serie TV**: stagioni ed episodi per stagione; scheda **In corso** con l'episodio a cui sei arrivato (**+1 ep.** o scelta di stagione ed episodio). Le serie in corso non hanno voto: lo dai quando le finisci o le abbandoni, e allora entrano in **classifica**. C'è anche la lista **Da vedere** (▶ Inizia / ✔ Vista).
+- **Preferiti e Home in ogni sezione**: la stella ☆ su ogni titolo, il filtro ★ Preferiti nelle liste e il riquadro dei preferiti nella Home di ogni sezione. Anche per manga, libri, film e serie la ricerca automatica compila copertina e dati (Wikidata/Wikipedia; per le serie anche stagioni ed episodi quando ci sono).
 
 - **Profili in stile Netflix**: all'apertura scegli chi gioca. Ogni profilo ha la sua libreria e la sua lista di uscite. I profili si creano, rinominano ed eliminano dal sito ("Gestisci profili"), con 16 avatar pixel art tra cui scegliere.
 - **Backlog**: nella pagina "In uscita", sotto le uscite, la lista dei giochi che vuoi giocare, con il tempo per finirli (storia, storia + extra, completista) e il totale delle ore. Il pulsante **⏱ HLTB** apre la pagina di HowLongToBeat del gioco da cui copiare i tempi; **✔ Giocato** sposta il gioco nella libreria.
@@ -32,16 +39,17 @@ I giochi sono salvati in due file di questa repository:
 Ogni volta che aggiungi, modifichi o elimini qualcosa dal sito viene creato un **commit** su GitHub. I dati non scadono mai e hai lo storico completo di ogni modifica (puoi sempre tornare indietro dalla cronologia dei commit).
 
 ### Con i profili
-- `data/users.json`: l'elenco dei profili (nome, avatar, cartella dei dati)
+- `data/users.json`: l'elenco dei profili (nome, avatar, cartella dei dati, sezioni accese)
 - il **primo profilo** creato usa `data/games.json` e `data/upcoming.json` (i giochi inseriti prima dei profili)
 - gli altri profili hanno la loro cartella: `data/users/<id>/games.json`, `upcoming.json` e `backlog.json`
 - il backlog del primo profilo è in `data/backlog.json` (i file del backlog vengono creati al primo gioco aggiunto)
+- manga, libri, film e serie stanno nella stessa cartella del profilo: `manga.json`, `books.json`, `books-wishlist.json`, `movies.json`, `movies-watchlist.json`, `movies-owned.json`, `series.json`, `series-watchlist.json` (creati al primo elemento aggiunto)
 
 Eliminare un profilo lo nasconde dal sito, ma i suoi file restano nella repository: per recuperarlo basta togliere `"deleted": true` dalla sua voce in `data/users.json`.
 
 Il token GitHub permette di modificare tutti i profili: dallo a persone di fiducia.
 
-Gli avatar sono in `assets/avatars/` e si rigenerano con `python3 tools/make_avatars.py`.
+Gli avatar sono in `assets/avatars/` e si rigenerano con `python3 tools/make_avatars.py`; il logo e i loghi delle sezioni con `python3 tools/make_logos.py`.
 
 ## Configurazione (una volta sola)
 
@@ -67,7 +75,7 @@ Il token resta salvato **solo nel browser di quel dispositivo**: su telefono e P
 > ⚠️ Non condividere mai il token con nessuno. Se pensi che sia stato esposto, eliminalo da GitHub e creane uno nuovo.
 
 ## Backup
-Da **⚙ Impostazioni → Esporta backup** scarichi un file JSON con tutti i dati. Con **Importa backup** lo ripristini.
+Da **⚙ Impostazioni → Esporta backup** scarichi un file JSON con i videogiochi e le uscite del profilo. Con **Importa backup** lo ripristini. Il **backup totale** (solo per Lukeson76) contiene tutti i profili, comprese le sezioni manga, libri, film e serie.
 
 ## Aggiornamenti del sito
 Quando modifichi il codice, prima del commit esegui `python3 tools/bump_version.py`: aggiorna il numero di versione e il sito, aperto su qualsiasi dispositivo, si ricarica da solo con la versione nuova (al massimo qualche minuto dopo la pubblicazione).

@@ -1,5 +1,5 @@
 /*
- * Lookup: cerca i giochi su Wikidata e prende la copertina da Wikipedia.
+ * Lookup: cerca giochi, film, serie, libri e manga su Wikidata e prende la copertina da Wikipedia.
  * Nessuna chiave API né registrazione: sono servizi pubblici e gratuiti che supportano CORS.
  *  - Wikidata  -> sviluppatore, serie/franchise, genere, data di uscita, piattaforme
  *  - Wikipedia -> immagine di copertina della voce del gioco
@@ -234,5 +234,107 @@ const Lookup = (() => {
     return out.slice(0, limit);
   }
 
-  return { search, norm, baseTitle, searchImages };
+  // ---------- film, serie TV, libri, manga ----------
+  // Classi Wikidata accettate per ogni tipo (P31 = "istanza di")
+  const MEDIA_CLASSES = {
+    movie: ['Q11424', 'Q24869', 'Q202866', 'Q29168811', 'Q506240', 'Q93204'],
+    series: ['Q5398426', 'Q581714', 'Q1259759', 'Q63952888', 'Q117467246', 'Q15416', 'Q526877'],
+    book: ['Q7725634', 'Q47461344', 'Q8261', 'Q571', 'Q1667921', 'Q49084', 'Q277759', 'Q725377'],
+    manga: ['Q21198342', 'Q1004', 'Q74262765', 'Q8274', 'Q562214', 'Q725377'],
+  };
+  const SEASON_CLASS = 'Q3464665'; // stagione di una serie televisiva
+  const quantity = (ent, prop) => {
+    const v = (ent.claims?.[prop] || []).find((c) => c.rank !== 'deprecated' && c.mainsnak?.datavalue?.value?.amount)?.mainsnak.datavalue.value.amount;
+    const n = v != null ? Number(v) : NaN;
+    return Number.isFinite(n) && n > 0 ? Math.round(n) : null;
+  };
+  const startYear = (ent) => {
+    const t = (ent.claims?.P580 || []).find((c) => c.mainsnak?.datavalue?.value?.time)?.mainsnak.datavalue.value.time;
+    const m = t && /^\+?(-?\d{1,4})-/.exec(t);
+    return m ? Number(m[1]) : null;
+  };
+
+  // episodi di ogni stagione: dalle stagioni collegate alla serie (P527 "ha parte"), in ordine
+  async function seasonEpisodes(ent) {
+    const parts = (ent.claims?.P527 || []).filter((c) => c.rank !== 'deprecated' && c.mainsnak?.datavalue?.value?.id)
+      .map((c, i) => ({ id: c.mainsnak.datavalue.value.id, ord: Number(c.qualifiers?.P1545?.[0]?.datavalue?.value) || i + 1 }));
+    if (!parts.length || parts.length > 60) return null;
+    const ents = await getEntities(parts.map((p) => p.id), 'claims');
+    const seasons = parts
+      .map((p) => ({ ...p, ent: ents[p.id] }))
+      .filter((p) => p.ent && claimIds(p.ent, 'P31').includes(SEASON_CLASS))
+      .map((p) => {
+        const own = Number((p.ent.claims?.P179 || [])[0]?.qualifiers?.P1545?.[0]?.datavalue?.value);
+        return { ord: Number.isFinite(own) && own > 0 ? own : p.ord, eps: quantity(p.ent, 'P1113') };
+      })
+      .sort((a, b) => a.ord - b.ord);
+    if (!seasons.length || seasons.some((s) => !s.eps)) return null;
+    return seasons.map((s) => s.eps);
+  }
+
+  /**
+   * Cerca film ('movie'), serie TV ('series'), libri ('book') o manga ('manga') per titolo.
+   * Risultato: { id, title, year, cover, director, author, seasons[] | null, nSeasons, nEpisodes, volumes }
+   */
+  async function searchMedia(kind, query, limit = 6) {
+    const classes = MEDIA_CLASSES[kind];
+    const q = (query || '').trim().replace(/[’‘]/g, "'");
+    if (!classes || q.length < 2) return [];
+    const isKind = (ent) => claimIds(ent, 'P31').some((c) => classes.includes(c));
+
+    let ents = [];
+    let ids = [];
+    for (const strict of [true, false]) {
+      const s = await getJSON(WIKIDATA, {
+        action: 'query', list: 'search', srnamespace: '0', srlimit: String(strict ? limit : limit * 3),
+        srsearch: strict ? `${q} haswbstatement:${classes.map((c) => `P31=${c}`).join('|')}` : q,
+      });
+      ids = (s.query?.search || []).map((x) => x.title).filter((t) => /^Q\d+$/.test(t));
+      if (!ids.length) continue;
+      const all = await getEntities(ids, 'labels|claims|sitelinks', { sitefilter: 'enwiki|itwiki' });
+      ents = ids.map((id) => all[id]).filter(Boolean).filter(isKind).slice(0, limit);
+      if (ents.length) break;
+    }
+    if (!ents.length) return [];
+
+    // nomi di registi e autori
+    const refIds = new Set();
+    ents.forEach((e) => ['P57', 'P50'].forEach((p) => claimIds(e, p).slice(0, 2).forEach((x) => refIds.add(x))));
+    const refs = refIds.size ? await getEntities([...refIds], 'labels') : {};
+    const names = (e, p) => claimIds(e, p).slice(0, 2).map((id) => label(refs[id])).filter(Boolean).join(', ');
+
+    // copertine / locandine da Wikipedia
+    const titles = { en: [], it: [] };
+    ents.forEach((e) => {
+      if (e.sitelinks?.itwiki) titles.it.push(e.sitelinks.itwiki.title);
+      if (e.sitelinks?.enwiki) titles.en.push(e.sitelinks.enwiki.title);
+    });
+    let covers = {};
+    try { covers = await wikipediaCovers(titles); } catch { /* facoltative */ }
+
+    const out = [];
+    for (const e of ents) {
+      let cover = (e.sitelinks?.enwiki && covers[`en:${e.sitelinks.enwiki.title}`])
+        || (e.sitelinks?.itwiki && covers[`it:${e.sitelinks.itwiki.title}`]) || '';
+      const p18 = e.claims?.P18?.[0]?.mainsnak?.datavalue?.value;
+      if (!cover && p18 && kind !== 'series') cover = `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(p18)}?width=500`;
+      let seasons = null;
+      if (kind === 'series') { try { seasons = await seasonEpisodes(e); } catch { seasons = null; } }
+      out.push({
+        id: e.id,
+        title: label(e),
+        year: releaseInfo(e).year || startYear(e),
+        cover,
+        director: kind === 'movie' ? names(e, 'P57') : '',
+        author: kind === 'book' || kind === 'manga' ? names(e, 'P50') : '',
+        seasons,
+        nSeasons: seasons ? seasons.length : quantity(e, 'P2437'),
+        nEpisodes: seasons ? seasons.reduce((a, b) => a + b, 0) : quantity(e, 'P1113'),
+        volumes: kind === 'manga' ? quantity(e, 'P2635') : null,
+      });
+    }
+    return out.filter((r) => r.title);
+  }
+
+  return { search, norm, baseTitle, searchImages, searchMedia };
 })();

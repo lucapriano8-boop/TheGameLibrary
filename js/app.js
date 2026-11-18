@@ -1,4 +1,4 @@
-/* The Game Library — logica dell'interfaccia */
+/* The Library — logica dell'interfaccia (videogiochi, profili, impostazioni; manga, libri, film e serie sono in media.js) */
 (() => {
   'use strict';
 
@@ -23,6 +23,21 @@
   };
 
   const USERS_FILE = 'data/users.json';
+
+  // sezioni della libreria: ogni profilo sceglie quali vedere (users.json -> "sections"); di base solo i videogiochi
+  const ALL_SECTIONS = ['games', 'manga', 'books', 'movies', 'series'];
+  const SECTION_INFO = {
+    games: { label: 'Videogiochi', short: 'Giochi', hash: 'home', desc: 'Classifica, collezione, backlog e uscite' },
+    manga: { label: 'Manga', short: 'Manga', hash: 'manga', desc: 'Saghe con volumi posseduti, letti e da comprare' },
+    books: { label: 'Libri', short: 'Libri', hash: 'libri', desc: 'Libri posseduti, letti e da comprare' },
+    movies: { label: 'Film', short: 'Film', hash: 'film', desc: 'Classifica, film da vedere e film fisici' },
+    series: { label: 'Serie TV', short: 'Serie', hash: 'serie', desc: 'Episodi, classifica e serie da vedere' },
+  };
+  const GAME_VIEWS = ['home', 'classifica', 'collezione', 'uscite', 'statistiche'];
+  function enabledSections(p = state.profile) {
+    const s = Array.isArray(p?.sections) ? p.sections.filter((x) => ALL_SECTIONS.includes(x)) : [];
+    return s.length ? ALL_SECTIONS.filter((x) => s.includes(x)) : ['games'];
+  }
   const AVATARS = ['cavaliere', 'mago', 'alieno', 'slime', 'fantasma', 'robot', 'ninja', 'teschio',
     'drago', 'gatto', 'rana', 'astronauta', 'vichingo', 'volpe', 'pozione', 'zucca'];
   const avatarUrl = (a) => `assets/avatars/${AVATARS.includes(a) ? a : AVATARS[0]}.svg`;
@@ -78,6 +93,7 @@
     importConsole: '',
     importSearch: '',
     busy: false,
+    section: 'games',
   };
 
   const $ = (sel, root = document) => root.querySelector(sel);
@@ -169,17 +185,37 @@
   const VIEWS = ['profili', 'home', 'classifica', 'collezione', 'uscite', 'statistiche', 'impostazioni'];
   function route() {
     const [v, arg] = (location.hash || '#home').slice(1).split('/');
-    let view = VIEWS.includes(v) ? v : 'home';
+    const mediaHash = Media.FROM_HASH[v] ? v : null;
+    let view = mediaHash ? 'media' : VIEWS.includes(v) ? v : 'home';
     state.collConsole = view === 'collezione' && arg ? decodeURIComponent(arg) : null;
     if (view !== 'profili' && !state.profile) {
       // nessun profilo scelto: prima la schermata "Chi gioca?"
-      state.afterProfile = view;
+      state.afterProfile = mediaHash ? (location.hash || '').slice(1) : view;
       view = 'profili';
+    }
+    if (view !== 'profili' && state.profile) {
+      // sezione della pagina; se è spenta per questo profilo si va alla prima accesa
+      const enabled = enabledSections();
+      const section = mediaHash ? Media.FROM_HASH[mediaHash] : GAME_VIEWS.includes(view) ? 'games' : state.section;
+      if (!enabled.includes(section)) {
+        if (view === 'impostazioni') state.section = enabled[0];
+        else { location.replace(`#${SECTION_INFO[enabled[0]].hash}`); return; }
+      } else state.section = section;
     }
     if (view === 'profili') { state.manageProfiles = false; renderProfiles(); }
     VIEWS.forEach((name) => { $(`#view-${name}`).hidden = name !== view; });
+    $('#view-media').hidden = view !== 'media';
     $$('a[data-view]').forEach((a) => a.classList.toggle('active', a.dataset.view === view));
     document.body.dataset.view = view;
+    document.body.dataset.section = state.section;
+    const games = state.section === 'games';
+    $('#tabs').hidden = !games;
+    $('#games-nav').hidden = !games;
+    $('#media-tabs').hidden = games;
+    $('#media-nav').hidden = games;
+    if (!games) Media.setSection(state.section);
+    if (view === 'media') Media.show(mediaHash, arg);
+    renderSectionBar();
     $$('dialog[open]').forEach((d) => d.close());
     $('#fab-menu').hidden = true;
     if (view === 'impostazioni') fillSettings();
@@ -2226,6 +2262,7 @@
       state.favOnly = false;
       state.recapYear = null;
       state.compareWith = null;
+      Media.reset();
       renderAll();
       loadAll();
     }
@@ -2358,7 +2395,8 @@
       for (const u of users) {
         if (u.deleted) { profiles.push({ ...u, data: null }); continue; }
         const data = {};
-        for (const k of ['games', 'upcoming', 'backlog', 'collection', 'consoles']) {
+        for (const k of ['games', 'upcoming', 'backlog', 'collection', 'consoles', 'manga', 'books', 'books-wishlist',
+          'movies', 'movies-watchlist', 'movies-owned', 'series', 'series-watchlist']) {
           status.textContent = `Leggo ${u.name}: ${k}…`;
           const r = await Storage.load(`${u.dir}/${k}.json`);
           if (r.source !== 'github') warnings.push(`${u.name}/${k}: letto dal sito, non da GitHub`);
@@ -2390,7 +2428,55 @@
     }
   }
 
+  // ---------- SEZIONI ----------
+  function renderSectionBar() {
+    const bar = $('#section-bar');
+    const enabled = state.profile ? enabledSections() : [];
+    bar.hidden = enabled.length < 2 || document.body.dataset.view === 'profili';
+    bar.style.setProperty('--n', enabled.length);
+    bar.innerHTML = enabled.map((k) => `<a href="#${SECTION_INFO[k].hash}" class="sec${state.section === k ? ' active' : ''}" ${state.section === k ? 'aria-current="page"' : ''} title="${SECTION_INFO[k].label}">
+      <img src="assets/sections/${k}.svg" alt="" width="26" height="26"><span>${SECTION_INFO[k].short}</span></a>`).join('');
+  }
+
+  function renderSectionsList() {
+    const enabled = enabledSections();
+    $('#sections-list').innerHTML = ALL_SECTIONS.map((k) => {
+      const on = enabled.includes(k);
+      const last = on && enabled.length === 1;
+      return `<div class="section-row">
+        <img src="assets/sections/${k}.svg" alt="" width="34" height="34">
+        <div class="section-row-main"><strong>${SECTION_INFO[k].label}</strong><span class="muted small">${SECTION_INFO[k].desc}</span></div>
+        <button type="button" class="switch" role="switch" aria-checked="${on}" data-section-toggle="${k}" aria-label="${SECTION_INFO[k].label}"
+          ${last ? 'disabled title="Serve almeno una sezione accesa"' : ''}></button></div>`;
+    }).join('');
+  }
+
+  async function toggleSection(key) {
+    if (!state.profile || state.busy) return;
+    if (!Storage.canWrite()) { toast('Per cambiare le sezioni serve il token GitHub (⚙ Impostazioni).', 'error'); return; }
+    const enabled = enabledSections();
+    const on = enabled.includes(key);
+    if (on && enabled.length === 1) { toast('Serve almeno una sezione accesa.', 'error'); return; }
+    const next = on ? enabled.filter((x) => x !== key) : ALL_SECTIONS.filter((x) => x === key || enabled.includes(x));
+    const label = SECTION_INFO[key].label;
+    setBusy(true);
+    try {
+      state.users = await Storage.update(USERS_FILE, (list) => list.map((u) => (u.id === state.profile.id ? { ...u, sections: next } : u)),
+        `${on ? 'Sezione nascosta' : 'Sezione attivata'}: ${label} [${state.profile.name}]`);
+      state.profile = state.users.find((u) => u.id === state.profile.id) || { ...state.profile, sections: next };
+      if (!enabledSections().includes(state.section)) state.section = enabledSections()[0];
+      renderSectionsList();
+      route();
+      toast(on ? `“${label}” nascosta: i dati restano salvati e tornano quando la riaccendi.` : `“${label}” attivata: la trovi nella barra in alto ✔`);
+    } catch (err) {
+      toast(err.message, 'error');
+    } finally {
+      setBusy(false);
+    }
+  }
+
   function fillSettings() {
+    renderSectionsList();
     $('#full-backup-card').hidden = !isBackupAdmin();
     const cfg = Storage.getConfig();
     const f = $('#settings-form').elements;
@@ -2487,6 +2573,8 @@
     $('#filter-status').insertAdjacentHTML('beforeend', STATUSES.map((s) => `<option value="${s}">${s}</option>`).join(''));
 
     document.addEventListener('click', (e) => {
+      const secToggle = e.target.closest('[data-section-toggle]');
+      if (secToggle) { toggleSection(secToggle.dataset.sectionToggle); return; }
       const act = e.target.closest('[data-action]');
       if (act) {
         const { action, id } = act.dataset;
@@ -2600,6 +2688,7 @@
     $('#profile-delete').addEventListener('click', deleteProfile);
     $('#fab').addEventListener('click', (e) => {
       e.stopPropagation();
+      if (document.body.dataset.view === 'media') { Media.openAdd(); return; }
       if (document.body.dataset.view === 'uscite') { $('#fab-menu').hidden = !$('#fab-menu').hidden; return; }
       if (document.body.dataset.view === 'collezione') { if (state.collSection === 'hardware' && !state.collConsole) openHwForm(); else openCollectionForm(); return; }
       openGameForm();
@@ -2766,6 +2855,19 @@
     }));
   }
 
+  // funzioni condivise con media.js (manga, libri, film, serie)
+  window.App = {
+    profile: () => state.profile,
+    load: (kind) => Storage.load(fileFor(kind)),
+    save,
+    toast,
+    esc,
+    uid,
+    coverHTML,
+    scoreClass,
+    canWrite: () => Storage.canWrite(),
+  };
+
   function init() {
     try {
       const sec = localStorage.getItem('tgl-coll-section');
@@ -2791,6 +2893,7 @@
     } catch { /* ignore */ }
     checkForUpdate();
     bind();
+    Media.bind();
     updateProfileChip();
     route();
     loadUsers().then(() => {
