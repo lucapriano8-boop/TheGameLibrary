@@ -111,5 +111,24 @@
       "e": 9
     },
     "addedAt": "2026-11-18T12:12:55.791Z"
+  },
+  {
+    "id": "b85f9b6b-86c0-4a39-9d12-04bfc69196e5",
+    "title": "The Mandalorian",
+    "cover": "",
+    "year": 2019,
+    "seasons": [
+      8,
+      8,
+      8
+    ],
+    "status": "Completata",
+    "review": "",
+    "score": 85,
+    "at": {
+      "s": 3,
+      "e": 8
+    },
+    "addedAt": "2026-11-18T12:13:20.072Z"
   }
 ]
