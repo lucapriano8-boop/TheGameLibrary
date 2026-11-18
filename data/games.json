@@ -3080,7 +3080,7 @@
   {
     "id": "552ad500-28a8-41a7-ac94-2b7cdbf9b737",
     "title": "Resident Evil 3",
-    "cover": "https://upload.wikimedia.org/wikipedia/en/a/a5/Resident_Evil_3_Cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "cover": "https://static.wikia.nocookie.net/playstation5617/images/5/59/RE3_R.jpg/revision/latest?cb=20220104164941&path-prefix=es",
     "developer": "Capcom",
     "genre": "Survival horror",
     "franchise": "Resident Evil",
@@ -3092,6 +3092,6 @@
     "playedYear": 2026,
     "review": "",
     "createdAt": "2026-11-17T09:12:40.807Z",
-    "updatedAt": "2026-11-17T09:12:40.807Z"
+    "updatedAt": "2026-11-18T10:28:51.408Z"
   }
 ]
