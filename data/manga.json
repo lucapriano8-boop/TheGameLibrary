@@ -232,7 +232,15 @@
     "author": "Nikiichi Tobita",
     "total": 11,
     "notes": "",
-    "vols": {},
-    "addedAt": "2026-11-18T11:50:29.013Z"
+    "vols": {
+      "1": "own",
+      "2": "own",
+      "3": "own",
+      "4": "own",
+      "5": "own",
+      "6": "own"
+    },
+    "addedAt": "2026-11-18T11:50:29.013Z",
+    "updatedAt": "2026-11-18T11:50:39.916Z"
   }
 ]
