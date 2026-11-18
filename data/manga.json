@@ -198,5 +198,15 @@
     },
     "addedAt": "2026-11-18T11:47:52.297Z",
     "updatedAt": "2026-11-18T11:48:02.316Z"
+  },
+  {
+    "id": "6d44a280-b7da-4a5c-a820-db6f37d02095",
+    "title": "Frieren - Oltre la fine del viaggio",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/6/60/Frieren_Beyond_Journey%27s_End.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "author": "Kanehito Yamada",
+    "total": 15,
+    "notes": "",
+    "vols": {},
+    "addedAt": "2026-11-18T11:49:49.336Z"
   }
 ]
