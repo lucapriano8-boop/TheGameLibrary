@@ -2774,7 +2774,7 @@
   {
     "id": "beca1d0f-9938-43d2-8fc6-46c9912343ff",
     "title": "Final Fantasy",
-    "cover": "https://upload.wikimedia.org/wikipedia/en/d/d8/FF1_USA_boxart.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "cover": "https://assetsio.reedpopcdn.com/co6pl8.jpg?width=1920&height=1920&fit=bounds&quality=80&format=jpg&auto=webp",
     "developer": "Square",
     "genre": "RPG",
     "franchise": "Final Fantasy",
@@ -2786,7 +2786,7 @@
     "playedYear": 2024,
     "review": "",
     "createdAt": "2026-11-15T16:02:27.173Z",
-    "updatedAt": "2026-11-15T16:02:27.173Z"
+    "updatedAt": "2026-11-18T10:29:20.684Z"
   },
   {
     "id": "8927edac-e2ec-4545-9745-de266ea1c827",
