@@ -260,5 +260,15 @@
     },
     "addedAt": "2026-11-18T11:52:35.724Z",
     "updatedAt": "2026-11-18T11:52:42.727Z"
+  },
+  {
+    "id": "c2d0bb14-d294-4efa-bcfd-99828a4013e5",
+    "title": "Dark Souls Redemption",
+    "cover": "https://m.media-amazon.com/images/I/818acoZzk8L._AC_UF1000,1000_QL80_.jpg",
+    "author": "Julien Blondel",
+    "total": 3,
+    "notes": "",
+    "vols": {},
+    "addedAt": "2026-11-18T11:54:26.071Z"
   }
 ]
