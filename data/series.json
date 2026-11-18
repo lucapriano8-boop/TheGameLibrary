@@ -84,5 +84,32 @@
       "e": 8
     },
     "addedAt": "2026-11-18T12:12:24.138Z"
+  },
+  {
+    "id": "47f5d565-3370-4edb-9528-0c47c5383870",
+    "title": "Modern Family",
+    "cover": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Modern_Family.png/500px-Modern_Family.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "year": 2009,
+    "seasons": [
+      23,
+      23,
+      23,
+      23,
+      23,
+      23,
+      23,
+      23,
+      23,
+      23,
+      23
+    ],
+    "status": "In corso",
+    "review": "",
+    "score": null,
+    "at": {
+      "s": 5,
+      "e": 9
+    },
+    "addedAt": "2026-11-18T12:12:55.791Z"
   }
 ]
