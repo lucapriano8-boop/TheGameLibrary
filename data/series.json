@@ -64,5 +64,25 @@
       "e": 12
     },
     "addedAt": "2026-11-18T12:11:41.174Z"
+  },
+  {
+    "id": "73be37c7-d3a2-425e-b18f-bd08419ff775",
+    "title": "Sex Education",
+    "cover": "",
+    "year": 2019,
+    "seasons": [
+      8,
+      8,
+      8,
+      8
+    ],
+    "status": "Completata",
+    "review": "",
+    "score": 85,
+    "at": {
+      "s": 4,
+      "e": 8
+    },
+    "addedAt": "2026-11-18T12:12:24.138Z"
   }
 ]
