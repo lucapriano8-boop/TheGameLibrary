@@ -4,7 +4,11 @@
     "name": "Franceus",
     "avatar": "drago",
     "dir": "data",
-    "createdAt": "2026-11-13T15:33:10.572Z"
+    "createdAt": "2026-11-13T15:33:10.572Z",
+    "sections": [
+      "games",
+      "manga"
+    ]
   },
   {
     "id": "b7d9193bbc",
