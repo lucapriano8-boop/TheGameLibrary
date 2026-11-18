@@ -2061,5 +2061,16 @@
     "edition": "",
     "notes": "",
     "addedAt": "2026-11-17T11:30:34.108Z"
+  },
+  {
+    "id": "1d0512a8-6366-4518-ab96-c841857056bb",
+    "title": "Resident Evil 3",
+    "cover": "https://static.wikia.nocookie.net/playstation5617/images/5/59/RE3_R.jpg/revision/latest?cb=20220104164941&path-prefix=es",
+    "console": "Ps5",
+    "format": "digital",
+    "edition": "",
+    "notes": "",
+    "gameId": "552ad500-28a8-41a7-ac94-2b7cdbf9b737",
+    "addedAt": "2026-11-18T10:39:11.395Z"
   }
 ]
