@@ -32,6 +32,10 @@
     "name": "Alesos",
     "avatar": "mago",
     "dir": "data/users/029fa35adf",
-    "createdAt": "2026-11-18T07:51:04.707Z"
+    "createdAt": "2026-11-18T07:51:04.707Z",
+    "sections": [
+      "games",
+      "movies"
+    ]
   }
 ]
