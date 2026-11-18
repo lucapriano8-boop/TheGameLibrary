@@ -28,5 +28,15 @@
     },
     "addedAt": "2026-11-18T11:39:06.194Z",
     "updatedAt": "2026-11-18T11:39:46.273Z"
+  },
+  {
+    "id": "83ab5fce-5c31-4d42-a0ce-0fde2921ab2b",
+    "title": "Vagabond",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/9/99/Vagabond_%28manga%29_vol._1.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "author": "Takehiko Inoue",
+    "total": 37,
+    "notes": "",
+    "vols": {},
+    "addedAt": "2026-11-18T11:40:15.540Z"
   }
 ]
