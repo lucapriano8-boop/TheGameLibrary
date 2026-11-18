@@ -12,5 +12,17 @@
     },
     "addedAt": "2026-11-18T10:15:31.720Z",
     "updatedAt": "2026-11-18T11:00:03.152Z"
+  },
+  {
+    "id": "cbdae3c5-3806-48be-aa54-cc32c76ab2a0",
+    "title": "Fullmetal Alchemist",
+    "cover": "https://www.panini.it/media/catalog/product/M/F/MFULDE001ISBN_0.jpg",
+    "author": "Hiromu Arakawa",
+    "total": 18,
+    "notes": "Deluxe",
+    "vols": {
+      "4": "own"
+    },
+    "addedAt": "2026-11-18T11:39:06.194Z"
   }
 ]
