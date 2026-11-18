@@ -120,5 +120,17 @@
     },
     "addedAt": "2026-11-18T11:42:00.155Z",
     "updatedAt": "2026-11-18T11:42:27.953Z"
+  },
+  {
+    "id": "47eccac1-cf74-4851-a720-5f141d27039f",
+    "title": "Akira",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/7/70/Akira_Volume_1_Cover_Japanese_Version_%28Manga%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "author": "Katsuhiro Ōtomo",
+    "total": 6,
+    "notes": "",
+    "vols": {
+      "6": "own"
+    },
+    "addedAt": "2026-11-18T11:43:22.234Z"
   }
 ]
