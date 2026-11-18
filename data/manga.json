@@ -282,7 +282,10 @@
     "author": "Kamome Shirahama",
     "total": 16,
     "notes": "",
-    "vols": {},
-    "addedAt": "2026-11-18T11:57:18.316Z"
+    "vols": {
+      "1": "read"
+    },
+    "addedAt": "2026-11-18T11:57:18.316Z",
+    "updatedAt": "2026-11-18T11:57:23.277Z"
   }
 ]
