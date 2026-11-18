@@ -44,5 +44,23 @@
       "e": 22
     },
     "addedAt": "2026-11-18T12:11:13.085Z"
+  },
+  {
+    "id": "06ea689e-f915-4b7f-a767-d24ad61ac668",
+    "title": "Andor",
+    "cover": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Andor.svg/500px-Andor.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "year": 2022,
+    "seasons": [
+      12,
+      12
+    ],
+    "status": "Completata",
+    "review": "",
+    "score": 90,
+    "at": {
+      "s": 2,
+      "e": 12
+    },
+    "addedAt": "2026-11-18T12:11:41.174Z"
   }
 ]
