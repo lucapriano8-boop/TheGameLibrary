@@ -228,7 +228,7 @@
   {
     "id": "43c26d56-3f1d-4622-94ab-bf8d6323d685",
     "title": "Elden Ring: The Road to the Erdtree",
-    "cover": "",
+    "cover": "https://m.media-amazon.com/images/I/71jRdnezvAL._AC_UF1000,1000_QL80_.jpg",
     "author": "Nikiichi Tobita",
     "total": 11,
     "notes": "",
@@ -241,6 +241,6 @@
       "6": "own"
     },
     "addedAt": "2026-11-18T11:50:29.013Z",
-    "updatedAt": "2026-11-18T11:50:39.916Z"
+    "updatedAt": "2026-11-18T11:51:08.647Z"
   }
 ]
