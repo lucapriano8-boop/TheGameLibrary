@@ -639,17 +639,6 @@
     "value": 20
   },
   {
-    "id": "79df60a3-ba63-492e-9287-4b1edd054c3a",
-    "title": "Minecraft",
-    "cover": "https://commons.wikimedia.org/wiki/Special:FilePath/Minecraft%20-%20Block%20breaking%20(Full%20frame).png?width=500",
-    "console": "Ps4",
-    "format": "physical",
-    "edition": "",
-    "notes": "",
-    "gameId": "19de0fa4-b447-4753-b412-d7301c39549d",
-    "addedAt": "2026-11-16T12:20:49.645Z"
-  },
-  {
     "id": "1ccc7adf-7ccf-4762-be38-94b16ba30810",
     "title": "Spider-Man: Miles Morales",
     "cover": "https://upload.wikimedia.org/wikipedia/en/a/a3/Spider-Man_Miles_Morales.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
