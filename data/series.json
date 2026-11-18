@@ -19,5 +19,30 @@
       "e": 16
     },
     "addedAt": "2026-11-18T12:09:43.710Z"
+  },
+  {
+    "id": "f32dad0c-a44b-42dc-81e5-85731df620f2",
+    "title": "The Office",
+    "cover": "https://thumb.wikimedia.org/wikipedia/it/thumb/4/4b/The_Office_US_sigla.png/500px-The_Office_US_sigla.png?utm_source=it.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "year": 2005,
+    "seasons": [
+      6,
+      22,
+      25,
+      19,
+      28,
+      26,
+      26,
+      24,
+      25
+    ],
+    "status": "In corso",
+    "review": "",
+    "score": null,
+    "at": {
+      "s": 7,
+      "e": 22
+    },
+    "addedAt": "2026-11-18T12:11:13.085Z"
   }
 ]
