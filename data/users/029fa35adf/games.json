@@ -15,5 +15,22 @@
     "review": "",
     "createdAt": "2026-11-18T16:47:35.622Z",
     "updatedAt": "2026-11-18T16:47:35.622Z"
+  },
+  {
+    "id": "91f58fc0-cfe0-4617-b418-78a3067c81be",
+    "title": "Dark Souls: Remastered",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/8/8d/Dark_Souls_Cover_Art.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "From Software",
+    "genre": "Action RPG",
+    "franchise": "Souls",
+    "console": "PS4",
+    "score": 90,
+    "hours": 200,
+    "status": "Platinato",
+    "releaseYear": 2011,
+    "playedYear": 2021,
+    "review": "",
+    "createdAt": "2026-11-18T16:55:08.796Z",
+    "updatedAt": "2026-11-18T16:55:08.796Z"
   }
 ]
