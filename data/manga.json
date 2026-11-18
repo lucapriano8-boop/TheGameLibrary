@@ -36,7 +36,18 @@
     "author": "Takehiko Inoue",
     "total": 37,
     "notes": "",
-    "vols": {},
-    "addedAt": "2026-11-18T11:40:15.540Z"
+    "vols": {
+      "1": "read",
+      "2": "read",
+      "3": "read",
+      "4": "read",
+      "5": "own",
+      "6": "own",
+      "7": "own",
+      "8": "own",
+      "10": "own"
+    },
+    "addedAt": "2026-11-18T11:40:15.540Z",
+    "updatedAt": "2026-11-18T11:40:48.533Z"
   }
 ]
