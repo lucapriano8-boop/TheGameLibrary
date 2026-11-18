@@ -250,7 +250,15 @@
     "author": "Piotr Kowalsky",
     "total": 6,
     "notes": "",
-    "vols": {},
-    "addedAt": "2026-11-18T11:52:35.724Z"
+    "vols": {
+      "1": "read",
+      "2": "read",
+      "3": "read",
+      "4": "read",
+      "5": "read",
+      "6": "read"
+    },
+    "addedAt": "2026-11-18T11:52:35.724Z",
+    "updatedAt": "2026-11-18T11:52:42.727Z"
   }
 ]
