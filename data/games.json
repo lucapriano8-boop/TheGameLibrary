@@ -2174,8 +2174,8 @@
   },
   {
     "id": "6870f9b2-f90b-49aa-9a02-e3620b5db851",
-    "title": "The Elder Scrolls V: Skyrim Special Edition",
-    "cover": "",
+    "title": "The Elder Scrolls V: Skyrim",
+    "cover": "https://static.wikia.nocookie.net/elderscrolls/images/b/b3/Copertina_Skyrim_1.png/revision/latest/scale-to-width-down/267?cb=20190819181745&path-prefix=it",
     "developer": "Bethesda Game Studios",
     "genre": "RPG",
     "franchise": "The Elder Scrolls",
@@ -2187,7 +2187,7 @@
     "playedYear": 2016,
     "review": "",
     "createdAt": "2026-11-15T15:35:19.883Z",
-    "updatedAt": "2026-11-15T15:35:19.883Z",
+    "updatedAt": "2026-11-18T10:22:15.269Z",
     "favorite": true
   },
   {
