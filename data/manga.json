@@ -206,7 +206,23 @@
     "author": "Kanehito Yamada",
     "total": 15,
     "notes": "",
-    "vols": {},
-    "addedAt": "2026-11-18T11:49:49.336Z"
+    "vols": {
+      "1": "own",
+      "2": "own",
+      "3": "own",
+      "4": "own",
+      "5": "own",
+      "6": "own",
+      "7": "own",
+      "8": "own",
+      "9": "own",
+      "10": "own",
+      "11": "own",
+      "12": "own",
+      "13": "own",
+      "14": "own"
+    },
+    "addedAt": "2026-11-18T11:49:49.336Z",
+    "updatedAt": "2026-11-18T11:50:03.634Z"
   }
 ]
