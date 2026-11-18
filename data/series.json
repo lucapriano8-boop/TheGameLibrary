@@ -1,0 +1,23 @@
+[
+  {
+    "id": "4cb898c6-288d-418b-bb0b-c3e057be6fb6",
+    "title": "Breaking Bad",
+    "cover": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Breaking_Bad_logo.svg/500px-Breaking_Bad_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "year": 2008,
+    "seasons": [
+      7,
+      13,
+      13,
+      13,
+      16
+    ],
+    "status": "Completata",
+    "review": "",
+    "score": 95,
+    "at": {
+      "s": 5,
+      "e": 16
+    },
+    "addedAt": "2026-11-18T12:09:43.710Z"
+  }
+]
