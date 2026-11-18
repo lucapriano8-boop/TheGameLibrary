@@ -66,5 +66,15 @@
     },
     "addedAt": "2026-11-18T11:41:18.563Z",
     "updatedAt": "2026-11-18T11:41:35.641Z"
+  },
+  {
+    "id": "5d015915-a2e0-4bc4-aeac-75563ee2c18f",
+    "title": "My Hero Academia",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/5/5a/Boku_no_Hero_Academia_Volume_1.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "author": "Kōhei Horikoshi",
+    "total": 42,
+    "notes": "",
+    "vols": {},
+    "addedAt": "2026-11-18T11:42:00.155Z"
   }
 ]
