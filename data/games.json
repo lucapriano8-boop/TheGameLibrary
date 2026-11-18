@@ -1322,7 +1322,7 @@
   {
     "id": "d563d50d-8d53-4270-bdcb-8dcd7fce9187",
     "title": "Lies of P",
-    "cover": "",
+    "cover": "https://upload.wikimedia.org/wikipedia/pt/thumb/d/de/Lies_of_p_cover_art.jpg/250px-Lies_of_p_cover_art.jpg",
     "developer": "Neowiz Games",
     "genre": "Soulslike",
     "franchise": "Lies of P",
@@ -1334,7 +1334,7 @@
     "playedYear": 2023,
     "review": "",
     "createdAt": "2026-11-15T14:12:02.948Z",
-    "updatedAt": "2026-11-15T14:12:02.948Z"
+    "updatedAt": "2026-11-18T10:21:40.252Z"
   },
   {
     "id": "563947b1-220c-4073-bbac-498d971a2435",
