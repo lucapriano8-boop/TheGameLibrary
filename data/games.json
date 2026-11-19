@@ -3093,5 +3093,23 @@
     "review": "",
     "createdAt": "2026-11-17T09:12:40.807Z",
     "updatedAt": "2026-11-18T10:28:51.408Z"
+  },
+  {
+    "id": "9961cb4d-812e-42d9-87c0-12af02a3f523",
+    "title": "Grand Theft Auto VI",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/4/46/Grand_Theft_Auto_VI.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "developer": "Rockstar Studios",
+    "genre": "Action-adventure",
+    "franchise": "Grand Theft Auto",
+    "console": "PS5",
+    "score": null,
+    "hours": null,
+    "status": "In corso",
+    "releaseYear": 2026,
+    "playedYear": 2026,
+    "review": "",
+    "startedAt": "2026-11-19",
+    "createdAt": "2026-11-19T10:25:29.237Z",
+    "updatedAt": "2026-11-19T10:25:29.237Z"
   }
 ]
