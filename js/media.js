@@ -53,6 +53,10 @@ const Media = (() => {
   const BOOK_FORMATS = ['Cartaceo', 'Ebook', 'Audiolibro'];
   const MOVIE_FORMATS = ['4K UHD', 'Blu-ray', 'DVD', 'Altro'];
   const SERIES_STATUS = ['In corso', 'Completata', 'Abbandonata'];
+  // stato della pubblicazione (scrittura dell'opera, non lettura): '' | 'ongoing' | 'ended'
+  const PUB = { '': 'Non indicato', ongoing: 'In corso di pubblicazione', ended: 'Conclusa' };
+  const pubTag = (p) => (p === 'ongoing' ? tag('✍ In corso', 'blue') : p === 'ended' ? tag('📕 Conclusa') : '');
+  const pubSelect = (value, label) => `<label>${label}<select name="pub">${Object.entries(PUB).map(([k, l]) => `<option value="${k}" ${k === (value || '') ? 'selected' : ''}>${l}</option>`).join('')}</select></label>`;
 
   // ---------- dati ----------
   const cache = { pid: null, data: {}, loaded: new Set(), loading: {} };
@@ -233,7 +237,7 @@ const Media = (() => {
   // ---------- MANGA ----------
   function mangaRow(m) {
     const s = mStats(m);
-    const tags = [tag(`${s.own}/${m.total} vol.`), s.missing ? tag(`${s.missing} mancanti`, 'warn') : tag('Completa', 'ok')];
+    const tags = [pubTag(m.pub), tag(`${s.own}/${m.total} vol.`), s.missing ? tag(`${s.missing} mancanti`, 'warn') : tag('Hai tutti i volumi', 'ok')].filter(Boolean);
     if (s.toRead) tags.push(tag(`${s.toRead} da leggere`, 'blue')); else if (s.own) tags.push(tag('✓ Letto tutto', 'ok'));
     const extra = `<div class="m-progress" aria-hidden="true"><i style="width:${(s.read / m.total) * 100}%"></i><i class="own" style="width:${((s.own - s.read) / m.total) * 100}%"></i></div>`;
     return row({ kind: 'manga', id: m.id, cov: m.cover, title: m.title, sub: m.author, tags, side: star('manga', m.id, m.favorite), act: 'volumes', extra });
@@ -255,11 +259,11 @@ const Media = (() => {
     }
     if (cur.tab === 'libreria') {
       const f = filterOf('manga');
-      const items = stats.filter(({ m, s }) => (f === 'all' || (f === 'fav' ? m.favorite : f === 'reading' ? s.toRead > 0 : s.missing > 0)) && matches('manga', m.title, m.author))
+      const items = stats.filter(({ m, s }) => (f === 'all' || (f === 'fav' ? m.favorite : f === 'ongoing' ? m.pub === 'ongoing' : f === 'ended' ? m.pub === 'ended' : f === 'reading' ? s.toRead > 0 : s.missing > 0)) && matches('manga', m.title, m.author))
         .map(({ m }) => m).sort(byTitle);
       return `${head('Libreria manga', 'Tocca una saga per segnare i volumi posseduti e letti', 'Aggiungi saga')}
         ${searchBox('manga', 'Cerca una saga o un autore…')}
-        ${filters('manga', [['all', 'Tutte'], ['fav', '★ Preferite'], ['reading', 'Da leggere'], ['missing', 'Incomplete']])}
+        ${filters('manga', [['all', 'Tutte'], ['fav', '★ Preferite'], ['reading', 'Da leggere'], ['missing', 'Mi mancano volumi'], ['ongoing', '✍ In corso'], ['ended', '📕 Concluse']])}
         <ul class="m-list">${items.map(mangaRow).join('') || `<li class="empty">${all.length ? 'Nessuna saga con questo filtro.' : 'Nessuna saga: aggiungi la prima con “+”.'}</li>`}</ul>`;
     }
     // da comprare: le saghe con volumi mancanti
@@ -273,8 +277,9 @@ const Media = (() => {
 
   // ---------- LIBRI ----------
   function bookRow(b) {
-    return row({ kind: 'books', id: b.id, cov: b.cover, title: b.title, sub: b.author,
-      tags: [tag(esc(b.format || 'Cartaceo')), b.read ? tag('✓ Letto', 'ok') : tag('Da leggere', 'warn')],
+    return row({ kind: 'books', id: b.id, cov: b.cover, title: b.title,
+      sub: [b.author, b.saga].filter(Boolean).join(' · '),
+      tags: [tag(esc(b.format || 'Cartaceo')), b.read ? tag('✓ Letto', 'ok') : tag('Da leggere', 'warn'), pubTag(b.pub)].filter(Boolean),
       side: `${star('books', b.id, b.favorite)}<button type="button" class="btn small${b.read ? ' ghost' : ' primary'}" data-m="toggle-read" data-mid="${esc(b.id)}">${b.read ? 'Non letto' : '✓ Letto'}</button>` });
   }
   function wishRow(kind, w, buttons) {
@@ -295,10 +300,10 @@ const Media = (() => {
     }
     if (cur.tab === 'libreria') {
       const f = filterOf('books');
-      const items = books.filter((b) => (f === 'all' || (f === 'fav' ? b.favorite : f === 'read' ? b.read : !b.read)) && matches('books', b.title, b.author)).sort(byTitle);
+      const items = books.filter((b) => (f === 'all' || (f === 'fav' ? b.favorite : f === 'ongoing' ? b.pub === 'ongoing' : f === 'ended' ? b.pub === 'ended' : f === 'read' ? b.read : !b.read)) && matches('books', b.title, b.author, b.saga)).sort(byTitle);
       return `${head('Libreria libri', `${read} letti su ${books.length}`, 'Aggiungi libro')}
         ${searchBox('books', 'Cerca un titolo o un autore…')}
-        ${filters('books', [['all', 'Tutti'], ['fav', '★ Preferiti'], ['read', 'Letti'], ['unread', 'Da leggere']])}
+        ${filters('books', [['all', 'Tutti'], ['fav', '★ Preferiti'], ['read', 'Letti'], ['unread', 'Da leggere'], ['ongoing', '✍ Saga in corso'], ['ended', '📕 Saga conclusa']])}
         <ul class="m-list">${items.map(bookRow).join('') || `<li class="empty">${books.length ? 'Nessun libro con questo filtro.' : 'Nessun libro: aggiungi il primo con “+”.'}</li>`}</ul>`;
     }
     const items = wish.filter((w) => matches('books-buy', w.title, w.author)).sort(byAdded);
@@ -532,13 +537,14 @@ const Media = (() => {
     work = { type: 'form', kind, id };
     let fields = titleBlock(item, LOOKUP_OF[kind]);
     if (kind === 'manga') {
-      fields += input('author', 'Autore', item.author, { span: true })
-        + input('total', 'Volumi della saga *', item.total || '', { type: 'number', min: 1, max: 999, required: true, hint: 'Quanti volumi esistono in tutto (anche quelli non ancora usciti in Italia, se vuoi).' })
+      fields += input('author', 'Autore', item.author) + pubSelect(item.pub, 'Pubblicazione della saga')
+        + input('total', 'Volumi della saga *', item.total || '', { type: 'number', min: 1, max: 999, required: true, hint: 'Quanti volumi esistono finora (se la saga è in corso aggiornalo quando ne escono di nuovi).' })
         + (id ? '<p class="span-2 muted small">I volumi posseduti e letti si segnano toccando la saga nella libreria.</p>'
           : input('own', 'Volumi che possiedi', '', { ph: 'Es. 1-10, 12, 15', hint: 'Gli altri vengono segnati come mancanti e finiscono in “Da comprare”.' }))
         + textarea('notes', 'Note', item.notes);
     }
     if (kind === 'books') fields += input('author', 'Autore', item.author) + select('format', 'Formato', BOOK_FORMATS, item.format || 'Cartaceo')
+      + input('saga', 'Saga <span class="muted">(se ne fa parte)</span>', item.saga, { ph: 'Es. Le cronache del ghiaccio e del fuoco' }) + pubSelect(item.pub, 'Pubblicazione della saga')
       + `<label class="span-2 m-check"><input type="checkbox" name="read" ${item.read ? 'checked' : ''}> L'ho già letto</label>` + textarea('notes', 'Note', item.notes);
     if (kind === 'books-wishlist') fields += input('author', 'Autore', item.author, { span: true }) + textarea('notes', 'Note', item.notes);
     if (kind === 'movies') fields += input('year', 'Anno', item.year || '', { type: 'number', min: 1880, max: 2100 }) + input('director', 'Regista', item.director)
@@ -605,11 +611,11 @@ const Media = (() => {
     if (kind === 'manga') {
       const total = numv('total');
       if (!total || total < 1) { f.total.focus(); A().toast('Scrivi quanti volumi ha la saga.', 'error'); return; }
-      data = { ...base, author: val('author'), total: Math.min(total, 999), notes: val('notes') };
+      data = { ...base, author: val('author'), pub: val('pub'), total: Math.min(total, 999), notes: val('notes') };
       if (!id) { data.vols = {}; parseVols(val('own'), data.total).forEach((v) => { data.vols[v] = 'own'; }); }
       else { const m = find('manga', id); data.vols = Object.fromEntries(Object.entries(m.vols || {}).filter(([v]) => +v <= data.total)); }
     }
-    if (kind === 'books') data = { ...base, author: val('author'), format: val('format'), read: f.read.checked, notes: val('notes') };
+    if (kind === 'books') data = { ...base, author: val('author'), format: val('format'), saga: val('saga'), pub: val('pub'), read: f.read.checked, notes: val('notes') };
     if (kind === 'books-wishlist') data = { ...base, author: val('author'), notes: val('notes') };
     if (kind === 'movies') {
       const score = readScore(f);
