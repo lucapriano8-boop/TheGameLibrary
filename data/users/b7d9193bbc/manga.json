@@ -136,7 +136,11 @@
     "author": "Naoki Urasawa",
     "total": 11,
     "notes": "",
-    "vols": {},
-    "addedAt": "2026-11-20T09:25:39.368Z"
+    "vols": {
+      "1": "read",
+      "2": "own"
+    },
+    "addedAt": "2026-11-20T09:25:39.368Z",
+    "updatedAt": "2026-11-20T09:25:46.379Z"
   }
 ]
