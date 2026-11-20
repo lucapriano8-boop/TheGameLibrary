@@ -168,5 +168,15 @@
     "read": true,
     "notes": "",
     "addedAt": "2026-11-20T09:47:43.803Z"
+  },
+  {
+    "id": "64e10cb5-54a4-4abf-a3f1-37a4ce32f9bc",
+    "title": "Non è un paese per vecchi",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/5/53/Cormac_McCarthy_NoCountryForOldMen.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "author": "Cormac McCarthy",
+    "format": "Cartaceo",
+    "read": true,
+    "notes": "",
+    "addedAt": "2026-11-20T09:48:01.099Z"
   }
 ]
