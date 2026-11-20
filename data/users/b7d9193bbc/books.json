@@ -79,7 +79,9 @@
     "format": "Cartaceo",
     "read": true,
     "notes": "",
-    "addedAt": "2026-11-20T09:32:56.513Z"
+    "addedAt": "2026-11-20T09:32:56.513Z",
+    "favorite": true,
+    "updatedAt": "2026-11-20T09:48:17.825Z"
   },
   {
     "id": "50775943-5aea-4ccf-96c8-4e6e5ee302d1",
