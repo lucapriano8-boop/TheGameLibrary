@@ -74,7 +74,21 @@
     "author": "Akira Toriyama",
     "total": 32,
     "notes": "",
-    "vols": {},
-    "addedAt": "2026-11-20T09:23:46.528Z"
+    "vols": {
+      "1": "read",
+      "2": "read",
+      "3": "read",
+      "4": "own",
+      "5": "own",
+      "6": "own",
+      "7": "own",
+      "8": "own",
+      "9": "own",
+      "10": "own",
+      "11": "own",
+      "12": "own"
+    },
+    "addedAt": "2026-11-20T09:23:46.528Z",
+    "updatedAt": "2026-11-20T09:24:00.365Z"
   }
 ]
