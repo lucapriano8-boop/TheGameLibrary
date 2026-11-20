@@ -48,5 +48,15 @@
     "read": false,
     "notes": "",
     "addedAt": "2026-11-20T09:30:20.088Z"
+  },
+  {
+    "id": "bd5b724f-3d69-4909-a9d1-8f819b58396b",
+    "title": "Il processo",
+    "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThPLGfTV0yGVygY6DjaiNq-4krXvqJZ_-j62KAI91q0A&s=10",
+    "author": "Franz Kafka",
+    "format": "Cartaceo",
+    "read": true,
+    "notes": "",
+    "addedAt": "2026-11-20T09:31:44.067Z"
   }
 ]
