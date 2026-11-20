@@ -279,7 +279,7 @@ const Media = (() => {
   function bookRow(b) {
     return row({ kind: 'books', id: b.id, cov: b.cover, title: b.title,
       sub: [b.author, b.saga].filter(Boolean).join(' · '),
-      tags: [tag(esc(b.format || 'Cartaceo')), b.read ? tag('✓ Letto', 'ok') : tag('Da leggere', 'warn'), pubTag(b.pub)].filter(Boolean),
+      tags: [tag(esc(b.format || 'Cartaceo')), b.read ? tag(b.readYear ? `✓ Letto nel ${b.readYear}` : '✓ Letto', 'ok') : tag('Da leggere', 'warn'), pubTag(b.pub)].filter(Boolean),
       side: `${star('books', b.id, b.favorite)}<button type="button" class="btn small${b.read ? ' ghost' : ' primary'}" data-m="toggle-read" data-mid="${esc(b.id)}">${b.read ? 'Non letto' : '✓ Letto'}</button>` });
   }
   function wishRow(kind, w, buttons) {
@@ -291,7 +291,7 @@ const Media = (() => {
     const read = books.filter((b) => b.read).length;
     if (cur.tab === 'home') {
       return `${head('Libri', `${books.length} ${books.length === 1 ? 'libro' : 'libri'} in libreria`, 'Aggiungi libro')}
-        <div class="stats">${stat('Libri', books.length, 'posseduti')}${stat('Letti', read, `${books.length ? Math.round((read / books.length) * 100) : 0}%`)}${stat('Da comprare', wish.length, 'nella lista')}</div>
+        <div class="stats">${stat('Libri', books.length, 'posseduti')}${stat('Letti', read, `${books.filter((b) => b.read && b.readYear === new Date().getFullYear()).length} quest'anno`)}${stat('Da comprare', wish.length, 'nella lista')}</div>
         <div class="grid-2">
           <div class="card">${cardHead('Da leggere', 'libreria')}<ol class="mini-list">${books.filter((b) => !b.read).sort(byAdded).slice(0, 5).map((b) => mini({ kind: 'books', id: b.id, cov: b.cover, title: b.title, sub: [b.author, b.format].filter(Boolean).join(' · ') })).join('') || '<li class="empty">Hai letto tutti i tuoi libri.</li>'}</ol></div>
           <div class="card">${cardHead('Da comprare', 'comprare')}<ol class="mini-list">${wish.slice().sort(byAdded).slice(0, 5).map((w) => mini({ kind: 'books-wishlist', id: w.id, cov: w.cover, title: w.title, sub: w.author || '' })).join('') || '<li class="empty">La lista è vuota.</li>'}</ol></div>
@@ -545,7 +545,9 @@ const Media = (() => {
     }
     if (kind === 'books') fields += input('author', 'Autore', item.author) + select('format', 'Formato', BOOK_FORMATS, item.format || 'Cartaceo')
       + input('saga', 'Saga <span class="muted">(se ne fa parte)</span>', item.saga, { ph: 'Es. Le cronache del ghiaccio e del fuoco' }) + pubSelect(item.pub, 'Pubblicazione della saga')
-      + `<label class="span-2 m-check"><input type="checkbox" name="read" ${item.read ? 'checked' : ''}> L'ho già letto</label>` + textarea('notes', 'Note', item.notes);
+      + `<label class="m-check"><input type="checkbox" name="read" ${item.read ? 'checked' : ''}> L'ho già letto</label>`
+      + input('readYear', 'Anno di lettura', item.readYear || '', { type: 'number', min: 1900, max: 2100, ph: String(new Date().getFullYear()) })
+      + textarea('notes', 'Note', item.notes);
     if (kind === 'books-wishlist') fields += input('author', 'Autore', item.author, { span: true }) + textarea('notes', 'Note', item.notes);
     if (kind === 'movies') fields += input('year', 'Anno', item.year || '', { type: 'number', min: 1880, max: 2100 }) + input('director', 'Regista', item.director)
       + scoreField(item.score) + textarea('review', 'Commento', item.review);
@@ -615,7 +617,7 @@ const Media = (() => {
       if (!id) { data.vols = {}; parseVols(val('own'), data.total).forEach((v) => { data.vols[v] = 'own'; }); }
       else { const m = find('manga', id); data.vols = Object.fromEntries(Object.entries(m.vols || {}).filter(([v]) => +v <= data.total)); }
     }
-    if (kind === 'books') data = { ...base, author: val('author'), format: val('format'), saga: val('saga'), pub: val('pub'), read: f.read.checked, notes: val('notes') };
+    if (kind === 'books') data = { ...base, author: val('author'), format: val('format'), saga: val('saga'), pub: val('pub'), read: f.read.checked || !!numv('readYear'), readYear: (f.read.checked || numv('readYear')) ? (numv('readYear') || new Date().getFullYear()) : null, notes: val('notes') };
     if (kind === 'books-wishlist') data = { ...base, author: val('author'), notes: val('notes') };
     if (kind === 'movies') {
       const score = readScore(f);
@@ -798,7 +800,7 @@ const Media = (() => {
     if (m === 'buy') openBuy(id);
     if (m === 'progress') openProgress(id);
     if (m === 'filter') { cur.filter[el.dataset.key] = el.dataset.val; render(); }
-    if (m === 'toggle-read') { const b = find('books', id); if (b && canWrite()) update('books', id, { read: !b.read }, `${b.read ? 'Da leggere' : 'Letto'}: ${b.title}`); }
+    if (m === 'toggle-read') { const b = find('books', id); if (b && canWrite()) update('books', id, { read: !b.read, readYear: b.readYear || (b.read ? null : new Date().getFullYear()) }, `${b.read ? 'Da leggere' : 'Letto'}: ${b.title}`); }
     if (m === 'bought-book') boughtBook(id);
     if (m === 'seen-movie') openRate({ type: 'movie', id });
     if (m === 'seen-series') openRate({ type: 'series', id });

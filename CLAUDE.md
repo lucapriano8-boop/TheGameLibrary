@@ -23,7 +23,7 @@ Non serve per i commit dei soli dati.
   e `consoles.json` (console possedute: `name`, `model`, `image`, `value`, `notes`); le foto caricate stanno in `<dir>/images/`
 - `js/media.js` sezioni Manga, Libri, Film e Serie TV (Home, liste, classifiche, moduli). Ogni profilo sceglie le sezioni in
   `users.json` → `sections` (assente = solo `games`). File nella cartella del profilo: `manga.json` (saghe: `total`, `pub` stato della pubblicazione `ongoing`/`ended`/vuoto, `vols` con
-  `"own"`/`"read"`, i volumi assenti sono mancanti), `books.json` (anche `saga` e `pub`), `books-wishlist.json`, `movies.json`, `movies-watchlist.json`,
+  `"own"`/`"read"`, i volumi assenti sono mancanti), `books.json` (anche `saga`, `pub` e `readYear` anno di lettura), `books-wishlist.json`, `movies.json`, `movies-watchlist.json`,
   `movies-owned.json`, `series.json` (`seasons` = episodi per stagione, `status`, `score` null se "In corso", `at` = ultimo episodio visto),
   `series-watchlist.json`. Ovunque `favorite: true` segna i preferiti
 - `assets/sections/` loghi delle sezioni e `assets/logo.svg` / `assets/icon.svg` generati da `tools/make_logos.py`
