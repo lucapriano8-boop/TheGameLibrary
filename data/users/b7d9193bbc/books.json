@@ -88,5 +88,15 @@
     "read": true,
     "notes": "",
     "addedAt": "2026-11-20T09:40:04.455Z"
+  },
+  {
+    "id": "adbbae82-c8c0-44fb-92ab-26dd06fdf27e",
+    "title": "The Arc",
+    "cover": "https://m.media-amazon.com/images/I/81UEkn7qD0L._AC_UF1000,1000_QL80_.jpg",
+    "author": "Ben Oliver",
+    "format": "Cartaceo",
+    "read": true,
+    "notes": "",
+    "addedAt": "2026-11-20T09:40:24.847Z"
   }
 ]
