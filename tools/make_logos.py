@@ -4,7 +4,7 @@
 
 Scrive:
   - assets/logo.svg            logo generale "The Library" (scaffale), angoli arrotondati
-  - assets/icon.svg            lo stesso a tutto quadrato, per le icone (iPhone, Android)
+  - assets/icon.svg            lo stesso a tutto quadrato su fondo grigio scuro, per le icone (iPhone, Android)
   - assets/sections/<nome>.svg logo di ogni sezione (manga, libri, film, serie)
 Il logo della sezione Videogiochi (assets/sections/games.svg) sono le cartucce disegnate in precedenza
 e non viene rigenerato qui.
@@ -112,8 +112,9 @@ LOGOS = {
 }
 
 
-def svg(name, rounded=True):
-    bg, pal, rows = LOGOS[name]
+def svg(name, rounded=True, bg=None):
+    bg0, pal, rows = LOGOS[name]
+    bg = bg or bg0
     assert len(rows) == 16 and all(len(r) == 16 for r in rows), name
     rects = []
     for y, row in enumerate(rows):
@@ -136,7 +137,7 @@ def svg(name, rounded=True):
 def main():
     os.makedirs(os.path.join(ROOT, 'assets', 'sections'), exist_ok=True)
     open(os.path.join(ROOT, 'assets', 'logo.svg'), 'w').write(svg('library'))
-    open(os.path.join(ROOT, 'assets', 'icon.svg'), 'w').write(svg('library', rounded=False))
+    open(os.path.join(ROOT, 'assets', 'icon.svg'), 'w').write(svg('library', rounded=False, bg='#161616'))
     for name in ('manga', 'books', 'movies', 'series'):
         open(os.path.join(ROOT, 'assets', 'sections', f'{name}.svg'), 'w').write(svg(name))
     print('Loghi scritti in assets/ e assets/sections/')
