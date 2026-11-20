@@ -188,5 +188,15 @@
     "addedAt": "2026-11-20T09:48:01.099Z",
     "favorite": true,
     "updatedAt": "2026-11-20T09:48:14.630Z"
+  },
+  {
+    "id": "39ec3b1b-8519-46a1-8c42-c5c83ad1e1d0",
+    "title": "Il conte di Montecristo",
+    "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-NOq9qMgMJa-3wZTgf-3gJtgsfgx2m_X1c3OwEGMJotPCW6jDuG19F3pp&s=10",
+    "author": "Alexandre Dumas padre, Auguste Maquet",
+    "format": "Cartaceo",
+    "read": false,
+    "notes": "",
+    "addedAt": "2026-11-20T09:49:08.209Z"
   }
 ]
