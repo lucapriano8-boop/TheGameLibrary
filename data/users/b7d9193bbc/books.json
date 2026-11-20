@@ -161,7 +161,9 @@
     "format": "Cartaceo",
     "read": true,
     "notes": "",
-    "addedAt": "2026-11-20T09:47:07.067Z"
+    "addedAt": "2026-11-20T09:47:07.067Z",
+    "favorite": true,
+    "updatedAt": "2026-11-20T09:48:10.874Z"
   },
   {
     "id": "37acce6e-3c0c-4837-85a7-f6640ebcf700",
