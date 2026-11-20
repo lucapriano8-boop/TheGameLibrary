@@ -66,5 +66,15 @@
     "addedAt": "2026-11-20T09:22:41.097Z",
     "updatedAt": "2026-11-20T09:22:54.212Z",
     "favorite": true
+  },
+  {
+    "id": "61ee5936-bfc8-40d8-b026-d330d2c4a26f",
+    "title": "Dragon Ball Full Color",
+    "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZgLoOn9WutAPrHs9nTgUYWvsk3nDm2b6c8nj80j4yTPh8AhwkwBIZo-DP&s=10",
+    "author": "Akira Toriyama",
+    "total": 32,
+    "notes": "",
+    "vols": {},
+    "addedAt": "2026-11-20T09:23:46.528Z"
   }
 ]
