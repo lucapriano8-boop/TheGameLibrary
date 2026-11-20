@@ -1,0 +1,52 @@
+[
+  {
+    "id": "b1acb6e4-2e29-4015-873e-5273af543d93",
+    "title": "Harry Potter e la pietra filosofale",
+    "cover": "https://www.salani.it/libri/harry-potter-e-la-pietra-filosofale-9788831003827/image_preview",
+    "author": "J. K. Rowling",
+    "format": "Cartaceo",
+    "read": true,
+    "notes": "",
+    "addedAt": "2026-11-20T09:27:50.012Z"
+  },
+  {
+    "id": "459178db-1a62-4fdf-a05c-b678b8eacdbc",
+    "title": "Harry Potter e la camera dei segreti",
+    "cover": "https://www.libraccio.it/images/9788831003834_0_500_0_75.jpg",
+    "author": "J. K. Rowling",
+    "format": "Cartaceo",
+    "read": true,
+    "notes": "",
+    "addedAt": "2026-11-20T09:28:21.334Z"
+  },
+  {
+    "id": "8bbd2a93-a9b8-4cb3-8eca-f3485a39b0d6",
+    "title": "Harry Potter e il prigioniero di Azkaban",
+    "cover": "https://www.salani.it/libri/harry-potter-e-il-prigioniero-di-azkaban-9788831003841/image_preview",
+    "author": "J. K. Rowling",
+    "format": "Cartaceo",
+    "read": true,
+    "notes": "",
+    "addedAt": "2026-11-20T09:28:51.131Z"
+  },
+  {
+    "id": "2710bb89-5f7a-4003-9847-2a0bbc580293",
+    "title": "Harry Potter e il calice di fuoco",
+    "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShfrkPntx5ay_EK8w2ZbxK4507DztelfoBl7LYBi-lbQ&s=10",
+    "author": "J. K. Rowling",
+    "format": "Cartaceo",
+    "read": false,
+    "notes": "",
+    "addedAt": "2026-11-20T09:29:57.565Z"
+  },
+  {
+    "id": "166b71f9-f9ad-4a67-b1a7-7c94f86bff7d",
+    "title": "Harry Potter e l'Ordine della Fenice",
+    "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRANaXnKTe2cg4s-kmgnmgZGPZk7MQZY5G1-Ek9RlU1fQ&s=10",
+    "author": "J. K. Rowling",
+    "format": "Cartaceo",
+    "read": false,
+    "notes": "",
+    "addedAt": "2026-11-20T09:30:20.088Z"
+  }
+]
