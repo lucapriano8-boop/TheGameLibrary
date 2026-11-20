@@ -58,5 +58,15 @@
     "read": true,
     "notes": "",
     "addedAt": "2026-11-20T09:31:44.067Z"
+  },
+  {
+    "id": "195d80b1-b672-46f9-b983-c091a2a8b71a",
+    "title": "Lo Hobbit",
+    "cover": "https://www.ibs.it/images/9791221704914_0_0_536_0_75.jpg",
+    "author": "J. R. R. Tolkien",
+    "format": "Cartaceo",
+    "read": true,
+    "notes": "",
+    "addedAt": "2026-11-20T09:32:17.552Z"
   }
 ]
