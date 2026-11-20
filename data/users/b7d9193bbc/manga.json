@@ -54,7 +54,15 @@
     "author": "Katsuhiro Ōtomo",
     "total": 6,
     "notes": "",
-    "vols": {},
-    "addedAt": "2026-11-20T09:22:41.097Z"
+    "vols": {
+      "1": "read",
+      "2": "read",
+      "3": "read",
+      "4": "read",
+      "5": "read",
+      "6": "read"
+    },
+    "addedAt": "2026-11-20T09:22:41.097Z",
+    "updatedAt": "2026-11-20T09:22:50.270Z"
   }
 ]
